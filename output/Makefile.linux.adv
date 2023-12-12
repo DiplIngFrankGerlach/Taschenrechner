@@ -1,0 +1,31 @@
+#this file has been generated automatically by the
+#sappeur compiler. If you want to change anything,
+#please rename this file. It will be overwritten on the
+#next sappeur compiler run.
+
+OBJECTS=placementNew.o staticData.o determStackMemory.o suchoi.o String.o SFwidgets.o Math.o AppMain.o SprFLTKwindow.o System.o generative_impls.o mapping.o main.o threadFunctions.o callbacks.o Hashtable.o Scanner.o AusrechnerFK.o MathLimits.o
+String.o:String.cpp
+SFwidgets.o:SFwidgets.cpp
+Math.o:Math.cpp
+AppMain.o:AppMain.cpp
+SprFLTKwindow.o:SprFLTKwindow.cpp
+System.o:System.cpp
+
+
+$(OBJECTS):header.h
+header.h:mapping.h
+CC = g++
+VPATH=/home/fgerlach/eigene/Sappeur30/haupt//cppMapping
+
+INCLUDE=-I/usr/include/unicode -I/home/fgerlach/eigene/Sappeur30/haupt//cppMapping -I. -I.. 
+
+LDLIBS=-lstdc++ -lm -lfltk
+.SUFFIXES: .o .cpp
+OPT=-g -std=c++11
+MISC_OPT=-DSPR_USE_PTHREAD_MUTEX_LOCKS=1 -DLINUX_SAPPEUR=1 -DSPR_DEBUG=1 -DSPR_PTHREAD=1 -pthread
+.cpp.o:
+	$(CC) $(OPT) $(MISC_OPT) -DGCC_X86 $(INCLUDE) -c $<
+all:$(OBJECTS)
+	$(CC) $(OPT) $(MISC_OPT) -o taschenrechner $^ $(LDLIBS)
+clean:
+	rm *.o taschenrechner

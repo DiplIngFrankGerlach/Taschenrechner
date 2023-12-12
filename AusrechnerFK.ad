@@ -1,0 +1,28 @@
+
+
+
+// Rekursiver Parser, der Fliesskomma-Ausdruecke ausrechnet
+class AusrechnerFK
+{
+  Scanner* scanner;
+  SPHT_String_16_double variableList;
+methods:
+   AusrechnerFK(&String_16  dateiname);//parse Datei
+   AusrechnerFK(String_16*  ausdruck); //parse den String
+
+
+
+   //diese Methode muss nach dem Konstruktor gerufen werden
+   double Addition();
+
+   void setVariableValue(&String_16 varName,double value);
+
+//private Methods:
+   double Multiplication();
+   double Primary();
+
+
+   void fehler(char meldung[]);
+   
+};
+

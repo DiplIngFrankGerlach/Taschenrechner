@@ -1,0 +1,338 @@
+
+Scanner::Scanner(SPRFile* eingabeDatei_i)
+{
+   eingabeDatei = eingabeDatei_i;
+   dateiVollGelesen = 0;
+
+
+   tokenWert = new String_16("");
+
+   
+   if(this.readChar(aktuellesZeichen) < 1) 
+   { 
+       dateiVollGelesen = 1;
+   }//EOF
+   CT =T_UNGUELTIG;
+   leseZeiger = 0;
+}
+
+Scanner::Scanner(String_16* quellei)
+{
+  quelle = quellei;
+  dateiVollGelesen = 0;
+  tokenWert = new String_16("");
+  leseZeiger = 0;
+  CT =T_UNGUELTIG;
+
+  if(this.readChar(aktuellesZeichen) < 1) 
+  { 
+       dateiVollGelesen = 1;
+  }//EOF
+}
+
+
+
+void Scanner::currentToken(&Token t,&String_16* wert)
+{
+   t = CT;
+   wert = tokenWert;
+}
+
+int Scanner::istWortFolgezeichen(char z)
+{
+   switch(z)
+   {
+       case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g': case 'h': case 'i': case 'j': case 'k': 
+       case 'l': case 'm': case 'n': case 'o': case 'p': case 'q': case 'r': case 's': case 't': case 'u':
+       case 'v': case 'w': case 'x': case 'y': case 'z': 
+       case 'A': case 'B': case 'C': case 'D': case 'E': case 'F': case 'G': case 'H': case 'I': case 'J': case 'K': 
+       case 'L': case 'M': case 'N': case 'O': case 'P': case 'Q': case 'R': case 'S': case 'T': case 'U':
+       case 'V': case 'W': case 'X': case 'Y': case 'Z': case '_':
+       case '0':
+       case '1':
+       case '2':
+       case '3':
+       case '4':
+       case '5':
+       case '6':
+       case '7':
+       case '8':
+       case '9':
+       {return 1;};
+       break;
+       default: {return 0;};
+   }
+   return 0;
+}
+
+void Scanner::esseZeichen()
+{
+    if((dateiVollGelesen == 0) && (this.readChar(aktuellesZeichen) < 1) )
+    {
+        dateiVollGelesen = 1;
+    }
+}
+
+
+
+// enum Token { T_WORT, T_KLAMMER_AUF, T_KLAMMER_ZU, T_ECK_KLAMMER_AUF, T_ECK_KLAMMER_ZU };
+Token Scanner::nextToken()
+{
+    var int debug = 0;//set this to one in order to see the parsed tokens
+
+    if(dateiVollGelesen == 1)
+    {
+      CT =T_DATEI_ENDE; 
+      if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+      return T_DATEI_ENDE; 
+    }
+
+
+    //Leerzeichen weglesen
+    var int lzLesen = 1;
+    do
+    {
+        if(this.istLeerzeichen(aktuellesZeichen) == 1)
+        {
+            if( this.readChar(aktuellesZeichen) < 1)
+            {
+                dateiVollGelesen = 1;
+                CT =T_DATEI_ENDE;
+                if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+                return T_DATEI_ENDE;
+            }
+        }
+        else{ lzLesen = 0; }
+    }
+    while(lzLesen == 1);
+   
+         
+    tokenWert.clear(); 
+
+
+    if(aktuellesZeichen == 13 ) //\r
+    {
+         if(this.readChar(aktuellesZeichen) < 1)
+         {
+             dateiVollGelesen = 1;
+             CT =T_DATEI_ENDE;
+             if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+             return T_DATEI_ENDE;
+         }
+         if(aktuellesZeichen == '\n')
+         {
+             if(this.readChar(aktuellesZeichen) < 1)
+             {
+                  dateiVollGelesen = 1;
+             }
+             CT =T_NEUE_ZEILE;
+             if(debug){pfc.fstr("T_NEUE_ZEILE").pr(); }
+             return T_NEUE_ZEILE;
+         }
+         else 
+         { 
+            pfc.fstr("einzelnes \\r gefunden. Beende Scanner").pr();
+            CT =T_DATEI_ENDE;
+            if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+            return T_DATEI_ENDE;
+         }
+    }
+
+    switch(aktuellesZeichen)
+    {
+       case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g': case 'h': case 'i': case 'j': case 'k': 
+       case 'l': case 'm': case 'n': case 'o': case 'p': case 'q': case 'r': case 's': case 't': case 'u':
+       case 'v': case 'w': case 'x': case 'y': case 'z': 
+       case 'A': case 'B': case 'C': case 'D': case 'E': case 'F': case 'G': case 'H': case 'I': case 'J': case 'K': 
+       case 'L': case 'M': case 'N': case 'O': case 'P': case 'Q': case 'R': case 'S': case 'T': case 'U':
+       case 'V': case 'W': case 'X': case 'Y': case 'Z': 
+       {
+          
+          tokenWert.append(aktuellesZeichen);
+          var int istWZ = 1;
+          do
+          {
+             if(this.readChar(aktuellesZeichen) < 1) 
+             { 
+               dateiVollGelesen = 1;
+               CT =T_WORT;
+               if(debug){pfc.fstr("T_WORT").pr(); }
+               return T_WORT;
+             }//EOF
+             if( this.istWortFolgezeichen(aktuellesZeichen) == 1)
+             {
+                 tokenWert.append(aktuellesZeichen);
+             } 
+             else { istWZ = 0; }
+          }
+          while(istWZ == 1);
+          CT =T_WORT;
+          if(debug){pfc.fstr("T_WORT").pr(); }
+          return T_WORT;
+       };
+       break;
+       case '(':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_KLAMMER_AUF;     
+                 if(debug){pfc.fstr("T_KLAMMER_AUF").pr(); }
+                 return T_KLAMMER_AUF;     }; break;
+       case ')':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_KLAMMER_ZU;      
+                 if(debug){pfc.fstr("T_KLAMMER_ZU").pr(); }
+                 return T_KLAMMER_ZU;      }; break;
+       case '[':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_ECK_KLAMMER_AUF; 
+                 if(debug){pfc.fstr("T_ECK_KLAMMER_AUF").pr(); }
+                 return T_ECK_KLAMMER_AUF; }; break;
+       case ']':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_ECK_KLAMMER_ZU;  
+                 if(debug){pfc.fstr("T_ECK_KLAMMER_AUF").pr(); }
+                 return T_ECK_KLAMMER_ZU;  }; break;
+       case ',':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_KOMMA;           
+                 if(debug){pfc.fstr("T_KOMMA").pr(); }
+                 return T_KOMMA;           }; break;
+       case ':':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_DOPPEL_PUNKT;    
+                 if(debug){pfc.fstr("T_DOPPEL_PUNKT").pr(); }
+                 return T_DOPPEL_PUNKT;    }; break;
+       case '|':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_PIPE;            
+                 if(debug){pfc.fstr("T_PIPE").pr(); }
+                 return T_PIPE;            }; break;
+       case '+':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_PLUS;            
+                 if(debug){pfc.fstr("T_PLUS").pr(); }
+                 return T_PLUS;            }; break;
+       case '@':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_AT;              
+                 if(debug){pfc.fstr("T_AT").pr(); }
+                 return T_AT;              }; break;
+       case '.':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_PUNKT;           
+                 if(debug){pfc.fstr("T_PUNKT").pr(); }
+                 return T_PUNKT;           }; break;
+       case '-':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_MINUS;           
+                 if(debug){pfc.fstr("T_MINUS").pr(); }
+                 return T_MINUS;           }; break;
+       case ';':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_SEMI;            
+                 if(debug){pfc.fstr("T_SEMI").pr(); }
+                 return T_SEMI;            }; break;
+       case '*':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_MAL;             
+                 if(debug){pfc.fstr("T_MAL").pr(); }
+                 return T_MAL;             }; break;
+       case '/':{tokenWert.assign(aktuellesZeichen); this.esseZeichen(); CT =T_DURCH;           
+                 if(debug){pfc.fstr("T_DURCH").pr(); }
+                 return T_DURCH;           }; break;
+       case '\n':{
+                     if(this.readChar(aktuellesZeichen) < 1)
+                     {
+                         dateiVollGelesen = 1;
+                     }
+                     if(debug){pfc.fstr("T_NEUE_ZEILE").pr(); }
+                     CT =T_NEUE_ZEILE;
+                     return T_NEUE_ZEILE;
+                 };break;
+                   
+       case '"':{
+                   var int istZK = 1;
+                   do
+                   {
+                      if(this.readChar(aktuellesZeichen) < 1) 
+                      { 
+                         dateiVollGelesen = 1;
+                         CT =T_DATEI_ENDE;
+                         if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+                         return T_DATEI_ENDE;
+                      }
+                      if( aktuellesZeichen != '"')
+                      {
+                         tokenWert.append(aktuellesZeichen);
+                      }
+                      else{istZK = 0; }
+                   }
+                   while(istZK == 1);
+                   if(this.readChar(aktuellesZeichen) < 1) 
+                   { 
+                       dateiVollGelesen = 1;
+                   }
+                   if(debug){pfc.fstr("T_ZEICHENKETTE").pr(); }
+                   CT =T_ZEICHENKETTE;
+                   return T_ZEICHENKETTE;
+                };
+                break; 
+       case '0':
+       case '1':
+       case '2':
+       case '3':
+       case '4':
+       case '5':
+       case '6':
+       case '7':
+       case '8':
+       case '9':{
+                   tokenWert.append(aktuellesZeichen);          
+                   var int istZahl = 1;
+                   do
+                   {
+                      if(this.readChar(aktuellesZeichen) < 1) 
+                      { 
+                         dateiVollGelesen = 1;
+                         CT =T_ZAHL;
+                         if(debug){pfc.fstr("T_ZAHL").pr(); }
+                         return T_ZAHL;
+                      }
+                      if( zkn.istZiffer(aktuellesZeichen) == 1)
+                      {
+                         tokenWert.append(aktuellesZeichen);
+                      }
+                      else
+                      {
+                         if(aktuellesZeichen == '.')  
+                         {
+                            tokenWert.append(aktuellesZeichen);
+                         }
+                         else { istZahl = 0; }
+                      }
+                   }
+                   while(istZahl == 1);
+                   CT =T_ZAHL;
+                   if(debug){pfc.fstr("T_ZAHL").pr(); }
+                   return T_ZAHL;
+                };
+                break;
+
+
+       default: { CT =T_DATEI_ENDE; 
+                  if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+                  return T_DATEI_ENDE; };
+    }
+    CT =T_DATEI_ENDE;
+    if(debug){pfc.fstr("T_DATEI_ENDE").pr(); }
+    return T_DATEI_ENDE;
+}
+
+
+
+int Scanner::istLeerzeichen(char c)
+{
+   switch( cast(int,c) )
+   {
+       case 32: //' '
+       case 9:  //Tabulator
+       //case 10: //'\n'
+       //case 13: //'\r'
+          { return 1; };
+       break;
+       default:
+          { return 0; };
+   }
+   return 0;//wird nie erreicht, Compiler will aber ein return sehen
+}
+
+int Scanner::readChar(&char zeichen)
+{
+   if(quelle != NULL)
+   {
+      if(leseZeiger == quelle.length()) { return -1;}
+      zeichen = quelle.getAt(leseZeiger);
+      leseZeiger++;
+      return 1; 
+   }
+   else
+   {
+      return eingabeDatei.readChar(aktuellesZeichen);
+   }
+   return -1;
+}
+
+

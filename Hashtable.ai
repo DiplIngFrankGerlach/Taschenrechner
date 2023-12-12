@@ -1,0 +1,40 @@
+int Hash_longlong::hash(longlong x)
+{
+     var longlong ret = x ^ (x << 17) ^ (x >> 29) ^ (x >> 15) ^ (x * 167364762);
+     ret = (ret * 9289283921) + ( ret * 9878765221) + x ;
+     return cast(int,ret) ^ cast(int,(ret >> 32));
+}
+
+int Compare_longlong::compare(longlong x1,longlong x2)
+{
+   if( x1 == x2 ){return 1;}
+   return 0;
+}
+
+void Assigner_longlong::assign(&longlong x1,&longlong x2)
+{
+   x1 = x2;
+}
+
+int Hash_int::hash(int x)
+{
+     var int ret = x ^ (x << 17) ^ (x >> 18) ^ (x >> 6) ^ (x * 1674762);
+     ret = (ret * 92893921) + ( ret * 98785221) + x ;
+     return ret;
+}
+
+int Compare_int::compare(int x1,int x2)
+{
+   if( x1 == x2 ){return 1;}
+   return 0;
+}
+
+void Assigner_int::assign(&int x1,&int x2)
+{
+   x1 = x2;
+}
+
+void Assigner_double::assign(&double x1,&double x2)
+{
+   x1 = x2;
+}

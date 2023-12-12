@@ -1,0 +1,159 @@
+
+
+
+
+
+
+AusrechnerFK::AusrechnerFK(&String_16  dateiname)
+{
+   var SPRFile* eingabeDatei = new SPRFile(dateiname,1);
+   if(eingabeDatei.systemHandle() < 1 )
+   {
+      var PrintfClass pfc;
+      pfc.fstr("kann Datei nicht oeffnen").pr();
+   }
+   scanner = new Scanner(eingabeDatei);
+   var Token t = scanner.nextToken();
+}
+
+AusrechnerFK::AusrechnerFK(String_16*  ausdruck)
+{
+   scanner = new Scanner(ausdruck);
+   var Token t = scanner.nextToken();
+}
+
+
+
+
+//Diese Methode muss zur Ausrechnung des Ausdrucks gerufen werden
+double AusrechnerFK::Addition()
+{
+   var PrintfClass pfc;
+   //pfc.fstr("Addition").pr();
+
+   var Token t;
+   var String_16* tokVal;
+   scanner.currentToken(t,tokVal);
+   var double links = this.Multiplication(); 
+   scanner.currentToken(t,tokVal);
+   var double summe = links;
+   //pfc.fstr("summe=$").sa(summe).pr();
+   while((t == T_PLUS) || (t==T_MINUS) )
+   {
+      var Token tAlt = t;
+      scanner.nextToken();
+      var double rechts = this.Multiplication();
+      scanner.currentToken(t,tokVal);
+      if( tAlt == T_PLUS )
+      {
+         //pfc.fstr("$+$").sa(summe).sa(rechts).pr();
+         summe = summe + rechts;
+      }
+      else { 
+         //pfc.fstr("$-$").sa(summe).sa(rechts).pr();
+        summe = summe - rechts; 
+      }
+   }
+   return summe;
+}
+
+
+double AusrechnerFK::Multiplication()
+{
+   var PrintfClass pfc;
+   //pfc.fstr("Multiplication/Division").pr();
+
+   var Token t;
+   var String_16* tokVal;
+   var double links = this.Primary();
+   scanner.currentToken(t,tokVal);
+   var double prod = links;
+   while((t == T_MAL) || (t == T_DURCH) )
+   {
+      var Token tAlt = t;
+      scanner.nextToken();
+      var double rechts = this.Primary();
+      scanner.currentToken(t,tokVal);
+      if(tAlt == T_MAL)
+      { 
+        //pfc.fstr("$*$").sa(prod).sa(rechts).pr();
+        prod = prod * rechts; }
+      else
+      { 
+        //pfc.fstr("$/$").sa(prod).sa(rechts).pr();
+        prod = prod / rechts; 
+      }
+ 
+   } 
+   return prod;
+}
+
+double AusrechnerFK::Primary()
+{  
+   var PrintfClass pfc;
+   //pfc.fstr("Primary").pr();
+
+   var Token t;
+   var String_16* tokVal;
+   scanner.currentToken(t,tokVal);
+   switch(t)
+   {
+     case T_KLAMMER_AUF:{ 
+         //pfc.fstr(">(").pr();
+         scanner.nextToken();
+         var double ret = this.Addition(); 
+         scanner.currentToken(t,tokVal);
+         //pfc.fstr("t:$").sa(t).pr(); 
+         if(t == T_KLAMMER_ZU)
+         { 
+            scanner.nextToken();
+         } 
+         else
+         {
+            this.fehler(") erwartet");
+         }
+         return ret;
+     }; break;
+     case T_ZAHL:{ 
+        scanner.currentToken(t,tokVal);
+        var double ret = tokVal.asDouble();
+        scanner.nextToken(); 
+        return ret; 
+     }; break;
+     case T_WORT:{
+        scanner.currentToken(t,tokVal);
+        var double variableValue = -1.0;
+        if(variableList.search(*tokVal,variableValue) != 1)
+        {
+           pfc.fstr("variable $ not found").sa(tokVal).pr();
+           return -1.0;        
+        }
+        scanner.nextToken(); 
+        return variableValue; 
+     };break;
+  
+     default: { 
+       var String_16 errm;
+       errm.append("unerwarteter Token ");
+       errm.append(tokVal);
+       errm.append("in Primary()");
+       pfc.fstr("$").sa(errm).pr();
+       var SystemControl sc;
+       sc.exit();  
+     }; 
+   }
+   return -11111.0;
+}
+
+void AusrechnerFK::fehler(char meldung[])
+{
+   var PrintfClass pfc;
+   pfc.fstr("$").sa(meldung).pr();
+   var SystemControl sc;
+   sc.exit();
+}
+
+void AusrechnerFK::setVariableValue(&String_16 varName, double value)
+{
+   variableList.insert(varName,value);
+}

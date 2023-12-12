@@ -1,0 +1,135 @@
+
+
+SFbutton::SFbutton()
+{
+  inline_cpp[[
+    fb = NULL;
+  ]]
+}
+
+void SFbutton::create(int x, int y,int width, int height,&char labeli[])
+{
+   var int i=0;
+   var char c0 = cast(char,0);
+   while(labeli[i] != c0)
+   {
+      label[i] = labeli[i];
+      i++;
+   }
+   label[i] = c0;
+   inline_cpp[[
+       fb = new Fl_Button(x,y,width,height,label._array);
+       fb->callback(buttonCallback,this);
+   ]]
+}
+
+
+void SFbutton::callback()
+{}
+
+
+SFinput::SFinput(){
+  inline_cpp[[  fi=NULL;   ]]
+}
+
+void SFinput::create(int x, int y,int width, int height)
+{
+    inline_cpp[[
+         fi = new Fl_Input(x,y,width,height);
+    ]]
+}
+
+void SFinput::get(&String_16 value)
+{
+    value.clear();
+
+    inline_cpp[[
+      std::string vals = fi->value();
+      char sp;
+      value.ensureCapacity(&sp,vals.length());      
+      for(int i=0; i < vals.length();i++) value.append(&sp,vals.at(i));
+    ]]
+}
+
+SFbox::SFbox()
+{
+  inline_cpp[[
+     mb = NULL;
+  ]]
+
+  //richte die Punkteliste ein
+  punkteX = new int[10000];
+  punkteY = new int[10000];
+  punkteGueltig = 0;
+}
+
+void SFbox::create(int x,int y,int w,int h)
+{
+   inline_cpp[[
+      mb = new MyBox(this,x,y,w,h);
+   ]]
+}
+
+//diese Methode wird letztlich von fltk-Framework gerufen
+//um die Box zu zeichnen
+void SFbox::draw()
+{
+   inline_cpp[[ 
+      //loesche die Box
+      fl_draw_box(FL_FLAT_BOX,mb->x(),mb->y(),mb->w(),mb->h(),FL_WHITE); 
+      //setze die aktuelle Farbe fuer folgende fl_point() Aufrufe
+      fl_color(FL_BLACK);
+   ]]
+   for(var int i=0; i < punkteGueltig; i++)
+   {
+      var int x = punkteX[i];
+      var int y = punkteY[i];
+      inline_cpp[[
+         int yfenster = mb->y();
+         int xfenster = mb->x();
+         fl_point(x+xfenster   ,y+yfenster);
+         fl_point(x+1+xfenster ,y+yfenster);
+         fl_point(x+xfenster   ,y+1+yfenster);
+         fl_point(x+1+xfenster ,y+1+yfenster);
+      ]]
+   }
+   punkteGueltig = 0;
+}
+
+//fordere die Loeschung der Box an
+void SFbox::loesche()
+{
+   punkteGueltig = 0;
+}
+
+
+//merke einen Punkt zum zeichnen in der Box vor
+void SFbox::addPoint(int x, int y)
+{
+   if(punkteGueltig == punkteX.sz)
+   {
+      var PrintfClass pfc;
+      pfc.fstr("zu vielen Punkte in der SFbox").pr();
+      return;
+   }
+   punkteX[punkteGueltig] = x;
+   punkteY[punkteGueltig] = y;
+   punkteGueltig++;
+}
+
+int SFbox::hoehe()
+{
+   var int ret;
+   inline_cpp[[ ret = mb->h();]]
+   return ret;
+}
+
+//das Neuzeichnen des Widgets anfordern
+void SFbox::redraw()
+{
+  inline_cpp[[
+    mb->redraw();
+  ]] 
+}
+
+

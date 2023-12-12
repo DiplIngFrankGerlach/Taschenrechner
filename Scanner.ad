@@ -1,0 +1,54 @@
+
+enum Token { 
+             T_UNGUELTIG,
+             T_DATEI_ENDE, 
+             T_WORT, 
+             T_KLAMMER_AUF, 
+             T_KLAMMER_ZU, 
+             T_ECK_KLAMMER_AUF, 
+             T_ECK_KLAMMER_ZU,
+             T_KOMMA,
+             T_ZEICHENKETTE,
+             T_DOPPEL_PUNKT,
+             T_ZAHL, 
+             T_PIPE,
+             T_PLUS,
+             T_AT,
+             T_PUNKT,
+             T_MINUS,
+             T_MAL,
+             T_DURCH,
+             T_SEMI,
+             T_NEUE_ZEILE
+           };
+
+class Scanner
+{
+    //aktuell werden diese beiden Quellen unterstuetzt:
+    SPRFile* eingabeDatei;
+    String_16* quelle;
+    int leseZeiger;
+
+    char aktuellesZeichen;
+    int dateiVollGelesen;
+    Token CT;
+    String_16* tokenWert;
+    ZKNuetzlich zkn;
+    PrintfClass pfc;
+methods:
+    Scanner(SPRFile* eingabeDatei_i);//aus Datei
+    Scanner(String_16* quellei);//aus String
+
+    int istWortFolgezeichen(char z);
+
+    void esseZeichen();
+
+    void currentToken(&Token t,&String_16* wert);
+
+    int istLeerzeichen(char c);
+
+    Token nextToken();
+
+    //private:
+    int readChar(&char zeichen);
+};

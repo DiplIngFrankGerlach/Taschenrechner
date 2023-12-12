@@ -1,0 +1,38 @@
+
+
+class MeinKnopf extends SFbutton
+{
+  TRKontext* trk;
+methods:
+  MeinKnopf(TRKontext* trki);
+
+  virtual void callback();
+};
+
+class LoeschKnopf extends SFbutton
+{
+  SFbox* sfb;
+methods:
+  LoeschKnopf(SFbox* sfbi);
+
+  virtual void callback();
+};
+
+
+class TRKontext
+{
+   SFinput* varInput;
+   SFinput* varStartInput;
+   SFinput* varEndInput;
+   SFinput* ausdruckInput;
+   SFbox*   ausgabeBox;
+methods:
+};
+
+
+class Main
+{
+methods:
+   int main();
+
+};

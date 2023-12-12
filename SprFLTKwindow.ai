@@ -1,0 +1,70 @@
+
+
+SprFLTKwindow::SprFLTKwindow()
+{
+    inline_cpp[[
+       fw = new FLTKwindow(this,600,600,"Sappeur FLTK Demo");
+    ]]
+}
+    
+void SprFLTKwindow::draw()
+{
+   /* 
+   for(var int i=0; i < 100; i++)
+   {
+       this.point(i,i+300);
+   }    
+   */
+}
+
+void SprFLTKwindow::SetLabel(&String_16 label)
+{
+   labelBuffer = new char[label.length()+1];
+
+   for(var int i=0; i < label.length();i++)
+   {labelBuffer[i] = label.getAt(i); }
+
+
+   labelBuffer[label.length()] = '\0';
+   inline_cpp[[
+     fw->label(labelBuffer._theObject->_array);
+   ]]
+}
+
+
+void SprFLTKwindow::point(int x,int y)
+{
+   inline_cpp[[
+    fl_point(x,y);
+   ]]
+}
+
+void SprFLTKwindow::show()
+{
+ inline_cpp[[
+    fw->show();
+ ]]
+}
+
+void SprFLTKwindow::run()
+{
+   inline_cpp[[
+     Fl::run();
+   ]]
+}
+
+void SprFLTKwindow::end()
+{
+ inline_cpp[[
+      fw->end();
+ ]]
+}
+
+
+void SprFLTKwindow::begin()
+{
+ inline_cpp[[
+      fw->begin();
+ ]]
+}
+

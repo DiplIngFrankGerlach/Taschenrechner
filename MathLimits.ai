@@ -1,0 +1,30 @@
+
+//biggest positive double
+double MathLimits::dblMax()
+{
+   var double ret;
+   inline_cpp[[
+      ret = DBL_MAX;
+   ]]
+   return ret;
+}
+
+//smalltest positive double
+double MathLimits::dblMin()
+{
+   var double ret;
+   inline_cpp[[
+      ret = DBL_MIN;
+   ]]
+   return ret;
+}
+
+//biggest negative double
+double MathLimits::dblLowest()
+{
+   var double ret;
+   inline_cpp[[
+      ret = std::numeric_limits<double>::lowest();
+   ]]
+   return ret;
+}

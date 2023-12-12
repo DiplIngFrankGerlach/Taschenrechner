@@ -1,0 +1,8 @@
+
+class MathLimits
+{
+methods:
+   double dblMax();
+   double dblMin();
+   double dblLowest();
+};

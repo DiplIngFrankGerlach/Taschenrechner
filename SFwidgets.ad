@@ -1,0 +1,75 @@
+
+
+class SFcallbackTarget
+{
+methods:
+   void callback(int source);
+};
+
+
+class SFbutton
+{
+  inline_cpp[[
+     Fl_Button* fb;
+  ]]
+  char label[200];
+methods:
+   SFbutton();
+   void create(int x, int y,int width, int height, &char labeli[]);
+
+   virtual void callback();
+};
+
+
+class SFinput
+{
+   inline_cpp[[ Fl_Input* fi; ]]
+methods:
+   SFinput();
+   void create(int x, int y,int width, int height);
+   void get(&String_16 value);
+};
+
+/* eine Fl_Box, in der man zeichnen kann */
+class SFbox
+{
+   inline_cpp[[ 
+     class MyBox: public Fl_Box
+     {
+          SFbox* sappeurBox;
+     public:
+          MyBox(SFbox* sappeurBoxi,int x,int y,int w,int h):Fl_Box(x,y,w,h)
+          { 
+             sappeurBox = sappeurBoxi;
+          }
+
+          void draw() override
+          {
+             Fl_Box::draw();
+             fl_color(FL_RED);
+             char sp;
+             sappeurBox->draw(&sp);
+          }
+     };
+
+     MyBox* mb; 
+   ]]
+   *int punkteX[];
+   *int punkteY[];
+   int punkteGueltig;
+   
+methods:
+   SFbox();
+   void create(int x, int y,int width, int height);
+
+   void addPoint(int x,int y);//melde einen Punkt zum Zeichnen an
+
+   int hoehe();
+
+   void loesche();//loesche die Box
+
+   virtual void draw();//wird vom Framework gerufen
+
+   void redraw(); //wird von der Applikation gerufen, um Box neu zu zeichnen
+   
+};

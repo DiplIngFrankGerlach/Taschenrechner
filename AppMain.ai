@@ -1,0 +1,116 @@
+MeinKnopf::MeinKnopf(TRKontext* trki)
+{
+   trk = trki;
+}
+
+
+void MeinKnopf::callback()
+{
+   var PrintfClass pfc;   
+
+   var String_16* ausdruck = new String_16;
+   trk.ausdruckInput.get(*ausdruck);
+   pfc.fstr("Callback Sappeur $").sa(ausdruck).pr();
+
+   var double varStart;
+   var double varEnd;
+
+   var String_16 zk;
+   trk.varStartInput.get(zk); varStart = zk.asDouble();
+   trk.varEndInput.get(zk);   varEnd   = zk.asDouble();
+
+   var String_16 varName;
+   trk.varInput.get(varName);
+
+   var double breite = varEnd - varStart;
+
+   var Math m;
+   var MathLimits ml;
+   var int breitePixel = 500;
+   var *double yWerte[] = new double[breitePixel];
+   var double yMin = ml.dblMax();
+   var double yMax = ml.dblLowest();
+   
+   for(var int i=0; i < breitePixel;i++)
+   {
+      var double x = ((cast(double,i) / cast(double,breitePixel - 1)) * breite)  + varStart;
+      var AusrechnerFK ar(ausdruck); 
+      ar.setVariableValue(varName,x);
+      
+      var double y = ar.Addition();
+      yWerte[i] = y;
+      if(y > yMax){yMax = y;}
+      if(y < yMin){yMin = y;}
+      pfc.fstr("x:$ y:$").sa(x).sa(y).pr();
+   }
+   pfc.fstr("min:$ max:$").sa(yMin).sa(yMax).pr();
+   var double yInternval = yMax - yMin;
+   var double displayHoehe = trk.ausgabeBox.hoehe(); //hoehe in Pixel
+   for(var int i=0; i < breitePixel;i++)
+   {
+      var double yPixel = ((yWerte[i] - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+      var int yAusgabe = cast(int,(displayHoehe-yPixel));
+      trk.ausgabeBox.addPoint(i,yAusgabe);   
+   }
+   trk.ausgabeBox.redraw();
+}
+
+
+LoeschKnopf::LoeschKnopf(SFbox* sfbi)
+{
+   sfb = sfbi;
+}
+
+
+void LoeschKnopf::callback()
+{
+   sfb.loesche();
+   sfb.redraw();
+}
+
+int Main::main()
+{ 
+
+   var CommandlineArgs cla;
+   var PrintfClass pfc;
+
+   var SprFLTKwindow swin;
+   swin.begin(); 
+   var String_16 label("Franks Taschenrechner");
+   swin.SetLabel(label);
+
+   var SFinput* sfi = new SFinput;
+   sfi.create(10,50,200,30);
+
+   var SFbox* sfb = new SFbox;
+   sfb.create(10,100,500,400);
+
+   var SFinput* sfiVar = new SFinput;
+   sfiVar.create(220,50,50,30);
+
+   var SFinput* sfiVarValStart = new SFinput;
+   sfiVarValStart.create(280,50,50,30);
+
+   var SFinput* sfiVarValEnd = new SFinput;
+   sfiVarValEnd.create(340,50,50,30);
+
+   var TRKontext* trk = new TRKontext;
+   trk.ausgabeBox = sfb;
+   trk.ausdruckInput = sfi;
+   trk.varInput = sfiVar;
+   trk.varStartInput = sfiVarValStart;
+   trk.varEndInput = sfiVarValEnd;
+
+   var MeinKnopf knopf(trk);
+   knopf.create(10,10,200,30,"zeichne");
+
+   var LoeschKnopf lknopf(sfb);
+   lknopf.create(210,10,100,30,"loesche");
+
+   swin.end();
+   swin.show();
+   swin.run();
+   
+   return 1;
+   
+}

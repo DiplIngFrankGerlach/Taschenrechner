@@ -1,0 +1,67 @@
+/*class Complex
+{
+   double re;
+   double im;
+methods:
+   Complex(double i_re, double i_im);
+   Complex(&Complex andere);
+   Complex();
+
+   void wz(&Complex andere);
+   void wz(double i_re, double i_im);
+   void mal(&Complex andere,&Complex ergebnis);
+   void mal(double andere,&Complex ergebnis);
+   void plus(&Complex andere,&Complex ergebnis);
+   void minus(&Complex andere,&Complex ergebnis);
+
+   void print(&String_16 ausgabe); 
+   
+};*/
+
+
+
+
+class Math
+{
+
+  methods:
+  //bitweise Verschiebung nach links, zirkulär
+  int shlC(int x);
+  //bitweise Verschiebung nach links, zirkulär um n bits
+  int shlC(int x,int n);
+
+  double sinus(double rad);
+
+  double asinus(double rad);
+
+  double cosinus(double rad);
+
+  double acosinus(double rad);
+
+  double tangens(double rad); 
+
+  double atangens(double rad); 
+
+  double aHochB(double a, double b);
+
+  double euler(double x);
+
+  double wurzel(double x);
+
+  double pi();
+
+  double e(); 
+
+ 
+  int log2(int x);
+
+  int pruefeZwP(int n);
+
+  //void polar(double rho, double theta,&Complex ausgabe); 
+
+  void UnitTest();
+
+  //void pow(&Complex x,int y,&Complex ergebnis);
+
+  double fabs(double x);
+};
