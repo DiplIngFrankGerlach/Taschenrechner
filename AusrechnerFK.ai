@@ -122,6 +122,34 @@ double AusrechnerFK::Primary()
      }; break;
      case T_WORT:{
         scanner.currentToken(t,tokVal);
+        if(tokVal.equals("exp") == 1)
+        {
+           scanner.nextToken(); 
+           scanner.currentToken(t,tokVal);
+           if( t == T_KLAMMER_AUF )
+           {
+              scanner.nextToken(); 
+              var double basis = this.Addition();
+              scanner.currentToken(t,tokVal);
+              if( t == T_KOMMA )
+              {
+                 scanner.nextToken(); 
+                 scanner.currentToken(t,tokVal);
+                 var double exponent = this.Addition();
+                 scanner.currentToken(t,tokVal);
+                 if( t == T_KLAMMER_ZU )
+                 {
+                    scanner.nextToken(); 
+                    scanner.currentToken(t,tokVal);
+                    var Math m;
+                    return m.aHochB(basis, exponent);
+                 }
+                 else { pfc.fstr("')' erwartet").pr(); return -1.0; }
+              }
+              else { pfc.fstr("',' erwartet").pr(); return -1.0; }
+           }
+           else { pfc.fstr("'(' erwartet").pr(); return -1.0; }
+        }
         var double variableValue = -1.0;
         if(variableList.search(*tokVal,variableValue) != 1)
         {
