@@ -58,7 +58,7 @@
 #define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(Token)
 #define SPR_SIZEOF_AAusrechnerFK__AAdditionABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
 #define SPR_SIZEOF_AAusrechnerFK__MultiplicationABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
-#define SPR_SIZEOF_AAusrechnerFK__PrimaryABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl)
+#define SPR_SIZEOF_AAusrechnerFK__PrimaryABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl)
 #define SPR_SIZEOF_AAusrechnerFK__fehlerABargsRSAB3RS2RS0 8+sizeof(PrintfClass)+sizeof(SystemControl)
 #define SPR_SIZEOF_AAusrechnerFK__setVariableValueABargsRSAB9RS0RS0AB6RS0RS0 8
 #define SPR_SIZEOF_Hash_longlong__hashABargsRSAB7RS0RS0 8+sizeof(longlong)

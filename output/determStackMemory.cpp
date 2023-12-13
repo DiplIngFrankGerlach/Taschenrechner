@@ -62,7 +62,7 @@ SappeurSystemRuntime* srt=__systemRuntime;
    srt->updateMaxStackConsumedPerCall(8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(Token));
    srt->updateMaxStackConsumedPerCall(8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double));
    srt->updateMaxStackConsumedPerCall(8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double));
-   srt->updateMaxStackConsumedPerCall(8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl));
+   srt->updateMaxStackConsumedPerCall(8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl));
    srt->updateMaxStackConsumedPerCall(8+sizeof(PrintfClass)+sizeof(SystemControl));
    srt->updateMaxStackConsumedPerCall(8);
    srt->updateMaxStackConsumedPerCall(8+sizeof(longlong));
