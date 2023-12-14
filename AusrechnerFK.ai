@@ -149,7 +149,7 @@ double AusrechnerFK::Primary()
                     { 
                        var double ret;
                        inline_cpp[[
-                         ret = log(arg2)/log(arg1);
+                         ret = ::log(arg2)/::log(arg1);
                        ]]
                        return ret; 
                     }
@@ -160,12 +160,15 @@ double AusrechnerFK::Primary()
            }
            else { pfc.fstr("'(' erwartet").pr(); return -1.0; }
         }
-        if((tokVal.equals("sinus") == 1)   || 
-           (tokVal.equals("asinus") == 1) || 
-           (tokVal.equals("cosinus") == 1) || 
+        if((tokVal.equals("sinus") == 1)    || 
+           (tokVal.equals("asinus") == 1)   || 
+           (tokVal.equals("cosinus") == 1)  || 
            (tokVal.equals("acosinus") == 1) || 
-           (tokVal.equals("tan") == 1)     || 
-           (tokVal.equals("atan") == 1)      )
+           (tokVal.equals("tan") == 1)      || 
+           (tokVal.equals("atan") == 1)     ||
+           (tokVal.equals("sqrt") == 1)     ||
+           (tokVal.equals("abs") == 1)     ||
+           (tokVal.equals("ln") == 1)           )
         {
            var String_16 funktionsTyp; funktionsTyp.assign(*tokVal);
            scanner.nextToken(); 
@@ -180,17 +183,37 @@ double AusrechnerFK::Primary()
                  scanner.nextToken(); 
                  scanner.currentToken(t,tokVal);
                  var Math m;
-                 if(funktionsTyp.equals("sinus")   == 1)  { return m.sinus(winkel); }
+                 var double ret;
+                 if(funktionsTyp.equals("sinus")    == 1) { return m.sinus(winkel); }
                  if(funktionsTyp.equals("asinus")   == 1) { return m.asinus(winkel); }
-                 if(funktionsTyp.equals("cosinus") == 1)  { return m.cosinus(winkel); }
+                 if(funktionsTyp.equals("cosinus")  == 1) { return m.cosinus(winkel); }
                  if(funktionsTyp.equals("acosinus") == 1) { return m.acosinus(winkel); }
-                 if(funktionsTyp.equals("tan") == 1)      { return m.tangens(winkel); }
+                 if(funktionsTyp.equals("tan")      == 1) { return m.tangens(winkel); }
                  if(funktionsTyp.equals("acosinus") == 1) { return m.atangens(winkel); }
+                 if(funktionsTyp.equals("sqrt")     == 1) { return m.wurzel(winkel); }
+                 if(funktionsTyp.equals("ln")       == 1) 
+                 { 
+                    inline_cpp[[
+                      ret = ::log(winkel);//ja, "winkel" hier unpassend
+                    ]]
+                    return ret;
+                 }
+                 if(funktionsTyp.equals("abs")       == 1) 
+                 { 
+                    inline_cpp[[
+                      ret = ::std::abs(winkel);//ja, "winkel" hier unpassend
+                    ]]
+                    return ret;
+                 }
               }
               else { pfc.fstr("')' erwartet").pr(); return -1.0; }
            }
            else { pfc.fstr("'(' erwartet").pr(); return -1.0; }
         }
+        //Important Constants
+        var Math m;
+        if(tokVal.equals("pi") == 1) { return m.pi(); }
+        if(tokVal.equals("e") == 1)  { return m.e(); }
         var double variableValue = -1.0;
         if(variableList.search(*tokVal,variableValue) != 1)
         {

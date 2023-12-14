@@ -151,6 +151,13 @@ int Math::pruefeZwP(int n)
   return 0; 
 }
 
+double Math::wurzel(double x)
+{
+   var double ret;
+   inline_cpp[[ ret = ::sqrt(x); ]]
+   return ret;
+}
+
 /*
 void Math::polar(double rho, double theta,&Complex ausgabe)
 {

@@ -76,7 +76,7 @@ int Main::main()
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner");
+   var String_16 label("Franks Taschenrechner  Ausgabe 1.2");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;

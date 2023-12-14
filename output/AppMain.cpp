@@ -129,7 +129,7 @@ int Main::main(char* stackStartPtr){
    SprFLTKwindow swin;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    swin.begin(stackStartPtr);
-   SPRStackArrayConcrete<char,23> spr_StringScratch8;strcpy(spr_StringScratch8._array,"Franks Taschenrechner");
+   SPRStackArrayConcrete<char,36> spr_StringScratch8;strcpy(spr_StringScratch8._array,"Franks Taschenrechner  Ausgabe 1.1");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    String_16 label(stackStartPtr,spr_StringScratch8);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();

@@ -21,17 +21,17 @@ void SFbutton::create(char* stackStartPtr,int x,int y,int width,int height,SPRSt
    char SPR_stack_dummy_var;
    int i;i=0;
    char c0;c0=((char)0);
-          int spr_intScratch2d;spr_intScratch2d=i;chck_accs0(labeli,spr_intScratch2d,47)
-   while(labeli._array[spr_intScratch2d]!=c0){
-             int spr_intScratch2f;spr_intScratch2f=i;chck_accs0(label,spr_intScratch2f,49)
-             int spr_intScratch31;spr_intScratch31=i;chck_accs0(labeli,spr_intScratch31,51)
-      label._array[spr_intScratch2f]=labeli._array[spr_intScratch31];
+          int spr_intScratch35;spr_intScratch35=i;chck_accs0(labeli,spr_intScratch35,55)
+   while(labeli._array[spr_intScratch35]!=c0){
+             int spr_intScratch37;spr_intScratch37=i;chck_accs0(label,spr_intScratch37,57)
+             int spr_intScratch39;spr_intScratch39=i;chck_accs0(labeli,spr_intScratch39,59)
+      label._array[spr_intScratch37]=labeli._array[spr_intScratch39];
       i++;
-      spr_intScratch2d=i;chck_accs0(labeli,spr_intScratch2d,47)
+      spr_intScratch35=i;chck_accs0(labeli,spr_intScratch35,55)
       
    };
-          int spr_intScratch33;spr_intScratch33=i;chck_accs0(label,spr_intScratch33,53)
-   label._array[spr_intScratch33]=c0;
+          int spr_intScratch3b;spr_intScratch3b=i;chck_accs0(label,spr_intScratch3b,61)
+   label._array[spr_intScratch3b]=c0;
    
           fb = new Fl_Button(x,y,width,height,label._array);
           fb->callback(buttonCallback,this);
@@ -97,15 +97,15 @@ SFbox::SFbox(){
    
         mb = NULL;
      
-   int spr_intScratch35;
-   spr_intScratch35=10000;
-   if(spr_intScratch35<0)throw "invalid size requested for heap allocation";
-   punkteX=new(spr_intScratch35) SPRArray<int>(spr_intScratch35)
+   int spr_intScratch3d;
+   spr_intScratch3d=10000;
+   if(spr_intScratch3d<0)throw "invalid size requested for heap allocation";
+   punkteX=new(spr_intScratch3d) SPRArray<int>(spr_intScratch3d)
    ;
-   int spr_intScratch36;
-   spr_intScratch36=10000;
-   if(spr_intScratch36<0)throw "invalid size requested for heap allocation";
-   punkteY=new(spr_intScratch36) SPRArray<int>(spr_intScratch36)
+   int spr_intScratch3e;
+   spr_intScratch3e=10000;
+   if(spr_intScratch3e<0)throw "invalid size requested for heap allocation";
+   punkteY=new(spr_intScratch3e) SPRArray<int>(spr_intScratch3e)
    ;
    punkteGueltig=0;
    
@@ -132,10 +132,10 @@ void SFbox::draw(char* stackStartPtr){
    {//begin of SPR for statement
    int i;i=0;
    while(i<punkteGueltig){
-             int spr_intScratch37;spr_intScratch37=i;chck_accs_p0(punkteX,spr_intScratch37,57)
-      int x;x=punkteX._theObject->_array[spr_intScratch37];
-             int spr_intScratch39;spr_intScratch39=i;chck_accs_p0(punkteY,spr_intScratch39,59)
-      int y;y=punkteY._theObject->_array[spr_intScratch39];
+             int spr_intScratch3f;spr_intScratch3f=i;chck_accs_p0(punkteX,spr_intScratch3f,65)
+      int x;x=punkteX._theObject->_array[spr_intScratch3f];
+             int spr_intScratch41;spr_intScratch41=i;chck_accs_p0(punkteY,spr_intScratch41,67)
+      int y;y=punkteY._theObject->_array[spr_intScratch41];
       
                int yfenster = mb->y();
                int xfenster = mb->x();
@@ -165,17 +165,17 @@ void SFbox::addPoint(char* stackStartPtr,int x,int y){
    char SPR_stack_dummy_var;
    if(punkteGueltig==punkteX._theObject->_sz){
       PrintfClass pfc;
-      SPRStackArrayConcrete<char,31> spr_StringScratch3b;strcpy(spr_StringScratch3b._array,"zu vielen Punkte in der SFbox");
+      SPRStackArrayConcrete<char,31> spr_StringScratch43;strcpy(spr_StringScratch43._array,"zu vielen Punkte in der SFbox");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch3b).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch43).pr(stackStartPtr);
       return ;
       
    }
-          int spr_intScratch3c;spr_intScratch3c=punkteGueltig;chck_accs_p0(punkteX,spr_intScratch3c,62)
-   punkteX._theObject->_array[spr_intScratch3c]=x;
-          int spr_intScratch3e;spr_intScratch3e=punkteGueltig;chck_accs_p0(punkteY,spr_intScratch3e,64)
-   punkteY._theObject->_array[spr_intScratch3e]=y;
+          int spr_intScratch44;spr_intScratch44=punkteGueltig;chck_accs_p0(punkteX,spr_intScratch44,70)
+   punkteX._theObject->_array[spr_intScratch44]=x;
+          int spr_intScratch46;spr_intScratch46=punkteGueltig;chck_accs_p0(punkteY,spr_intScratch46,72)
+   punkteY._theObject->_array[spr_intScratch46]=y;
    punkteGueltig++;
    
    
