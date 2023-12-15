@@ -167,7 +167,8 @@ double AusrechnerFK::Primary()
            (tokVal.equals("tan") == 1)      || 
            (tokVal.equals("atan") == 1)     ||
            (tokVal.equals("sqrt") == 1)     ||
-           (tokVal.equals("abs") == 1)     ||
+           (tokVal.equals("abs") == 1)      ||
+           (tokVal.equals("fakultaet") == 1)||
            (tokVal.equals("ln") == 1)           )
         {
            var String_16 funktionsTyp; funktionsTyp.assign(*tokVal);
@@ -198,11 +199,19 @@ double AusrechnerFK::Primary()
                     ]]
                     return ret;
                  }
-                 if(funktionsTyp.equals("abs")       == 1) 
+                 if(funktionsTyp.equals("abs") == 1) 
                  { 
                     inline_cpp[[
                       ret = ::std::abs(winkel);//ja, "winkel" hier unpassend
                     ]]
+                    return ret;
+                 }
+                 if(funktionsTyp.equals("fakultaet") == 1) 
+                 { 
+                    var int xi = cast(int,winkel);
+                    ret = 1.0;
+                    for(var int i=2; i <= xi;i++)
+                    { ret = ret * cast(double,i); }
                     return ret;
                  }
               }

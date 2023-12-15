@@ -83,18 +83,65 @@ void MeinKnopf::callback(char* stackStartPtr){
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    pfc.fstr(stackStartPtr,spr_StringScratch5).sa(stackStartPtr,yMin).sa(stackStartPtr,yMax).pr(stackStartPtr);
-   double yInternval;yInternval=yMax-yMin;
+   double yInterval;yInterval=yMax-yMin;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    double displayHoehe;displayHoehe=trk._theObject->ausgabeBox._theObject->hoehe(stackStartPtr);
+   SFcolorCode cc;
    {//begin of SPR for statement
    int i;i=0;
    while(i<breitePixel){
              int spr_intScratch6;spr_intScratch6=i;chck_accs_p0(yWerte,spr_intScratch6,8)
-      double yPixel;yPixel=((yWerte._theObject->_array[spr_intScratch6]-yMin)/(yMax-yMin))*(displayHoehe-1);
+      double yPixel;yPixel=((yWerte._theObject->_array[spr_intScratch6]-yMin)/yInterval)*(displayHoehe-1);
       int yAusgabe;yAusgabe=((int)(displayHoehe-yPixel));
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      trk._theObject->ausgabeBox._theObject->addPoint(stackStartPtr,i,yAusgabe);
+      if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+      trk._theObject->ausgabeBox._theObject->addPoint(stackStartPtr,i,yAusgabe,cc.get_FL_BLUE(stackStartPtr));
       i++;
+      
+   
+   }
+   }//end of SPR for statement
+   double yKonstant;yKonstant=yMin;
+   {//begin of SPR for statement
+   int j;j=0;
+   while(j<10){
+      {//begin of SPR for statement
+      int i;i=0;
+      while(i<breitePixel){
+         double yPixel;yPixel=((yKonstant-yMin)/(yMax-yMin))*(displayHoehe-1);
+         int yAusgabe;yAusgabe=((int)(displayHoehe-yPixel));
+         if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+         if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+         trk._theObject->ausgabeBox._theObject->addPoint(stackStartPtr,i,yAusgabe,cc.get_FL_DARK_CYAN(stackStartPtr));
+         i++;
+         
+      
+      }
+      }//end of SPR for statement
+      yKonstant=yKonstant+(yInterval/10.0);
+      j++;
+      
+   
+   }
+   }//end of SPR for statement
+   double xKonstant;xKonstant=varStart;
+   {//begin of SPR for statement
+   int j;j=0;
+   while(j<10){
+      double xPixel;xPixel=(xKonstant-varStart)/breite*breitePixel;
+      {//begin of SPR for statement
+      int y;y=0;
+      while(y<displayHoehe){
+         if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+         if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+         trk._theObject->ausgabeBox._theObject->addPoint(stackStartPtr,((double)xPixel),y,cc.get_FL_BLACK(stackStartPtr));
+         y++;
+         
+      
+      }
+      }//end of SPR for statement
+      xKonstant=xKonstant+((varEnd-varStart)/10.0);
+      j++;
       
    
    }
@@ -129,7 +176,7 @@ int Main::main(char* stackStartPtr){
    SprFLTKwindow swin;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    swin.begin(stackStartPtr);
-   SPRStackArrayConcrete<char,36> spr_StringScratch8;strcpy(spr_StringScratch8._array,"Franks Taschenrechner  Ausgabe 1.1");
+   SPRStackArrayConcrete<char,36> spr_StringScratch8;strcpy(spr_StringScratch8._array,"Franks Taschenrechner  Ausgabe 1.2");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    String_16 label(stackStartPtr,spr_StringScratch8);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -139,9 +186,20 @@ int Main::main(char* stackStartPtr){
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    sfi._theObject->create(stackStartPtr,10,50,200,30);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   SPRSmartPtr<SFbox> sfb2;sfb2=::new SFbox;
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   sfb2._theObject->create(stackStartPtr,10,100,100,40);
+   SPRStackArrayConcrete<char,10> spr_StringScratch9;strcpy(spr_StringScratch9._array,"test 123");
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   String_16 l(stackStartPtr,spr_StringScratch9);
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   sfb2._theObject->SetLabel(stackStartPtr,l);
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    SPRSmartPtr<SFbox> sfb;sfb=::new SFbox;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   sfb._theObject->create(stackStartPtr,10,100,500,400);
+   sfb._theObject->create(stackStartPtr,10,200,500,400);
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   sfb._theObject->SetLabel(stackStartPtr,l);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    SPRSmartPtr<SFinput> sfiVar;sfiVar=::new SFinput;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -163,14 +221,14 @@ int Main::main(char* stackStartPtr){
    trk._theObject->varEndInput=sfiVarValEnd;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    MeinKnopf knopf(stackStartPtr,trk);
-   SPRStackArrayConcrete<char,9> spr_StringScratch9;strcpy(spr_StringScratch9._array,"zeichne");
+   SPRStackArrayConcrete<char,9> spr_StringScratcha;strcpy(spr_StringScratcha._array,"zeichne");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   knopf.create(stackStartPtr,10,10,200,30,spr_StringScratch9);
+   knopf.create(stackStartPtr,10,10,200,30,spr_StringScratcha);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    LoeschKnopf lknopf(stackStartPtr,sfb);
-   SPRStackArrayConcrete<char,9> spr_StringScratcha;strcpy(spr_StringScratcha._array,"loesche");
+   SPRStackArrayConcrete<char,9> spr_StringScratchb;strcpy(spr_StringScratchb._array,"loesche");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   lknopf.create(stackStartPtr,210,10,100,30,spr_StringScratcha);
+   lknopf.create(stackStartPtr,210,10,100,30,spr_StringScratchb);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    swin.end(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();

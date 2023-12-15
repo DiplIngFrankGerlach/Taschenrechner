@@ -21,17 +21,17 @@ void SFbutton::create(char* stackStartPtr,int x,int y,int width,int height,SPRSt
    char SPR_stack_dummy_var;
    int i;i=0;
    char c0;c0=((char)0);
-          int spr_intScratch35;spr_intScratch35=i;chck_accs0(labeli,spr_intScratch35,55)
-   while(labeli._array[spr_intScratch35]!=c0){
-             int spr_intScratch37;spr_intScratch37=i;chck_accs0(label,spr_intScratch37,57)
-             int spr_intScratch39;spr_intScratch39=i;chck_accs0(labeli,spr_intScratch39,59)
-      label._array[spr_intScratch37]=labeli._array[spr_intScratch39];
+          int spr_intScratch38;spr_intScratch38=i;chck_accs0(labeli,spr_intScratch38,58)
+   while(labeli._array[spr_intScratch38]!=c0){
+             int spr_intScratch3a;spr_intScratch3a=i;chck_accs0(label,spr_intScratch3a,60)
+             int spr_intScratch3c;spr_intScratch3c=i;chck_accs0(labeli,spr_intScratch3c,62)
+      label._array[spr_intScratch3a]=labeli._array[spr_intScratch3c];
       i++;
-      spr_intScratch35=i;chck_accs0(labeli,spr_intScratch35,55)
+      spr_intScratch38=i;chck_accs0(labeli,spr_intScratch38,58)
       
    };
-          int spr_intScratch3b;spr_intScratch3b=i;chck_accs0(label,spr_intScratch3b,61)
-   label._array[spr_intScratch3b]=c0;
+          int spr_intScratch3e;spr_intScratch3e=i;chck_accs0(label,spr_intScratch3e,64)
+   label._array[spr_intScratch3e]=c0;
    
           fb = new Fl_Button(x,y,width,height,label._array);
           fb->callback(buttonCallback,this);
@@ -97,15 +97,20 @@ SFbox::SFbox(){
    
         mb = NULL;
      
-   int spr_intScratch3d;
-   spr_intScratch3d=10000;
-   if(spr_intScratch3d<0)throw "invalid size requested for heap allocation";
-   punkteX=new(spr_intScratch3d) SPRArray<int>(spr_intScratch3d)
+   int spr_intScratch40;
+   spr_intScratch40=10000;
+   if(spr_intScratch40<0)throw "invalid size requested for heap allocation";
+   punkteX=new(spr_intScratch40) SPRArray<int>(spr_intScratch40)
    ;
-   int spr_intScratch3e;
-   spr_intScratch3e=10000;
-   if(spr_intScratch3e<0)throw "invalid size requested for heap allocation";
-   punkteY=new(spr_intScratch3e) SPRArray<int>(spr_intScratch3e)
+   int spr_intScratch41;
+   spr_intScratch41=10000;
+   if(spr_intScratch41<0)throw "invalid size requested for heap allocation";
+   punkteY=new(spr_intScratch41) SPRArray<int>(spr_intScratch41)
+   ;
+   int spr_intScratch42;
+   spr_intScratch42=10000;
+   if(spr_intScratch42<0)throw "invalid size requested for heap allocation";
+   farbe=new(spr_intScratch42) SPRArray<int>(spr_intScratch42)
    ;
    punkteGueltig=0;
    
@@ -125,20 +130,23 @@ void SFbox::draw(char* stackStartPtr){
    char SPR_stack_dummy_var;
     
          //loesche die Box
-         fl_draw_box(FL_FLAT_BOX,mb->x(),mb->y(),mb->w(),mb->h(),FL_WHITE); 
+         //fl_draw_box(FL_FLAT_BOX,mb->x(),mb->y(),mb->w(),mb->h(),FL_WHITE); 
+         fl_color(FL_WHITE);
+         fl_rectf(mb->x(),mb->y(),mb->w(),mb->h());
          //setze die aktuelle Farbe fuer folgende fl_point() Aufrufe
          fl_color(FL_BLACK);
       
    {//begin of SPR for statement
    int i;i=0;
    while(i<punkteGueltig){
-             int spr_intScratch3f;spr_intScratch3f=i;chck_accs_p0(punkteX,spr_intScratch3f,65)
-      int x;x=punkteX._theObject->_array[spr_intScratch3f];
-             int spr_intScratch41;spr_intScratch41=i;chck_accs_p0(punkteY,spr_intScratch41,67)
-      int y;y=punkteY._theObject->_array[spr_intScratch41];
+             int spr_intScratch43;spr_intScratch43=i;chck_accs_p0(punkteX,spr_intScratch43,69)
+      int x;x=punkteX._theObject->_array[spr_intScratch43];
+             int spr_intScratch45;spr_intScratch45=i;chck_accs_p0(punkteY,spr_intScratch45,71)
+      int y;y=punkteY._theObject->_array[spr_intScratch45];
       
                int yfenster = mb->y();
                int xfenster = mb->x();
+               fl_color( farbe._theObject->_array[i] );
                fl_point(x+xfenster   ,y+yfenster);
                fl_point(x+1+xfenster ,y+yfenster);
                fl_point(x+xfenster   ,y+1+yfenster);
@@ -149,6 +157,13 @@ void SFbox::draw(char* stackStartPtr){
    
    }
    }//end of SPR for statement
+   
+       if(label._theObject != NULL)
+       {    
+         fl_color(FL_BLACK);
+         fl_draw(label._theObject->_array,mb->x()+10,mb->y()+30);
+       }
+      
    punkteGueltig=0;
    
    
@@ -157,25 +172,28 @@ void SFbox::draw(char* stackStartPtr){
 void SFbox::loesche(char* stackStartPtr){
    char SPR_stack_dummy_var;
    punkteGueltig=0;
+   static_cast<Fl_Box*>(mb)->box(FL_NO_BOX);
    
    
 } //End Of Method
 
-void SFbox::addPoint(char* stackStartPtr,int x,int y){
+void SFbox::addPoint(char* stackStartPtr,int x,int y,int farbei){
    char SPR_stack_dummy_var;
    if(punkteGueltig==punkteX._theObject->_sz){
       PrintfClass pfc;
-      SPRStackArrayConcrete<char,31> spr_StringScratch43;strcpy(spr_StringScratch43._array,"zu vielen Punkte in der SFbox");
+      SPRStackArrayConcrete<char,31> spr_StringScratch47;strcpy(spr_StringScratch47._array,"zu vielen Punkte in der SFbox");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch43).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch47).pr(stackStartPtr);
       return ;
       
    }
-          int spr_intScratch44;spr_intScratch44=punkteGueltig;chck_accs_p0(punkteX,spr_intScratch44,70)
-   punkteX._theObject->_array[spr_intScratch44]=x;
-          int spr_intScratch46;spr_intScratch46=punkteGueltig;chck_accs_p0(punkteY,spr_intScratch46,72)
-   punkteY._theObject->_array[spr_intScratch46]=y;
+          int spr_intScratch48;spr_intScratch48=punkteGueltig;chck_accs_p0(punkteX,spr_intScratch48,74)
+   punkteX._theObject->_array[spr_intScratch48]=x;
+          int spr_intScratch4a;spr_intScratch4a=punkteGueltig;chck_accs_p0(punkteY,spr_intScratch4a,76)
+   punkteY._theObject->_array[spr_intScratch4a]=y;
+          int spr_intScratch4c;spr_intScratch4c=punkteGueltig;chck_accs_p0(farbe,spr_intScratch4c,78)
+   farbe._theObject->_array[spr_intScratch4c]=farbei;
    punkteGueltig++;
    
    
@@ -195,6 +213,136 @@ void SFbox::redraw(char* stackStartPtr){
    
        mb->redraw();
      
+   
+   
+} //End Of Method
+
+void SFbox::SetLabel(char* stackStartPtr,String_16& str){
+   char SPR_stack_dummy_var;
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   int spr_intScratch4e;
+   spr_intScratch4e=str.length(stackStartPtr)+1;
+   if(spr_intScratch4e<0)throw "invalid size requested for heap allocation";
+   label=new(spr_intScratch4e) SPRArray<char>(spr_intScratch4e)
+   ;
+   {//begin of SPR for statement
+   int i;i=0;
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   while(i<str.length(stackStartPtr)){
+             int spr_intScratch4f;spr_intScratch4f=i;chck_accs_p0(label,spr_intScratch4f,81)
+      if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+      label._theObject->_array[spr_intScratch4f]=str.getAt(stackStartPtr,i);
+      i++;
+      if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+      
+   
+   }
+   }//end of SPR for statement
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+          int spr_intScratch51;spr_intScratch51=str.length(stackStartPtr);chck_accs_p0(label,spr_intScratch51,83)
+   label._theObject->_array[spr_intScratch51]='\0';
+    
+         fl_color(FL_BLACK);
+         mb->label(label._theObject->_array);
+      
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_BLACK(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 56;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_RED(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 88;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_GREEN(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 63;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_YELLOW(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 95;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_BLUE(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 216;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_MAGENTA(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 248;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_CYAN(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 223;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_DARK_RED(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 72;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_DARK_GREEN(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 60;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_DARK_YELLOW(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 76;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_DARK_BLUE(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 136;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_DARK_MAGENTA(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 152;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_DARK_CYAN(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 140;
+   
+   
+} //End Of Method
+
+int SFcolorCode::get_FL_WHITE(char* stackStartPtr){
+   char SPR_stack_dummy_var;
+   return 255;
    
    
 } //End Of Method

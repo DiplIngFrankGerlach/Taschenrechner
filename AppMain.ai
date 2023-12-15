@@ -44,14 +44,39 @@ void MeinKnopf::callback()
       pfc.fstr("x:$ y:$").sa(x).sa(y).pr();
    }
    pfc.fstr("min:$ max:$").sa(yMin).sa(yMax).pr();
-   var double yInternval = yMax - yMin;
+   var double yInterval = yMax - yMin;
    var double displayHoehe = trk.ausgabeBox.hoehe(); //hoehe in Pixel
+   var SFcolorCode cc; 
    for(var int i=0; i < breitePixel;i++)
    {
-      var double yPixel = ((yWerte[i] - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+      var double yPixel = ((yWerte[i] - yMin)/yInterval) * (displayHoehe - 1);
       var int yAusgabe = cast(int,(displayHoehe-yPixel));
-      trk.ausgabeBox.addPoint(i,yAusgabe);   
+      trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_BLUE());   
    }
+   //x-Achsen ausgeben
+   var double yKonstant = yMin;
+   for(var int j=0; j < 10; j++)
+   {
+     for(var int i=0; i < breitePixel;i++)
+     {
+        var double yPixel = ((yKonstant - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+        var int yAusgabe = cast(int,(displayHoehe-yPixel));
+        trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_DARK_CYAN());   
+     } 
+     yKonstant = yKonstant + (yInterval / 10.0);
+   }
+   //y Achsen ausgeben
+   var double xKonstant = varStart;
+   for(var int j=0; j < 10; j++)
+   {
+      var double xPixel = (xKonstant - varStart)/breite * breitePixel;
+      for(var int y=0; y < displayHoehe; y++)
+      {
+         trk.ausgabeBox.addPoint(cast(double,xPixel),y,cc.get_FL_BLACK());   
+      }
+      xKonstant = xKonstant + ((varEnd - varStart) / 10.0);
+   }
+   
    trk.ausgabeBox.redraw();
 }
 
@@ -82,8 +107,15 @@ int Main::main()
    var SFinput* sfi = new SFinput;
    sfi.create(10,50,200,30);
 
+   var SFbox* sfb2 = new SFbox;
+   sfb2.create(10,100,100,40);
+   var String_16 l("test 123");
+   sfb2.SetLabel(l);
+
+   //Ausgabefeld fuer den x-y Graphen
    var SFbox* sfb = new SFbox;
-   sfb.create(10,100,500,400);
+   sfb.create(10,200,500,400);
+   sfb.SetLabel(l);
 
    var SFinput* sfiVar = new SFinput;
    sfiVar.create(220,50,50,30);

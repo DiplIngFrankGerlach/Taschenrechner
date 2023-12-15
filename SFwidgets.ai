@@ -60,6 +60,7 @@ SFbox::SFbox()
   //richte die Punkteliste ein
   punkteX = new int[10000];
   punkteY = new int[10000];
+  farbe   = new int[10000];
   punkteGueltig = 0;
 }
 
@@ -76,7 +77,9 @@ void SFbox::draw()
 {
    inline_cpp[[ 
       //loesche die Box
-      fl_draw_box(FL_FLAT_BOX,mb->x(),mb->y(),mb->w(),mb->h(),FL_WHITE); 
+      //fl_draw_box(FL_FLAT_BOX,mb->x(),mb->y(),mb->w(),mb->h(),FL_WHITE); 
+      fl_color(FL_WHITE);
+      fl_rectf(mb->x(),mb->y(),mb->w(),mb->h());
       //setze die aktuelle Farbe fuer folgende fl_point() Aufrufe
       fl_color(FL_BLACK);
    ]]
@@ -87,12 +90,20 @@ void SFbox::draw()
       inline_cpp[[
          int yfenster = mb->y();
          int xfenster = mb->x();
+         fl_color( farbe._theObject->_array[i] );
          fl_point(x+xfenster   ,y+yfenster);
          fl_point(x+1+xfenster ,y+yfenster);
          fl_point(x+xfenster   ,y+1+yfenster);
          fl_point(x+1+xfenster ,y+1+yfenster);
       ]]
    }
+   inline_cpp[[
+    if(label._theObject != NULL)
+    {    
+      fl_color(FL_BLACK);
+      fl_draw(label._theObject->_array,mb->x()+10,mb->y()+30);
+    }
+   ]]
    punkteGueltig = 0;
 }
 
@@ -100,11 +111,13 @@ void SFbox::draw()
 void SFbox::loesche()
 {
    punkteGueltig = 0;
+   //inline_cpp[[mb->box(FL_NO_BOX);]]
+   inline_cpp[[static_cast<Fl_Box*>(mb)->box(FL_NO_BOX);]]
 }
 
 
 //merke einen Punkt zum zeichnen in der Box vor
-void SFbox::addPoint(int x, int y)
+void SFbox::addPoint(int x, int y,int farbei)
 {
    if(punkteGueltig == punkteX.sz)
    {
@@ -114,6 +127,7 @@ void SFbox::addPoint(int x, int y)
    }
    punkteX[punkteGueltig] = x;
    punkteY[punkteGueltig] = y;
+   farbe[punkteGueltig]   = farbei;
    punkteGueltig++;
 }
 
@@ -132,4 +146,30 @@ void SFbox::redraw()
   ]] 
 }
 
+void SFbox::SetLabel(&String_16 str)
+{
+   label = new char[str.length()+1];
+   for(var int i=0; i < str.length(); i++){ label[i] = str.getAt(i);}
+   label[str.length()] = '\0';
 
+   inline_cpp[[ 
+      fl_color(FL_BLACK);
+      mb->label(label._theObject->_array);
+   ]]
+}
+
+
+int SFcolorCode::get_FL_BLACK  () { return  56;}
+int SFcolorCode::get_FL_RED    () { return  88;}
+int SFcolorCode::get_FL_GREEN  () { return  63;}
+int SFcolorCode::get_FL_YELLOW () { return  95;}
+int SFcolorCode::get_FL_BLUE   () { return  216;}
+int SFcolorCode::get_FL_MAGENTA() { return  248;}
+int SFcolorCode::get_FL_CYAN   () { return  223;}
+int SFcolorCode::get_FL_DARK_RED() { return  72;}
+int SFcolorCode::get_FL_DARK_GREEN   () { return  60;}
+int SFcolorCode::get_FL_DARK_YELLOW  () { return  76;}
+int SFcolorCode::get_FL_DARK_BLUE    () { return  136;}
+int SFcolorCode::get_FL_DARK_MAGENTA () { return  152;}
+int SFcolorCode::get_FL_DARK_CYAN    () { return  140;}
+int SFcolorCode::get_FL_WHITE        () { return  255;}

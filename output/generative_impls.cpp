@@ -3,8 +3,8 @@
 String_16::String_16(char* stackStartPtr,SPRStackArray<char>& init){
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch183;spr_intScratch183=0;chck_accs0(_preAllocBuf,spr_intScratch183,389)
-   _preAllocBuf._array[spr_intScratch183]='\0';
+          int spr_intScratch18e;spr_intScratch18e=0;chck_accs0(_preAllocBuf,spr_intScratch18e,400)
+   _preAllocBuf._array[spr_intScratch18e]='\0';
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,init);
    
@@ -22,11 +22,11 @@ String_16::String_16(){
    char* stackStartPtr=list->_stackStartPtr;
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch185;spr_intScratch185=0;chck_accs0(_preAllocBuf,spr_intScratch185,391)
-   _preAllocBuf._array[spr_intScratch185]='\0';
-   SPRStackArrayConcrete<char,2> spr_StringScratch187;strcpy(spr_StringScratch187._array,"");
+          int spr_intScratch190;spr_intScratch190=0;chck_accs0(_preAllocBuf,spr_intScratch190,402)
+   _preAllocBuf._array[spr_intScratch190]='\0';
+   SPRStackArrayConcrete<char,2> spr_StringScratch192;strcpy(spr_StringScratch192._array,"");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   this->append(stackStartPtr,spr_StringScratch187);
+   this->append(stackStartPtr,spr_StringScratch192);
    
    
 } //End Of Method
@@ -48,9 +48,9 @@ int String_16::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_16> > sp
    int ausgStelle;ausgStelle=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    int l;l=this->length(stackStartPtr);
-          int spr_intScratch188;spr_intScratch188=0;chck_accs_p0(spalten,spr_intScratch188,394)
+          int spr_intScratch193;spr_intScratch193=0;chck_accs_p0(spalten,spr_intScratch193,405)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   spalten._theObject->_array[spr_intScratch188].clear(stackStartPtr);
+   spalten._theObject->_array[spr_intScratch193].clear(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while((ausgStelle<spalten._theObject->_sz)&&(stelle<this->length(stackStartPtr))){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -58,18 +58,18 @@ int String_16::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_16> > sp
       if(z==trenner){
          ausgStelle++;
          if(ausgStelle<spalten._theObject->_sz){
-                   int spr_intScratch18a;spr_intScratch18a=ausgStelle;chck_accs_p0(spalten,spr_intScratch18a,396)
+                   int spr_intScratch195;spr_intScratch195=ausgStelle;chck_accs_p0(spalten,spr_intScratch195,407)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            spalten._theObject->_array[spr_intScratch18a].clear(stackStartPtr);
+            spalten._theObject->_array[spr_intScratch195].clear(stackStartPtr);
             
          }
          
       }
       else
       {
-             int spr_intScratch18c;spr_intScratch18c=ausgStelle;chck_accs_p0(spalten,spr_intScratch18c,398)
+             int spr_intScratch197;spr_intScratch197=ausgStelle;chck_accs_p0(spalten,spr_intScratch197,409)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         spalten._theObject->_array[spr_intScratch18c].append(stackStartPtr,z);
+         spalten._theObject->_array[spr_intScratch197].append(stackStartPtr,z);
          }
       stelle++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -128,10 +128,10 @@ int String_16::compare(char* stackStartPtr,String_16& other){
 void String_16::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch18e;spr_intScratch18e=groesse;chck_accs_p0(buf,spr_intScratch18e,400)
-   while(buf._theObject->_array[spr_intScratch18e]!='\0'){
+          int spr_intScratch199;spr_intScratch199=groesse;chck_accs_p0(buf,spr_intScratch199,411)
+   while(buf._theObject->_array[spr_intScratch199]!='\0'){
       groesse++;
-      spr_intScratch18e=groesse;chck_accs_p0(buf,spr_intScratch18e,400)
+      spr_intScratch199=groesse;chck_accs_p0(buf,spr_intScratch199,411)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -140,9 +140,9 @@ void String_16::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch190;spr_intScratch190=stelle;chck_accs_p0(buf,spr_intScratch190,402)
+             int spr_intScratch19b;spr_intScratch19b=stelle;chck_accs_p0(buf,spr_intScratch19b,413)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch190]);
+      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch19b]);
       stelle++;
       
    
@@ -216,10 +216,10 @@ void String_16::assign(char* stackStartPtr,SPRSmartPtr<String_16> anderer){
 void String_16::append(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch192;spr_intScratch192=groesse;chck_accs0(str,spr_intScratch192,404)
-   while(str._array[spr_intScratch192]!='\0'){
+          int spr_intScratch19d;spr_intScratch19d=groesse;chck_accs0(str,spr_intScratch19d,415)
+   while(str._array[spr_intScratch19d]!='\0'){
       groesse++;
-      spr_intScratch192=groesse;chck_accs0(str,spr_intScratch192,404)
+      spr_intScratch19d=groesse;chck_accs0(str,spr_intScratch19d,415)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -228,9 +228,9 @@ void String_16::append(char* stackStartPtr,SPRStackArray<char>& str){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch194;spr_intScratch194=stelle;chck_accs0(str,spr_intScratch194,406)
+             int spr_intScratch19f;spr_intScratch19f=stelle;chck_accs0(str,spr_intScratch19f,417)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch194]);
+      this->append(stackStartPtr,str._array[spr_intScratch19f]);
       stelle++;
       
    
@@ -245,9 +245,9 @@ void String_16::append(char* stackStartPtr,SPRStackArray<char>& str,int pos,int 
    {//begin of SPR for statement
    int i;i=0;
    while(i<anzahl){
-             int spr_intScratch196;spr_intScratch196=i+pos;chck_accs0(str,spr_intScratch196,408)
+             int spr_intScratch1a1;spr_intScratch1a1=i+pos;chck_accs0(str,spr_intScratch1a1,419)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch196]);
+      this->append(stackStartPtr,str._array[spr_intScratch1a1]);
       i++;
       
    
@@ -328,15 +328,15 @@ void String_16::printNoLF(char* stackStartPtr){
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->ensureCapacity(stackStartPtr,_length+1);
    if(_extendedBuf==0U){
-             int spr_intScratch198;spr_intScratch198=_length;chck_accs0(_preAllocBuf,spr_intScratch198,410)
-      _preAllocBuf._array[spr_intScratch198]='\0';
+             int spr_intScratch1a3;spr_intScratch1a3=_length;chck_accs0(_preAllocBuf,spr_intScratch1a3,421)
+      _preAllocBuf._array[spr_intScratch1a3]='\0';
       ::printf("%s",_preAllocBuf._array);
       
    }
    else
    {
-          int spr_intScratch19a;spr_intScratch19a=_length;chck_accs_p0(_extendedBuf,spr_intScratch19a,412)
-      _extendedBuf._theObject->_array[spr_intScratch19a]='\0';
+          int spr_intScratch1a5;spr_intScratch1a5=_length;chck_accs_p0(_extendedBuf,spr_intScratch1a5,423)
+      _extendedBuf._theObject->_array[spr_intScratch1a5]='\0';
       ::printf("%s",_extendedBuf._theObject->_array);
       }
    
@@ -346,10 +346,10 @@ void String_16::printNoLF(char* stackStartPtr){
 int String_16::lengthOf(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int l;l=0;
-          int spr_intScratch19c;spr_intScratch19c=l;chck_accs0(str,spr_intScratch19c,414)
-   while(str._array[spr_intScratch19c]!='\0'){
+          int spr_intScratch1a7;spr_intScratch1a7=l;chck_accs0(str,spr_intScratch1a7,425)
+   while(str._array[spr_intScratch1a7]!='\0'){
       l=l+1;
-      spr_intScratch19c=l;chck_accs0(str,spr_intScratch19c,414)
+      spr_intScratch1a7=l;chck_accs0(str,spr_intScratch1a7,425)
       
    };
    return l;
@@ -361,12 +361,12 @@ void String_16::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    if(_extendedBuf!=0U){
-             int spr_intScratch19e;spr_intScratch19e=0;chck_accs_p0(_extendedBuf,spr_intScratch19e,416)
-      _extendedBuf._theObject->_array[spr_intScratch19e]='\0';
+             int spr_intScratch1a9;spr_intScratch1a9=0;chck_accs_p0(_extendedBuf,spr_intScratch1a9,427)
+      _extendedBuf._theObject->_array[spr_intScratch1a9]='\0';
       
    }
-          int spr_intScratch1a0;spr_intScratch1a0=0;chck_accs0(_preAllocBuf,spr_intScratch1a0,418)
-   _preAllocBuf._array[spr_intScratch1a0]='\0';
+          int spr_intScratch1ab;spr_intScratch1ab=0;chck_accs0(_preAllocBuf,spr_intScratch1ab,429)
+   _preAllocBuf._array[spr_intScratch1ab]='\0';
    
    
 } //End Of Method
@@ -397,8 +397,8 @@ void String_16::clearAndReclaimMemory(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    _extendedBuf=0U;
-          int spr_intScratch1a2;spr_intScratch1a2=0;chck_accs0(_preAllocBuf,spr_intScratch1a2,420)
-   _preAllocBuf._array[spr_intScratch1a2]='\0';
+          int spr_intScratch1ad;spr_intScratch1ad=0;chck_accs0(_preAllocBuf,spr_intScratch1ad,431)
+   _preAllocBuf._array[spr_intScratch1ad]='\0';
    
    
 } //End Of Method
@@ -406,16 +406,16 @@ void String_16::clearAndReclaimMemory(char* stackStartPtr){
 int String_16::compare(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int i;i=0;
-          int spr_intScratch1a4;spr_intScratch1a4=i;chck_accs0(str,spr_intScratch1a4,422)
-   while((i<str._sz)&&(str._array[spr_intScratch1a4]!='\0')&&(i<_length)){
+          int spr_intScratch1af;spr_intScratch1af=i;chck_accs0(str,spr_intScratch1af,433)
+   while((i<str._sz)&&(str._array[spr_intScratch1af]!='\0')&&(i<_length)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch1a6;spr_intScratch1a6=i;chck_accs0(str,spr_intScratch1a6,424)
-      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch1a6]){
+             int spr_intScratch1b1;spr_intScratch1b1=i;chck_accs0(str,spr_intScratch1b1,435)
+      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch1b1]){
          return 0;
          
       }
       i++;
-      spr_intScratch1a4=i;chck_accs0(str,spr_intScratch1a4,422)
+      spr_intScratch1af=i;chck_accs0(str,spr_intScratch1af,433)
       
    };
    if(i==_length){
@@ -433,14 +433,14 @@ void String_16::append(char* stackStartPtr,char c){
       if(16<=_length){
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          this->ensureCapacity(stackStartPtr,_length*2);
-                int spr_intScratch1a8;spr_intScratch1a8=_length;chck_accs_p0(_extendedBuf,spr_intScratch1a8,426)
-         _extendedBuf._theObject->_array[spr_intScratch1a8]=c;
+                int spr_intScratch1b3;spr_intScratch1b3=_length;chck_accs_p0(_extendedBuf,spr_intScratch1b3,437)
+         _extendedBuf._theObject->_array[spr_intScratch1b3]=c;
          
       }
       else
       {
-             int spr_intScratch1aa;spr_intScratch1aa=_length;chck_accs0(_preAllocBuf,spr_intScratch1aa,428)
-         _preAllocBuf._array[spr_intScratch1aa]=c;
+             int spr_intScratch1b5;spr_intScratch1b5=_length;chck_accs0(_preAllocBuf,spr_intScratch1b5,439)
+         _preAllocBuf._array[spr_intScratch1b5]=c;
          }
       _length++;
       
@@ -452,8 +452,8 @@ void String_16::append(char* stackStartPtr,char c){
          this->ensureCapacity(stackStartPtr,_length*2);
          
       }
-             int spr_intScratch1ac;spr_intScratch1ac=_length;chck_accs_p0(_extendedBuf,spr_intScratch1ac,430)
-      _extendedBuf._theObject->_array[spr_intScratch1ac]=c;
+             int spr_intScratch1b7;spr_intScratch1b7=_length;chck_accs_p0(_extendedBuf,spr_intScratch1b7,441)
+      _extendedBuf._theObject->_array[spr_intScratch1b7]=c;
       _length++;
       }
    
@@ -463,14 +463,14 @@ void String_16::append(char* stackStartPtr,char c){
 char String_16::getAt(char* stackStartPtr,int i){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch1ae;spr_intScratch1ae=i;chck_accs_p0(_extendedBuf,spr_intScratch1ae,432)
-      return _extendedBuf._theObject->_array[spr_intScratch1ae];
+             int spr_intScratch1b9;spr_intScratch1b9=i;chck_accs_p0(_extendedBuf,spr_intScratch1b9,443)
+      return _extendedBuf._theObject->_array[spr_intScratch1b9];
       
    }
    else
    {
-          int spr_intScratch1b0;spr_intScratch1b0=i;chck_accs0(_preAllocBuf,spr_intScratch1b0,434)
-      return _preAllocBuf._array[spr_intScratch1b0];
+          int spr_intScratch1bb;spr_intScratch1bb=i;chck_accs0(_preAllocBuf,spr_intScratch1bb,445)
+      return _preAllocBuf._array[spr_intScratch1bb];
       }
    return '0';
    
@@ -480,14 +480,14 @@ char String_16::getAt(char* stackStartPtr,int i){
 void String_16::setAt(char* stackStartPtr,int stelle,char zeichen){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch1b2;spr_intScratch1b2=stelle;chck_accs_p0(_extendedBuf,spr_intScratch1b2,436)
-      _extendedBuf._theObject->_array[spr_intScratch1b2]=zeichen;
+             int spr_intScratch1bd;spr_intScratch1bd=stelle;chck_accs_p0(_extendedBuf,spr_intScratch1bd,447)
+      _extendedBuf._theObject->_array[spr_intScratch1bd]=zeichen;
       
    }
    else
    {
-          int spr_intScratch1b4;spr_intScratch1b4=stelle;chck_accs0(_preAllocBuf,spr_intScratch1b4,438)
-      _preAllocBuf._array[spr_intScratch1b4]=zeichen;
+          int spr_intScratch1bf;spr_intScratch1bf=stelle;chck_accs0(_preAllocBuf,spr_intScratch1bf,449)
+      _preAllocBuf._array[spr_intScratch1bf]=zeichen;
       }
    
    
@@ -585,10 +585,10 @@ int String_16::equals(char* stackStartPtr,String_16& other){
 int String_16::equals(char* stackStartPtr,SPRStackArray<char>& other){
    char SPR_stack_dummy_var;
    int lother;lother=0;
-          int spr_intScratch1b6;spr_intScratch1b6=lother;chck_accs0(other,spr_intScratch1b6,440)
-   while((lother<other._sz)&&(other._array[spr_intScratch1b6]!='\0')){
+          int spr_intScratch1c1;spr_intScratch1c1=lother;chck_accs0(other,spr_intScratch1c1,451)
+   while((lother<other._sz)&&(other._array[spr_intScratch1c1]!='\0')){
       lother++;
-      spr_intScratch1b6=lother;chck_accs0(other,spr_intScratch1b6,440)
+      spr_intScratch1c1=lother;chck_accs0(other,spr_intScratch1c1,451)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -600,8 +600,8 @@ int String_16::equals(char* stackStartPtr,SPRStackArray<char>& other){
    int i;i=0;
    while(i<lother){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch1b8;spr_intScratch1b8=i;chck_accs0(other,spr_intScratch1b8,442)
-      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch1b8]){
+             int spr_intScratch1c3;spr_intScratch1c3=i;chck_accs0(other,spr_intScratch1c3,453)
+      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch1c3]){
          return 0;
          
       }
@@ -646,8 +646,8 @@ void String_16::append(char* stackStartPtr,int x){
 void String_16::appendHexOctet(char* stackStartPtr,int x){
    char SPR_stack_dummy_var;
    SPRStackArrayConcrete<char,16> buf;
-          int spr_intScratch1ba;spr_intScratch1ba=0;chck_accs0(buf,spr_intScratch1ba,444)
-   buf._array[spr_intScratch1ba]='\0';
+          int spr_intScratch1c5;spr_intScratch1c5=0;chck_accs0(buf,spr_intScratch1c5,455)
+   buf._array[spr_intScratch1c5]='\0';
     snprintf(buf._array,16,"%.2x",x); 
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,buf);
@@ -676,8 +676,8 @@ void String_16::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    int szm1;szm1=feld._sz-1;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(szm1<this->length(stackStartPtr)){
-             int spr_intScratch1bc;spr_intScratch1bc=0;chck_accs0(feld,spr_intScratch1bc,446)
-      feld._array[spr_intScratch1bc]='\0';
+             int spr_intScratch1c7;spr_intScratch1c7=0;chck_accs0(feld,spr_intScratch1c7,457)
+      feld._array[spr_intScratch1c7]='\0';
       return ;
       
    }
@@ -685,17 +685,17 @@ void String_16::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    {//begin of SPR for statement
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while(i<this->length(stackStartPtr)){
-             int spr_intScratch1be;spr_intScratch1be=i;chck_accs0(feld,spr_intScratch1be,448)
+             int spr_intScratch1c9;spr_intScratch1c9=i;chck_accs0(feld,spr_intScratch1c9,459)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      feld._array[spr_intScratch1be]=this->getAt(stackStartPtr,i);
+      feld._array[spr_intScratch1c9]=this->getAt(stackStartPtr,i);
       i++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       
    
    }
    }//end of SPR for statement
-          int spr_intScratch1c0;spr_intScratch1c0=i;chck_accs0(feld,spr_intScratch1c0,450)
-   feld._array[spr_intScratch1c0]='\0';
+          int spr_intScratch1cb;spr_intScratch1cb=i;chck_accs0(feld,spr_intScratch1cb,461)
+   feld._array[spr_intScratch1cb]='\0';
    
    
 } //End Of Method
@@ -885,10 +885,10 @@ void String_16::deEscape(char* stackStartPtr,String_16& deescaped,char escape){
 int String_16::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    char SPR_stack_dummy_var;
    int j;j=0;
-          int spr_intScratch1c2;spr_intScratch1c2=j;chck_accs0(end,spr_intScratch1c2,452)
-   while((end._array[spr_intScratch1c2]!='\0')&&(j<end._sz)){
+          int spr_intScratch1cd;spr_intScratch1cd=j;chck_accs0(end,spr_intScratch1cd,463)
+   while((end._array[spr_intScratch1cd]!='\0')&&(j<end._sz)){
       j++;
-      spr_intScratch1c2=j;chck_accs0(end,spr_intScratch1c2,452)
+      spr_intScratch1cd=j;chck_accs0(end,spr_intScratch1cd,463)
       
    };
    if(j<=0){
@@ -905,8 +905,8 @@ int String_16::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    while((i>=0)&&(j>=0)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       char c;c=this->getAt(stackStartPtr,i);
-             int spr_intScratch1c4;spr_intScratch1c4=j;chck_accs0(end,spr_intScratch1c4,454)
-      if(c!=end._array[spr_intScratch1c4]){
+             int spr_intScratch1cf;spr_intScratch1cf=j;chck_accs0(end,spr_intScratch1cf,465)
+      if(c!=end._array[spr_intScratch1cf]){
          return 0;
          
       }
@@ -966,16 +966,16 @@ int String_16::startsWith(char* stackStartPtr,SPRStackArray<char>& buf){
       return 0;
       
    }
-          int spr_intScratch1c6;spr_intScratch1c6=i;chck_accs0(buf,spr_intScratch1c6,456)
-   while((i<l)&&(buf._array[spr_intScratch1c6]!='\0')){
+          int spr_intScratch1d1;spr_intScratch1d1=i;chck_accs0(buf,spr_intScratch1d1,467)
+   while((i<l)&&(buf._array[spr_intScratch1d1]!='\0')){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch1c8;spr_intScratch1c8=i;chck_accs0(buf,spr_intScratch1c8,458)
-      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch1c8]){
+             int spr_intScratch1d3;spr_intScratch1d3=i;chck_accs0(buf,spr_intScratch1d3,469)
+      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch1d3]){
          return 0;
          
       }
       i++;
-      spr_intScratch1c6=i;chck_accs0(buf,spr_intScratch1c6,456)
+      spr_intScratch1d1=i;chck_accs0(buf,spr_intScratch1d1,467)
       
    };
    return 1;
@@ -1081,23 +1081,23 @@ void String_16::wandleUmlaute(char* stackStartPtr,String_16& ausgabe){
       char zeichen;zeichen=this->getAt(stackStartPtr,i);
       switch(((int)zeichen)){
          case 0xE4:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch1ca;strcpy(spr_StringScratch1ca._array,"ae");
+            SPRStackArrayConcrete<char,4> spr_StringScratch1d5;strcpy(spr_StringScratch1d5._array,"ae");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch1ca);
+            ausgabe.append(stackStartPtr,spr_StringScratch1d5);
             
          };break;
          
          case 0xFC:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch1cb;strcpy(spr_StringScratch1cb._array,"ue");
+            SPRStackArrayConcrete<char,4> spr_StringScratch1d6;strcpy(spr_StringScratch1d6._array,"ue");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch1cb);
+            ausgabe.append(stackStartPtr,spr_StringScratch1d6);
             
          };break;
          
          case 0xF6:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch1cc;strcpy(spr_StringScratch1cc._array,"oe");
+            SPRStackArrayConcrete<char,4> spr_StringScratch1d7;strcpy(spr_StringScratch1d7._array,"oe");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch1cc);
+            ausgabe.append(stackStartPtr,spr_StringScratch1d7);
             
          };break;
          
@@ -1121,18 +1121,18 @@ void String_16::ensureCapacity(char* stackStartPtr,int minCapacity){
    char SPR_stack_dummy_var;
    if(16<minCapacity){
       if(_extendedBuf==0U){
-         int spr_intScratch1cd;
-         spr_intScratch1cd=minCapacity*2;
-         if(spr_intScratch1cd<0)throw "invalid size requested for heap allocation";
-         _extendedBuf=new(spr_intScratch1cd) SPRArray<char>(spr_intScratch1cd)
+         int spr_intScratch1d8;
+         spr_intScratch1d8=minCapacity*2;
+         if(spr_intScratch1d8<0)throw "invalid size requested for heap allocation";
+         _extendedBuf=new(spr_intScratch1d8) SPRArray<char>(spr_intScratch1d8)
          ;
          int i;
          {//begin of SPR for statement
          i=0;
          while(i<_length){
-                   int spr_intScratch1ce;spr_intScratch1ce=i;chck_accs_p0(_extendedBuf,spr_intScratch1ce,464)
-                   int spr_intScratch1d0;spr_intScratch1d0=i;chck_accs0(_preAllocBuf,spr_intScratch1d0,466)
-            _extendedBuf._theObject->_array[spr_intScratch1ce]=_preAllocBuf._array[spr_intScratch1d0];
+                   int spr_intScratch1d9;spr_intScratch1d9=i;chck_accs_p0(_extendedBuf,spr_intScratch1d9,475)
+                   int spr_intScratch1db;spr_intScratch1db=i;chck_accs0(_preAllocBuf,spr_intScratch1db,477)
+            _extendedBuf._theObject->_array[spr_intScratch1d9]=_preAllocBuf._array[spr_intScratch1db];
             i++;
             
          
@@ -1143,18 +1143,18 @@ void String_16::ensureCapacity(char* stackStartPtr,int minCapacity){
       else
       {
       if(_extendedBuf._theObject->_sz<minCapacity){
-            int spr_intScratch1d2;
-            spr_intScratch1d2=minCapacity*2;
-            if(spr_intScratch1d2<0)throw "invalid size requested for heap allocation";
-            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch1d2) SPRArray<char>(spr_intScratch1d2)
+            int spr_intScratch1dd;
+            spr_intScratch1dd=minCapacity*2;
+            if(spr_intScratch1dd<0)throw "invalid size requested for heap allocation";
+            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch1dd) SPRArray<char>(spr_intScratch1dd)
             ;
             int i;
             {//begin of SPR for statement
             i=0;
             while(i<_length){
-                      int spr_intScratch1d3;spr_intScratch1d3=i;chck_accs_p0(newBuf,spr_intScratch1d3,469)
-                      int spr_intScratch1d5;spr_intScratch1d5=i;chck_accs_p0(_extendedBuf,spr_intScratch1d5,471)
-               newBuf._theObject->_array[spr_intScratch1d3]=_extendedBuf._theObject->_array[spr_intScratch1d5];
+                      int spr_intScratch1de;spr_intScratch1de=i;chck_accs_p0(newBuf,spr_intScratch1de,480)
+                      int spr_intScratch1e0;spr_intScratch1e0=i;chck_accs_p0(_extendedBuf,spr_intScratch1e0,482)
+               newBuf._theObject->_array[spr_intScratch1de]=_extendedBuf._theObject->_array[spr_intScratch1e0];
                i++;
                
             
@@ -1203,8 +1203,8 @@ void Assigner_String_16::assign(char* stackStartPtr,String_16& s1,String_16& s2)
 String_32::String_32(char* stackStartPtr,SPRStackArray<char>& init){
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch1d7;spr_intScratch1d7=0;chck_accs0(_preAllocBuf,spr_intScratch1d7,473)
-   _preAllocBuf._array[spr_intScratch1d7]='\0';
+          int spr_intScratch1e2;spr_intScratch1e2=0;chck_accs0(_preAllocBuf,spr_intScratch1e2,484)
+   _preAllocBuf._array[spr_intScratch1e2]='\0';
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,init);
    
@@ -1222,11 +1222,11 @@ String_32::String_32(){
    char* stackStartPtr=list->_stackStartPtr;
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch1d9;spr_intScratch1d9=0;chck_accs0(_preAllocBuf,spr_intScratch1d9,475)
-   _preAllocBuf._array[spr_intScratch1d9]='\0';
-   SPRStackArrayConcrete<char,2> spr_StringScratch1db;strcpy(spr_StringScratch1db._array,"");
+          int spr_intScratch1e4;spr_intScratch1e4=0;chck_accs0(_preAllocBuf,spr_intScratch1e4,486)
+   _preAllocBuf._array[spr_intScratch1e4]='\0';
+   SPRStackArrayConcrete<char,2> spr_StringScratch1e6;strcpy(spr_StringScratch1e6._array,"");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   this->append(stackStartPtr,spr_StringScratch1db);
+   this->append(stackStartPtr,spr_StringScratch1e6);
    
    
 } //End Of Method
@@ -1248,9 +1248,9 @@ int String_32::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_32> > sp
    int ausgStelle;ausgStelle=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    int l;l=this->length(stackStartPtr);
-          int spr_intScratch1dc;spr_intScratch1dc=0;chck_accs_p0(spalten,spr_intScratch1dc,478)
+          int spr_intScratch1e7;spr_intScratch1e7=0;chck_accs_p0(spalten,spr_intScratch1e7,489)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   spalten._theObject->_array[spr_intScratch1dc].clear(stackStartPtr);
+   spalten._theObject->_array[spr_intScratch1e7].clear(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while((ausgStelle<spalten._theObject->_sz)&&(stelle<this->length(stackStartPtr))){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1258,18 +1258,18 @@ int String_32::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_32> > sp
       if(z==trenner){
          ausgStelle++;
          if(ausgStelle<spalten._theObject->_sz){
-                   int spr_intScratch1de;spr_intScratch1de=ausgStelle;chck_accs_p0(spalten,spr_intScratch1de,480)
+                   int spr_intScratch1e9;spr_intScratch1e9=ausgStelle;chck_accs_p0(spalten,spr_intScratch1e9,491)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            spalten._theObject->_array[spr_intScratch1de].clear(stackStartPtr);
+            spalten._theObject->_array[spr_intScratch1e9].clear(stackStartPtr);
             
          }
          
       }
       else
       {
-             int spr_intScratch1e0;spr_intScratch1e0=ausgStelle;chck_accs_p0(spalten,spr_intScratch1e0,482)
+             int spr_intScratch1eb;spr_intScratch1eb=ausgStelle;chck_accs_p0(spalten,spr_intScratch1eb,493)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         spalten._theObject->_array[spr_intScratch1e0].append(stackStartPtr,z);
+         spalten._theObject->_array[spr_intScratch1eb].append(stackStartPtr,z);
          }
       stelle++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1328,10 +1328,10 @@ int String_32::compare(char* stackStartPtr,String_32& other){
 void String_32::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch1e2;spr_intScratch1e2=groesse;chck_accs_p0(buf,spr_intScratch1e2,484)
-   while(buf._theObject->_array[spr_intScratch1e2]!='\0'){
+          int spr_intScratch1ed;spr_intScratch1ed=groesse;chck_accs_p0(buf,spr_intScratch1ed,495)
+   while(buf._theObject->_array[spr_intScratch1ed]!='\0'){
       groesse++;
-      spr_intScratch1e2=groesse;chck_accs_p0(buf,spr_intScratch1e2,484)
+      spr_intScratch1ed=groesse;chck_accs_p0(buf,spr_intScratch1ed,495)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1340,9 +1340,9 @@ void String_32::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch1e4;spr_intScratch1e4=stelle;chck_accs_p0(buf,spr_intScratch1e4,486)
+             int spr_intScratch1ef;spr_intScratch1ef=stelle;chck_accs_p0(buf,spr_intScratch1ef,497)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch1e4]);
+      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch1ef]);
       stelle++;
       
    
@@ -1416,10 +1416,10 @@ void String_32::assign(char* stackStartPtr,SPRSmartPtr<String_32> anderer){
 void String_32::append(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch1e6;spr_intScratch1e6=groesse;chck_accs0(str,spr_intScratch1e6,488)
-   while(str._array[spr_intScratch1e6]!='\0'){
+          int spr_intScratch1f1;spr_intScratch1f1=groesse;chck_accs0(str,spr_intScratch1f1,499)
+   while(str._array[spr_intScratch1f1]!='\0'){
       groesse++;
-      spr_intScratch1e6=groesse;chck_accs0(str,spr_intScratch1e6,488)
+      spr_intScratch1f1=groesse;chck_accs0(str,spr_intScratch1f1,499)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1428,9 +1428,9 @@ void String_32::append(char* stackStartPtr,SPRStackArray<char>& str){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch1e8;spr_intScratch1e8=stelle;chck_accs0(str,spr_intScratch1e8,490)
+             int spr_intScratch1f3;spr_intScratch1f3=stelle;chck_accs0(str,spr_intScratch1f3,501)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch1e8]);
+      this->append(stackStartPtr,str._array[spr_intScratch1f3]);
       stelle++;
       
    
@@ -1445,9 +1445,9 @@ void String_32::append(char* stackStartPtr,SPRStackArray<char>& str,int pos,int 
    {//begin of SPR for statement
    int i;i=0;
    while(i<anzahl){
-             int spr_intScratch1ea;spr_intScratch1ea=i+pos;chck_accs0(str,spr_intScratch1ea,492)
+             int spr_intScratch1f5;spr_intScratch1f5=i+pos;chck_accs0(str,spr_intScratch1f5,503)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch1ea]);
+      this->append(stackStartPtr,str._array[spr_intScratch1f5]);
       i++;
       
    
@@ -1528,15 +1528,15 @@ void String_32::printNoLF(char* stackStartPtr){
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->ensureCapacity(stackStartPtr,_length+1);
    if(_extendedBuf==0U){
-             int spr_intScratch1ec;spr_intScratch1ec=_length;chck_accs0(_preAllocBuf,spr_intScratch1ec,494)
-      _preAllocBuf._array[spr_intScratch1ec]='\0';
+             int spr_intScratch1f7;spr_intScratch1f7=_length;chck_accs0(_preAllocBuf,spr_intScratch1f7,505)
+      _preAllocBuf._array[spr_intScratch1f7]='\0';
       ::printf("%s",_preAllocBuf._array);
       
    }
    else
    {
-          int spr_intScratch1ee;spr_intScratch1ee=_length;chck_accs_p0(_extendedBuf,spr_intScratch1ee,496)
-      _extendedBuf._theObject->_array[spr_intScratch1ee]='\0';
+          int spr_intScratch1f9;spr_intScratch1f9=_length;chck_accs_p0(_extendedBuf,spr_intScratch1f9,507)
+      _extendedBuf._theObject->_array[spr_intScratch1f9]='\0';
       ::printf("%s",_extendedBuf._theObject->_array);
       }
    
@@ -1546,10 +1546,10 @@ void String_32::printNoLF(char* stackStartPtr){
 int String_32::lengthOf(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int l;l=0;
-          int spr_intScratch1f0;spr_intScratch1f0=l;chck_accs0(str,spr_intScratch1f0,498)
-   while(str._array[spr_intScratch1f0]!='\0'){
+          int spr_intScratch1fb;spr_intScratch1fb=l;chck_accs0(str,spr_intScratch1fb,509)
+   while(str._array[spr_intScratch1fb]!='\0'){
       l=l+1;
-      spr_intScratch1f0=l;chck_accs0(str,spr_intScratch1f0,498)
+      spr_intScratch1fb=l;chck_accs0(str,spr_intScratch1fb,509)
       
    };
    return l;
@@ -1561,12 +1561,12 @@ void String_32::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    if(_extendedBuf!=0U){
-             int spr_intScratch1f2;spr_intScratch1f2=0;chck_accs_p0(_extendedBuf,spr_intScratch1f2,500)
-      _extendedBuf._theObject->_array[spr_intScratch1f2]='\0';
+             int spr_intScratch1fd;spr_intScratch1fd=0;chck_accs_p0(_extendedBuf,spr_intScratch1fd,511)
+      _extendedBuf._theObject->_array[spr_intScratch1fd]='\0';
       
    }
-          int spr_intScratch1f4;spr_intScratch1f4=0;chck_accs0(_preAllocBuf,spr_intScratch1f4,502)
-   _preAllocBuf._array[spr_intScratch1f4]='\0';
+          int spr_intScratch1ff;spr_intScratch1ff=0;chck_accs0(_preAllocBuf,spr_intScratch1ff,513)
+   _preAllocBuf._array[spr_intScratch1ff]='\0';
    
    
 } //End Of Method
@@ -1597,8 +1597,8 @@ void String_32::clearAndReclaimMemory(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    _extendedBuf=0U;
-          int spr_intScratch1f6;spr_intScratch1f6=0;chck_accs0(_preAllocBuf,spr_intScratch1f6,504)
-   _preAllocBuf._array[spr_intScratch1f6]='\0';
+          int spr_intScratch201;spr_intScratch201=0;chck_accs0(_preAllocBuf,spr_intScratch201,515)
+   _preAllocBuf._array[spr_intScratch201]='\0';
    
    
 } //End Of Method
@@ -1606,16 +1606,16 @@ void String_32::clearAndReclaimMemory(char* stackStartPtr){
 int String_32::compare(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int i;i=0;
-          int spr_intScratch1f8;spr_intScratch1f8=i;chck_accs0(str,spr_intScratch1f8,506)
-   while((i<str._sz)&&(str._array[spr_intScratch1f8]!='\0')&&(i<_length)){
+          int spr_intScratch203;spr_intScratch203=i;chck_accs0(str,spr_intScratch203,517)
+   while((i<str._sz)&&(str._array[spr_intScratch203]!='\0')&&(i<_length)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch1fa;spr_intScratch1fa=i;chck_accs0(str,spr_intScratch1fa,508)
-      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch1fa]){
+             int spr_intScratch205;spr_intScratch205=i;chck_accs0(str,spr_intScratch205,519)
+      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch205]){
          return 0;
          
       }
       i++;
-      spr_intScratch1f8=i;chck_accs0(str,spr_intScratch1f8,506)
+      spr_intScratch203=i;chck_accs0(str,spr_intScratch203,517)
       
    };
    if(i==_length){
@@ -1633,14 +1633,14 @@ void String_32::append(char* stackStartPtr,char c){
       if(32<=_length){
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          this->ensureCapacity(stackStartPtr,_length*2);
-                int spr_intScratch1fc;spr_intScratch1fc=_length;chck_accs_p0(_extendedBuf,spr_intScratch1fc,510)
-         _extendedBuf._theObject->_array[spr_intScratch1fc]=c;
+                int spr_intScratch207;spr_intScratch207=_length;chck_accs_p0(_extendedBuf,spr_intScratch207,521)
+         _extendedBuf._theObject->_array[spr_intScratch207]=c;
          
       }
       else
       {
-             int spr_intScratch1fe;spr_intScratch1fe=_length;chck_accs0(_preAllocBuf,spr_intScratch1fe,512)
-         _preAllocBuf._array[spr_intScratch1fe]=c;
+             int spr_intScratch209;spr_intScratch209=_length;chck_accs0(_preAllocBuf,spr_intScratch209,523)
+         _preAllocBuf._array[spr_intScratch209]=c;
          }
       _length++;
       
@@ -1652,8 +1652,8 @@ void String_32::append(char* stackStartPtr,char c){
          this->ensureCapacity(stackStartPtr,_length*2);
          
       }
-             int spr_intScratch200;spr_intScratch200=_length;chck_accs_p0(_extendedBuf,spr_intScratch200,514)
-      _extendedBuf._theObject->_array[spr_intScratch200]=c;
+             int spr_intScratch20b;spr_intScratch20b=_length;chck_accs_p0(_extendedBuf,spr_intScratch20b,525)
+      _extendedBuf._theObject->_array[spr_intScratch20b]=c;
       _length++;
       }
    
@@ -1663,14 +1663,14 @@ void String_32::append(char* stackStartPtr,char c){
 char String_32::getAt(char* stackStartPtr,int i){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch202;spr_intScratch202=i;chck_accs_p0(_extendedBuf,spr_intScratch202,516)
-      return _extendedBuf._theObject->_array[spr_intScratch202];
+             int spr_intScratch20d;spr_intScratch20d=i;chck_accs_p0(_extendedBuf,spr_intScratch20d,527)
+      return _extendedBuf._theObject->_array[spr_intScratch20d];
       
    }
    else
    {
-          int spr_intScratch204;spr_intScratch204=i;chck_accs0(_preAllocBuf,spr_intScratch204,518)
-      return _preAllocBuf._array[spr_intScratch204];
+          int spr_intScratch20f;spr_intScratch20f=i;chck_accs0(_preAllocBuf,spr_intScratch20f,529)
+      return _preAllocBuf._array[spr_intScratch20f];
       }
    return '0';
    
@@ -1680,14 +1680,14 @@ char String_32::getAt(char* stackStartPtr,int i){
 void String_32::setAt(char* stackStartPtr,int stelle,char zeichen){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch206;spr_intScratch206=stelle;chck_accs_p0(_extendedBuf,spr_intScratch206,520)
-      _extendedBuf._theObject->_array[spr_intScratch206]=zeichen;
+             int spr_intScratch211;spr_intScratch211=stelle;chck_accs_p0(_extendedBuf,spr_intScratch211,531)
+      _extendedBuf._theObject->_array[spr_intScratch211]=zeichen;
       
    }
    else
    {
-          int spr_intScratch208;spr_intScratch208=stelle;chck_accs0(_preAllocBuf,spr_intScratch208,522)
-      _preAllocBuf._array[spr_intScratch208]=zeichen;
+          int spr_intScratch213;spr_intScratch213=stelle;chck_accs0(_preAllocBuf,spr_intScratch213,533)
+      _preAllocBuf._array[spr_intScratch213]=zeichen;
       }
    
    
@@ -1785,10 +1785,10 @@ int String_32::equals(char* stackStartPtr,String_32& other){
 int String_32::equals(char* stackStartPtr,SPRStackArray<char>& other){
    char SPR_stack_dummy_var;
    int lother;lother=0;
-          int spr_intScratch20a;spr_intScratch20a=lother;chck_accs0(other,spr_intScratch20a,524)
-   while((lother<other._sz)&&(other._array[spr_intScratch20a]!='\0')){
+          int spr_intScratch215;spr_intScratch215=lother;chck_accs0(other,spr_intScratch215,535)
+   while((lother<other._sz)&&(other._array[spr_intScratch215]!='\0')){
       lother++;
-      spr_intScratch20a=lother;chck_accs0(other,spr_intScratch20a,524)
+      spr_intScratch215=lother;chck_accs0(other,spr_intScratch215,535)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1800,8 +1800,8 @@ int String_32::equals(char* stackStartPtr,SPRStackArray<char>& other){
    int i;i=0;
    while(i<lother){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch20c;spr_intScratch20c=i;chck_accs0(other,spr_intScratch20c,526)
-      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch20c]){
+             int spr_intScratch217;spr_intScratch217=i;chck_accs0(other,spr_intScratch217,537)
+      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch217]){
          return 0;
          
       }
@@ -1846,8 +1846,8 @@ void String_32::append(char* stackStartPtr,int x){
 void String_32::appendHexOctet(char* stackStartPtr,int x){
    char SPR_stack_dummy_var;
    SPRStackArrayConcrete<char,16> buf;
-          int spr_intScratch20e;spr_intScratch20e=0;chck_accs0(buf,spr_intScratch20e,528)
-   buf._array[spr_intScratch20e]='\0';
+          int spr_intScratch219;spr_intScratch219=0;chck_accs0(buf,spr_intScratch219,539)
+   buf._array[spr_intScratch219]='\0';
     snprintf(buf._array,16,"%.2x",x); 
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,buf);
@@ -1876,8 +1876,8 @@ void String_32::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    int szm1;szm1=feld._sz-1;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(szm1<this->length(stackStartPtr)){
-             int spr_intScratch210;spr_intScratch210=0;chck_accs0(feld,spr_intScratch210,530)
-      feld._array[spr_intScratch210]='\0';
+             int spr_intScratch21b;spr_intScratch21b=0;chck_accs0(feld,spr_intScratch21b,541)
+      feld._array[spr_intScratch21b]='\0';
       return ;
       
    }
@@ -1885,17 +1885,17 @@ void String_32::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    {//begin of SPR for statement
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while(i<this->length(stackStartPtr)){
-             int spr_intScratch212;spr_intScratch212=i;chck_accs0(feld,spr_intScratch212,532)
+             int spr_intScratch21d;spr_intScratch21d=i;chck_accs0(feld,spr_intScratch21d,543)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      feld._array[spr_intScratch212]=this->getAt(stackStartPtr,i);
+      feld._array[spr_intScratch21d]=this->getAt(stackStartPtr,i);
       i++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       
    
    }
    }//end of SPR for statement
-          int spr_intScratch214;spr_intScratch214=i;chck_accs0(feld,spr_intScratch214,534)
-   feld._array[spr_intScratch214]='\0';
+          int spr_intScratch21f;spr_intScratch21f=i;chck_accs0(feld,spr_intScratch21f,545)
+   feld._array[spr_intScratch21f]='\0';
    
    
 } //End Of Method
@@ -2085,10 +2085,10 @@ void String_32::deEscape(char* stackStartPtr,String_32& deescaped,char escape){
 int String_32::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    char SPR_stack_dummy_var;
    int j;j=0;
-          int spr_intScratch216;spr_intScratch216=j;chck_accs0(end,spr_intScratch216,536)
-   while((end._array[spr_intScratch216]!='\0')&&(j<end._sz)){
+          int spr_intScratch221;spr_intScratch221=j;chck_accs0(end,spr_intScratch221,547)
+   while((end._array[spr_intScratch221]!='\0')&&(j<end._sz)){
       j++;
-      spr_intScratch216=j;chck_accs0(end,spr_intScratch216,536)
+      spr_intScratch221=j;chck_accs0(end,spr_intScratch221,547)
       
    };
    if(j<=0){
@@ -2105,8 +2105,8 @@ int String_32::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    while((i>=0)&&(j>=0)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       char c;c=this->getAt(stackStartPtr,i);
-             int spr_intScratch218;spr_intScratch218=j;chck_accs0(end,spr_intScratch218,538)
-      if(c!=end._array[spr_intScratch218]){
+             int spr_intScratch223;spr_intScratch223=j;chck_accs0(end,spr_intScratch223,549)
+      if(c!=end._array[spr_intScratch223]){
          return 0;
          
       }
@@ -2166,16 +2166,16 @@ int String_32::startsWith(char* stackStartPtr,SPRStackArray<char>& buf){
       return 0;
       
    }
-          int spr_intScratch21a;spr_intScratch21a=i;chck_accs0(buf,spr_intScratch21a,540)
-   while((i<l)&&(buf._array[spr_intScratch21a]!='\0')){
+          int spr_intScratch225;spr_intScratch225=i;chck_accs0(buf,spr_intScratch225,551)
+   while((i<l)&&(buf._array[spr_intScratch225]!='\0')){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch21c;spr_intScratch21c=i;chck_accs0(buf,spr_intScratch21c,542)
-      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch21c]){
+             int spr_intScratch227;spr_intScratch227=i;chck_accs0(buf,spr_intScratch227,553)
+      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch227]){
          return 0;
          
       }
       i++;
-      spr_intScratch21a=i;chck_accs0(buf,spr_intScratch21a,540)
+      spr_intScratch225=i;chck_accs0(buf,spr_intScratch225,551)
       
    };
    return 1;
@@ -2281,23 +2281,23 @@ void String_32::wandleUmlaute(char* stackStartPtr,String_32& ausgabe){
       char zeichen;zeichen=this->getAt(stackStartPtr,i);
       switch(((int)zeichen)){
          case 0xE4:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch21e;strcpy(spr_StringScratch21e._array,"ae");
+            SPRStackArrayConcrete<char,4> spr_StringScratch229;strcpy(spr_StringScratch229._array,"ae");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch21e);
+            ausgabe.append(stackStartPtr,spr_StringScratch229);
             
          };break;
          
          case 0xFC:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch21f;strcpy(spr_StringScratch21f._array,"ue");
+            SPRStackArrayConcrete<char,4> spr_StringScratch22a;strcpy(spr_StringScratch22a._array,"ue");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch21f);
+            ausgabe.append(stackStartPtr,spr_StringScratch22a);
             
          };break;
          
          case 0xF6:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch220;strcpy(spr_StringScratch220._array,"oe");
+            SPRStackArrayConcrete<char,4> spr_StringScratch22b;strcpy(spr_StringScratch22b._array,"oe");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch220);
+            ausgabe.append(stackStartPtr,spr_StringScratch22b);
             
          };break;
          
@@ -2321,18 +2321,18 @@ void String_32::ensureCapacity(char* stackStartPtr,int minCapacity){
    char SPR_stack_dummy_var;
    if(32<minCapacity){
       if(_extendedBuf==0U){
-         int spr_intScratch221;
-         spr_intScratch221=minCapacity*2;
-         if(spr_intScratch221<0)throw "invalid size requested for heap allocation";
-         _extendedBuf=new(spr_intScratch221) SPRArray<char>(spr_intScratch221)
+         int spr_intScratch22c;
+         spr_intScratch22c=minCapacity*2;
+         if(spr_intScratch22c<0)throw "invalid size requested for heap allocation";
+         _extendedBuf=new(spr_intScratch22c) SPRArray<char>(spr_intScratch22c)
          ;
          int i;
          {//begin of SPR for statement
          i=0;
          while(i<_length){
-                   int spr_intScratch222;spr_intScratch222=i;chck_accs_p0(_extendedBuf,spr_intScratch222,548)
-                   int spr_intScratch224;spr_intScratch224=i;chck_accs0(_preAllocBuf,spr_intScratch224,550)
-            _extendedBuf._theObject->_array[spr_intScratch222]=_preAllocBuf._array[spr_intScratch224];
+                   int spr_intScratch22d;spr_intScratch22d=i;chck_accs_p0(_extendedBuf,spr_intScratch22d,559)
+                   int spr_intScratch22f;spr_intScratch22f=i;chck_accs0(_preAllocBuf,spr_intScratch22f,561)
+            _extendedBuf._theObject->_array[spr_intScratch22d]=_preAllocBuf._array[spr_intScratch22f];
             i++;
             
          
@@ -2343,18 +2343,18 @@ void String_32::ensureCapacity(char* stackStartPtr,int minCapacity){
       else
       {
       if(_extendedBuf._theObject->_sz<minCapacity){
-            int spr_intScratch226;
-            spr_intScratch226=minCapacity*2;
-            if(spr_intScratch226<0)throw "invalid size requested for heap allocation";
-            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch226) SPRArray<char>(spr_intScratch226)
+            int spr_intScratch231;
+            spr_intScratch231=minCapacity*2;
+            if(spr_intScratch231<0)throw "invalid size requested for heap allocation";
+            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch231) SPRArray<char>(spr_intScratch231)
             ;
             int i;
             {//begin of SPR for statement
             i=0;
             while(i<_length){
-                      int spr_intScratch227;spr_intScratch227=i;chck_accs_p0(newBuf,spr_intScratch227,553)
-                      int spr_intScratch229;spr_intScratch229=i;chck_accs_p0(_extendedBuf,spr_intScratch229,555)
-               newBuf._theObject->_array[spr_intScratch227]=_extendedBuf._theObject->_array[spr_intScratch229];
+                      int spr_intScratch232;spr_intScratch232=i;chck_accs_p0(newBuf,spr_intScratch232,564)
+                      int spr_intScratch234;spr_intScratch234=i;chck_accs_p0(_extendedBuf,spr_intScratch234,566)
+               newBuf._theObject->_array[spr_intScratch232]=_extendedBuf._theObject->_array[spr_intScratch234];
                i++;
                
             
@@ -2403,8 +2403,8 @@ void Assigner_String_32::assign(char* stackStartPtr,String_32& s1,String_32& s2)
 String_64::String_64(char* stackStartPtr,SPRStackArray<char>& init){
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch22b;spr_intScratch22b=0;chck_accs0(_preAllocBuf,spr_intScratch22b,557)
-   _preAllocBuf._array[spr_intScratch22b]='\0';
+          int spr_intScratch236;spr_intScratch236=0;chck_accs0(_preAllocBuf,spr_intScratch236,568)
+   _preAllocBuf._array[spr_intScratch236]='\0';
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,init);
    
@@ -2422,11 +2422,11 @@ String_64::String_64(){
    char* stackStartPtr=list->_stackStartPtr;
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch22d;spr_intScratch22d=0;chck_accs0(_preAllocBuf,spr_intScratch22d,559)
-   _preAllocBuf._array[spr_intScratch22d]='\0';
-   SPRStackArrayConcrete<char,2> spr_StringScratch22f;strcpy(spr_StringScratch22f._array,"");
+          int spr_intScratch238;spr_intScratch238=0;chck_accs0(_preAllocBuf,spr_intScratch238,570)
+   _preAllocBuf._array[spr_intScratch238]='\0';
+   SPRStackArrayConcrete<char,2> spr_StringScratch23a;strcpy(spr_StringScratch23a._array,"");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   this->append(stackStartPtr,spr_StringScratch22f);
+   this->append(stackStartPtr,spr_StringScratch23a);
    
    
 } //End Of Method
@@ -2448,9 +2448,9 @@ int String_64::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_64> > sp
    int ausgStelle;ausgStelle=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    int l;l=this->length(stackStartPtr);
-          int spr_intScratch230;spr_intScratch230=0;chck_accs_p0(spalten,spr_intScratch230,562)
+          int spr_intScratch23b;spr_intScratch23b=0;chck_accs_p0(spalten,spr_intScratch23b,573)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   spalten._theObject->_array[spr_intScratch230].clear(stackStartPtr);
+   spalten._theObject->_array[spr_intScratch23b].clear(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while((ausgStelle<spalten._theObject->_sz)&&(stelle<this->length(stackStartPtr))){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -2458,18 +2458,18 @@ int String_64::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_64> > sp
       if(z==trenner){
          ausgStelle++;
          if(ausgStelle<spalten._theObject->_sz){
-                   int spr_intScratch232;spr_intScratch232=ausgStelle;chck_accs_p0(spalten,spr_intScratch232,564)
+                   int spr_intScratch23d;spr_intScratch23d=ausgStelle;chck_accs_p0(spalten,spr_intScratch23d,575)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            spalten._theObject->_array[spr_intScratch232].clear(stackStartPtr);
+            spalten._theObject->_array[spr_intScratch23d].clear(stackStartPtr);
             
          }
          
       }
       else
       {
-             int spr_intScratch234;spr_intScratch234=ausgStelle;chck_accs_p0(spalten,spr_intScratch234,566)
+             int spr_intScratch23f;spr_intScratch23f=ausgStelle;chck_accs_p0(spalten,spr_intScratch23f,577)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         spalten._theObject->_array[spr_intScratch234].append(stackStartPtr,z);
+         spalten._theObject->_array[spr_intScratch23f].append(stackStartPtr,z);
          }
       stelle++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -2528,10 +2528,10 @@ int String_64::compare(char* stackStartPtr,String_64& other){
 void String_64::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch236;spr_intScratch236=groesse;chck_accs_p0(buf,spr_intScratch236,568)
-   while(buf._theObject->_array[spr_intScratch236]!='\0'){
+          int spr_intScratch241;spr_intScratch241=groesse;chck_accs_p0(buf,spr_intScratch241,579)
+   while(buf._theObject->_array[spr_intScratch241]!='\0'){
       groesse++;
-      spr_intScratch236=groesse;chck_accs_p0(buf,spr_intScratch236,568)
+      spr_intScratch241=groesse;chck_accs_p0(buf,spr_intScratch241,579)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -2540,9 +2540,9 @@ void String_64::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch238;spr_intScratch238=stelle;chck_accs_p0(buf,spr_intScratch238,570)
+             int spr_intScratch243;spr_intScratch243=stelle;chck_accs_p0(buf,spr_intScratch243,581)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch238]);
+      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch243]);
       stelle++;
       
    
@@ -2616,10 +2616,10 @@ void String_64::assign(char* stackStartPtr,SPRSmartPtr<String_64> anderer){
 void String_64::append(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch23a;spr_intScratch23a=groesse;chck_accs0(str,spr_intScratch23a,572)
-   while(str._array[spr_intScratch23a]!='\0'){
+          int spr_intScratch245;spr_intScratch245=groesse;chck_accs0(str,spr_intScratch245,583)
+   while(str._array[spr_intScratch245]!='\0'){
       groesse++;
-      spr_intScratch23a=groesse;chck_accs0(str,spr_intScratch23a,572)
+      spr_intScratch245=groesse;chck_accs0(str,spr_intScratch245,583)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -2628,9 +2628,9 @@ void String_64::append(char* stackStartPtr,SPRStackArray<char>& str){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch23c;spr_intScratch23c=stelle;chck_accs0(str,spr_intScratch23c,574)
+             int spr_intScratch247;spr_intScratch247=stelle;chck_accs0(str,spr_intScratch247,585)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch23c]);
+      this->append(stackStartPtr,str._array[spr_intScratch247]);
       stelle++;
       
    
@@ -2645,9 +2645,9 @@ void String_64::append(char* stackStartPtr,SPRStackArray<char>& str,int pos,int 
    {//begin of SPR for statement
    int i;i=0;
    while(i<anzahl){
-             int spr_intScratch23e;spr_intScratch23e=i+pos;chck_accs0(str,spr_intScratch23e,576)
+             int spr_intScratch249;spr_intScratch249=i+pos;chck_accs0(str,spr_intScratch249,587)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch23e]);
+      this->append(stackStartPtr,str._array[spr_intScratch249]);
       i++;
       
    
@@ -2728,15 +2728,15 @@ void String_64::printNoLF(char* stackStartPtr){
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->ensureCapacity(stackStartPtr,_length+1);
    if(_extendedBuf==0U){
-             int spr_intScratch240;spr_intScratch240=_length;chck_accs0(_preAllocBuf,spr_intScratch240,578)
-      _preAllocBuf._array[spr_intScratch240]='\0';
+             int spr_intScratch24b;spr_intScratch24b=_length;chck_accs0(_preAllocBuf,spr_intScratch24b,589)
+      _preAllocBuf._array[spr_intScratch24b]='\0';
       ::printf("%s",_preAllocBuf._array);
       
    }
    else
    {
-          int spr_intScratch242;spr_intScratch242=_length;chck_accs_p0(_extendedBuf,spr_intScratch242,580)
-      _extendedBuf._theObject->_array[spr_intScratch242]='\0';
+          int spr_intScratch24d;spr_intScratch24d=_length;chck_accs_p0(_extendedBuf,spr_intScratch24d,591)
+      _extendedBuf._theObject->_array[spr_intScratch24d]='\0';
       ::printf("%s",_extendedBuf._theObject->_array);
       }
    
@@ -2746,10 +2746,10 @@ void String_64::printNoLF(char* stackStartPtr){
 int String_64::lengthOf(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int l;l=0;
-          int spr_intScratch244;spr_intScratch244=l;chck_accs0(str,spr_intScratch244,582)
-   while(str._array[spr_intScratch244]!='\0'){
+          int spr_intScratch24f;spr_intScratch24f=l;chck_accs0(str,spr_intScratch24f,593)
+   while(str._array[spr_intScratch24f]!='\0'){
       l=l+1;
-      spr_intScratch244=l;chck_accs0(str,spr_intScratch244,582)
+      spr_intScratch24f=l;chck_accs0(str,spr_intScratch24f,593)
       
    };
    return l;
@@ -2761,12 +2761,12 @@ void String_64::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    if(_extendedBuf!=0U){
-             int spr_intScratch246;spr_intScratch246=0;chck_accs_p0(_extendedBuf,spr_intScratch246,584)
-      _extendedBuf._theObject->_array[spr_intScratch246]='\0';
+             int spr_intScratch251;spr_intScratch251=0;chck_accs_p0(_extendedBuf,spr_intScratch251,595)
+      _extendedBuf._theObject->_array[spr_intScratch251]='\0';
       
    }
-          int spr_intScratch248;spr_intScratch248=0;chck_accs0(_preAllocBuf,spr_intScratch248,586)
-   _preAllocBuf._array[spr_intScratch248]='\0';
+          int spr_intScratch253;spr_intScratch253=0;chck_accs0(_preAllocBuf,spr_intScratch253,597)
+   _preAllocBuf._array[spr_intScratch253]='\0';
    
    
 } //End Of Method
@@ -2797,8 +2797,8 @@ void String_64::clearAndReclaimMemory(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    _extendedBuf=0U;
-          int spr_intScratch24a;spr_intScratch24a=0;chck_accs0(_preAllocBuf,spr_intScratch24a,588)
-   _preAllocBuf._array[spr_intScratch24a]='\0';
+          int spr_intScratch255;spr_intScratch255=0;chck_accs0(_preAllocBuf,spr_intScratch255,599)
+   _preAllocBuf._array[spr_intScratch255]='\0';
    
    
 } //End Of Method
@@ -2806,16 +2806,16 @@ void String_64::clearAndReclaimMemory(char* stackStartPtr){
 int String_64::compare(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int i;i=0;
-          int spr_intScratch24c;spr_intScratch24c=i;chck_accs0(str,spr_intScratch24c,590)
-   while((i<str._sz)&&(str._array[spr_intScratch24c]!='\0')&&(i<_length)){
+          int spr_intScratch257;spr_intScratch257=i;chck_accs0(str,spr_intScratch257,601)
+   while((i<str._sz)&&(str._array[spr_intScratch257]!='\0')&&(i<_length)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch24e;spr_intScratch24e=i;chck_accs0(str,spr_intScratch24e,592)
-      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch24e]){
+             int spr_intScratch259;spr_intScratch259=i;chck_accs0(str,spr_intScratch259,603)
+      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch259]){
          return 0;
          
       }
       i++;
-      spr_intScratch24c=i;chck_accs0(str,spr_intScratch24c,590)
+      spr_intScratch257=i;chck_accs0(str,spr_intScratch257,601)
       
    };
    if(i==_length){
@@ -2833,14 +2833,14 @@ void String_64::append(char* stackStartPtr,char c){
       if(64<=_length){
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          this->ensureCapacity(stackStartPtr,_length*2);
-                int spr_intScratch250;spr_intScratch250=_length;chck_accs_p0(_extendedBuf,spr_intScratch250,594)
-         _extendedBuf._theObject->_array[spr_intScratch250]=c;
+                int spr_intScratch25b;spr_intScratch25b=_length;chck_accs_p0(_extendedBuf,spr_intScratch25b,605)
+         _extendedBuf._theObject->_array[spr_intScratch25b]=c;
          
       }
       else
       {
-             int spr_intScratch252;spr_intScratch252=_length;chck_accs0(_preAllocBuf,spr_intScratch252,596)
-         _preAllocBuf._array[spr_intScratch252]=c;
+             int spr_intScratch25d;spr_intScratch25d=_length;chck_accs0(_preAllocBuf,spr_intScratch25d,607)
+         _preAllocBuf._array[spr_intScratch25d]=c;
          }
       _length++;
       
@@ -2852,8 +2852,8 @@ void String_64::append(char* stackStartPtr,char c){
          this->ensureCapacity(stackStartPtr,_length*2);
          
       }
-             int spr_intScratch254;spr_intScratch254=_length;chck_accs_p0(_extendedBuf,spr_intScratch254,598)
-      _extendedBuf._theObject->_array[spr_intScratch254]=c;
+             int spr_intScratch25f;spr_intScratch25f=_length;chck_accs_p0(_extendedBuf,spr_intScratch25f,609)
+      _extendedBuf._theObject->_array[spr_intScratch25f]=c;
       _length++;
       }
    
@@ -2863,14 +2863,14 @@ void String_64::append(char* stackStartPtr,char c){
 char String_64::getAt(char* stackStartPtr,int i){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch256;spr_intScratch256=i;chck_accs_p0(_extendedBuf,spr_intScratch256,600)
-      return _extendedBuf._theObject->_array[spr_intScratch256];
+             int spr_intScratch261;spr_intScratch261=i;chck_accs_p0(_extendedBuf,spr_intScratch261,611)
+      return _extendedBuf._theObject->_array[spr_intScratch261];
       
    }
    else
    {
-          int spr_intScratch258;spr_intScratch258=i;chck_accs0(_preAllocBuf,spr_intScratch258,602)
-      return _preAllocBuf._array[spr_intScratch258];
+          int spr_intScratch263;spr_intScratch263=i;chck_accs0(_preAllocBuf,spr_intScratch263,613)
+      return _preAllocBuf._array[spr_intScratch263];
       }
    return '0';
    
@@ -2880,14 +2880,14 @@ char String_64::getAt(char* stackStartPtr,int i){
 void String_64::setAt(char* stackStartPtr,int stelle,char zeichen){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch25a;spr_intScratch25a=stelle;chck_accs_p0(_extendedBuf,spr_intScratch25a,604)
-      _extendedBuf._theObject->_array[spr_intScratch25a]=zeichen;
+             int spr_intScratch265;spr_intScratch265=stelle;chck_accs_p0(_extendedBuf,spr_intScratch265,615)
+      _extendedBuf._theObject->_array[spr_intScratch265]=zeichen;
       
    }
    else
    {
-          int spr_intScratch25c;spr_intScratch25c=stelle;chck_accs0(_preAllocBuf,spr_intScratch25c,606)
-      _preAllocBuf._array[spr_intScratch25c]=zeichen;
+          int spr_intScratch267;spr_intScratch267=stelle;chck_accs0(_preAllocBuf,spr_intScratch267,617)
+      _preAllocBuf._array[spr_intScratch267]=zeichen;
       }
    
    
@@ -2985,10 +2985,10 @@ int String_64::equals(char* stackStartPtr,String_64& other){
 int String_64::equals(char* stackStartPtr,SPRStackArray<char>& other){
    char SPR_stack_dummy_var;
    int lother;lother=0;
-          int spr_intScratch25e;spr_intScratch25e=lother;chck_accs0(other,spr_intScratch25e,608)
-   while((lother<other._sz)&&(other._array[spr_intScratch25e]!='\0')){
+          int spr_intScratch269;spr_intScratch269=lother;chck_accs0(other,spr_intScratch269,619)
+   while((lother<other._sz)&&(other._array[spr_intScratch269]!='\0')){
       lother++;
-      spr_intScratch25e=lother;chck_accs0(other,spr_intScratch25e,608)
+      spr_intScratch269=lother;chck_accs0(other,spr_intScratch269,619)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -3000,8 +3000,8 @@ int String_64::equals(char* stackStartPtr,SPRStackArray<char>& other){
    int i;i=0;
    while(i<lother){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch260;spr_intScratch260=i;chck_accs0(other,spr_intScratch260,610)
-      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch260]){
+             int spr_intScratch26b;spr_intScratch26b=i;chck_accs0(other,spr_intScratch26b,621)
+      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch26b]){
          return 0;
          
       }
@@ -3046,8 +3046,8 @@ void String_64::append(char* stackStartPtr,int x){
 void String_64::appendHexOctet(char* stackStartPtr,int x){
    char SPR_stack_dummy_var;
    SPRStackArrayConcrete<char,16> buf;
-          int spr_intScratch262;spr_intScratch262=0;chck_accs0(buf,spr_intScratch262,612)
-   buf._array[spr_intScratch262]='\0';
+          int spr_intScratch26d;spr_intScratch26d=0;chck_accs0(buf,spr_intScratch26d,623)
+   buf._array[spr_intScratch26d]='\0';
     snprintf(buf._array,16,"%.2x",x); 
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,buf);
@@ -3076,8 +3076,8 @@ void String_64::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    int szm1;szm1=feld._sz-1;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(szm1<this->length(stackStartPtr)){
-             int spr_intScratch264;spr_intScratch264=0;chck_accs0(feld,spr_intScratch264,614)
-      feld._array[spr_intScratch264]='\0';
+             int spr_intScratch26f;spr_intScratch26f=0;chck_accs0(feld,spr_intScratch26f,625)
+      feld._array[spr_intScratch26f]='\0';
       return ;
       
    }
@@ -3085,17 +3085,17 @@ void String_64::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    {//begin of SPR for statement
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while(i<this->length(stackStartPtr)){
-             int spr_intScratch266;spr_intScratch266=i;chck_accs0(feld,spr_intScratch266,616)
+             int spr_intScratch271;spr_intScratch271=i;chck_accs0(feld,spr_intScratch271,627)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      feld._array[spr_intScratch266]=this->getAt(stackStartPtr,i);
+      feld._array[spr_intScratch271]=this->getAt(stackStartPtr,i);
       i++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       
    
    }
    }//end of SPR for statement
-          int spr_intScratch268;spr_intScratch268=i;chck_accs0(feld,spr_intScratch268,618)
-   feld._array[spr_intScratch268]='\0';
+          int spr_intScratch273;spr_intScratch273=i;chck_accs0(feld,spr_intScratch273,629)
+   feld._array[spr_intScratch273]='\0';
    
    
 } //End Of Method
@@ -3285,10 +3285,10 @@ void String_64::deEscape(char* stackStartPtr,String_64& deescaped,char escape){
 int String_64::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    char SPR_stack_dummy_var;
    int j;j=0;
-          int spr_intScratch26a;spr_intScratch26a=j;chck_accs0(end,spr_intScratch26a,620)
-   while((end._array[spr_intScratch26a]!='\0')&&(j<end._sz)){
+          int spr_intScratch275;spr_intScratch275=j;chck_accs0(end,spr_intScratch275,631)
+   while((end._array[spr_intScratch275]!='\0')&&(j<end._sz)){
       j++;
-      spr_intScratch26a=j;chck_accs0(end,spr_intScratch26a,620)
+      spr_intScratch275=j;chck_accs0(end,spr_intScratch275,631)
       
    };
    if(j<=0){
@@ -3305,8 +3305,8 @@ int String_64::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    while((i>=0)&&(j>=0)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       char c;c=this->getAt(stackStartPtr,i);
-             int spr_intScratch26c;spr_intScratch26c=j;chck_accs0(end,spr_intScratch26c,622)
-      if(c!=end._array[spr_intScratch26c]){
+             int spr_intScratch277;spr_intScratch277=j;chck_accs0(end,spr_intScratch277,633)
+      if(c!=end._array[spr_intScratch277]){
          return 0;
          
       }
@@ -3366,16 +3366,16 @@ int String_64::startsWith(char* stackStartPtr,SPRStackArray<char>& buf){
       return 0;
       
    }
-          int spr_intScratch26e;spr_intScratch26e=i;chck_accs0(buf,spr_intScratch26e,624)
-   while((i<l)&&(buf._array[spr_intScratch26e]!='\0')){
+          int spr_intScratch279;spr_intScratch279=i;chck_accs0(buf,spr_intScratch279,635)
+   while((i<l)&&(buf._array[spr_intScratch279]!='\0')){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch270;spr_intScratch270=i;chck_accs0(buf,spr_intScratch270,626)
-      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch270]){
+             int spr_intScratch27b;spr_intScratch27b=i;chck_accs0(buf,spr_intScratch27b,637)
+      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch27b]){
          return 0;
          
       }
       i++;
-      spr_intScratch26e=i;chck_accs0(buf,spr_intScratch26e,624)
+      spr_intScratch279=i;chck_accs0(buf,spr_intScratch279,635)
       
    };
    return 1;
@@ -3481,23 +3481,23 @@ void String_64::wandleUmlaute(char* stackStartPtr,String_64& ausgabe){
       char zeichen;zeichen=this->getAt(stackStartPtr,i);
       switch(((int)zeichen)){
          case 0xE4:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch272;strcpy(spr_StringScratch272._array,"ae");
+            SPRStackArrayConcrete<char,4> spr_StringScratch27d;strcpy(spr_StringScratch27d._array,"ae");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch272);
+            ausgabe.append(stackStartPtr,spr_StringScratch27d);
             
          };break;
          
          case 0xFC:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch273;strcpy(spr_StringScratch273._array,"ue");
+            SPRStackArrayConcrete<char,4> spr_StringScratch27e;strcpy(spr_StringScratch27e._array,"ue");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch273);
+            ausgabe.append(stackStartPtr,spr_StringScratch27e);
             
          };break;
          
          case 0xF6:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch274;strcpy(spr_StringScratch274._array,"oe");
+            SPRStackArrayConcrete<char,4> spr_StringScratch27f;strcpy(spr_StringScratch27f._array,"oe");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch274);
+            ausgabe.append(stackStartPtr,spr_StringScratch27f);
             
          };break;
          
@@ -3521,18 +3521,18 @@ void String_64::ensureCapacity(char* stackStartPtr,int minCapacity){
    char SPR_stack_dummy_var;
    if(64<minCapacity){
       if(_extendedBuf==0U){
-         int spr_intScratch275;
-         spr_intScratch275=minCapacity*2;
-         if(spr_intScratch275<0)throw "invalid size requested for heap allocation";
-         _extendedBuf=new(spr_intScratch275) SPRArray<char>(spr_intScratch275)
+         int spr_intScratch280;
+         spr_intScratch280=minCapacity*2;
+         if(spr_intScratch280<0)throw "invalid size requested for heap allocation";
+         _extendedBuf=new(spr_intScratch280) SPRArray<char>(spr_intScratch280)
          ;
          int i;
          {//begin of SPR for statement
          i=0;
          while(i<_length){
-                   int spr_intScratch276;spr_intScratch276=i;chck_accs_p0(_extendedBuf,spr_intScratch276,632)
-                   int spr_intScratch278;spr_intScratch278=i;chck_accs0(_preAllocBuf,spr_intScratch278,634)
-            _extendedBuf._theObject->_array[spr_intScratch276]=_preAllocBuf._array[spr_intScratch278];
+                   int spr_intScratch281;spr_intScratch281=i;chck_accs_p0(_extendedBuf,spr_intScratch281,643)
+                   int spr_intScratch283;spr_intScratch283=i;chck_accs0(_preAllocBuf,spr_intScratch283,645)
+            _extendedBuf._theObject->_array[spr_intScratch281]=_preAllocBuf._array[spr_intScratch283];
             i++;
             
          
@@ -3543,18 +3543,18 @@ void String_64::ensureCapacity(char* stackStartPtr,int minCapacity){
       else
       {
       if(_extendedBuf._theObject->_sz<minCapacity){
-            int spr_intScratch27a;
-            spr_intScratch27a=minCapacity*2;
-            if(spr_intScratch27a<0)throw "invalid size requested for heap allocation";
-            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch27a) SPRArray<char>(spr_intScratch27a)
+            int spr_intScratch285;
+            spr_intScratch285=minCapacity*2;
+            if(spr_intScratch285<0)throw "invalid size requested for heap allocation";
+            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch285) SPRArray<char>(spr_intScratch285)
             ;
             int i;
             {//begin of SPR for statement
             i=0;
             while(i<_length){
-                      int spr_intScratch27b;spr_intScratch27b=i;chck_accs_p0(newBuf,spr_intScratch27b,637)
-                      int spr_intScratch27d;spr_intScratch27d=i;chck_accs_p0(_extendedBuf,spr_intScratch27d,639)
-               newBuf._theObject->_array[spr_intScratch27b]=_extendedBuf._theObject->_array[spr_intScratch27d];
+                      int spr_intScratch286;spr_intScratch286=i;chck_accs_p0(newBuf,spr_intScratch286,648)
+                      int spr_intScratch288;spr_intScratch288=i;chck_accs_p0(_extendedBuf,spr_intScratch288,650)
+               newBuf._theObject->_array[spr_intScratch286]=_extendedBuf._theObject->_array[spr_intScratch288];
                i++;
                
             
@@ -3603,8 +3603,8 @@ void Assigner_String_64::assign(char* stackStartPtr,String_64& s1,String_64& s2)
 String_128::String_128(char* stackStartPtr,SPRStackArray<char>& init){
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch27f;spr_intScratch27f=0;chck_accs0(_preAllocBuf,spr_intScratch27f,641)
-   _preAllocBuf._array[spr_intScratch27f]='\0';
+          int spr_intScratch28a;spr_intScratch28a=0;chck_accs0(_preAllocBuf,spr_intScratch28a,652)
+   _preAllocBuf._array[spr_intScratch28a]='\0';
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,init);
    
@@ -3622,11 +3622,11 @@ String_128::String_128(){
    char* stackStartPtr=list->_stackStartPtr;
    char SPR_stack_dummy_var;
    _length=0;
-          int spr_intScratch281;spr_intScratch281=0;chck_accs0(_preAllocBuf,spr_intScratch281,643)
-   _preAllocBuf._array[spr_intScratch281]='\0';
-   SPRStackArrayConcrete<char,2> spr_StringScratch283;strcpy(spr_StringScratch283._array,"");
+          int spr_intScratch28c;spr_intScratch28c=0;chck_accs0(_preAllocBuf,spr_intScratch28c,654)
+   _preAllocBuf._array[spr_intScratch28c]='\0';
+   SPRStackArrayConcrete<char,2> spr_StringScratch28e;strcpy(spr_StringScratch28e._array,"");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   this->append(stackStartPtr,spr_StringScratch283);
+   this->append(stackStartPtr,spr_StringScratch28e);
    
    
 } //End Of Method
@@ -3648,9 +3648,9 @@ int String_128::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_128> > 
    int ausgStelle;ausgStelle=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    int l;l=this->length(stackStartPtr);
-          int spr_intScratch284;spr_intScratch284=0;chck_accs_p0(spalten,spr_intScratch284,646)
+          int spr_intScratch28f;spr_intScratch28f=0;chck_accs_p0(spalten,spr_intScratch28f,657)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   spalten._theObject->_array[spr_intScratch284].clear(stackStartPtr);
+   spalten._theObject->_array[spr_intScratch28f].clear(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while((ausgStelle<spalten._theObject->_sz)&&(stelle<this->length(stackStartPtr))){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -3658,18 +3658,18 @@ int String_128::teileAuf(char* stackStartPtr,SPRSmartPtr<SPRArray<String_128> > 
       if(z==trenner){
          ausgStelle++;
          if(ausgStelle<spalten._theObject->_sz){
-                   int spr_intScratch286;spr_intScratch286=ausgStelle;chck_accs_p0(spalten,spr_intScratch286,648)
+                   int spr_intScratch291;spr_intScratch291=ausgStelle;chck_accs_p0(spalten,spr_intScratch291,659)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            spalten._theObject->_array[spr_intScratch286].clear(stackStartPtr);
+            spalten._theObject->_array[spr_intScratch291].clear(stackStartPtr);
             
          }
          
       }
       else
       {
-             int spr_intScratch288;spr_intScratch288=ausgStelle;chck_accs_p0(spalten,spr_intScratch288,650)
+             int spr_intScratch293;spr_intScratch293=ausgStelle;chck_accs_p0(spalten,spr_intScratch293,661)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         spalten._theObject->_array[spr_intScratch288].append(stackStartPtr,z);
+         spalten._theObject->_array[spr_intScratch293].append(stackStartPtr,z);
          }
       stelle++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -3728,10 +3728,10 @@ int String_128::compare(char* stackStartPtr,String_128& other){
 void String_128::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch28a;spr_intScratch28a=groesse;chck_accs_p0(buf,spr_intScratch28a,652)
-   while(buf._theObject->_array[spr_intScratch28a]!='\0'){
+          int spr_intScratch295;spr_intScratch295=groesse;chck_accs_p0(buf,spr_intScratch295,663)
+   while(buf._theObject->_array[spr_intScratch295]!='\0'){
       groesse++;
-      spr_intScratch28a=groesse;chck_accs_p0(buf,spr_intScratch28a,652)
+      spr_intScratch295=groesse;chck_accs_p0(buf,spr_intScratch295,663)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -3740,9 +3740,9 @@ void String_128::append(char* stackStartPtr,SPRSmartPtr<SPRArray<char> > buf){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch28c;spr_intScratch28c=stelle;chck_accs_p0(buf,spr_intScratch28c,654)
+             int spr_intScratch297;spr_intScratch297=stelle;chck_accs_p0(buf,spr_intScratch297,665)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch28c]);
+      this->append(stackStartPtr,buf._theObject->_array[spr_intScratch297]);
       stelle++;
       
    
@@ -3816,10 +3816,10 @@ void String_128::assign(char* stackStartPtr,SPRSmartPtr<String_128> anderer){
 void String_128::append(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int groesse;groesse=0;
-          int spr_intScratch28e;spr_intScratch28e=groesse;chck_accs0(str,spr_intScratch28e,656)
-   while(str._array[spr_intScratch28e]!='\0'){
+          int spr_intScratch299;spr_intScratch299=groesse;chck_accs0(str,spr_intScratch299,667)
+   while(str._array[spr_intScratch299]!='\0'){
       groesse++;
-      spr_intScratch28e=groesse;chck_accs0(str,spr_intScratch28e,656)
+      spr_intScratch299=groesse;chck_accs0(str,spr_intScratch299,667)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -3828,9 +3828,9 @@ void String_128::append(char* stackStartPtr,SPRStackArray<char>& str){
    {//begin of SPR for statement
    stelle=0;
    while(stelle<groesse){
-             int spr_intScratch290;spr_intScratch290=stelle;chck_accs0(str,spr_intScratch290,658)
+             int spr_intScratch29b;spr_intScratch29b=stelle;chck_accs0(str,spr_intScratch29b,669)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch290]);
+      this->append(stackStartPtr,str._array[spr_intScratch29b]);
       stelle++;
       
    
@@ -3845,9 +3845,9 @@ void String_128::append(char* stackStartPtr,SPRStackArray<char>& str,int pos,int
    {//begin of SPR for statement
    int i;i=0;
    while(i<anzahl){
-             int spr_intScratch292;spr_intScratch292=i+pos;chck_accs0(str,spr_intScratch292,660)
+             int spr_intScratch29d;spr_intScratch29d=i+pos;chck_accs0(str,spr_intScratch29d,671)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      this->append(stackStartPtr,str._array[spr_intScratch292]);
+      this->append(stackStartPtr,str._array[spr_intScratch29d]);
       i++;
       
    
@@ -3928,15 +3928,15 @@ void String_128::printNoLF(char* stackStartPtr){
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->ensureCapacity(stackStartPtr,_length+1);
    if(_extendedBuf==0U){
-             int spr_intScratch294;spr_intScratch294=_length;chck_accs0(_preAllocBuf,spr_intScratch294,662)
-      _preAllocBuf._array[spr_intScratch294]='\0';
+             int spr_intScratch29f;spr_intScratch29f=_length;chck_accs0(_preAllocBuf,spr_intScratch29f,673)
+      _preAllocBuf._array[spr_intScratch29f]='\0';
       ::printf("%s",_preAllocBuf._array);
       
    }
    else
    {
-          int spr_intScratch296;spr_intScratch296=_length;chck_accs_p0(_extendedBuf,spr_intScratch296,664)
-      _extendedBuf._theObject->_array[spr_intScratch296]='\0';
+          int spr_intScratch2a1;spr_intScratch2a1=_length;chck_accs_p0(_extendedBuf,spr_intScratch2a1,675)
+      _extendedBuf._theObject->_array[spr_intScratch2a1]='\0';
       ::printf("%s",_extendedBuf._theObject->_array);
       }
    
@@ -3946,10 +3946,10 @@ void String_128::printNoLF(char* stackStartPtr){
 int String_128::lengthOf(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int l;l=0;
-          int spr_intScratch298;spr_intScratch298=l;chck_accs0(str,spr_intScratch298,666)
-   while(str._array[spr_intScratch298]!='\0'){
+          int spr_intScratch2a3;spr_intScratch2a3=l;chck_accs0(str,spr_intScratch2a3,677)
+   while(str._array[spr_intScratch2a3]!='\0'){
       l=l+1;
-      spr_intScratch298=l;chck_accs0(str,spr_intScratch298,666)
+      spr_intScratch2a3=l;chck_accs0(str,spr_intScratch2a3,677)
       
    };
    return l;
@@ -3961,12 +3961,12 @@ void String_128::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    if(_extendedBuf!=0U){
-             int spr_intScratch29a;spr_intScratch29a=0;chck_accs_p0(_extendedBuf,spr_intScratch29a,668)
-      _extendedBuf._theObject->_array[spr_intScratch29a]='\0';
+             int spr_intScratch2a5;spr_intScratch2a5=0;chck_accs_p0(_extendedBuf,spr_intScratch2a5,679)
+      _extendedBuf._theObject->_array[spr_intScratch2a5]='\0';
       
    }
-          int spr_intScratch29c;spr_intScratch29c=0;chck_accs0(_preAllocBuf,spr_intScratch29c,670)
-   _preAllocBuf._array[spr_intScratch29c]='\0';
+          int spr_intScratch2a7;spr_intScratch2a7=0;chck_accs0(_preAllocBuf,spr_intScratch2a7,681)
+   _preAllocBuf._array[spr_intScratch2a7]='\0';
    
    
 } //End Of Method
@@ -3997,8 +3997,8 @@ void String_128::clearAndReclaimMemory(char* stackStartPtr){
    char SPR_stack_dummy_var;
    _length=0;
    _extendedBuf=0U;
-          int spr_intScratch29e;spr_intScratch29e=0;chck_accs0(_preAllocBuf,spr_intScratch29e,672)
-   _preAllocBuf._array[spr_intScratch29e]='\0';
+          int spr_intScratch2a9;spr_intScratch2a9=0;chck_accs0(_preAllocBuf,spr_intScratch2a9,683)
+   _preAllocBuf._array[spr_intScratch2a9]='\0';
    
    
 } //End Of Method
@@ -4006,16 +4006,16 @@ void String_128::clearAndReclaimMemory(char* stackStartPtr){
 int String_128::compare(char* stackStartPtr,SPRStackArray<char>& str){
    char SPR_stack_dummy_var;
    int i;i=0;
-          int spr_intScratch2a0;spr_intScratch2a0=i;chck_accs0(str,spr_intScratch2a0,674)
-   while((i<str._sz)&&(str._array[spr_intScratch2a0]!='\0')&&(i<_length)){
+          int spr_intScratch2ab;spr_intScratch2ab=i;chck_accs0(str,spr_intScratch2ab,685)
+   while((i<str._sz)&&(str._array[spr_intScratch2ab]!='\0')&&(i<_length)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch2a2;spr_intScratch2a2=i;chck_accs0(str,spr_intScratch2a2,676)
-      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch2a2]){
+             int spr_intScratch2ad;spr_intScratch2ad=i;chck_accs0(str,spr_intScratch2ad,687)
+      if(this->getAt(stackStartPtr,i)!=str._array[spr_intScratch2ad]){
          return 0;
          
       }
       i++;
-      spr_intScratch2a0=i;chck_accs0(str,spr_intScratch2a0,674)
+      spr_intScratch2ab=i;chck_accs0(str,spr_intScratch2ab,685)
       
    };
    if(i==_length){
@@ -4033,14 +4033,14 @@ void String_128::append(char* stackStartPtr,char c){
       if(128<=_length){
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          this->ensureCapacity(stackStartPtr,_length*2);
-                int spr_intScratch2a4;spr_intScratch2a4=_length;chck_accs_p0(_extendedBuf,spr_intScratch2a4,678)
-         _extendedBuf._theObject->_array[spr_intScratch2a4]=c;
+                int spr_intScratch2af;spr_intScratch2af=_length;chck_accs_p0(_extendedBuf,spr_intScratch2af,689)
+         _extendedBuf._theObject->_array[spr_intScratch2af]=c;
          
       }
       else
       {
-             int spr_intScratch2a6;spr_intScratch2a6=_length;chck_accs0(_preAllocBuf,spr_intScratch2a6,680)
-         _preAllocBuf._array[spr_intScratch2a6]=c;
+             int spr_intScratch2b1;spr_intScratch2b1=_length;chck_accs0(_preAllocBuf,spr_intScratch2b1,691)
+         _preAllocBuf._array[spr_intScratch2b1]=c;
          }
       _length++;
       
@@ -4052,8 +4052,8 @@ void String_128::append(char* stackStartPtr,char c){
          this->ensureCapacity(stackStartPtr,_length*2);
          
       }
-             int spr_intScratch2a8;spr_intScratch2a8=_length;chck_accs_p0(_extendedBuf,spr_intScratch2a8,682)
-      _extendedBuf._theObject->_array[spr_intScratch2a8]=c;
+             int spr_intScratch2b3;spr_intScratch2b3=_length;chck_accs_p0(_extendedBuf,spr_intScratch2b3,693)
+      _extendedBuf._theObject->_array[spr_intScratch2b3]=c;
       _length++;
       }
    
@@ -4063,14 +4063,14 @@ void String_128::append(char* stackStartPtr,char c){
 char String_128::getAt(char* stackStartPtr,int i){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch2aa;spr_intScratch2aa=i;chck_accs_p0(_extendedBuf,spr_intScratch2aa,684)
-      return _extendedBuf._theObject->_array[spr_intScratch2aa];
+             int spr_intScratch2b5;spr_intScratch2b5=i;chck_accs_p0(_extendedBuf,spr_intScratch2b5,695)
+      return _extendedBuf._theObject->_array[spr_intScratch2b5];
       
    }
    else
    {
-          int spr_intScratch2ac;spr_intScratch2ac=i;chck_accs0(_preAllocBuf,spr_intScratch2ac,686)
-      return _preAllocBuf._array[spr_intScratch2ac];
+          int spr_intScratch2b7;spr_intScratch2b7=i;chck_accs0(_preAllocBuf,spr_intScratch2b7,697)
+      return _preAllocBuf._array[spr_intScratch2b7];
       }
    return '0';
    
@@ -4080,14 +4080,14 @@ char String_128::getAt(char* stackStartPtr,int i){
 void String_128::setAt(char* stackStartPtr,int stelle,char zeichen){
    char SPR_stack_dummy_var;
    if(_extendedBuf!=0U){
-             int spr_intScratch2ae;spr_intScratch2ae=stelle;chck_accs_p0(_extendedBuf,spr_intScratch2ae,688)
-      _extendedBuf._theObject->_array[spr_intScratch2ae]=zeichen;
+             int spr_intScratch2b9;spr_intScratch2b9=stelle;chck_accs_p0(_extendedBuf,spr_intScratch2b9,699)
+      _extendedBuf._theObject->_array[spr_intScratch2b9]=zeichen;
       
    }
    else
    {
-          int spr_intScratch2b0;spr_intScratch2b0=stelle;chck_accs0(_preAllocBuf,spr_intScratch2b0,690)
-      _preAllocBuf._array[spr_intScratch2b0]=zeichen;
+          int spr_intScratch2bb;spr_intScratch2bb=stelle;chck_accs0(_preAllocBuf,spr_intScratch2bb,701)
+      _preAllocBuf._array[spr_intScratch2bb]=zeichen;
       }
    
    
@@ -4185,10 +4185,10 @@ int String_128::equals(char* stackStartPtr,String_128& other){
 int String_128::equals(char* stackStartPtr,SPRStackArray<char>& other){
    char SPR_stack_dummy_var;
    int lother;lother=0;
-          int spr_intScratch2b2;spr_intScratch2b2=lother;chck_accs0(other,spr_intScratch2b2,692)
-   while((lother<other._sz)&&(other._array[spr_intScratch2b2]!='\0')){
+          int spr_intScratch2bd;spr_intScratch2bd=lother;chck_accs0(other,spr_intScratch2bd,703)
+   while((lother<other._sz)&&(other._array[spr_intScratch2bd]!='\0')){
       lother++;
-      spr_intScratch2b2=lother;chck_accs0(other,spr_intScratch2b2,692)
+      spr_intScratch2bd=lother;chck_accs0(other,spr_intScratch2bd,703)
       
    };
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -4200,8 +4200,8 @@ int String_128::equals(char* stackStartPtr,SPRStackArray<char>& other){
    int i;i=0;
    while(i<lother){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch2b4;spr_intScratch2b4=i;chck_accs0(other,spr_intScratch2b4,694)
-      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch2b4]){
+             int spr_intScratch2bf;spr_intScratch2bf=i;chck_accs0(other,spr_intScratch2bf,705)
+      if(this->getAt(stackStartPtr,i)!=other._array[spr_intScratch2bf]){
          return 0;
          
       }
@@ -4246,8 +4246,8 @@ void String_128::append(char* stackStartPtr,int x){
 void String_128::appendHexOctet(char* stackStartPtr,int x){
    char SPR_stack_dummy_var;
    SPRStackArrayConcrete<char,16> buf;
-          int spr_intScratch2b6;spr_intScratch2b6=0;chck_accs0(buf,spr_intScratch2b6,696)
-   buf._array[spr_intScratch2b6]='\0';
+          int spr_intScratch2c1;spr_intScratch2c1=0;chck_accs0(buf,spr_intScratch2c1,707)
+   buf._array[spr_intScratch2c1]='\0';
     snprintf(buf._array,16,"%.2x",x); 
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->append(stackStartPtr,buf);
@@ -4276,8 +4276,8 @@ void String_128::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    int szm1;szm1=feld._sz-1;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(szm1<this->length(stackStartPtr)){
-             int spr_intScratch2b8;spr_intScratch2b8=0;chck_accs0(feld,spr_intScratch2b8,698)
-      feld._array[spr_intScratch2b8]='\0';
+             int spr_intScratch2c3;spr_intScratch2c3=0;chck_accs0(feld,spr_intScratch2c3,709)
+      feld._array[spr_intScratch2c3]='\0';
       return ;
       
    }
@@ -4285,17 +4285,17 @@ void String_128::toCharArray(char* stackStartPtr,SPRStackArray<char>& feld){
    {//begin of SPR for statement
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while(i<this->length(stackStartPtr)){
-             int spr_intScratch2ba;spr_intScratch2ba=i;chck_accs0(feld,spr_intScratch2ba,700)
+             int spr_intScratch2c5;spr_intScratch2c5=i;chck_accs0(feld,spr_intScratch2c5,711)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      feld._array[spr_intScratch2ba]=this->getAt(stackStartPtr,i);
+      feld._array[spr_intScratch2c5]=this->getAt(stackStartPtr,i);
       i++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       
    
    }
    }//end of SPR for statement
-          int spr_intScratch2bc;spr_intScratch2bc=i;chck_accs0(feld,spr_intScratch2bc,702)
-   feld._array[spr_intScratch2bc]='\0';
+          int spr_intScratch2c7;spr_intScratch2c7=i;chck_accs0(feld,spr_intScratch2c7,713)
+   feld._array[spr_intScratch2c7]='\0';
    
    
 } //End Of Method
@@ -4485,10 +4485,10 @@ void String_128::deEscape(char* stackStartPtr,String_128& deescaped,char escape)
 int String_128::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    char SPR_stack_dummy_var;
    int j;j=0;
-          int spr_intScratch2be;spr_intScratch2be=j;chck_accs0(end,spr_intScratch2be,704)
-   while((end._array[spr_intScratch2be]!='\0')&&(j<end._sz)){
+          int spr_intScratch2c9;spr_intScratch2c9=j;chck_accs0(end,spr_intScratch2c9,715)
+   while((end._array[spr_intScratch2c9]!='\0')&&(j<end._sz)){
       j++;
-      spr_intScratch2be=j;chck_accs0(end,spr_intScratch2be,704)
+      spr_intScratch2c9=j;chck_accs0(end,spr_intScratch2c9,715)
       
    };
    if(j<=0){
@@ -4505,8 +4505,8 @@ int String_128::endsWith(char* stackStartPtr,SPRStackArray<char>& end){
    while((i>=0)&&(j>=0)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       char c;c=this->getAt(stackStartPtr,i);
-             int spr_intScratch2c0;spr_intScratch2c0=j;chck_accs0(end,spr_intScratch2c0,706)
-      if(c!=end._array[spr_intScratch2c0]){
+             int spr_intScratch2cb;spr_intScratch2cb=j;chck_accs0(end,spr_intScratch2cb,717)
+      if(c!=end._array[spr_intScratch2cb]){
          return 0;
          
       }
@@ -4566,16 +4566,16 @@ int String_128::startsWith(char* stackStartPtr,SPRStackArray<char>& buf){
       return 0;
       
    }
-          int spr_intScratch2c2;spr_intScratch2c2=i;chck_accs0(buf,spr_intScratch2c2,708)
-   while((i<l)&&(buf._array[spr_intScratch2c2]!='\0')){
+          int spr_intScratch2cd;spr_intScratch2cd=i;chck_accs0(buf,spr_intScratch2cd,719)
+   while((i<l)&&(buf._array[spr_intScratch2cd]!='\0')){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch2c4;spr_intScratch2c4=i;chck_accs0(buf,spr_intScratch2c4,710)
-      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch2c4]){
+             int spr_intScratch2cf;spr_intScratch2cf=i;chck_accs0(buf,spr_intScratch2cf,721)
+      if(this->getAt(stackStartPtr,i)!=buf._array[spr_intScratch2cf]){
          return 0;
          
       }
       i++;
-      spr_intScratch2c2=i;chck_accs0(buf,spr_intScratch2c2,708)
+      spr_intScratch2cd=i;chck_accs0(buf,spr_intScratch2cd,719)
       
    };
    return 1;
@@ -4681,23 +4681,23 @@ void String_128::wandleUmlaute(char* stackStartPtr,String_128& ausgabe){
       char zeichen;zeichen=this->getAt(stackStartPtr,i);
       switch(((int)zeichen)){
          case 0xE4:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch2c6;strcpy(spr_StringScratch2c6._array,"ae");
+            SPRStackArrayConcrete<char,4> spr_StringScratch2d1;strcpy(spr_StringScratch2d1._array,"ae");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch2c6);
+            ausgabe.append(stackStartPtr,spr_StringScratch2d1);
             
          };break;
          
          case 0xFC:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch2c7;strcpy(spr_StringScratch2c7._array,"ue");
+            SPRStackArrayConcrete<char,4> spr_StringScratch2d2;strcpy(spr_StringScratch2d2._array,"ue");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch2c7);
+            ausgabe.append(stackStartPtr,spr_StringScratch2d2);
             
          };break;
          
          case 0xF6:{
-            SPRStackArrayConcrete<char,4> spr_StringScratch2c8;strcpy(spr_StringScratch2c8._array,"oe");
+            SPRStackArrayConcrete<char,4> spr_StringScratch2d3;strcpy(spr_StringScratch2d3._array,"oe");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ausgabe.append(stackStartPtr,spr_StringScratch2c8);
+            ausgabe.append(stackStartPtr,spr_StringScratch2d3);
             
          };break;
          
@@ -4721,18 +4721,18 @@ void String_128::ensureCapacity(char* stackStartPtr,int minCapacity){
    char SPR_stack_dummy_var;
    if(128<minCapacity){
       if(_extendedBuf==0U){
-         int spr_intScratch2c9;
-         spr_intScratch2c9=minCapacity*2;
-         if(spr_intScratch2c9<0)throw "invalid size requested for heap allocation";
-         _extendedBuf=new(spr_intScratch2c9) SPRArray<char>(spr_intScratch2c9)
+         int spr_intScratch2d4;
+         spr_intScratch2d4=minCapacity*2;
+         if(spr_intScratch2d4<0)throw "invalid size requested for heap allocation";
+         _extendedBuf=new(spr_intScratch2d4) SPRArray<char>(spr_intScratch2d4)
          ;
          int i;
          {//begin of SPR for statement
          i=0;
          while(i<_length){
-                   int spr_intScratch2ca;spr_intScratch2ca=i;chck_accs_p0(_extendedBuf,spr_intScratch2ca,716)
-                   int spr_intScratch2cc;spr_intScratch2cc=i;chck_accs0(_preAllocBuf,spr_intScratch2cc,718)
-            _extendedBuf._theObject->_array[spr_intScratch2ca]=_preAllocBuf._array[spr_intScratch2cc];
+                   int spr_intScratch2d5;spr_intScratch2d5=i;chck_accs_p0(_extendedBuf,spr_intScratch2d5,727)
+                   int spr_intScratch2d7;spr_intScratch2d7=i;chck_accs0(_preAllocBuf,spr_intScratch2d7,729)
+            _extendedBuf._theObject->_array[spr_intScratch2d5]=_preAllocBuf._array[spr_intScratch2d7];
             i++;
             
          
@@ -4743,18 +4743,18 @@ void String_128::ensureCapacity(char* stackStartPtr,int minCapacity){
       else
       {
       if(_extendedBuf._theObject->_sz<minCapacity){
-            int spr_intScratch2ce;
-            spr_intScratch2ce=minCapacity*2;
-            if(spr_intScratch2ce<0)throw "invalid size requested for heap allocation";
-            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch2ce) SPRArray<char>(spr_intScratch2ce)
+            int spr_intScratch2d9;
+            spr_intScratch2d9=minCapacity*2;
+            if(spr_intScratch2d9<0)throw "invalid size requested for heap allocation";
+            SPRSmartPtr<SPRArray<char> > newBuf;newBuf=new(spr_intScratch2d9) SPRArray<char>(spr_intScratch2d9)
             ;
             int i;
             {//begin of SPR for statement
             i=0;
             while(i<_length){
-                      int spr_intScratch2cf;spr_intScratch2cf=i;chck_accs_p0(newBuf,spr_intScratch2cf,721)
-                      int spr_intScratch2d1;spr_intScratch2d1=i;chck_accs_p0(_extendedBuf,spr_intScratch2d1,723)
-               newBuf._theObject->_array[spr_intScratch2cf]=_extendedBuf._theObject->_array[spr_intScratch2d1];
+                      int spr_intScratch2da;spr_intScratch2da=i;chck_accs_p0(newBuf,spr_intScratch2da,732)
+                      int spr_intScratch2dc;spr_intScratch2dc=i;chck_accs_p0(_extendedBuf,spr_intScratch2dc,734)
+               newBuf._theObject->_array[spr_intScratch2da]=_extendedBuf._theObject->_array[spr_intScratch2dc];
                i++;
                
             
@@ -4803,10 +4803,10 @@ void Assigner_String_128::assign(char* stackStartPtr,String_128& s1,String_128& 
 Hashtable4_Hashable4_KeyType4::Hashtable4_Hashable4_KeyType4(char* stackStartPtr,int initialCapacity){
    char SPR_stack_dummy_var;
    _numUsed=0;
-   int spr_intScratch2d3;
-   spr_intScratch2d3=initialCapacity;
-   if(spr_intScratch2d3<0)throw "invalid size requested for heap allocation";
-   _elements=new(spr_intScratch2d3) SPRArray<SPRSmartPtr<Hashable4> >(spr_intScratch2d3)
+   int spr_intScratch2de;
+   spr_intScratch2de=initialCapacity;
+   if(spr_intScratch2de<0)throw "invalid size requested for heap allocation";
+   _elements=new(spr_intScratch2de) SPRArray<SPRSmartPtr<Hashable4> >(spr_intScratch2de)
    ;
    
    
@@ -4819,19 +4819,19 @@ void Hashtable4_Hashable4_KeyType4::insert(char* stackStartPtr,SPRSmartPtr<Hasha
       int newCap;newCap=_elements._theObject->_sz*2;
       SPRSmartPtr<SPRArray<SPRSmartPtr<Hashable4> > > oldArray;
       oldArray=_elements;
-      int spr_intScratch2d4;
-      spr_intScratch2d4=newCap;
-      if(spr_intScratch2d4<0)throw "invalid size requested for heap allocation";
-      _elements=new(spr_intScratch2d4) SPRArray<SPRSmartPtr<Hashable4> >(spr_intScratch2d4)
+      int spr_intScratch2df;
+      spr_intScratch2df=newCap;
+      if(spr_intScratch2df<0)throw "invalid size requested for heap allocation";
+      _elements=new(spr_intScratch2df) SPRArray<SPRSmartPtr<Hashable4> >(spr_intScratch2df)
       ;
       {//begin of SPR for statement
       int i;i=0;
       while(i<oldArray._theObject->_sz){
-                int spr_intScratch2d5;spr_intScratch2d5=i;chck_accs_p0(oldArray,spr_intScratch2d5,727)
-         if(oldArray._theObject->_array[spr_intScratch2d5]!=0U){
-                   int spr_intScratch2d7;spr_intScratch2d7=i;chck_accs_p0(oldArray,spr_intScratch2d7,729)
+                int spr_intScratch2e0;spr_intScratch2e0=i;chck_accs_p0(oldArray,spr_intScratch2e0,738)
+         if(oldArray._theObject->_array[spr_intScratch2e0]!=0U){
+                   int spr_intScratch2e2;spr_intScratch2e2=i;chck_accs_p0(oldArray,spr_intScratch2e2,740)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            this->insertInternally(stackStartPtr,oldArray._theObject->_array[spr_intScratch2d7]);
+            this->insertInternally(stackStartPtr,oldArray._theObject->_array[spr_intScratch2e2]);
             
          }
          i++;
@@ -4856,15 +4856,15 @@ void Hashtable4_Hashable4_KeyType4::insertInternally(char* stackStartPtr,SPRSmar
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    int code;code=key._theObject->getHashCode(stackStartPtr);
    code=code%_elements._theObject->_sz;
-          int spr_intScratch2d9;spr_intScratch2d9=code;chck_accs_p0(_elements,spr_intScratch2d9,731)
-   while(_elements._theObject->_array[spr_intScratch2d9]!=0U){
+          int spr_intScratch2e4;spr_intScratch2e4=code;chck_accs_p0(_elements,spr_intScratch2e4,742)
+   while(_elements._theObject->_array[spr_intScratch2e4]!=0U){
       code++;
       code=code%_elements._theObject->_sz;
-      spr_intScratch2d9=code;chck_accs_p0(_elements,spr_intScratch2d9,731)
+      spr_intScratch2e4=code;chck_accs_p0(_elements,spr_intScratch2e4,742)
       
    };
-          int spr_intScratch2db;spr_intScratch2db=code;chck_accs_p0(_elements,spr_intScratch2db,733)
-   _elements._theObject->_array[spr_intScratch2db]=x;
+          int spr_intScratch2e6;spr_intScratch2e6=code;chck_accs_p0(_elements,spr_intScratch2e6,744)
+   _elements._theObject->_array[spr_intScratch2e6]=x;
    
    
 } //End Of Method
@@ -4877,15 +4877,15 @@ void Hashtable4_Hashable4_KeyType4::get(char* stackStartPtr,KeyType4& key,SPRSma
    int searching;searching=1;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-          int spr_intScratch2e3;do{
-             int spr_intScratch2dd;spr_intScratch2dd=code;chck_accs_p0(_elements,spr_intScratch2dd,735)
-      if(_elements._theObject->_array[spr_intScratch2dd]!=0U){
+          int spr_intScratch2ee;do{
+             int spr_intScratch2e8;spr_intScratch2e8=code;chck_accs_p0(_elements,spr_intScratch2e8,746)
+      if(_elements._theObject->_array[spr_intScratch2e8]!=0U){
          SPRSmartPtr<KeyType4> key2;
-                int spr_intScratch2df;spr_intScratch2df=code;chck_accs_p0(_elements,spr_intScratch2df,737)
-         _elements._theObject->_array[spr_intScratch2df]._theObject->getKey(stackStartPtr,key2);
+                int spr_intScratch2ea;spr_intScratch2ea=code;chck_accs_p0(_elements,spr_intScratch2ea,748)
+         _elements._theObject->_array[spr_intScratch2ea]._theObject->getKey(stackStartPtr,key2);
          if(key2._theObject->compare(stackStartPtr,key)==1){
-                   int spr_intScratch2e1;spr_intScratch2e1=code;chck_accs_p0(_elements,spr_intScratch2e1,739)
-            oValue=_elements._theObject->_array[spr_intScratch2e1];
+                   int spr_intScratch2ec;spr_intScratch2ec=code;chck_accs_p0(_elements,spr_intScratch2ec,750)
+            oValue=_elements._theObject->_array[spr_intScratch2ec];
             searching=0;
             
          }
@@ -4893,10 +4893,10 @@ void Hashtable4_Hashable4_KeyType4::get(char* stackStartPtr,KeyType4& key,SPRSma
       }
       code++;
       code=code%_elements._theObject->_sz;
-      spr_intScratch2e3=code;chck_accs_p0(_elements,spr_intScratch2e3,741)
+      spr_intScratch2ee=code;chck_accs_p0(_elements,spr_intScratch2ee,752)
       
    }
-   while((_elements._theObject->_array[spr_intScratch2e3]!=0U)&&(searching==1));
+   while((_elements._theObject->_array[spr_intScratch2ee]!=0U)&&(searching==1));
    
    
 } //End Of Method
@@ -4921,8 +4921,8 @@ void Hashtable4_Hashable4_KeyType4::getNext(char* stackStartPtr,SPRSmartPtr<Hash
    char SPR_stack_dummy_var;
    int stepping;stepping=1;
    while((_readPtr<_elements._theObject->_sz)&&(stepping==1)){
-             int spr_intScratch2e5;spr_intScratch2e5=_readPtr;chck_accs_p0(_elements,spr_intScratch2e5,743)
-      if(_elements._theObject->_array[spr_intScratch2e5]==0U){
+             int spr_intScratch2f0;spr_intScratch2f0=_readPtr;chck_accs_p0(_elements,spr_intScratch2f0,754)
+      if(_elements._theObject->_array[spr_intScratch2f0]==0U){
          _readPtr++;
          
       }
@@ -4933,8 +4933,8 @@ void Hashtable4_Hashable4_KeyType4::getNext(char* stackStartPtr,SPRSmartPtr<Hash
       
    };
    if(_readPtr<_elements._theObject->_sz){
-             int spr_intScratch2e7;spr_intScratch2e7=_readPtr;chck_accs_p0(_elements,spr_intScratch2e7,745)
-      oValue=_elements._theObject->_array[spr_intScratch2e7];
+             int spr_intScratch2f2;spr_intScratch2f2=_readPtr;chck_accs_p0(_elements,spr_intScratch2f2,756)
+      oValue=_elements._theObject->_array[spr_intScratch2f2];
       _readPtr++;
       
    }
@@ -4952,8 +4952,8 @@ void Hashtable4_Hashable4_KeyType4::clear(char* stackStartPtr){
    {//begin of SPR for statement
    i=0;
    while(i<_elements._theObject->_sz){
-             int spr_intScratch2e9;spr_intScratch2e9=i;chck_accs_p0(_elements,spr_intScratch2e9,747)
-      _elements._theObject->_array[spr_intScratch2e9]=0U;
+             int spr_intScratch2f4;spr_intScratch2f4=i;chck_accs_p0(_elements,spr_intScratch2f4,758)
+      _elements._theObject->_array[spr_intScratch2f4]=0U;
       i++;
       
    
@@ -5005,10 +5005,10 @@ void SPHT_String_16_String_16::resetIterator(char* stackStartPtr){
 void SPHT_String_16_String_16::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    numberOfEntries=0;
-   int spr_intScratch2eb;
-   spr_intScratch2eb=3;
-   if(spr_intScratch2eb<0)throw "invalid size requested for heap allocation";
-   _elements=new(spr_intScratch2eb) SPRArray<SPHT_Entry_String_16_String_16>(spr_intScratch2eb)
+   int spr_intScratch2f6;
+   spr_intScratch2f6=3;
+   if(spr_intScratch2f6<0)throw "invalid size requested for heap allocation";
+   _elements=new(spr_intScratch2f6) SPRArray<SPHT_Entry_String_16_String_16>(spr_intScratch2f6)
    ;
    
    
@@ -5030,8 +5030,8 @@ int SPHT_String_16_String_16::nextElem(char* stackStartPtr,String_16& key,String
    {
    int found;found=0;
       while((iterator_pos<_elements._theObject->_sz)&&(found==0)){
-                int spr_intScratch2ec;spr_intScratch2ec=iterator_pos;chck_accs_p0(_elements,spr_intScratch2ec,750)
-         if(_elements._theObject->_array[spr_intScratch2ec].is_used==0){
+                int spr_intScratch2f7;spr_intScratch2f7=iterator_pos;chck_accs_p0(_elements,spr_intScratch2f7,761)
+         if(_elements._theObject->_array[spr_intScratch2f7].is_used==0){
             iterator_pos++;
             
          }
@@ -5045,14 +5045,14 @@ int SPHT_String_16_String_16::nextElem(char* stackStartPtr,String_16& key,String
          return 0;
          
       }
-             int spr_intScratch2ee;spr_intScratch2ee=iterator_pos;chck_accs_p0(_elements,spr_intScratch2ee,752)
+             int spr_intScratch2f9;spr_intScratch2f9=iterator_pos;chck_accs_p0(_elements,spr_intScratch2f9,763)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch2ee].key);
-             int spr_intScratch2f0;spr_intScratch2f0=iterator_pos;chck_accs_p0(_elements,spr_intScratch2f0,754)
+      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch2f9].key);
+             int spr_intScratch2fb;spr_intScratch2fb=iterator_pos;chck_accs_p0(_elements,spr_intScratch2fb,765)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch2f0].value);
-             int spr_intScratch2f2;spr_intScratch2f2=iterator_pos;chck_accs_p0(_elements,spr_intScratch2f2,756)
-      iterator_next=_elements._theObject->_array[spr_intScratch2f2].next;
+      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch2fb].value);
+             int spr_intScratch2fd;spr_intScratch2fd=iterator_pos;chck_accs_p0(_elements,spr_intScratch2fd,767)
+      iterator_next=_elements._theObject->_array[spr_intScratch2fd].next;
       iterator_pos++;
       }
    return 1;
@@ -5081,24 +5081,24 @@ void SPHT_String_16_String_16::insertInternally(char* stackStartPtr,SPRSmartPtr<
       
    }
    int pos;pos=hc%bins._theObject->_sz;
-          int spr_intScratch2f4;spr_intScratch2f4=pos;chck_accs_p0(bins,spr_intScratch2f4,758)
-          int spr_intScratch2f6;spr_intScratch2f6=pos;chck_accs_p0(bins,spr_intScratch2f6,760)
+          int spr_intScratch2ff;spr_intScratch2ff=pos;chck_accs_p0(bins,spr_intScratch2ff,769)
+          int spr_intScratch301;spr_intScratch301=pos;chck_accs_p0(bins,spr_intScratch301,771)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if((bins._theObject->_array[spr_intScratch2f4].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch2f6].key,key)==0)){
-             int spr_intScratch2f8;spr_intScratch2f8=pos;chck_accs_p0(bins,spr_intScratch2f8,762)
-      SPRSmartPtr<SPHT_Entry_String_16_String_16> entry;entry=bins._theObject->_array[spr_intScratch2f8].next;
+   if((bins._theObject->_array[spr_intScratch2ff].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch301].key,key)==0)){
+             int spr_intScratch303;spr_intScratch303=pos;chck_accs_p0(bins,spr_intScratch303,773)
+      SPRSmartPtr<SPHT_Entry_String_16_String_16> entry;entry=bins._theObject->_array[spr_intScratch303].next;
       if(entry==0U){
-                int spr_intScratch2fa;spr_intScratch2fa=pos;chck_accs_p0(bins,spr_intScratch2fa,764)
+                int spr_intScratch305;spr_intScratch305=pos;chck_accs_p0(bins,spr_intScratch305,775)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         bins._theObject->_array[spr_intScratch2fa].next=::new SPHT_Entry_String_16_String_16;
-                int spr_intScratch2fc;spr_intScratch2fc=pos;chck_accs_p0(bins,spr_intScratch2fc,766)
-         bins._theObject->_array[spr_intScratch2fc].next._theObject->is_used=1;
-                int spr_intScratch2fe;spr_intScratch2fe=pos;chck_accs_p0(bins,spr_intScratch2fe,768)
+         bins._theObject->_array[spr_intScratch305].next=::new SPHT_Entry_String_16_String_16;
+                int spr_intScratch307;spr_intScratch307=pos;chck_accs_p0(bins,spr_intScratch307,777)
+         bins._theObject->_array[spr_intScratch307].next._theObject->is_used=1;
+                int spr_intScratch309;spr_intScratch309=pos;chck_accs_p0(bins,spr_intScratch309,779)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch2fe].next._theObject->key,key);
-                int spr_intScratch300;spr_intScratch300=pos;chck_accs_p0(bins,spr_intScratch300,770)
+         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch309].next._theObject->key,key);
+                int spr_intScratch30b;spr_intScratch30b=pos;chck_accs_p0(bins,spr_intScratch30b,781)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch300].next._theObject->value,value);
+         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch30b].next._theObject->value,value);
          
       }
       else
@@ -5136,14 +5136,14 @@ void SPHT_String_16_String_16::insertInternally(char* stackStartPtr,SPRSmartPtr<
    }
    else
    {
-          int spr_intScratch302;spr_intScratch302=pos;chck_accs_p0(bins,spr_intScratch302,772)
-      bins._theObject->_array[spr_intScratch302].is_used=1;
-             int spr_intScratch304;spr_intScratch304=pos;chck_accs_p0(bins,spr_intScratch304,774)
+          int spr_intScratch30d;spr_intScratch30d=pos;chck_accs_p0(bins,spr_intScratch30d,783)
+      bins._theObject->_array[spr_intScratch30d].is_used=1;
+             int spr_intScratch30f;spr_intScratch30f=pos;chck_accs_p0(bins,spr_intScratch30f,785)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch304].key,key);
-             int spr_intScratch306;spr_intScratch306=pos;chck_accs_p0(bins,spr_intScratch306,776)
+      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch30f].key,key);
+             int spr_intScratch311;spr_intScratch311=pos;chck_accs_p0(bins,spr_intScratch311,787)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch306].value,value);
+      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch311].value,value);
       }
    
    
@@ -5163,21 +5163,21 @@ int SPHT_String_16_String_16::search(char* stackStartPtr,String_16& key,String_1
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch308;spr_intScratch308=pos;chck_accs_p0(_elements,spr_intScratch308,778)
-   if(_elements._theObject->_array[spr_intScratch308].is_used==1){
-             int spr_intScratch30a;spr_intScratch30a=pos;chck_accs_p0(_elements,spr_intScratch30a,780)
+          int spr_intScratch313;spr_intScratch313=pos;chck_accs_p0(_elements,spr_intScratch313,789)
+   if(_elements._theObject->_array[spr_intScratch313].is_used==1){
+             int spr_intScratch315;spr_intScratch315=pos;chck_accs_p0(_elements,spr_intScratch315,791)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch30a].key)==1){
-                int spr_intScratch30c;spr_intScratch30c=pos;chck_accs_p0(_elements,spr_intScratch30c,782)
+      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch315].key)==1){
+                int spr_intScratch317;spr_intScratch317=pos;chck_accs_p0(_elements,spr_intScratch317,793)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch30c].value);
+         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch317].value);
          return 1;
          
       }
       else
       {
-             int spr_intScratch30e;spr_intScratch30e=pos;chck_accs_p0(_elements,spr_intScratch30e,784)
-         SPRSmartPtr<SPHT_Entry_String_16_String_16> entry;entry=_elements._theObject->_array[spr_intScratch30e].next;
+             int spr_intScratch319;spr_intScratch319=pos;chck_accs_p0(_elements,spr_intScratch319,795)
+         SPRSmartPtr<SPHT_Entry_String_16_String_16> entry;entry=_elements._theObject->_array[spr_intScratch319].next;
          while(entry!=0U){
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if(coac.compare(stackStartPtr,entry._theObject->key,key)==1){
@@ -5205,10 +5205,10 @@ void SPHT_String_16_String_16::insert(char* stackStartPtr,String_16& key,String_
       int limit;limit=((_elements._theObject->_sz*7)/10);
       if(nep1>limit){
          int newCap;newCap=(_elements._theObject->_sz+1)*2;
-         int spr_intScratch310;
-         spr_intScratch310=newCap;
-         if(spr_intScratch310<0)throw "invalid size requested for heap allocation";
-         SPRSmartPtr<SPRArray<SPHT_Entry_String_16_String_16> > newElements;newElements=new(spr_intScratch310) SPRArray<SPHT_Entry_String_16_String_16>(spr_intScratch310)
+         int spr_intScratch31b;
+         spr_intScratch31b=newCap;
+         if(spr_intScratch31b<0)throw "invalid size requested for heap allocation";
+         SPRSmartPtr<SPRArray<SPHT_Entry_String_16_String_16> > newElements;newElements=new(spr_intScratch31b) SPRArray<SPHT_Entry_String_16_String_16>(spr_intScratch31b)
          ;
          String_16 key2;
          String_16 value2;
@@ -5247,17 +5247,17 @@ void SPHT_String_16_String_16::del(char* stackStartPtr,String_16& key){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch311;spr_intScratch311=pos;chck_accs_p0(_elements,spr_intScratch311,787)
-   if(_elements._theObject->_array[spr_intScratch311].is_used==1){
-             int spr_intScratch313;spr_intScratch313=pos;chck_accs_p0(_elements,spr_intScratch313,789)
+          int spr_intScratch31c;spr_intScratch31c=pos;chck_accs_p0(_elements,spr_intScratch31c,798)
+   if(_elements._theObject->_array[spr_intScratch31c].is_used==1){
+             int spr_intScratch31e;spr_intScratch31e=pos;chck_accs_p0(_elements,spr_intScratch31e,800)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch313].key,key)==0){
-                int spr_intScratch315;spr_intScratch315=pos;chck_accs_p0(_elements,spr_intScratch315,791)
-         SPRSmartPtr<SPHT_Entry_String_16_String_16> entry;entry=_elements._theObject->_array[spr_intScratch315].next;
+      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch31e].key,key)==0){
+                int spr_intScratch320;spr_intScratch320=pos;chck_accs_p0(_elements,spr_intScratch320,802)
+         SPRSmartPtr<SPHT_Entry_String_16_String_16> entry;entry=_elements._theObject->_array[spr_intScratch320].next;
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if((entry!=0U)&&(coac.compare(stackStartPtr,entry._theObject->key,key)==1)){
-                   int spr_intScratch317;spr_intScratch317=pos;chck_accs_p0(_elements,spr_intScratch317,793)
-            _elements._theObject->_array[spr_intScratch317].next=entry._theObject->next;
+                   int spr_intScratch322;spr_intScratch322=pos;chck_accs_p0(_elements,spr_intScratch322,804)
+            _elements._theObject->_array[spr_intScratch322].next=entry._theObject->next;
             numberOfEntries=numberOfEntries-1;
             
          }
@@ -5281,24 +5281,24 @@ void SPHT_String_16_String_16::del(char* stackStartPtr,String_16& key){
       }
       else
       {
-             int spr_intScratch319;spr_intScratch319=pos;chck_accs_p0(_elements,spr_intScratch319,795)
-         if(_elements._theObject->_array[spr_intScratch319].next!=0U){
-                   int spr_intScratch31b;spr_intScratch31b=pos;chck_accs_p0(_elements,spr_intScratch31b,797)
-            SPRSmartPtr<SPHT_Entry_String_16_String_16> entryNext;entryNext=_elements._theObject->_array[spr_intScratch31b].next;
-                   int spr_intScratch31d;spr_intScratch31d=pos;chck_accs_p0(_elements,spr_intScratch31d,799)
+             int spr_intScratch324;spr_intScratch324=pos;chck_accs_p0(_elements,spr_intScratch324,806)
+         if(_elements._theObject->_array[spr_intScratch324].next!=0U){
+                   int spr_intScratch326;spr_intScratch326=pos;chck_accs_p0(_elements,spr_intScratch326,808)
+            SPRSmartPtr<SPHT_Entry_String_16_String_16> entryNext;entryNext=_elements._theObject->_array[spr_intScratch326].next;
+                   int spr_intScratch328;spr_intScratch328=pos;chck_accs_p0(_elements,spr_intScratch328,810)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch31d].key,entryNext._theObject->key);
-                   int spr_intScratch31f;spr_intScratch31f=pos;chck_accs_p0(_elements,spr_intScratch31f,801)
+            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch328].key,entryNext._theObject->key);
+                   int spr_intScratch32a;spr_intScratch32a=pos;chck_accs_p0(_elements,spr_intScratch32a,812)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch31f].value,entryNext._theObject->value);
-                   int spr_intScratch321;spr_intScratch321=pos;chck_accs_p0(_elements,spr_intScratch321,803)
-            _elements._theObject->_array[spr_intScratch321].next=entryNext._theObject->next;
+            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch32a].value,entryNext._theObject->value);
+                   int spr_intScratch32c;spr_intScratch32c=pos;chck_accs_p0(_elements,spr_intScratch32c,814)
+            _elements._theObject->_array[spr_intScratch32c].next=entryNext._theObject->next;
             
          }
          else
          {
-                int spr_intScratch323;spr_intScratch323=pos;chck_accs_p0(_elements,spr_intScratch323,805)
-            _elements._theObject->_array[spr_intScratch323].is_used=0;
+                int spr_intScratch32e;spr_intScratch32e=pos;chck_accs_p0(_elements,spr_intScratch32e,816)
+            _elements._theObject->_array[spr_intScratch32e].is_used=0;
             }
          numberOfEntries=numberOfEntries-1;
          }
@@ -5350,10 +5350,10 @@ void SPHT_int_int::resetIterator(char* stackStartPtr){
 void SPHT_int_int::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    numberOfEntries=0;
-   int spr_intScratch325;
-   spr_intScratch325=3;
-   if(spr_intScratch325<0)throw "invalid size requested for heap allocation";
-   _elements=new(spr_intScratch325) SPRArray<SPHT_Entry_int_int>(spr_intScratch325)
+   int spr_intScratch330;
+   spr_intScratch330=3;
+   if(spr_intScratch330<0)throw "invalid size requested for heap allocation";
+   _elements=new(spr_intScratch330) SPRArray<SPHT_Entry_int_int>(spr_intScratch330)
    ;
    
    
@@ -5375,8 +5375,8 @@ int SPHT_int_int::nextElem(char* stackStartPtr,int& key,int& value){
    {
    int found;found=0;
       while((iterator_pos<_elements._theObject->_sz)&&(found==0)){
-                int spr_intScratch326;spr_intScratch326=iterator_pos;chck_accs_p0(_elements,spr_intScratch326,808)
-         if(_elements._theObject->_array[spr_intScratch326].is_used==0){
+                int spr_intScratch331;spr_intScratch331=iterator_pos;chck_accs_p0(_elements,spr_intScratch331,819)
+         if(_elements._theObject->_array[spr_intScratch331].is_used==0){
             iterator_pos++;
             
          }
@@ -5390,14 +5390,14 @@ int SPHT_int_int::nextElem(char* stackStartPtr,int& key,int& value){
          return 0;
          
       }
-             int spr_intScratch328;spr_intScratch328=iterator_pos;chck_accs_p0(_elements,spr_intScratch328,810)
+             int spr_intScratch333;spr_intScratch333=iterator_pos;chck_accs_p0(_elements,spr_intScratch333,821)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch328].key);
-             int spr_intScratch32a;spr_intScratch32a=iterator_pos;chck_accs_p0(_elements,spr_intScratch32a,812)
+      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch333].key);
+             int spr_intScratch335;spr_intScratch335=iterator_pos;chck_accs_p0(_elements,spr_intScratch335,823)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch32a].value);
-             int spr_intScratch32c;spr_intScratch32c=iterator_pos;chck_accs_p0(_elements,spr_intScratch32c,814)
-      iterator_next=_elements._theObject->_array[spr_intScratch32c].next;
+      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch335].value);
+             int spr_intScratch337;spr_intScratch337=iterator_pos;chck_accs_p0(_elements,spr_intScratch337,825)
+      iterator_next=_elements._theObject->_array[spr_intScratch337].next;
       iterator_pos++;
       }
    return 1;
@@ -5426,24 +5426,24 @@ void SPHT_int_int::insertInternally(char* stackStartPtr,SPRSmartPtr<SPRArray<SPH
       
    }
    int pos;pos=hc%bins._theObject->_sz;
-          int spr_intScratch32e;spr_intScratch32e=pos;chck_accs_p0(bins,spr_intScratch32e,816)
-          int spr_intScratch330;spr_intScratch330=pos;chck_accs_p0(bins,spr_intScratch330,818)
+          int spr_intScratch339;spr_intScratch339=pos;chck_accs_p0(bins,spr_intScratch339,827)
+          int spr_intScratch33b;spr_intScratch33b=pos;chck_accs_p0(bins,spr_intScratch33b,829)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if((bins._theObject->_array[spr_intScratch32e].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch330].key,key)==0)){
-             int spr_intScratch332;spr_intScratch332=pos;chck_accs_p0(bins,spr_intScratch332,820)
-      SPRSmartPtr<SPHT_Entry_int_int> entry;entry=bins._theObject->_array[spr_intScratch332].next;
+   if((bins._theObject->_array[spr_intScratch339].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch33b].key,key)==0)){
+             int spr_intScratch33d;spr_intScratch33d=pos;chck_accs_p0(bins,spr_intScratch33d,831)
+      SPRSmartPtr<SPHT_Entry_int_int> entry;entry=bins._theObject->_array[spr_intScratch33d].next;
       if(entry==0U){
-                int spr_intScratch334;spr_intScratch334=pos;chck_accs_p0(bins,spr_intScratch334,822)
+                int spr_intScratch33f;spr_intScratch33f=pos;chck_accs_p0(bins,spr_intScratch33f,833)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         bins._theObject->_array[spr_intScratch334].next=::new SPHT_Entry_int_int;
-                int spr_intScratch336;spr_intScratch336=pos;chck_accs_p0(bins,spr_intScratch336,824)
-         bins._theObject->_array[spr_intScratch336].next._theObject->is_used=1;
-                int spr_intScratch338;spr_intScratch338=pos;chck_accs_p0(bins,spr_intScratch338,826)
+         bins._theObject->_array[spr_intScratch33f].next=::new SPHT_Entry_int_int;
+                int spr_intScratch341;spr_intScratch341=pos;chck_accs_p0(bins,spr_intScratch341,835)
+         bins._theObject->_array[spr_intScratch341].next._theObject->is_used=1;
+                int spr_intScratch343;spr_intScratch343=pos;chck_accs_p0(bins,spr_intScratch343,837)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch338].next._theObject->key,key);
-                int spr_intScratch33a;spr_intScratch33a=pos;chck_accs_p0(bins,spr_intScratch33a,828)
+         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch343].next._theObject->key,key);
+                int spr_intScratch345;spr_intScratch345=pos;chck_accs_p0(bins,spr_intScratch345,839)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch33a].next._theObject->value,value);
+         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch345].next._theObject->value,value);
          
       }
       else
@@ -5481,14 +5481,14 @@ void SPHT_int_int::insertInternally(char* stackStartPtr,SPRSmartPtr<SPRArray<SPH
    }
    else
    {
-          int spr_intScratch33c;spr_intScratch33c=pos;chck_accs_p0(bins,spr_intScratch33c,830)
-      bins._theObject->_array[spr_intScratch33c].is_used=1;
-             int spr_intScratch33e;spr_intScratch33e=pos;chck_accs_p0(bins,spr_intScratch33e,832)
+          int spr_intScratch347;spr_intScratch347=pos;chck_accs_p0(bins,spr_intScratch347,841)
+      bins._theObject->_array[spr_intScratch347].is_used=1;
+             int spr_intScratch349;spr_intScratch349=pos;chck_accs_p0(bins,spr_intScratch349,843)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch33e].key,key);
-             int spr_intScratch340;spr_intScratch340=pos;chck_accs_p0(bins,spr_intScratch340,834)
+      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch349].key,key);
+             int spr_intScratch34b;spr_intScratch34b=pos;chck_accs_p0(bins,spr_intScratch34b,845)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch340].value,value);
+      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch34b].value,value);
       }
    
    
@@ -5508,21 +5508,21 @@ int SPHT_int_int::search(char* stackStartPtr,int& key,int& value){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch342;spr_intScratch342=pos;chck_accs_p0(_elements,spr_intScratch342,836)
-   if(_elements._theObject->_array[spr_intScratch342].is_used==1){
-             int spr_intScratch344;spr_intScratch344=pos;chck_accs_p0(_elements,spr_intScratch344,838)
+          int spr_intScratch34d;spr_intScratch34d=pos;chck_accs_p0(_elements,spr_intScratch34d,847)
+   if(_elements._theObject->_array[spr_intScratch34d].is_used==1){
+             int spr_intScratch34f;spr_intScratch34f=pos;chck_accs_p0(_elements,spr_intScratch34f,849)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch344].key)==1){
-                int spr_intScratch346;spr_intScratch346=pos;chck_accs_p0(_elements,spr_intScratch346,840)
+      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch34f].key)==1){
+                int spr_intScratch351;spr_intScratch351=pos;chck_accs_p0(_elements,spr_intScratch351,851)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch346].value);
+         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch351].value);
          return 1;
          
       }
       else
       {
-             int spr_intScratch348;spr_intScratch348=pos;chck_accs_p0(_elements,spr_intScratch348,842)
-         SPRSmartPtr<SPHT_Entry_int_int> entry;entry=_elements._theObject->_array[spr_intScratch348].next;
+             int spr_intScratch353;spr_intScratch353=pos;chck_accs_p0(_elements,spr_intScratch353,853)
+         SPRSmartPtr<SPHT_Entry_int_int> entry;entry=_elements._theObject->_array[spr_intScratch353].next;
          while(entry!=0U){
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if(coac.compare(stackStartPtr,entry._theObject->key,key)==1){
@@ -5550,10 +5550,10 @@ void SPHT_int_int::insert(char* stackStartPtr,int& key,int& value){
       int limit;limit=((_elements._theObject->_sz*7)/10);
       if(nep1>limit){
          int newCap;newCap=(_elements._theObject->_sz+1)*2;
-         int spr_intScratch34a;
-         spr_intScratch34a=newCap;
-         if(spr_intScratch34a<0)throw "invalid size requested for heap allocation";
-         SPRSmartPtr<SPRArray<SPHT_Entry_int_int> > newElements;newElements=new(spr_intScratch34a) SPRArray<SPHT_Entry_int_int>(spr_intScratch34a)
+         int spr_intScratch355;
+         spr_intScratch355=newCap;
+         if(spr_intScratch355<0)throw "invalid size requested for heap allocation";
+         SPRSmartPtr<SPRArray<SPHT_Entry_int_int> > newElements;newElements=new(spr_intScratch355) SPRArray<SPHT_Entry_int_int>(spr_intScratch355)
          ;
          int key2;
          int value2;
@@ -5592,17 +5592,17 @@ void SPHT_int_int::del(char* stackStartPtr,int& key){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch34b;spr_intScratch34b=pos;chck_accs_p0(_elements,spr_intScratch34b,845)
-   if(_elements._theObject->_array[spr_intScratch34b].is_used==1){
-             int spr_intScratch34d;spr_intScratch34d=pos;chck_accs_p0(_elements,spr_intScratch34d,847)
+          int spr_intScratch356;spr_intScratch356=pos;chck_accs_p0(_elements,spr_intScratch356,856)
+   if(_elements._theObject->_array[spr_intScratch356].is_used==1){
+             int spr_intScratch358;spr_intScratch358=pos;chck_accs_p0(_elements,spr_intScratch358,858)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch34d].key,key)==0){
-                int spr_intScratch34f;spr_intScratch34f=pos;chck_accs_p0(_elements,spr_intScratch34f,849)
-         SPRSmartPtr<SPHT_Entry_int_int> entry;entry=_elements._theObject->_array[spr_intScratch34f].next;
+      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch358].key,key)==0){
+                int spr_intScratch35a;spr_intScratch35a=pos;chck_accs_p0(_elements,spr_intScratch35a,860)
+         SPRSmartPtr<SPHT_Entry_int_int> entry;entry=_elements._theObject->_array[spr_intScratch35a].next;
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if((entry!=0U)&&(coac.compare(stackStartPtr,entry._theObject->key,key)==1)){
-                   int spr_intScratch351;spr_intScratch351=pos;chck_accs_p0(_elements,spr_intScratch351,851)
-            _elements._theObject->_array[spr_intScratch351].next=entry._theObject->next;
+                   int spr_intScratch35c;spr_intScratch35c=pos;chck_accs_p0(_elements,spr_intScratch35c,862)
+            _elements._theObject->_array[spr_intScratch35c].next=entry._theObject->next;
             numberOfEntries=numberOfEntries-1;
             
          }
@@ -5626,24 +5626,24 @@ void SPHT_int_int::del(char* stackStartPtr,int& key){
       }
       else
       {
-             int spr_intScratch353;spr_intScratch353=pos;chck_accs_p0(_elements,spr_intScratch353,853)
-         if(_elements._theObject->_array[spr_intScratch353].next!=0U){
-                   int spr_intScratch355;spr_intScratch355=pos;chck_accs_p0(_elements,spr_intScratch355,855)
-            SPRSmartPtr<SPHT_Entry_int_int> entryNext;entryNext=_elements._theObject->_array[spr_intScratch355].next;
-                   int spr_intScratch357;spr_intScratch357=pos;chck_accs_p0(_elements,spr_intScratch357,857)
+             int spr_intScratch35e;spr_intScratch35e=pos;chck_accs_p0(_elements,spr_intScratch35e,864)
+         if(_elements._theObject->_array[spr_intScratch35e].next!=0U){
+                   int spr_intScratch360;spr_intScratch360=pos;chck_accs_p0(_elements,spr_intScratch360,866)
+            SPRSmartPtr<SPHT_Entry_int_int> entryNext;entryNext=_elements._theObject->_array[spr_intScratch360].next;
+                   int spr_intScratch362;spr_intScratch362=pos;chck_accs_p0(_elements,spr_intScratch362,868)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch357].key,entryNext._theObject->key);
-                   int spr_intScratch359;spr_intScratch359=pos;chck_accs_p0(_elements,spr_intScratch359,859)
+            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch362].key,entryNext._theObject->key);
+                   int spr_intScratch364;spr_intScratch364=pos;chck_accs_p0(_elements,spr_intScratch364,870)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch359].value,entryNext._theObject->value);
-                   int spr_intScratch35b;spr_intScratch35b=pos;chck_accs_p0(_elements,spr_intScratch35b,861)
-            _elements._theObject->_array[spr_intScratch35b].next=entryNext._theObject->next;
+            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch364].value,entryNext._theObject->value);
+                   int spr_intScratch366;spr_intScratch366=pos;chck_accs_p0(_elements,spr_intScratch366,872)
+            _elements._theObject->_array[spr_intScratch366].next=entryNext._theObject->next;
             
          }
          else
          {
-                int spr_intScratch35d;spr_intScratch35d=pos;chck_accs_p0(_elements,spr_intScratch35d,863)
-            _elements._theObject->_array[spr_intScratch35d].is_used=0;
+                int spr_intScratch368;spr_intScratch368=pos;chck_accs_p0(_elements,spr_intScratch368,874)
+            _elements._theObject->_array[spr_intScratch368].is_used=0;
             }
          numberOfEntries=numberOfEntries-1;
          }
@@ -5695,10 +5695,10 @@ void SPHT_String_16_int::resetIterator(char* stackStartPtr){
 void SPHT_String_16_int::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    numberOfEntries=0;
-   int spr_intScratch35f;
-   spr_intScratch35f=3;
-   if(spr_intScratch35f<0)throw "invalid size requested for heap allocation";
-   _elements=new(spr_intScratch35f) SPRArray<SPHT_Entry_String_16_int>(spr_intScratch35f)
+   int spr_intScratch36a;
+   spr_intScratch36a=3;
+   if(spr_intScratch36a<0)throw "invalid size requested for heap allocation";
+   _elements=new(spr_intScratch36a) SPRArray<SPHT_Entry_String_16_int>(spr_intScratch36a)
    ;
    
    
@@ -5720,8 +5720,8 @@ int SPHT_String_16_int::nextElem(char* stackStartPtr,String_16& key,int& value){
    {
    int found;found=0;
       while((iterator_pos<_elements._theObject->_sz)&&(found==0)){
-                int spr_intScratch360;spr_intScratch360=iterator_pos;chck_accs_p0(_elements,spr_intScratch360,866)
-         if(_elements._theObject->_array[spr_intScratch360].is_used==0){
+                int spr_intScratch36b;spr_intScratch36b=iterator_pos;chck_accs_p0(_elements,spr_intScratch36b,877)
+         if(_elements._theObject->_array[spr_intScratch36b].is_used==0){
             iterator_pos++;
             
          }
@@ -5735,14 +5735,14 @@ int SPHT_String_16_int::nextElem(char* stackStartPtr,String_16& key,int& value){
          return 0;
          
       }
-             int spr_intScratch362;spr_intScratch362=iterator_pos;chck_accs_p0(_elements,spr_intScratch362,868)
+             int spr_intScratch36d;spr_intScratch36d=iterator_pos;chck_accs_p0(_elements,spr_intScratch36d,879)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch362].key);
-             int spr_intScratch364;spr_intScratch364=iterator_pos;chck_accs_p0(_elements,spr_intScratch364,870)
+      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch36d].key);
+             int spr_intScratch36f;spr_intScratch36f=iterator_pos;chck_accs_p0(_elements,spr_intScratch36f,881)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch364].value);
-             int spr_intScratch366;spr_intScratch366=iterator_pos;chck_accs_p0(_elements,spr_intScratch366,872)
-      iterator_next=_elements._theObject->_array[spr_intScratch366].next;
+      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch36f].value);
+             int spr_intScratch371;spr_intScratch371=iterator_pos;chck_accs_p0(_elements,spr_intScratch371,883)
+      iterator_next=_elements._theObject->_array[spr_intScratch371].next;
       iterator_pos++;
       }
    return 1;
@@ -5771,24 +5771,24 @@ void SPHT_String_16_int::insertInternally(char* stackStartPtr,SPRSmartPtr<SPRArr
       
    }
    int pos;pos=hc%bins._theObject->_sz;
-          int spr_intScratch368;spr_intScratch368=pos;chck_accs_p0(bins,spr_intScratch368,874)
-          int spr_intScratch36a;spr_intScratch36a=pos;chck_accs_p0(bins,spr_intScratch36a,876)
+          int spr_intScratch373;spr_intScratch373=pos;chck_accs_p0(bins,spr_intScratch373,885)
+          int spr_intScratch375;spr_intScratch375=pos;chck_accs_p0(bins,spr_intScratch375,887)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if((bins._theObject->_array[spr_intScratch368].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch36a].key,key)==0)){
-             int spr_intScratch36c;spr_intScratch36c=pos;chck_accs_p0(bins,spr_intScratch36c,878)
-      SPRSmartPtr<SPHT_Entry_String_16_int> entry;entry=bins._theObject->_array[spr_intScratch36c].next;
+   if((bins._theObject->_array[spr_intScratch373].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch375].key,key)==0)){
+             int spr_intScratch377;spr_intScratch377=pos;chck_accs_p0(bins,spr_intScratch377,889)
+      SPRSmartPtr<SPHT_Entry_String_16_int> entry;entry=bins._theObject->_array[spr_intScratch377].next;
       if(entry==0U){
-                int spr_intScratch36e;spr_intScratch36e=pos;chck_accs_p0(bins,spr_intScratch36e,880)
+                int spr_intScratch379;spr_intScratch379=pos;chck_accs_p0(bins,spr_intScratch379,891)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         bins._theObject->_array[spr_intScratch36e].next=::new SPHT_Entry_String_16_int;
-                int spr_intScratch370;spr_intScratch370=pos;chck_accs_p0(bins,spr_intScratch370,882)
-         bins._theObject->_array[spr_intScratch370].next._theObject->is_used=1;
-                int spr_intScratch372;spr_intScratch372=pos;chck_accs_p0(bins,spr_intScratch372,884)
+         bins._theObject->_array[spr_intScratch379].next=::new SPHT_Entry_String_16_int;
+                int spr_intScratch37b;spr_intScratch37b=pos;chck_accs_p0(bins,spr_intScratch37b,893)
+         bins._theObject->_array[spr_intScratch37b].next._theObject->is_used=1;
+                int spr_intScratch37d;spr_intScratch37d=pos;chck_accs_p0(bins,spr_intScratch37d,895)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch372].next._theObject->key,key);
-                int spr_intScratch374;spr_intScratch374=pos;chck_accs_p0(bins,spr_intScratch374,886)
+         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch37d].next._theObject->key,key);
+                int spr_intScratch37f;spr_intScratch37f=pos;chck_accs_p0(bins,spr_intScratch37f,897)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch374].next._theObject->value,value);
+         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch37f].next._theObject->value,value);
          
       }
       else
@@ -5826,14 +5826,14 @@ void SPHT_String_16_int::insertInternally(char* stackStartPtr,SPRSmartPtr<SPRArr
    }
    else
    {
-          int spr_intScratch376;spr_intScratch376=pos;chck_accs_p0(bins,spr_intScratch376,888)
-      bins._theObject->_array[spr_intScratch376].is_used=1;
-             int spr_intScratch378;spr_intScratch378=pos;chck_accs_p0(bins,spr_intScratch378,890)
+          int spr_intScratch381;spr_intScratch381=pos;chck_accs_p0(bins,spr_intScratch381,899)
+      bins._theObject->_array[spr_intScratch381].is_used=1;
+             int spr_intScratch383;spr_intScratch383=pos;chck_accs_p0(bins,spr_intScratch383,901)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch378].key,key);
-             int spr_intScratch37a;spr_intScratch37a=pos;chck_accs_p0(bins,spr_intScratch37a,892)
+      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch383].key,key);
+             int spr_intScratch385;spr_intScratch385=pos;chck_accs_p0(bins,spr_intScratch385,903)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch37a].value,value);
+      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch385].value,value);
       }
    
    
@@ -5853,21 +5853,21 @@ int SPHT_String_16_int::search(char* stackStartPtr,String_16& key,int& value){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch37c;spr_intScratch37c=pos;chck_accs_p0(_elements,spr_intScratch37c,894)
-   if(_elements._theObject->_array[spr_intScratch37c].is_used==1){
-             int spr_intScratch37e;spr_intScratch37e=pos;chck_accs_p0(_elements,spr_intScratch37e,896)
+          int spr_intScratch387;spr_intScratch387=pos;chck_accs_p0(_elements,spr_intScratch387,905)
+   if(_elements._theObject->_array[spr_intScratch387].is_used==1){
+             int spr_intScratch389;spr_intScratch389=pos;chck_accs_p0(_elements,spr_intScratch389,907)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch37e].key)==1){
-                int spr_intScratch380;spr_intScratch380=pos;chck_accs_p0(_elements,spr_intScratch380,898)
+      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch389].key)==1){
+                int spr_intScratch38b;spr_intScratch38b=pos;chck_accs_p0(_elements,spr_intScratch38b,909)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch380].value);
+         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch38b].value);
          return 1;
          
       }
       else
       {
-             int spr_intScratch382;spr_intScratch382=pos;chck_accs_p0(_elements,spr_intScratch382,900)
-         SPRSmartPtr<SPHT_Entry_String_16_int> entry;entry=_elements._theObject->_array[spr_intScratch382].next;
+             int spr_intScratch38d;spr_intScratch38d=pos;chck_accs_p0(_elements,spr_intScratch38d,911)
+         SPRSmartPtr<SPHT_Entry_String_16_int> entry;entry=_elements._theObject->_array[spr_intScratch38d].next;
          while(entry!=0U){
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if(coac.compare(stackStartPtr,entry._theObject->key,key)==1){
@@ -5895,10 +5895,10 @@ void SPHT_String_16_int::insert(char* stackStartPtr,String_16& key,int& value){
       int limit;limit=((_elements._theObject->_sz*7)/10);
       if(nep1>limit){
          int newCap;newCap=(_elements._theObject->_sz+1)*2;
-         int spr_intScratch384;
-         spr_intScratch384=newCap;
-         if(spr_intScratch384<0)throw "invalid size requested for heap allocation";
-         SPRSmartPtr<SPRArray<SPHT_Entry_String_16_int> > newElements;newElements=new(spr_intScratch384) SPRArray<SPHT_Entry_String_16_int>(spr_intScratch384)
+         int spr_intScratch38f;
+         spr_intScratch38f=newCap;
+         if(spr_intScratch38f<0)throw "invalid size requested for heap allocation";
+         SPRSmartPtr<SPRArray<SPHT_Entry_String_16_int> > newElements;newElements=new(spr_intScratch38f) SPRArray<SPHT_Entry_String_16_int>(spr_intScratch38f)
          ;
          String_16 key2;
          int value2;
@@ -5937,17 +5937,17 @@ void SPHT_String_16_int::del(char* stackStartPtr,String_16& key){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch385;spr_intScratch385=pos;chck_accs_p0(_elements,spr_intScratch385,903)
-   if(_elements._theObject->_array[spr_intScratch385].is_used==1){
-             int spr_intScratch387;spr_intScratch387=pos;chck_accs_p0(_elements,spr_intScratch387,905)
+          int spr_intScratch390;spr_intScratch390=pos;chck_accs_p0(_elements,spr_intScratch390,914)
+   if(_elements._theObject->_array[spr_intScratch390].is_used==1){
+             int spr_intScratch392;spr_intScratch392=pos;chck_accs_p0(_elements,spr_intScratch392,916)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch387].key,key)==0){
-                int spr_intScratch389;spr_intScratch389=pos;chck_accs_p0(_elements,spr_intScratch389,907)
-         SPRSmartPtr<SPHT_Entry_String_16_int> entry;entry=_elements._theObject->_array[spr_intScratch389].next;
+      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch392].key,key)==0){
+                int spr_intScratch394;spr_intScratch394=pos;chck_accs_p0(_elements,spr_intScratch394,918)
+         SPRSmartPtr<SPHT_Entry_String_16_int> entry;entry=_elements._theObject->_array[spr_intScratch394].next;
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if((entry!=0U)&&(coac.compare(stackStartPtr,entry._theObject->key,key)==1)){
-                   int spr_intScratch38b;spr_intScratch38b=pos;chck_accs_p0(_elements,spr_intScratch38b,909)
-            _elements._theObject->_array[spr_intScratch38b].next=entry._theObject->next;
+                   int spr_intScratch396;spr_intScratch396=pos;chck_accs_p0(_elements,spr_intScratch396,920)
+            _elements._theObject->_array[spr_intScratch396].next=entry._theObject->next;
             numberOfEntries=numberOfEntries-1;
             
          }
@@ -5971,24 +5971,24 @@ void SPHT_String_16_int::del(char* stackStartPtr,String_16& key){
       }
       else
       {
-             int spr_intScratch38d;spr_intScratch38d=pos;chck_accs_p0(_elements,spr_intScratch38d,911)
-         if(_elements._theObject->_array[spr_intScratch38d].next!=0U){
-                   int spr_intScratch38f;spr_intScratch38f=pos;chck_accs_p0(_elements,spr_intScratch38f,913)
-            SPRSmartPtr<SPHT_Entry_String_16_int> entryNext;entryNext=_elements._theObject->_array[spr_intScratch38f].next;
-                   int spr_intScratch391;spr_intScratch391=pos;chck_accs_p0(_elements,spr_intScratch391,915)
+             int spr_intScratch398;spr_intScratch398=pos;chck_accs_p0(_elements,spr_intScratch398,922)
+         if(_elements._theObject->_array[spr_intScratch398].next!=0U){
+                   int spr_intScratch39a;spr_intScratch39a=pos;chck_accs_p0(_elements,spr_intScratch39a,924)
+            SPRSmartPtr<SPHT_Entry_String_16_int> entryNext;entryNext=_elements._theObject->_array[spr_intScratch39a].next;
+                   int spr_intScratch39c;spr_intScratch39c=pos;chck_accs_p0(_elements,spr_intScratch39c,926)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch391].key,entryNext._theObject->key);
-                   int spr_intScratch393;spr_intScratch393=pos;chck_accs_p0(_elements,spr_intScratch393,917)
+            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch39c].key,entryNext._theObject->key);
+                   int spr_intScratch39e;spr_intScratch39e=pos;chck_accs_p0(_elements,spr_intScratch39e,928)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch393].value,entryNext._theObject->value);
-                   int spr_intScratch395;spr_intScratch395=pos;chck_accs_p0(_elements,spr_intScratch395,919)
-            _elements._theObject->_array[spr_intScratch395].next=entryNext._theObject->next;
+            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch39e].value,entryNext._theObject->value);
+                   int spr_intScratch3a0;spr_intScratch3a0=pos;chck_accs_p0(_elements,spr_intScratch3a0,930)
+            _elements._theObject->_array[spr_intScratch3a0].next=entryNext._theObject->next;
             
          }
          else
          {
-                int spr_intScratch397;spr_intScratch397=pos;chck_accs_p0(_elements,spr_intScratch397,921)
-            _elements._theObject->_array[spr_intScratch397].is_used=0;
+                int spr_intScratch3a2;spr_intScratch3a2=pos;chck_accs_p0(_elements,spr_intScratch3a2,932)
+            _elements._theObject->_array[spr_intScratch3a2].is_used=0;
             }
          numberOfEntries=numberOfEntries-1;
          }
@@ -6040,10 +6040,10 @@ void SPHT_int_String_16::resetIterator(char* stackStartPtr){
 void SPHT_int_String_16::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    numberOfEntries=0;
-   int spr_intScratch399;
-   spr_intScratch399=3;
-   if(spr_intScratch399<0)throw "invalid size requested for heap allocation";
-   _elements=new(spr_intScratch399) SPRArray<SPHT_Entry_int_String_16>(spr_intScratch399)
+   int spr_intScratch3a4;
+   spr_intScratch3a4=3;
+   if(spr_intScratch3a4<0)throw "invalid size requested for heap allocation";
+   _elements=new(spr_intScratch3a4) SPRArray<SPHT_Entry_int_String_16>(spr_intScratch3a4)
    ;
    
    
@@ -6065,8 +6065,8 @@ int SPHT_int_String_16::nextElem(char* stackStartPtr,int& key,String_16& value){
    {
    int found;found=0;
       while((iterator_pos<_elements._theObject->_sz)&&(found==0)){
-                int spr_intScratch39a;spr_intScratch39a=iterator_pos;chck_accs_p0(_elements,spr_intScratch39a,924)
-         if(_elements._theObject->_array[spr_intScratch39a].is_used==0){
+                int spr_intScratch3a5;spr_intScratch3a5=iterator_pos;chck_accs_p0(_elements,spr_intScratch3a5,935)
+         if(_elements._theObject->_array[spr_intScratch3a5].is_used==0){
             iterator_pos++;
             
          }
@@ -6080,14 +6080,14 @@ int SPHT_int_String_16::nextElem(char* stackStartPtr,int& key,String_16& value){
          return 0;
          
       }
-             int spr_intScratch39c;spr_intScratch39c=iterator_pos;chck_accs_p0(_elements,spr_intScratch39c,926)
+             int spr_intScratch3a7;spr_intScratch3a7=iterator_pos;chck_accs_p0(_elements,spr_intScratch3a7,937)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch39c].key);
-             int spr_intScratch39e;spr_intScratch39e=iterator_pos;chck_accs_p0(_elements,spr_intScratch39e,928)
+      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3a7].key);
+             int spr_intScratch3a9;spr_intScratch3a9=iterator_pos;chck_accs_p0(_elements,spr_intScratch3a9,939)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch39e].value);
-             int spr_intScratch3a0;spr_intScratch3a0=iterator_pos;chck_accs_p0(_elements,spr_intScratch3a0,930)
-      iterator_next=_elements._theObject->_array[spr_intScratch3a0].next;
+      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3a9].value);
+             int spr_intScratch3ab;spr_intScratch3ab=iterator_pos;chck_accs_p0(_elements,spr_intScratch3ab,941)
+      iterator_next=_elements._theObject->_array[spr_intScratch3ab].next;
       iterator_pos++;
       }
    return 1;
@@ -6116,24 +6116,24 @@ void SPHT_int_String_16::insertInternally(char* stackStartPtr,SPRSmartPtr<SPRArr
       
    }
    int pos;pos=hc%bins._theObject->_sz;
-          int spr_intScratch3a2;spr_intScratch3a2=pos;chck_accs_p0(bins,spr_intScratch3a2,932)
-          int spr_intScratch3a4;spr_intScratch3a4=pos;chck_accs_p0(bins,spr_intScratch3a4,934)
+          int spr_intScratch3ad;spr_intScratch3ad=pos;chck_accs_p0(bins,spr_intScratch3ad,943)
+          int spr_intScratch3af;spr_intScratch3af=pos;chck_accs_p0(bins,spr_intScratch3af,945)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if((bins._theObject->_array[spr_intScratch3a2].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch3a4].key,key)==0)){
-             int spr_intScratch3a6;spr_intScratch3a6=pos;chck_accs_p0(bins,spr_intScratch3a6,936)
-      SPRSmartPtr<SPHT_Entry_int_String_16> entry;entry=bins._theObject->_array[spr_intScratch3a6].next;
+   if((bins._theObject->_array[spr_intScratch3ad].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch3af].key,key)==0)){
+             int spr_intScratch3b1;spr_intScratch3b1=pos;chck_accs_p0(bins,spr_intScratch3b1,947)
+      SPRSmartPtr<SPHT_Entry_int_String_16> entry;entry=bins._theObject->_array[spr_intScratch3b1].next;
       if(entry==0U){
-                int spr_intScratch3a8;spr_intScratch3a8=pos;chck_accs_p0(bins,spr_intScratch3a8,938)
+                int spr_intScratch3b3;spr_intScratch3b3=pos;chck_accs_p0(bins,spr_intScratch3b3,949)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         bins._theObject->_array[spr_intScratch3a8].next=::new SPHT_Entry_int_String_16;
-                int spr_intScratch3aa;spr_intScratch3aa=pos;chck_accs_p0(bins,spr_intScratch3aa,940)
-         bins._theObject->_array[spr_intScratch3aa].next._theObject->is_used=1;
-                int spr_intScratch3ac;spr_intScratch3ac=pos;chck_accs_p0(bins,spr_intScratch3ac,942)
+         bins._theObject->_array[spr_intScratch3b3].next=::new SPHT_Entry_int_String_16;
+                int spr_intScratch3b5;spr_intScratch3b5=pos;chck_accs_p0(bins,spr_intScratch3b5,951)
+         bins._theObject->_array[spr_intScratch3b5].next._theObject->is_used=1;
+                int spr_intScratch3b7;spr_intScratch3b7=pos;chck_accs_p0(bins,spr_intScratch3b7,953)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3ac].next._theObject->key,key);
-                int spr_intScratch3ae;spr_intScratch3ae=pos;chck_accs_p0(bins,spr_intScratch3ae,944)
+         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3b7].next._theObject->key,key);
+                int spr_intScratch3b9;spr_intScratch3b9=pos;chck_accs_p0(bins,spr_intScratch3b9,955)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3ae].next._theObject->value,value);
+         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3b9].next._theObject->value,value);
          
       }
       else
@@ -6171,14 +6171,14 @@ void SPHT_int_String_16::insertInternally(char* stackStartPtr,SPRSmartPtr<SPRArr
    }
    else
    {
-          int spr_intScratch3b0;spr_intScratch3b0=pos;chck_accs_p0(bins,spr_intScratch3b0,946)
-      bins._theObject->_array[spr_intScratch3b0].is_used=1;
-             int spr_intScratch3b2;spr_intScratch3b2=pos;chck_accs_p0(bins,spr_intScratch3b2,948)
+          int spr_intScratch3bb;spr_intScratch3bb=pos;chck_accs_p0(bins,spr_intScratch3bb,957)
+      bins._theObject->_array[spr_intScratch3bb].is_used=1;
+             int spr_intScratch3bd;spr_intScratch3bd=pos;chck_accs_p0(bins,spr_intScratch3bd,959)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3b2].key,key);
-             int spr_intScratch3b4;spr_intScratch3b4=pos;chck_accs_p0(bins,spr_intScratch3b4,950)
+      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3bd].key,key);
+             int spr_intScratch3bf;spr_intScratch3bf=pos;chck_accs_p0(bins,spr_intScratch3bf,961)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3b4].value,value);
+      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3bf].value,value);
       }
    
    
@@ -6198,21 +6198,21 @@ int SPHT_int_String_16::search(char* stackStartPtr,int& key,String_16& value){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch3b6;spr_intScratch3b6=pos;chck_accs_p0(_elements,spr_intScratch3b6,952)
-   if(_elements._theObject->_array[spr_intScratch3b6].is_used==1){
-             int spr_intScratch3b8;spr_intScratch3b8=pos;chck_accs_p0(_elements,spr_intScratch3b8,954)
+          int spr_intScratch3c1;spr_intScratch3c1=pos;chck_accs_p0(_elements,spr_intScratch3c1,963)
+   if(_elements._theObject->_array[spr_intScratch3c1].is_used==1){
+             int spr_intScratch3c3;spr_intScratch3c3=pos;chck_accs_p0(_elements,spr_intScratch3c3,965)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3b8].key)==1){
-                int spr_intScratch3ba;spr_intScratch3ba=pos;chck_accs_p0(_elements,spr_intScratch3ba,956)
+      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3c3].key)==1){
+                int spr_intScratch3c5;spr_intScratch3c5=pos;chck_accs_p0(_elements,spr_intScratch3c5,967)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3ba].value);
+         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3c5].value);
          return 1;
          
       }
       else
       {
-             int spr_intScratch3bc;spr_intScratch3bc=pos;chck_accs_p0(_elements,spr_intScratch3bc,958)
-         SPRSmartPtr<SPHT_Entry_int_String_16> entry;entry=_elements._theObject->_array[spr_intScratch3bc].next;
+             int spr_intScratch3c7;spr_intScratch3c7=pos;chck_accs_p0(_elements,spr_intScratch3c7,969)
+         SPRSmartPtr<SPHT_Entry_int_String_16> entry;entry=_elements._theObject->_array[spr_intScratch3c7].next;
          while(entry!=0U){
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if(coac.compare(stackStartPtr,entry._theObject->key,key)==1){
@@ -6240,10 +6240,10 @@ void SPHT_int_String_16::insert(char* stackStartPtr,int& key,String_16& value){
       int limit;limit=((_elements._theObject->_sz*7)/10);
       if(nep1>limit){
          int newCap;newCap=(_elements._theObject->_sz+1)*2;
-         int spr_intScratch3be;
-         spr_intScratch3be=newCap;
-         if(spr_intScratch3be<0)throw "invalid size requested for heap allocation";
-         SPRSmartPtr<SPRArray<SPHT_Entry_int_String_16> > newElements;newElements=new(spr_intScratch3be) SPRArray<SPHT_Entry_int_String_16>(spr_intScratch3be)
+         int spr_intScratch3c9;
+         spr_intScratch3c9=newCap;
+         if(spr_intScratch3c9<0)throw "invalid size requested for heap allocation";
+         SPRSmartPtr<SPRArray<SPHT_Entry_int_String_16> > newElements;newElements=new(spr_intScratch3c9) SPRArray<SPHT_Entry_int_String_16>(spr_intScratch3c9)
          ;
          int key2;
          String_16 value2;
@@ -6282,17 +6282,17 @@ void SPHT_int_String_16::del(char* stackStartPtr,int& key){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch3bf;spr_intScratch3bf=pos;chck_accs_p0(_elements,spr_intScratch3bf,961)
-   if(_elements._theObject->_array[spr_intScratch3bf].is_used==1){
-             int spr_intScratch3c1;spr_intScratch3c1=pos;chck_accs_p0(_elements,spr_intScratch3c1,963)
+          int spr_intScratch3ca;spr_intScratch3ca=pos;chck_accs_p0(_elements,spr_intScratch3ca,972)
+   if(_elements._theObject->_array[spr_intScratch3ca].is_used==1){
+             int spr_intScratch3cc;spr_intScratch3cc=pos;chck_accs_p0(_elements,spr_intScratch3cc,974)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch3c1].key,key)==0){
-                int spr_intScratch3c3;spr_intScratch3c3=pos;chck_accs_p0(_elements,spr_intScratch3c3,965)
-         SPRSmartPtr<SPHT_Entry_int_String_16> entry;entry=_elements._theObject->_array[spr_intScratch3c3].next;
+      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch3cc].key,key)==0){
+                int spr_intScratch3ce;spr_intScratch3ce=pos;chck_accs_p0(_elements,spr_intScratch3ce,976)
+         SPRSmartPtr<SPHT_Entry_int_String_16> entry;entry=_elements._theObject->_array[spr_intScratch3ce].next;
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if((entry!=0U)&&(coac.compare(stackStartPtr,entry._theObject->key,key)==1)){
-                   int spr_intScratch3c5;spr_intScratch3c5=pos;chck_accs_p0(_elements,spr_intScratch3c5,967)
-            _elements._theObject->_array[spr_intScratch3c5].next=entry._theObject->next;
+                   int spr_intScratch3d0;spr_intScratch3d0=pos;chck_accs_p0(_elements,spr_intScratch3d0,978)
+            _elements._theObject->_array[spr_intScratch3d0].next=entry._theObject->next;
             numberOfEntries=numberOfEntries-1;
             
          }
@@ -6316,24 +6316,24 @@ void SPHT_int_String_16::del(char* stackStartPtr,int& key){
       }
       else
       {
-             int spr_intScratch3c7;spr_intScratch3c7=pos;chck_accs_p0(_elements,spr_intScratch3c7,969)
-         if(_elements._theObject->_array[spr_intScratch3c7].next!=0U){
-                   int spr_intScratch3c9;spr_intScratch3c9=pos;chck_accs_p0(_elements,spr_intScratch3c9,971)
-            SPRSmartPtr<SPHT_Entry_int_String_16> entryNext;entryNext=_elements._theObject->_array[spr_intScratch3c9].next;
-                   int spr_intScratch3cb;spr_intScratch3cb=pos;chck_accs_p0(_elements,spr_intScratch3cb,973)
+             int spr_intScratch3d2;spr_intScratch3d2=pos;chck_accs_p0(_elements,spr_intScratch3d2,980)
+         if(_elements._theObject->_array[spr_intScratch3d2].next!=0U){
+                   int spr_intScratch3d4;spr_intScratch3d4=pos;chck_accs_p0(_elements,spr_intScratch3d4,982)
+            SPRSmartPtr<SPHT_Entry_int_String_16> entryNext;entryNext=_elements._theObject->_array[spr_intScratch3d4].next;
+                   int spr_intScratch3d6;spr_intScratch3d6=pos;chck_accs_p0(_elements,spr_intScratch3d6,984)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch3cb].key,entryNext._theObject->key);
-                   int spr_intScratch3cd;spr_intScratch3cd=pos;chck_accs_p0(_elements,spr_intScratch3cd,975)
+            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch3d6].key,entryNext._theObject->key);
+                   int spr_intScratch3d8;spr_intScratch3d8=pos;chck_accs_p0(_elements,spr_intScratch3d8,986)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch3cd].value,entryNext._theObject->value);
-                   int spr_intScratch3cf;spr_intScratch3cf=pos;chck_accs_p0(_elements,spr_intScratch3cf,977)
-            _elements._theObject->_array[spr_intScratch3cf].next=entryNext._theObject->next;
+            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch3d8].value,entryNext._theObject->value);
+                   int spr_intScratch3da;spr_intScratch3da=pos;chck_accs_p0(_elements,spr_intScratch3da,988)
+            _elements._theObject->_array[spr_intScratch3da].next=entryNext._theObject->next;
             
          }
          else
          {
-                int spr_intScratch3d1;spr_intScratch3d1=pos;chck_accs_p0(_elements,spr_intScratch3d1,979)
-            _elements._theObject->_array[spr_intScratch3d1].is_used=0;
+                int spr_intScratch3dc;spr_intScratch3dc=pos;chck_accs_p0(_elements,spr_intScratch3dc,990)
+            _elements._theObject->_array[spr_intScratch3dc].is_used=0;
             }
          numberOfEntries=numberOfEntries-1;
          }
@@ -6385,10 +6385,10 @@ void SPHT_String_16_double::resetIterator(char* stackStartPtr){
 void SPHT_String_16_double::clear(char* stackStartPtr){
    char SPR_stack_dummy_var;
    numberOfEntries=0;
-   int spr_intScratch3d3;
-   spr_intScratch3d3=3;
-   if(spr_intScratch3d3<0)throw "invalid size requested for heap allocation";
-   _elements=new(spr_intScratch3d3) SPRArray<SPHT_Entry_String_16_double>(spr_intScratch3d3)
+   int spr_intScratch3de;
+   spr_intScratch3de=3;
+   if(spr_intScratch3de<0)throw "invalid size requested for heap allocation";
+   _elements=new(spr_intScratch3de) SPRArray<SPHT_Entry_String_16_double>(spr_intScratch3de)
    ;
    
    
@@ -6410,8 +6410,8 @@ int SPHT_String_16_double::nextElem(char* stackStartPtr,String_16& key,double& v
    {
    int found;found=0;
       while((iterator_pos<_elements._theObject->_sz)&&(found==0)){
-                int spr_intScratch3d4;spr_intScratch3d4=iterator_pos;chck_accs_p0(_elements,spr_intScratch3d4,982)
-         if(_elements._theObject->_array[spr_intScratch3d4].is_used==0){
+                int spr_intScratch3df;spr_intScratch3df=iterator_pos;chck_accs_p0(_elements,spr_intScratch3df,993)
+         if(_elements._theObject->_array[spr_intScratch3df].is_used==0){
             iterator_pos++;
             
          }
@@ -6425,14 +6425,14 @@ int SPHT_String_16_double::nextElem(char* stackStartPtr,String_16& key,double& v
          return 0;
          
       }
-             int spr_intScratch3d6;spr_intScratch3d6=iterator_pos;chck_accs_p0(_elements,spr_intScratch3d6,984)
+             int spr_intScratch3e1;spr_intScratch3e1=iterator_pos;chck_accs_p0(_elements,spr_intScratch3e1,995)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3d6].key);
-             int spr_intScratch3d8;spr_intScratch3d8=iterator_pos;chck_accs_p0(_elements,spr_intScratch3d8,986)
+      ak.assign(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3e1].key);
+             int spr_intScratch3e3;spr_intScratch3e3=iterator_pos;chck_accs_p0(_elements,spr_intScratch3e3,997)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3d8].value);
-             int spr_intScratch3da;spr_intScratch3da=iterator_pos;chck_accs_p0(_elements,spr_intScratch3da,988)
-      iterator_next=_elements._theObject->_array[spr_intScratch3da].next;
+      av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3e3].value);
+             int spr_intScratch3e5;spr_intScratch3e5=iterator_pos;chck_accs_p0(_elements,spr_intScratch3e5,999)
+      iterator_next=_elements._theObject->_array[spr_intScratch3e5].next;
       iterator_pos++;
       }
    return 1;
@@ -6461,24 +6461,24 @@ void SPHT_String_16_double::insertInternally(char* stackStartPtr,SPRSmartPtr<SPR
       
    }
    int pos;pos=hc%bins._theObject->_sz;
-          int spr_intScratch3dc;spr_intScratch3dc=pos;chck_accs_p0(bins,spr_intScratch3dc,990)
-          int spr_intScratch3de;spr_intScratch3de=pos;chck_accs_p0(bins,spr_intScratch3de,992)
+          int spr_intScratch3e7;spr_intScratch3e7=pos;chck_accs_p0(bins,spr_intScratch3e7,1001)
+          int spr_intScratch3e9;spr_intScratch3e9=pos;chck_accs_p0(bins,spr_intScratch3e9,1003)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if((bins._theObject->_array[spr_intScratch3dc].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch3de].key,key)==0)){
-             int spr_intScratch3e0;spr_intScratch3e0=pos;chck_accs_p0(bins,spr_intScratch3e0,994)
-      SPRSmartPtr<SPHT_Entry_String_16_double> entry;entry=bins._theObject->_array[spr_intScratch3e0].next;
+   if((bins._theObject->_array[spr_intScratch3e7].is_used!=0)&&(coac.compare(stackStartPtr,bins._theObject->_array[spr_intScratch3e9].key,key)==0)){
+             int spr_intScratch3eb;spr_intScratch3eb=pos;chck_accs_p0(bins,spr_intScratch3eb,1005)
+      SPRSmartPtr<SPHT_Entry_String_16_double> entry;entry=bins._theObject->_array[spr_intScratch3eb].next;
       if(entry==0U){
-                int spr_intScratch3e2;spr_intScratch3e2=pos;chck_accs_p0(bins,spr_intScratch3e2,996)
+                int spr_intScratch3ed;spr_intScratch3ed=pos;chck_accs_p0(bins,spr_intScratch3ed,1007)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         bins._theObject->_array[spr_intScratch3e2].next=::new SPHT_Entry_String_16_double;
-                int spr_intScratch3e4;spr_intScratch3e4=pos;chck_accs_p0(bins,spr_intScratch3e4,998)
-         bins._theObject->_array[spr_intScratch3e4].next._theObject->is_used=1;
-                int spr_intScratch3e6;spr_intScratch3e6=pos;chck_accs_p0(bins,spr_intScratch3e6,1000)
+         bins._theObject->_array[spr_intScratch3ed].next=::new SPHT_Entry_String_16_double;
+                int spr_intScratch3ef;spr_intScratch3ef=pos;chck_accs_p0(bins,spr_intScratch3ef,1009)
+         bins._theObject->_array[spr_intScratch3ef].next._theObject->is_used=1;
+                int spr_intScratch3f1;spr_intScratch3f1=pos;chck_accs_p0(bins,spr_intScratch3f1,1011)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3e6].next._theObject->key,key);
-                int spr_intScratch3e8;spr_intScratch3e8=pos;chck_accs_p0(bins,spr_intScratch3e8,1002)
+         ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3f1].next._theObject->key,key);
+                int spr_intScratch3f3;spr_intScratch3f3=pos;chck_accs_p0(bins,spr_intScratch3f3,1013)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3e8].next._theObject->value,value);
+         av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3f3].next._theObject->value,value);
          
       }
       else
@@ -6516,14 +6516,14 @@ void SPHT_String_16_double::insertInternally(char* stackStartPtr,SPRSmartPtr<SPR
    }
    else
    {
-          int spr_intScratch3ea;spr_intScratch3ea=pos;chck_accs_p0(bins,spr_intScratch3ea,1004)
-      bins._theObject->_array[spr_intScratch3ea].is_used=1;
-             int spr_intScratch3ec;spr_intScratch3ec=pos;chck_accs_p0(bins,spr_intScratch3ec,1006)
+          int spr_intScratch3f5;spr_intScratch3f5=pos;chck_accs_p0(bins,spr_intScratch3f5,1015)
+      bins._theObject->_array[spr_intScratch3f5].is_used=1;
+             int spr_intScratch3f7;spr_intScratch3f7=pos;chck_accs_p0(bins,spr_intScratch3f7,1017)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3ec].key,key);
-             int spr_intScratch3ee;spr_intScratch3ee=pos;chck_accs_p0(bins,spr_intScratch3ee,1008)
+      ak.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3f7].key,key);
+             int spr_intScratch3f9;spr_intScratch3f9=pos;chck_accs_p0(bins,spr_intScratch3f9,1019)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3ee].value,value);
+      av.assign(stackStartPtr,bins._theObject->_array[spr_intScratch3f9].value,value);
       }
    
    
@@ -6543,21 +6543,21 @@ int SPHT_String_16_double::search(char* stackStartPtr,String_16& key,double& val
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch3f0;spr_intScratch3f0=pos;chck_accs_p0(_elements,spr_intScratch3f0,1010)
-   if(_elements._theObject->_array[spr_intScratch3f0].is_used==1){
-             int spr_intScratch3f2;spr_intScratch3f2=pos;chck_accs_p0(_elements,spr_intScratch3f2,1012)
+          int spr_intScratch3fb;spr_intScratch3fb=pos;chck_accs_p0(_elements,spr_intScratch3fb,1021)
+   if(_elements._theObject->_array[spr_intScratch3fb].is_used==1){
+             int spr_intScratch3fd;spr_intScratch3fd=pos;chck_accs_p0(_elements,spr_intScratch3fd,1023)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3f2].key)==1){
-                int spr_intScratch3f4;spr_intScratch3f4=pos;chck_accs_p0(_elements,spr_intScratch3f4,1014)
+      if(coac.compare(stackStartPtr,key,_elements._theObject->_array[spr_intScratch3fd].key)==1){
+                int spr_intScratch3ff;spr_intScratch3ff=pos;chck_accs_p0(_elements,spr_intScratch3ff,1025)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3f4].value);
+         av.assign(stackStartPtr,value,_elements._theObject->_array[spr_intScratch3ff].value);
          return 1;
          
       }
       else
       {
-             int spr_intScratch3f6;spr_intScratch3f6=pos;chck_accs_p0(_elements,spr_intScratch3f6,1016)
-         SPRSmartPtr<SPHT_Entry_String_16_double> entry;entry=_elements._theObject->_array[spr_intScratch3f6].next;
+             int spr_intScratch401;spr_intScratch401=pos;chck_accs_p0(_elements,spr_intScratch401,1027)
+         SPRSmartPtr<SPHT_Entry_String_16_double> entry;entry=_elements._theObject->_array[spr_intScratch401].next;
          while(entry!=0U){
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if(coac.compare(stackStartPtr,entry._theObject->key,key)==1){
@@ -6585,10 +6585,10 @@ void SPHT_String_16_double::insert(char* stackStartPtr,String_16& key,double& va
       int limit;limit=((_elements._theObject->_sz*7)/10);
       if(nep1>limit){
          int newCap;newCap=(_elements._theObject->_sz+1)*2;
-         int spr_intScratch3f8;
-         spr_intScratch3f8=newCap;
-         if(spr_intScratch3f8<0)throw "invalid size requested for heap allocation";
-         SPRSmartPtr<SPRArray<SPHT_Entry_String_16_double> > newElements;newElements=new(spr_intScratch3f8) SPRArray<SPHT_Entry_String_16_double>(spr_intScratch3f8)
+         int spr_intScratch403;
+         spr_intScratch403=newCap;
+         if(spr_intScratch403<0)throw "invalid size requested for heap allocation";
+         SPRSmartPtr<SPRArray<SPHT_Entry_String_16_double> > newElements;newElements=new(spr_intScratch403) SPRArray<SPHT_Entry_String_16_double>(spr_intScratch403)
          ;
          String_16 key2;
          double value2;
@@ -6627,17 +6627,17 @@ void SPHT_String_16_double::del(char* stackStartPtr,String_16& key){
       
    }
    int pos;pos=hc%_elements._theObject->_sz;
-          int spr_intScratch3f9;spr_intScratch3f9=pos;chck_accs_p0(_elements,spr_intScratch3f9,1019)
-   if(_elements._theObject->_array[spr_intScratch3f9].is_used==1){
-             int spr_intScratch3fb;spr_intScratch3fb=pos;chck_accs_p0(_elements,spr_intScratch3fb,1021)
+          int spr_intScratch404;spr_intScratch404=pos;chck_accs_p0(_elements,spr_intScratch404,1030)
+   if(_elements._theObject->_array[spr_intScratch404].is_used==1){
+             int spr_intScratch406;spr_intScratch406=pos;chck_accs_p0(_elements,spr_intScratch406,1032)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch3fb].key,key)==0){
-                int spr_intScratch3fd;spr_intScratch3fd=pos;chck_accs_p0(_elements,spr_intScratch3fd,1023)
-         SPRSmartPtr<SPHT_Entry_String_16_double> entry;entry=_elements._theObject->_array[spr_intScratch3fd].next;
+      if(coac.compare(stackStartPtr,_elements._theObject->_array[spr_intScratch406].key,key)==0){
+                int spr_intScratch408;spr_intScratch408=pos;chck_accs_p0(_elements,spr_intScratch408,1034)
+         SPRSmartPtr<SPHT_Entry_String_16_double> entry;entry=_elements._theObject->_array[spr_intScratch408].next;
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if((entry!=0U)&&(coac.compare(stackStartPtr,entry._theObject->key,key)==1)){
-                   int spr_intScratch3ff;spr_intScratch3ff=pos;chck_accs_p0(_elements,spr_intScratch3ff,1025)
-            _elements._theObject->_array[spr_intScratch3ff].next=entry._theObject->next;
+                   int spr_intScratch40a;spr_intScratch40a=pos;chck_accs_p0(_elements,spr_intScratch40a,1036)
+            _elements._theObject->_array[spr_intScratch40a].next=entry._theObject->next;
             numberOfEntries=numberOfEntries-1;
             
          }
@@ -6661,24 +6661,24 @@ void SPHT_String_16_double::del(char* stackStartPtr,String_16& key){
       }
       else
       {
-             int spr_intScratch401;spr_intScratch401=pos;chck_accs_p0(_elements,spr_intScratch401,1027)
-         if(_elements._theObject->_array[spr_intScratch401].next!=0U){
-                   int spr_intScratch403;spr_intScratch403=pos;chck_accs_p0(_elements,spr_intScratch403,1029)
-            SPRSmartPtr<SPHT_Entry_String_16_double> entryNext;entryNext=_elements._theObject->_array[spr_intScratch403].next;
-                   int spr_intScratch405;spr_intScratch405=pos;chck_accs_p0(_elements,spr_intScratch405,1031)
+             int spr_intScratch40c;spr_intScratch40c=pos;chck_accs_p0(_elements,spr_intScratch40c,1038)
+         if(_elements._theObject->_array[spr_intScratch40c].next!=0U){
+                   int spr_intScratch40e;spr_intScratch40e=pos;chck_accs_p0(_elements,spr_intScratch40e,1040)
+            SPRSmartPtr<SPHT_Entry_String_16_double> entryNext;entryNext=_elements._theObject->_array[spr_intScratch40e].next;
+                   int spr_intScratch410;spr_intScratch410=pos;chck_accs_p0(_elements,spr_intScratch410,1042)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch405].key,entryNext._theObject->key);
-                   int spr_intScratch407;spr_intScratch407=pos;chck_accs_p0(_elements,spr_intScratch407,1033)
+            ak.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch410].key,entryNext._theObject->key);
+                   int spr_intScratch412;spr_intScratch412=pos;chck_accs_p0(_elements,spr_intScratch412,1044)
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch407].value,entryNext._theObject->value);
-                   int spr_intScratch409;spr_intScratch409=pos;chck_accs_p0(_elements,spr_intScratch409,1035)
-            _elements._theObject->_array[spr_intScratch409].next=entryNext._theObject->next;
+            av.assign(stackStartPtr,_elements._theObject->_array[spr_intScratch412].value,entryNext._theObject->value);
+                   int spr_intScratch414;spr_intScratch414=pos;chck_accs_p0(_elements,spr_intScratch414,1046)
+            _elements._theObject->_array[spr_intScratch414].next=entryNext._theObject->next;
             
          }
          else
          {
-                int spr_intScratch40b;spr_intScratch40b=pos;chck_accs_p0(_elements,spr_intScratch40b,1037)
-            _elements._theObject->_array[spr_intScratch40b].is_used=0;
+                int spr_intScratch416;spr_intScratch416=pos;chck_accs_p0(_elements,spr_intScratch416,1048)
+            _elements._theObject->_array[spr_intScratch416].is_used=0;
             }
          numberOfEntries=numberOfEntries-1;
          }

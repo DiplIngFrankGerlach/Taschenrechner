@@ -1,4 +1,22 @@
-
+class SFcolorCode
+{
+methods:
+ 
+static int get_FL_BLACK  ();
+static int get_FL_RED    ();
+static int get_FL_GREEN  ();
+static int get_FL_YELLOW ();
+static int get_FL_BLUE   ();
+static int get_FL_MAGENTA();
+static int get_FL_CYAN   ();
+static int get_FL_DARK_RED();
+static int get_FL_DARK_GREEN   ();
+static int get_FL_DARK_YELLOW  ();
+static int get_FL_DARK_BLUE    ();
+static int get_FL_DARK_MAGENTA ();
+static int get_FL_DARK_CYAN    ();
+static int get_FL_WHITE        ();
+};
 
 class SFcallbackTarget
 {
@@ -56,19 +74,22 @@ class SFbox
    ]]
    *int punkteX[];
    *int punkteY[];
+   *int farbe[];
    int punkteGueltig;
-   
+   *char label[];   
 methods:
    SFbox();
    void create(int x, int y,int width, int height);
 
-   void addPoint(int x,int y);//melde einen Punkt zum Zeichnen an
+   void addPoint(int x,int y,int farbei);//melde einen Punkt zum Zeichnen an
 
    int hoehe();
 
    void loesche();//loesche die Box
 
    virtual void draw();//wird vom Framework gerufen
+
+   void SetLabel(&String_16 str);
 
    void redraw(); //wird von der Applikation gerufen, um Box neu zu zeichnen
    

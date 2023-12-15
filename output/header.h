@@ -917,6 +917,29 @@ virtual void destroy_sappeur_internal();
 void* operator new(size_t objectSize,void* place);
 };
 
+class SFcolorCode: public SPRObject {
+public:
+void addRef(){SPRObject::addRef();}
+void release(){SPRObject::release();}
+virtual SPRObject* getSPRObject(){return this;}
+static int get_FL_BLACK(char* stackStartPtr);
+static int get_FL_RED(char* stackStartPtr);
+static int get_FL_GREEN(char* stackStartPtr);
+static int get_FL_YELLOW(char* stackStartPtr);
+static int get_FL_BLUE(char* stackStartPtr);
+static int get_FL_MAGENTA(char* stackStartPtr);
+static int get_FL_CYAN(char* stackStartPtr);
+static int get_FL_DARK_RED(char* stackStartPtr);
+static int get_FL_DARK_GREEN(char* stackStartPtr);
+static int get_FL_DARK_YELLOW(char* stackStartPtr);
+static int get_FL_DARK_BLUE(char* stackStartPtr);
+static int get_FL_DARK_MAGENTA(char* stackStartPtr);
+static int get_FL_DARK_CYAN(char* stackStartPtr);
+static int get_FL_WHITE(char* stackStartPtr);
+virtual void destroy_sappeur_internal();
+void* operator new(size_t objectSize,void* place);
+};
+
 class SFcallbackTarget: public SPRObject {
 public:
 void addRef(){SPRObject::addRef();}
@@ -984,13 +1007,16 @@ virtual SPRObject* getSPRObject(){return this;}
    
 SPRSmartPtr<SPRArray<int> > punkteX;
 SPRSmartPtr<SPRArray<int> > punkteY;
+SPRSmartPtr<SPRArray<int> > farbe;
 int punkteGueltig;
+SPRSmartPtr<SPRArray<char> > label;
 SFbox();
 void create(char* stackStartPtr,int x,int y,int width,int height);
-void addPoint(char* stackStartPtr,int x,int y);
+void addPoint(char* stackStartPtr,int x,int y,int farbei);
 int hoehe(char* stackStartPtr);
 void loesche(char* stackStartPtr);
 virtual void draw(char* stackStartPtr);
+void SetLabel(char* stackStartPtr,String_16& str);
 void redraw(char* stackStartPtr);
 virtual void destroy_sappeur_internal();
 void* operator new(size_t objectSize,void* place);
