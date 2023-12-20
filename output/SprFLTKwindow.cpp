@@ -11,7 +11,7 @@ SprFLTKwindow::SprFLTKwindow(){
    char* stackStartPtr=list->_stackStartPtr;
    char SPR_stack_dummy_var;
    
-          fw = new FLTKwindow(this,600,600,"Sappeur FLTK Demo");
+          fw = new FLTKwindow(this,900,900,"Sappeur FLTK Demo");
        
    
    
@@ -26,18 +26,18 @@ void SprFLTKwindow::draw(char* stackStartPtr){
 void SprFLTKwindow::SetLabel(char* stackStartPtr,String_16& label){
    char SPR_stack_dummy_var;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   int spr_intScratch72;
-   spr_intScratch72=label.length(stackStartPtr)+1;
-   if(spr_intScratch72<0)throw "invalid size requested for heap allocation";
-   labelBuffer=new(spr_intScratch72) SPRArray<char>(spr_intScratch72)
+   int spr_intScratch80;
+   spr_intScratch80=label.length(stackStartPtr)+1;
+   if(spr_intScratch80<0)throw "invalid size requested for heap allocation";
+   labelBuffer=new(spr_intScratch80) SPRArray<char>(spr_intScratch80)
    ;
    {//begin of SPR for statement
    int i;i=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while(i<label.length(stackStartPtr)){
-             int spr_intScratch73;spr_intScratch73=i;chck_accs_p0(labelBuffer,spr_intScratch73,117)
+             int spr_intScratch81;spr_intScratch81=i;chck_accs_p0(labelBuffer,spr_intScratch81,131)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      labelBuffer._theObject->_array[spr_intScratch73]=label.getAt(stackStartPtr,i);
+      labelBuffer._theObject->_array[spr_intScratch81]=label.getAt(stackStartPtr,i);
       i++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       
@@ -45,8 +45,8 @@ void SprFLTKwindow::SetLabel(char* stackStartPtr,String_16& label){
    }
    }//end of SPR for statement
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-          int spr_intScratch75;spr_intScratch75=label.length(stackStartPtr);chck_accs_p0(labelBuffer,spr_intScratch75,119)
-   labelBuffer._theObject->_array[spr_intScratch75]='\0';
+          int spr_intScratch83;spr_intScratch83=label.length(stackStartPtr);chck_accs_p0(labelBuffer,spr_intScratch83,133)
+   labelBuffer._theObject->_array[spr_intScratch83]='\0';
    
         fw->label(labelBuffer._theObject->_array);
       

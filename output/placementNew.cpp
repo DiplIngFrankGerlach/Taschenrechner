@@ -5,11 +5,21 @@ void* Compare_String_64::operator new(size_t objectSize,void* place){
   return obj;
 }
 void Compare_String_64::destroy_sappeur_internal(){delete this;}
+void* SFlabel::operator new(size_t objectSize,void* place){
+   SFlabel* obj=(SFlabel*)place;
+  return obj;
+}
+void SFlabel::destroy_sappeur_internal(){delete this;}
 void* Assigner_double::operator new(size_t objectSize,void* place){
    Assigner_double* obj=(Assigner_double*)place;
   return obj;
 }
 void Assigner_double::destroy_sappeur_internal(){delete this;}
+void* SprFLTKwindow::operator new(size_t objectSize,void* place){
+   SprFLTKwindow* obj=(SprFLTKwindow*)place;
+  return obj;
+}
+void SprFLTKwindow::destroy_sappeur_internal(){delete this;}
 void* AusrechnerFK::operator new(size_t objectSize,void* place){
    AusrechnerFK* obj=(AusrechnerFK*)place;
    SPRSmartPtr<Scanner>::operator new(sizeof(SPRSmartPtr<Scanner>),(char*)&(obj->scanner));
@@ -17,11 +27,6 @@ void* AusrechnerFK::operator new(size_t objectSize,void* place){
   return obj;
 }
 void AusrechnerFK::destroy_sappeur_internal(){delete this;}
-void* SprFLTKwindow::operator new(size_t objectSize,void* place){
-   SprFLTKwindow* obj=(SprFLTKwindow*)place;
-  return obj;
-}
-void SprFLTKwindow::destroy_sappeur_internal(){delete this;}
 void* ThreadInfo::operator new(size_t objectSize,void* place){
    ThreadInfo* obj=(ThreadInfo*)place;
   return obj;
@@ -74,6 +79,7 @@ void* SFinput::operator new(size_t objectSize,void* place){
 void SFinput::destroy_sappeur_internal(){delete this;}
 void* SFbox::operator new(size_t objectSize,void* place){
    SFbox* obj=(SFbox*)place;
+   SPRSmartPtr<SPRArray<SPRSmartPtr<SFlabel> > >::operator new(sizeof(SPRSmartPtr<SPRArray<SPRSmartPtr<SFlabel> > >),(char*)&(obj->labels));
   return obj;
 }
 void SFbox::destroy_sappeur_internal(){delete this;}
@@ -248,16 +254,21 @@ void* String_16::operator new(size_t objectSize,void* place){
   return obj;
 }
 void String_16::destroy_sappeur_internal(){delete this;}
-void* Assigner_longlong::operator new(size_t objectSize,void* place){
-   Assigner_longlong* obj=(Assigner_longlong*)place;
+void* SFfont::operator new(size_t objectSize,void* place){
+   SFfont* obj=(SFfont*)place;
   return obj;
 }
-void Assigner_longlong::destroy_sappeur_internal(){delete this;}
+void SFfont::destroy_sappeur_internal(){delete this;}
 void* MTSuperClass::operator new(size_t objectSize,void* place){
    MTSuperClass* obj=(MTSuperClass*)place;
   return obj;
 }
 void MTSuperClass::destroy_sappeur_internal(){delete this;}
+void* Assigner_longlong::operator new(size_t objectSize,void* place){
+   Assigner_longlong* obj=(Assigner_longlong*)place;
+  return obj;
+}
+void Assigner_longlong::destroy_sappeur_internal(){delete this;}
 void* SPHT_Entry_String_16_int::operator new(size_t objectSize,void* place){
    SPHT_Entry_String_16_int* obj=(SPHT_Entry_String_16_int*)place;
    String_16::operator new(sizeof(String_16),(char*)&(obj->key));
@@ -265,11 +276,6 @@ void* SPHT_Entry_String_16_int::operator new(size_t objectSize,void* place){
   return obj;
 }
 void SPHT_Entry_String_16_int::destroy_sappeur_internal(){delete this;}
-void* HT_Pruefung::operator new(size_t objectSize,void* place){
-   HT_Pruefung* obj=(HT_Pruefung*)place;
-  return obj;
-}
-void HT_Pruefung::destroy_sappeur_internal(){delete this;}
 void* SPHT_Entry_String_16_String_16::operator new(size_t objectSize,void* place){
    SPHT_Entry_String_16_String_16* obj=(SPHT_Entry_String_16_String_16*)place;
    String_16::operator new(sizeof(String_16),(char*)&(obj->key));
@@ -278,6 +284,16 @@ void* SPHT_Entry_String_16_String_16::operator new(size_t objectSize,void* place
   return obj;
 }
 void SPHT_Entry_String_16_String_16::destroy_sappeur_internal(){delete this;}
+void* HT_Pruefung::operator new(size_t objectSize,void* place){
+   HT_Pruefung* obj=(HT_Pruefung*)place;
+  return obj;
+}
+void HT_Pruefung::destroy_sappeur_internal(){delete this;}
+void* StringUnitTest::operator new(size_t objectSize,void* place){
+   StringUnitTest* obj=(StringUnitTest*)place;
+  return obj;
+}
+void StringUnitTest::destroy_sappeur_internal(){delete this;}
 void* TRKontext::operator new(size_t objectSize,void* place){
    TRKontext* obj=(TRKontext*)place;
    SPRSmartPtr<SFinput>::operator new(sizeof(SPRSmartPtr<SFinput>),(char*)&(obj->ausdruckInput));
@@ -288,11 +304,6 @@ void* TRKontext::operator new(size_t objectSize,void* place){
   return obj;
 }
 void TRKontext::destroy_sappeur_internal(){delete this;}
-void* StringUnitTest::operator new(size_t objectSize,void* place){
-   StringUnitTest* obj=(StringUnitTest*)place;
-  return obj;
-}
-void StringUnitTest::destroy_sappeur_internal(){delete this;}
 void* SPHT_Entry_int_String_16::operator new(size_t objectSize,void* place){
    SPHT_Entry_int_String_16* obj=(SPHT_Entry_int_String_16*)place;
    SPRSmartPtr<SPHT_Entry_int_String_16>::operator new(sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>),(char*)&(obj->next));
@@ -396,6 +407,11 @@ void* Mutex::operator new(size_t objectSize,void* place){
   return obj;
 }
 void Mutex::destroy_sappeur_internal(){delete this;}
+void* StringUtil::operator new(size_t objectSize,void* place){
+   StringUtil* obj=(StringUtil*)place;
+  return obj;
+}
+void StringUtil::destroy_sappeur_internal(){delete this;}
 void* Hash_longlong::operator new(size_t objectSize,void* place){
    Hash_longlong* obj=(Hash_longlong*)place;
   return obj;

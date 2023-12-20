@@ -30,6 +30,8 @@ void MeinKnopf::callback()
    var *double yWerte[] = new double[breitePixel];
    var double yMin = ml.dblMax();
    var double yMax = ml.dblLowest();
+
+   
    
    for(var int i=0; i < breitePixel;i++)
    {
@@ -55,27 +57,47 @@ void MeinKnopf::callback()
    }
    //x-Achsen ausgeben
    var double yKonstant = yMin;
+   var String_16 ll;
    for(var int j=0; j < 10; j++)
    {
+     var double yPixel = ((yKonstant - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+     var int yAusgabe = cast(int,(displayHoehe-yPixel));
      for(var int i=0; i < breitePixel;i++)
      {
-        var double yPixel = ((yKonstant - yMin)/(yMax-yMin)) * (displayHoehe - 1);
-        var int yAusgabe = cast(int,(displayHoehe-yPixel));
         trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_DARK_CYAN());   
      } 
+     var int jm2 = j % 2; 
+     if(jm2 == 1)
+     {
+        ll.clear();
+        StringUtil::appendDouble(yKonstant,ll,6);
+        trk.ausgabeBox.drawString(5,yAusgabe + 15,ll);
+     }
      yKonstant = yKonstant + (yInterval / 10.0);
    }
    //y Achsen ausgeben
    var double xKonstant = varStart;
    for(var int j=0; j < 10; j++)
    {
+      pfc.fstr("xk:$").sa(xKonstant).pr();
       var double xPixel = (xKonstant - varStart)/breite * breitePixel;
+       
+      var int x = cast(int,xPixel);
+      var int jm2 = j % 2; 
+      if(jm2 == 1)
+      {
+        ll.clear();
+        StringUtil::appendDouble(xKonstant,ll,6);
+        trk.ausgabeBox.drawString(x+5,15,ll);
+      }
       for(var int y=0; y < displayHoehe; y++)
       {
-         trk.ausgabeBox.addPoint(cast(double,xPixel),y,cc.get_FL_BLACK());   
+         trk.ausgabeBox.addPoint(x,y,cc.get_FL_BLACK());   
       }
       xKonstant = xKonstant + ((varEnd - varStart) / 10.0);
    }
+   var String_16 s;
+
    
    trk.ausgabeBox.redraw();
 }
@@ -110,12 +132,15 @@ int Main::main()
    var SFbox* sfb2 = new SFbox;
    sfb2.create(10,100,100,40);
    var String_16 l("test 123");
-   sfb2.SetLabel(l);
+   sfb2.drawString(50,50,l);
 
    //Ausgabefeld fuer den x-y Graphen
    var SFbox* sfb = new SFbox;
    sfb.create(10,200,500,400);
-   sfb.SetLabel(l);
+   //sfb.drawString(70,70,l);
+   var String_16 l2;
+   l2.assign("Katze");
+   //sfb.drawString(70,90,l2);
 
    var SFinput* sfiVar = new SFinput;
    sfiVar.create(220,50,50,30);

@@ -39,6 +39,7 @@ methods:
 };
 
 
+
 class SFinput
 {
    inline_cpp[[ Fl_Input* fi; ]]
@@ -47,6 +48,16 @@ methods:
    void create(int x, int y,int width, int height);
    void get(&String_16 value);
 };
+
+/*a text label to be displayed at position x,y */
+class SFlabel
+{
+   *char strBuf[];
+   int x;
+   int y; 
+methods:
+};
+
 
 /* eine Fl_Box, in der man zeichnen kann */
 class SFbox
@@ -77,6 +88,10 @@ class SFbox
    *int farbe[];
    int punkteGueltig;
    *char label[];   
+
+   *SFlabel* labels[];//Labels, die irgendwoe auf der Flaeche der SFBox 
+                     //dargestellt werden
+   int labelsGueltig;
 methods:
    SFbox();
    void create(int x, int y,int width, int height);
@@ -89,8 +104,42 @@ methods:
 
    virtual void draw();//wird vom Framework gerufen
 
-   void SetLabel(&String_16 str);
+   void drawString(int x, int y,&String_16 str);
 
    void redraw(); //wird von der Applikation gerufen, um Box neu zu zeichnen
    
 };
+
+
+class SFfont
+{
+methods:
+
+int getFontID_FL_HELVETICA_();
+int getFontID_FL_HELVETICA_BOLD_();
+int getFontID_FL_HELVETICA_ITALIC_();
+int getFontID_FL_HELVETICA_BOLD_ITALIC_();
+int getFontID_FL_COURIER_();
+int getFontID_FL_COURIER_BOLD_();
+int getFontID_FL_COURIER_ITALIC_();
+int getFontID_FL_COURIER_BOLD_ITALIC_();
+int getFontID_FL_TIMES_();
+int getFontID_FL_TIMES_BOLD_();
+int getFontID_FL_TIMES_ITALIC_();
+int getFontID_FL_TIMES_BOLD_ITALIC_();
+int getFontID_FL_SYMBOL_();
+int getFontID_FL_SCREEN_();
+int getFontID_FL_SCREEN_BOLD_();
+int getFontID_FL_ZAPF_DINGBATS_();
+
+int getFontID_FL_FREE_FONT_();
+int getFontID_FL_BOLD_();
+int getFontID_FL_ITALIC_();
+int getFontID_FL_BOLD_ITALIC_();
+
+  void setFont(int font_id, int sizei);
+
+};
+
+
+

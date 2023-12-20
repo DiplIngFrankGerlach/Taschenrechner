@@ -480,6 +480,20 @@ virtual void destroy_sappeur_internal();
 void* operator new(size_t objectSize,void* place);
 };
 
+class StringUtil: public SPRObject {
+public:
+void addRef(){SPRObject::addRef();}
+void release(){SPRObject::release();}
+virtual SPRObject* getSPRObject(){return this;}
+static void trim(char* stackStartPtr,String_16& eingabe,String_16& ausgabe);
+static void UnitTest(char* stackStartPtr);
+static void vergleichGK(char* stackStartPtr,String_16& s1,String_16& s2,int& ergebnis);
+static void gross(char* stackStartPtr,char c,char& cAusgabe);
+static void appendDouble(char* stackStartPtr,double x,String_16& ausgabe,int anzStellen);
+virtual void destroy_sappeur_internal();
+void* operator new(size_t objectSize,void* place);
+};
+
 class ThreadInfo: public SPRMTObject {
 public:
 longlong _threadID;
@@ -979,6 +993,18 @@ virtual void destroy_sappeur_internal();
 void* operator new(size_t objectSize,void* place);
 };
 
+class SFlabel: public SPRObject {
+public:
+void addRef(){SPRObject::addRef();}
+void release(){SPRObject::release();}
+virtual SPRObject* getSPRObject(){return this;}
+SPRSmartPtr<SPRArray<char> > strBuf;
+int x;
+int y;
+virtual void destroy_sappeur_internal();
+void* operator new(size_t objectSize,void* place);
+};
+
 class SFbox: public SPRObject {
 public:
 void addRef(){SPRObject::addRef();}
@@ -1010,14 +1036,46 @@ SPRSmartPtr<SPRArray<int> > punkteY;
 SPRSmartPtr<SPRArray<int> > farbe;
 int punkteGueltig;
 SPRSmartPtr<SPRArray<char> > label;
+SPRSmartPtr<SPRArray<SPRSmartPtr<SFlabel> > > labels;
+int labelsGueltig;
 SFbox();
 void create(char* stackStartPtr,int x,int y,int width,int height);
 void addPoint(char* stackStartPtr,int x,int y,int farbei);
 int hoehe(char* stackStartPtr);
 void loesche(char* stackStartPtr);
 virtual void draw(char* stackStartPtr);
-void SetLabel(char* stackStartPtr,String_16& str);
+void drawString(char* stackStartPtr,int x,int y,String_16& str);
 void redraw(char* stackStartPtr);
+virtual void destroy_sappeur_internal();
+void* operator new(size_t objectSize,void* place);
+};
+
+class SFfont: public SPRObject {
+public:
+void addRef(){SPRObject::addRef();}
+void release(){SPRObject::release();}
+virtual SPRObject* getSPRObject(){return this;}
+int getFontID_FL_HELVETICA_(char* stackStartPtr);
+int getFontID_FL_HELVETICA_BOLD_(char* stackStartPtr);
+int getFontID_FL_HELVETICA_ITALIC_(char* stackStartPtr);
+int getFontID_FL_HELVETICA_BOLD_ITALIC_(char* stackStartPtr);
+int getFontID_FL_COURIER_(char* stackStartPtr);
+int getFontID_FL_COURIER_BOLD_(char* stackStartPtr);
+int getFontID_FL_COURIER_ITALIC_(char* stackStartPtr);
+int getFontID_FL_COURIER_BOLD_ITALIC_(char* stackStartPtr);
+int getFontID_FL_TIMES_(char* stackStartPtr);
+int getFontID_FL_TIMES_BOLD_(char* stackStartPtr);
+int getFontID_FL_TIMES_ITALIC_(char* stackStartPtr);
+int getFontID_FL_TIMES_BOLD_ITALIC_(char* stackStartPtr);
+int getFontID_FL_SYMBOL_(char* stackStartPtr);
+int getFontID_FL_SCREEN_(char* stackStartPtr);
+int getFontID_FL_SCREEN_BOLD_(char* stackStartPtr);
+int getFontID_FL_ZAPF_DINGBATS_(char* stackStartPtr);
+int getFontID_FL_FREE_FONT_(char* stackStartPtr);
+int getFontID_FL_BOLD_(char* stackStartPtr);
+int getFontID_FL_ITALIC_(char* stackStartPtr);
+int getFontID_FL_BOLD_ITALIC_(char* stackStartPtr);
+void setFont(char* stackStartPtr,int font_id,int sizei);
 virtual void destroy_sappeur_internal();
 void* operator new(size_t objectSize,void* place);
 };

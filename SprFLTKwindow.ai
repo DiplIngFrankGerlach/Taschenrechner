@@ -3,7 +3,7 @@
 SprFLTKwindow::SprFLTKwindow()
 {
     inline_cpp[[
-       fw = new FLTKwindow(this,600,600,"Sappeur FLTK Demo");
+       fw = new FLTKwindow(this,900,900,"Sappeur FLTK Demo");
     ]]
 }
     

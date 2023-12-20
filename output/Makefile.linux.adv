@@ -3,7 +3,8 @@
 #please rename this file. It will be overwritten on the
 #next sappeur compiler run.
 
-OBJECTS=placementNew.o staticData.o determStackMemory.o suchoi.o String.o SFwidgets.o Math.o AppMain.o SprFLTKwindow.o System.o generative_impls.o mapping.o main.o threadFunctions.o callbacks.o Hashtable.o Scanner.o AusrechnerFK.o MathLimits.o
+OBJECTS=placementNew.o staticData.o determStackMemory.o suchoi.o String.o SFwidgets.o Math.o AppMain.o SprFLTKwindow.o System.o generative_impls.o mapping.o main.o threadFunctions.o callbacks.o Hashtable.o Scanner.o AusrechnerFK.o MathLimits.o StringUtil.o
+
 String.o:String.cpp
 SFwidgets.o:SFwidgets.cpp
 Math.o:Math.cpp

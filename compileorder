@@ -1,4 +1,5 @@
 String.ad,
+StringUtil.ad,
 System.ad,
 Math.ad,
 MathLimits.ad,

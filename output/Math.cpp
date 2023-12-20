@@ -137,42 +137,42 @@ void Math::UnitTest(char* stackStartPtr){
    double unten;unten=0.7070;
    double oben;oben=0.7072;
    if((y<unten)||(y>oben)){
-      SPRStackArrayConcrete<char,27> spr_StringScratch32;strcpy(spr_StringScratch32._array,"Math::UnitTest() Fehler 1");
+      SPRStackArrayConcrete<char,27> spr_StringScratch34;strcpy(spr_StringScratch34._array,"Math::UnitTest() Fehler 1");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch32).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch34).pr(stackStartPtr);
       return ;
       
    }
-   SPRStackArrayConcrete<char,3> spr_StringScratch33;strcpy(spr_StringScratch33._array,"$");
-   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch33).sa(stackStartPtr,y).pr(stackStartPtr);
-   y=y*1000000000.0;
-   y=y*1000000000.0;
-   y=y*1000000000.0;
-   y=y*1000000000.0;
-   SPRStackArrayConcrete<char,3> spr_StringScratch34;strcpy(spr_StringScratch34._array,"$");
-   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch34).sa(stackStartPtr,y).pr(stackStartPtr);
    SPRStackArrayConcrete<char,3> spr_StringScratch35;strcpy(spr_StringScratch35._array,"$");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch35).saExp(stackStartPtr,y).pr(stackStartPtr);
+   pfc.fstr(stackStartPtr,spr_StringScratch35).sa(stackStartPtr,y).pr(stackStartPtr);
+   y=y*1000000000.0;
+   y=y*1000000000.0;
+   y=y*1000000000.0;
+   y=y*1000000000.0;
    SPRStackArrayConcrete<char,3> spr_StringScratch36;strcpy(spr_StringScratch36._array,"$");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   pfc.fstr(stackStartPtr,spr_StringScratch36).sa(stackStartPtr,y).pr(stackStartPtr);
+   SPRStackArrayConcrete<char,3> spr_StringScratch37;strcpy(spr_StringScratch37._array,"$");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch36).sa(stackStartPtr,this->e(stackStartPtr)).pr(stackStartPtr);
-   SPRStackArrayConcrete<char,30> spr_StringScratch37;strcpy(spr_StringScratch37._array,"Math::UnitTest() erfolgreich");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch37).pr(stackStartPtr);
+   pfc.fstr(stackStartPtr,spr_StringScratch37).saExp(stackStartPtr,y).pr(stackStartPtr);
+   SPRStackArrayConcrete<char,3> spr_StringScratch38;strcpy(spr_StringScratch38._array,"$");
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   pfc.fstr(stackStartPtr,spr_StringScratch38).sa(stackStartPtr,this->e(stackStartPtr)).pr(stackStartPtr);
+   SPRStackArrayConcrete<char,30> spr_StringScratch39;strcpy(spr_StringScratch39._array,"Math::UnitTest() erfolgreich");
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+   pfc.fstr(stackStartPtr,spr_StringScratch39).pr(stackStartPtr);
    
    
 } //End Of Method

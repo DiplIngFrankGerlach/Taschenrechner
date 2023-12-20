@@ -10,4 +10,6 @@ methods:
     static void vergleichGK(&String_16 s1,&String_16 s2,&int ergebnis);
 
     static void gross(char c,&char cAusgabe);
+
+    static void appendDouble(double x,&String_16 ausgabe,int anzStellen);
 };
