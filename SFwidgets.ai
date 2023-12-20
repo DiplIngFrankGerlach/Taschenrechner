@@ -58,9 +58,9 @@ SFbox::SFbox()
   ]]
 
   //richte die Punkteliste ein
-  punkteX = new int[10000];
-  punkteY = new int[10000];
-  farbe   = new int[10000];
+  punkteX = new int[100000];
+  punkteY = new int[100000];
+  farbe   = new int[100000];
   punkteGueltig = 0;
 
   labels = new SFlabel*[100];

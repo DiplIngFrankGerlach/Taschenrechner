@@ -83,10 +83,10 @@ PrintfClass& PrintfClass::sa(char* stackStartPtr,SPRStackArray<char>& str){
 PrintfClass& PrintfClass::sa(char* stackStartPtr,char c){
    char SPR_stack_dummy_var;
    SPRStackArrayConcrete<char,2> buffer;
-          int spr_intScratchca;spr_intScratchca=0;chck_accs0(buffer,spr_intScratchca,204)
-   buffer._array[spr_intScratchca]=c;
-          int spr_intScratchcc;spr_intScratchcc=1;chck_accs0(buffer,spr_intScratchcc,206)
-   buffer._array[spr_intScratchcc]='\0';
+          int spr_intScratchc8;spr_intScratchc8=0;chck_accs0(buffer,spr_intScratchc8,202)
+   buffer._array[spr_intScratchc8]=c;
+          int spr_intScratchca;spr_intScratchca=1;chck_accs0(buffer,spr_intScratchca,204)
+   buffer._array[spr_intScratchca]='\0';
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->sa(stackStartPtr,buffer);
    return *this;
@@ -153,10 +153,10 @@ PrintfClass& PrintfClass::sa(char* stackStartPtr,String_16& str){
    if(bufferDyn._theObject->_sz<=str.length(stackStartPtr)){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       int newSize;newSize=(str.length(stackStartPtr)+1)*2;
-      int spr_intScratchce;
-      spr_intScratchce=newSize;
-      if(spr_intScratchce<0)throw "invalid size requested for heap allocation";
-      bufferDyn=new(spr_intScratchce) SPRArray<char>(spr_intScratchce)
+      int spr_intScratchcc;
+      spr_intScratchcc=newSize;
+      if(spr_intScratchcc<0)throw "invalid size requested for heap allocation";
+      bufferDyn=new(spr_intScratchcc) SPRArray<char>(spr_intScratchcc)
       ;
       
    }
@@ -165,17 +165,17 @@ PrintfClass& PrintfClass::sa(char* stackStartPtr,String_16& str){
    i=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    while(i<str.length(stackStartPtr)){
-             int spr_intScratchcf;spr_intScratchcf=i;chck_accs_p0(bufferDyn,spr_intScratchcf,209)
+             int spr_intScratchcd;spr_intScratchcd=i;chck_accs_p0(bufferDyn,spr_intScratchcd,207)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      bufferDyn._theObject->_array[spr_intScratchcf]=str.getAt(stackStartPtr,i);
+      bufferDyn._theObject->_array[spr_intScratchcd]=str.getAt(stackStartPtr,i);
       i++;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       
    
    }
    }//end of SPR for statement
-          int spr_intScratchd1;spr_intScratchd1=i;chck_accs_p0(bufferDyn,spr_intScratchd1,211)
-   bufferDyn._theObject->_array[spr_intScratchd1]='\0';
+          int spr_intScratchcf;spr_intScratchcf=i;chck_accs_p0(bufferDyn,spr_intScratchcf,209)
+   bufferDyn._theObject->_array[spr_intScratchcf]='\0';
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->sa(stackStartPtr,bufferDyn);
    return *this;
@@ -309,8 +309,8 @@ void ThreadLocalStorage::getEntry(char* stackStartPtr,int id,SPRSmartPtr<ThreadL
              list=(ThreadLocalStorageList*)pthread_getspecific((pthread_key_t)__spr_tls);
              #endif
        
-          int spr_intScratchd3;spr_intScratchd3=id;chck_accs0(list._theObject->_entries,spr_intScratchd3,213)
-   ret=list._theObject->_entries._array[spr_intScratchd3];
+          int spr_intScratchd1;spr_intScratchd1=id;chck_accs0(list._theObject->_entries,spr_intScratchd1,211)
+   ret=list._theObject->_entries._array[spr_intScratchd1];
    
    
 } //End Of Method
@@ -326,8 +326,8 @@ void ThreadLocalStorage::setEntry(char* stackStartPtr,int id,SPRSmartPtr<ThreadL
              list=(ThreadLocalStorageList*)pthread_getspecific((pthread_key_t)__spr_tls);
              #endif
        
-          int spr_intScratchd5;spr_intScratchd5=id;chck_accs0(list._theObject->_entries,spr_intScratchd5,215)
-   list._theObject->_entries._array[spr_intScratchd5]=entry;
+          int spr_intScratchd3;spr_intScratchd3=id;chck_accs0(list._theObject->_entries,spr_intScratchd3,213)
+   list._theObject->_entries._array[spr_intScratchd3]=entry;
    
    
 } //End Of Method
@@ -661,10 +661,10 @@ int SPRFile::readLine(char* stackStartPtr,String_16& oLine){
 int SPRFile::readChar(char* stackStartPtr,char& out){
    char SPR_stack_dummy_var;
    if(_readBuffer==0U){
-      int spr_intScratchd7;
-      spr_intScratchd7=16000;
-      if(spr_intScratchd7<0)throw "invalid size requested for heap allocation";
-      _readBuffer=new(spr_intScratchd7) SPRArray<char>(spr_intScratchd7)
+      int spr_intScratchd5;
+      spr_intScratchd5=16000;
+      if(spr_intScratchd5<0)throw "invalid size requested for heap allocation";
+      _readBuffer=new(spr_intScratchd5) SPRArray<char>(spr_intScratchd5)
       ;
       _validBytes=0;
       _readPtr=0;
@@ -686,8 +686,8 @@ int SPRFile::readChar(char* stackStartPtr,char& out){
       _fpos=_fpos+_validBytes;
       
    }
-          int spr_intScratchd8;spr_intScratchd8=_readPtr;chck_accs_p0(_readBuffer,spr_intScratchd8,218)
-   out=_readBuffer._theObject->_array[spr_intScratchd8];
+          int spr_intScratchd6;spr_intScratchd6=_readPtr;chck_accs_p0(_readBuffer,spr_intScratchd6,216)
+   out=_readBuffer._theObject->_array[spr_intScratchd6];
    _readPtr++;
    return 1;
    
@@ -697,41 +697,41 @@ int SPRFile::readChar(char* stackStartPtr,char& out){
 void SPRFile::__test(char* stackStartPtr){
    char SPR_stack_dummy_var;
    PrintfClass pfc;
-   SPRStackArrayConcrete<char,29> spr_StringScratchda;strcpy(spr_StringScratchda._array,"c:\\temp\\spr_test_file.txt");
+   SPRStackArrayConcrete<char,29> spr_StringScratchd8;strcpy(spr_StringScratchd8._array,"c:\\temp\\spr_test_file.txt");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   SPRFile f(stackStartPtr,spr_StringScratchda,0);
-   SPRStackArrayConcrete<char,12> spr_StringScratchdb;strcpy(spr_StringScratchdb._array,"0123456789");
+   SPRFile f(stackStartPtr,spr_StringScratchd8,0);
+   SPRStackArrayConcrete<char,12> spr_StringScratchd9;strcpy(spr_StringScratchd9._array,"0123456789");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   f.write(stackStartPtr,0,10,spr_StringScratchdb);
+   f.write(stackStartPtr,0,10,spr_StringScratchd9);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(f.size(stackStartPtr)!=10){
-      SPRStackArrayConcrete<char,36> spr_StringScratchdc;strcpy(spr_StringScratchdc._array,"SPRFile::__test() step 1 failed$\n");
+      SPRStackArrayConcrete<char,36> spr_StringScratchda;strcpy(spr_StringScratchda._array,"SPRFile::__test() step 1 failed$\n");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      SPRStackArrayConcrete<char,2> spr_StringScratchdd;strcpy(spr_StringScratchdd._array,"");
+      SPRStackArrayConcrete<char,2> spr_StringScratchdb;strcpy(spr_StringScratchdb._array,"");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratchdc).sa(stackStartPtr,spr_StringScratchdd).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratchda).sa(stackStartPtr,spr_StringScratchdb).pr(stackStartPtr);
       
    }
-   SPRStackArrayConcrete<char,12> spr_StringScratchde;strcpy(spr_StringScratchde._array,"0123456789");
+   SPRStackArrayConcrete<char,12> spr_StringScratchdc;strcpy(spr_StringScratchdc._array,"0123456789");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   f.write(stackStartPtr,10,10,spr_StringScratchde);
+   f.write(stackStartPtr,10,10,spr_StringScratchdc);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(f.size(stackStartPtr)!=20){
-      SPRStackArrayConcrete<char,36> spr_StringScratchdf;strcpy(spr_StringScratchdf._array,"SPRFile::__test() step 2 failed$\n");
+      SPRStackArrayConcrete<char,36> spr_StringScratchdd;strcpy(spr_StringScratchdd._array,"SPRFile::__test() step 2 failed$\n");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      SPRStackArrayConcrete<char,2> spr_StringScratche0;strcpy(spr_StringScratche0._array,"");
+      SPRStackArrayConcrete<char,2> spr_StringScratchde;strcpy(spr_StringScratchde._array,"");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratchdf).sa(stackStartPtr,spr_StringScratche0).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratchdd).sa(stackStartPtr,spr_StringScratchde).pr(stackStartPtr);
       
    }
    {//begin of SPR for statement
    int i;i=0;
    while(i<1000){
-      SPRStackArrayConcrete<char,22> spr_StringScratche1;strcpy(spr_StringScratche1._array,"abcdefghijklmnopqrst");
+      SPRStackArrayConcrete<char,22> spr_StringScratchdf;strcpy(spr_StringScratchdf._array,"abcdefghijklmnopqrst");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      f.write(stackStartPtr,i*20+20,20,spr_StringScratche1);
+      f.write(stackStartPtr,i*20+20,20,spr_StringScratchdf);
       i++;
       
    
@@ -739,12 +739,12 @@ void SPRFile::__test(char* stackStartPtr){
    }//end of SPR for statement
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(f.size(stackStartPtr)!=20020){
-      SPRStackArrayConcrete<char,36> spr_StringScratche2;strcpy(spr_StringScratche2._array,"SPRFile::__test() step 3 failed$\n");
+      SPRStackArrayConcrete<char,36> spr_StringScratche0;strcpy(spr_StringScratche0._array,"SPRFile::__test() step 3 failed$\n");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      SPRStackArrayConcrete<char,2> spr_StringScratche3;strcpy(spr_StringScratche3._array,"");
+      SPRStackArrayConcrete<char,2> spr_StringScratche1;strcpy(spr_StringScratche1._array,"");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratche2).sa(stackStartPtr,spr_StringScratche3).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratche0).sa(stackStartPtr,spr_StringScratche1).pr(stackStartPtr);
       
    }
    {//begin of SPR for statement
@@ -754,14 +754,14 @@ void SPRFile::__test(char* stackStartPtr){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       f.read(stackStartPtr,i,1,buf);
       char c;c=((char)i+((int)'0'));
-             int spr_intScratche4;spr_intScratche4=0;chck_accs0(buf,spr_intScratche4,230)
-      if(buf._array[spr_intScratche4]!=c){
-         SPRStackArrayConcrete<char,36> spr_StringScratche6;strcpy(spr_StringScratche6._array,"SPRFile::__test() step 4 failed$\n");
+             int spr_intScratche2;spr_intScratche2=0;chck_accs0(buf,spr_intScratche2,228)
+      if(buf._array[spr_intScratche2]!=c){
+         SPRStackArrayConcrete<char,36> spr_StringScratche4;strcpy(spr_StringScratche4._array,"SPRFile::__test() step 4 failed$\n");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         SPRStackArrayConcrete<char,2> spr_StringScratche7;strcpy(spr_StringScratche7._array,"");
+         SPRStackArrayConcrete<char,2> spr_StringScratche5;strcpy(spr_StringScratche5._array,"");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         pfc.fstr(stackStartPtr,spr_StringScratche6).sa(stackStartPtr,spr_StringScratche7).pr(stackStartPtr);
+         pfc.fstr(stackStartPtr,spr_StringScratche4).sa(stackStartPtr,spr_StringScratche5).pr(stackStartPtr);
          
       }
       i++;
@@ -776,14 +776,14 @@ void SPRFile::__test(char* stackStartPtr){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       f.read(stackStartPtr,i+10,1,buf);
       char c;c=((char)i+((int)'0'));
-             int spr_intScratche8;spr_intScratche8=0;chck_accs0(buf,spr_intScratche8,234)
-      if(buf._array[spr_intScratche8]!=c){
-         SPRStackArrayConcrete<char,36> spr_StringScratchea;strcpy(spr_StringScratchea._array,"SPRFile::__test() step 5 failed$\n");
+             int spr_intScratche6;spr_intScratche6=0;chck_accs0(buf,spr_intScratche6,232)
+      if(buf._array[spr_intScratche6]!=c){
+         SPRStackArrayConcrete<char,36> spr_StringScratche8;strcpy(spr_StringScratche8._array,"SPRFile::__test() step 5 failed$\n");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         SPRStackArrayConcrete<char,2> spr_StringScratcheb;strcpy(spr_StringScratcheb._array,"");
+         SPRStackArrayConcrete<char,2> spr_StringScratche9;strcpy(spr_StringScratche9._array,"");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         pfc.fstr(stackStartPtr,spr_StringScratchea).sa(stackStartPtr,spr_StringScratcheb).pr(stackStartPtr);
+         pfc.fstr(stackStartPtr,spr_StringScratche8).sa(stackStartPtr,spr_StringScratche9).pr(stackStartPtr);
          
       }
       i++;
@@ -797,19 +797,19 @@ void SPRFile::__test(char* stackStartPtr){
       SPRStackArrayConcrete<char,21> buf;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       f.read(stackStartPtr,i*20+20,20,buf);
-             int spr_intScratchec;spr_intScratchec=20;chck_accs0(buf,spr_intScratchec,238)
-      buf._array[spr_intScratchec]='\0';
+             int spr_intScratchea;spr_intScratchea=20;chck_accs0(buf,spr_intScratchea,236)
+      buf._array[spr_intScratchea]='\0';
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       String_16 str(stackStartPtr,buf);
-      SPRStackArrayConcrete<char,22> spr_StringScratchee;strcpy(spr_StringScratchee._array,"abcdefghijklmnopqrst");
+      SPRStackArrayConcrete<char,22> spr_StringScratchec;strcpy(spr_StringScratchec._array,"abcdefghijklmnopqrst");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      if(str.compare(stackStartPtr,spr_StringScratchee)!=0){
-         SPRStackArrayConcrete<char,36> spr_StringScratchef;strcpy(spr_StringScratchef._array,"SPRFile::__test() step 6 failed$\n");
+      if(str.compare(stackStartPtr,spr_StringScratchec)!=0){
+         SPRStackArrayConcrete<char,36> spr_StringScratched;strcpy(spr_StringScratched._array,"SPRFile::__test() step 6 failed$\n");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         SPRStackArrayConcrete<char,2> spr_StringScratchf0;strcpy(spr_StringScratchf0._array,"");
+         SPRStackArrayConcrete<char,2> spr_StringScratchee;strcpy(spr_StringScratchee._array,"");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         pfc.fstr(stackStartPtr,spr_StringScratchef).sa(stackStartPtr,spr_StringScratchf0).pr(stackStartPtr);
+         pfc.fstr(stackStartPtr,spr_StringScratched).sa(stackStartPtr,spr_StringScratchee).pr(stackStartPtr);
          
       }
       i++;
@@ -840,14 +840,14 @@ int AlphabeticSorter::isBelow(char* stackStartPtr,SPRStackArray<char>& a,SPRStac
    {//begin of SPR for statement
    int i;i=0;
    while((i<a._sz)&&(i<b._sz)){
-             int spr_intScratchf1;spr_intScratchf1=i;chck_accs0(a,spr_intScratchf1,243)
-             int spr_intScratchf3;spr_intScratchf3=i;chck_accs0(b,spr_intScratchf3,245)
-      if(a._array[spr_intScratchf1]!=b._array[spr_intScratchf3]){
-                int spr_intScratchf5;spr_intScratchf5=i;chck_accs0(a,spr_intScratchf5,247)
+             int spr_intScratchef;spr_intScratchef=i;chck_accs0(a,spr_intScratchef,241)
+             int spr_intScratchf1;spr_intScratchf1=i;chck_accs0(b,spr_intScratchf1,243)
+      if(a._array[spr_intScratchef]!=b._array[spr_intScratchf1]){
+                int spr_intScratchf3;spr_intScratchf3=i;chck_accs0(a,spr_intScratchf3,245)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-                int spr_intScratchf7;spr_intScratchf7=i;chck_accs0(b,spr_intScratchf7,249)
+                int spr_intScratchf5;spr_intScratchf5=i;chck_accs0(b,spr_intScratchf5,247)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         int delta;delta=this->ordinal(stackStartPtr,a._array[spr_intScratchf5])-this->ordinal(stackStartPtr,b._array[spr_intScratchf7]);
+         int delta;delta=this->ordinal(stackStartPtr,a._array[spr_intScratchf3])-this->ordinal(stackStartPtr,b._array[spr_intScratchf5]);
          if(delta>0){
             return 1;
             
@@ -1091,8 +1091,8 @@ void AlphabeticSorter::qsort(char* stackStartPtr,SPRStackArray<SPRSmartPtr<Strin
    }
    int pivotIndex;pivotIndex=upperBound;
    SPRSmartPtr<String_16> pivot;
-          int spr_intScratchf9;spr_intScratchf9=pivotIndex;chck_accs0(wordlist,spr_intScratchf9,251)
-   pivot=wordlist._array[spr_intScratchf9];
+          int spr_intScratchf7;spr_intScratchf7=pivotIndex;chck_accs0(wordlist,spr_intScratchf7,249)
+   pivot=wordlist._array[spr_intScratchf7];
    int lower;lower=lowerBound;
    int upper;upper=upperBound-1;
    while(lower<=upper){
@@ -1110,25 +1110,25 @@ void AlphabeticSorter::qsort(char* stackStartPtr,SPRStackArray<SPRSmartPtr<Strin
       };
       if(lower<upper){
          SPRSmartPtr<String_16> speicher;
+                int spr_intScratchf9;spr_intScratchf9=lower;chck_accs0(wordlist,spr_intScratchf9,251)
+         speicher=wordlist._array[spr_intScratchf9];
                 int spr_intScratchfb;spr_intScratchfb=lower;chck_accs0(wordlist,spr_intScratchfb,253)
-         speicher=wordlist._array[spr_intScratchfb];
-                int spr_intScratchfd;spr_intScratchfd=lower;chck_accs0(wordlist,spr_intScratchfd,255)
+                int spr_intScratchfd;spr_intScratchfd=upper;chck_accs0(wordlist,spr_intScratchfd,255)
+         wordlist._array[spr_intScratchfb]=wordlist._array[spr_intScratchfd];
                 int spr_intScratchff;spr_intScratchff=upper;chck_accs0(wordlist,spr_intScratchff,257)
-         wordlist._array[spr_intScratchfd]=wordlist._array[spr_intScratchff];
-                int spr_intScratch101;spr_intScratch101=upper;chck_accs0(wordlist,spr_intScratch101,259)
-         wordlist._array[spr_intScratch101]=speicher;
+         wordlist._array[spr_intScratchff]=speicher;
          
       }
       
    };
    SPRSmartPtr<String_16> temp;
+          int spr_intScratch101;spr_intScratch101=upperBound;chck_accs0(wordlist,spr_intScratch101,259)
+   temp=wordlist._array[spr_intScratch101];
           int spr_intScratch103;spr_intScratch103=upperBound;chck_accs0(wordlist,spr_intScratch103,261)
-   temp=wordlist._array[spr_intScratch103];
-          int spr_intScratch105;spr_intScratch105=upperBound;chck_accs0(wordlist,spr_intScratch105,263)
+          int spr_intScratch105;spr_intScratch105=lower;chck_accs0(wordlist,spr_intScratch105,263)
+   wordlist._array[spr_intScratch103]=wordlist._array[spr_intScratch105];
           int spr_intScratch107;spr_intScratch107=lower;chck_accs0(wordlist,spr_intScratch107,265)
-   wordlist._array[spr_intScratch105]=wordlist._array[spr_intScratch107];
-          int spr_intScratch109;spr_intScratch109=lower;chck_accs0(wordlist,spr_intScratch109,267)
-   wordlist._array[spr_intScratch109]=temp;
+   wordlist._array[spr_intScratch107]=temp;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->qsort(stackStartPtr,wordlist,lowerBound,lower-1);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1139,26 +1139,26 @@ void AlphabeticSorter::qsort(char* stackStartPtr,SPRStackArray<SPRSmartPtr<Strin
 
 int AlphabeticSorter::elemAt(char* stackStartPtr,SPRStackArray<int>& liste,int pos){
    char SPR_stack_dummy_var;
-          int spr_intScratch10b;spr_intScratch10b=pos;chck_accs0(liste,spr_intScratch10b,269)
-   return liste._array[spr_intScratch10b];
+          int spr_intScratch109;spr_intScratch109=pos;chck_accs0(liste,spr_intScratch109,267)
+   return liste._array[spr_intScratch109];
    
    
 } //End Of Method
 
 int AlphabeticSorter::isBelow(char* stackStartPtr,SPRStackArray<SPRSmartPtr<String_16> > liste,int pos,SPRSmartPtr<String_16> pivot){
    char SPR_stack_dummy_var;
-          int spr_intScratch10d;spr_intScratch10d=pos;chck_accs0(liste,spr_intScratch10d,271)
+          int spr_intScratch10b;spr_intScratch10b=pos;chck_accs0(liste,spr_intScratch10b,269)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   return this->isBelow(stackStartPtr,liste._array[spr_intScratch10d],pivot);
+   return this->isBelow(stackStartPtr,liste._array[spr_intScratch10b],pivot);
    
    
 } //End Of Method
 
 int AlphabeticSorter::isAbove(char* stackStartPtr,SPRStackArray<SPRSmartPtr<String_16> > liste,int pos,SPRSmartPtr<String_16> pivot){
    char SPR_stack_dummy_var;
-          int spr_intScratch10f;spr_intScratch10f=pos;chck_accs0(liste,spr_intScratch10f,273)
+          int spr_intScratch10d;spr_intScratch10d=pos;chck_accs0(liste,spr_intScratch10d,271)
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   return this->isBelow(stackStartPtr,pivot,liste._array[spr_intScratch10f]);
+   return this->isBelow(stackStartPtr,pivot,liste._array[spr_intScratch10d]);
    
    
 } //End Of Method
@@ -1167,8 +1167,8 @@ int AlphabeticSorter::isAboveOrEqualPivot(char* stackStartPtr,SPRStackArray<SPRS
    char SPR_stack_dummy_var;
    int ret;ret=0;
    SPRSmartPtr<String_16> l;
-          int spr_intScratch111;spr_intScratch111=pos;chck_accs0(liste,spr_intScratch111,275)
-   l=liste._array[spr_intScratch111];
+          int spr_intScratch10f;spr_intScratch10f=pos;chck_accs0(liste,spr_intScratch10f,273)
+   l=liste._array[spr_intScratch10f];
    {//begin of SPR for statement
    int i;i=0;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1229,8 +1229,8 @@ void AlphabeticSorter::qsort(char* stackStartPtr,SPRStackArray<int>& liste,int l
       
    }
    int pivotIndex;pivotIndex=upperBound;
-          int spr_intScratch113;spr_intScratch113=pivotIndex;chck_accs0(liste,spr_intScratch113,277)
-   int pivot;pivot=liste._array[spr_intScratch113];
+          int spr_intScratch111;spr_intScratch111=pivotIndex;chck_accs0(liste,spr_intScratch111,275)
+   int pivot;pivot=liste._array[spr_intScratch111];
    int lower;lower=lowerBound;
    int upper;upper=upperBound-1;
    while(lower<upper){
@@ -1247,22 +1247,22 @@ void AlphabeticSorter::qsort(char* stackStartPtr,SPRStackArray<int>& liste,int l
          
       };
       if(lower<upper){
+                int spr_intScratch113;spr_intScratch113=lower;chck_accs0(liste,spr_intScratch113,277)
+         int speicher;speicher=liste._array[spr_intScratch113];
                 int spr_intScratch115;spr_intScratch115=lower;chck_accs0(liste,spr_intScratch115,279)
-         int speicher;speicher=liste._array[spr_intScratch115];
-                int spr_intScratch117;spr_intScratch117=lower;chck_accs0(liste,spr_intScratch117,281)
+                int spr_intScratch117;spr_intScratch117=upper;chck_accs0(liste,spr_intScratch117,281)
+         liste._array[spr_intScratch115]=liste._array[spr_intScratch117];
                 int spr_intScratch119;spr_intScratch119=upper;chck_accs0(liste,spr_intScratch119,283)
-         liste._array[spr_intScratch117]=liste._array[spr_intScratch119];
-                int spr_intScratch11b;spr_intScratch11b=upper;chck_accs0(liste,spr_intScratch11b,285)
-         liste._array[spr_intScratch11b]=speicher;
+         liste._array[spr_intScratch119]=speicher;
          
       }
       
    };
-          int spr_intScratch11d;spr_intScratch11d=upperBound;chck_accs0(liste,spr_intScratch11d,287)
+          int spr_intScratch11b;spr_intScratch11b=upperBound;chck_accs0(liste,spr_intScratch11b,285)
+          int spr_intScratch11d;spr_intScratch11d=lower;chck_accs0(liste,spr_intScratch11d,287)
+   liste._array[spr_intScratch11b]=liste._array[spr_intScratch11d];
           int spr_intScratch11f;spr_intScratch11f=lower;chck_accs0(liste,spr_intScratch11f,289)
-   liste._array[spr_intScratch11d]=liste._array[spr_intScratch11f];
-          int spr_intScratch121;spr_intScratch121=lower;chck_accs0(liste,spr_intScratch121,291)
-   liste._array[spr_intScratch121]=pivot;
+   liste._array[spr_intScratch11f]=pivot;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->qsort(stackStartPtr,liste,lowerBound,lower-1);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -1274,181 +1274,181 @@ void AlphabeticSorter::qsort(char* stackStartPtr,SPRStackArray<int>& liste,int l
 void AlphabeticSorter::test(char* stackStartPtr){
    char SPR_stack_dummy_var;
    SPRStackArrayConcrete<int,12> liste;
-          int spr_intScratch123;spr_intScratch123=0;chck_accs0(liste,spr_intScratch123,293)
-   liste._array[spr_intScratch123]=17;
-          int spr_intScratch125;spr_intScratch125=1;chck_accs0(liste,spr_intScratch125,295)
-   liste._array[spr_intScratch125]=33;
-          int spr_intScratch127;spr_intScratch127=2;chck_accs0(liste,spr_intScratch127,297)
-   liste._array[spr_intScratch127]=5;
-          int spr_intScratch129;spr_intScratch129=3;chck_accs0(liste,spr_intScratch129,299)
-   liste._array[spr_intScratch129]=8;
-          int spr_intScratch12b;spr_intScratch12b=4;chck_accs0(liste,spr_intScratch12b,301)
-   liste._array[spr_intScratch12b]=6;
-          int spr_intScratch12d;spr_intScratch12d=5;chck_accs0(liste,spr_intScratch12d,303)
-   liste._array[spr_intScratch12d]=7;
-          int spr_intScratch12f;spr_intScratch12f=6;chck_accs0(liste,spr_intScratch12f,305)
-   liste._array[spr_intScratch12f]=2;
-          int spr_intScratch131;spr_intScratch131=7;chck_accs0(liste,spr_intScratch131,307)
-   liste._array[spr_intScratch131]=99;
-          int spr_intScratch133;spr_intScratch133=8;chck_accs0(liste,spr_intScratch133,309)
-   liste._array[spr_intScratch133]=3088;
-          int spr_intScratch135;spr_intScratch135=9;chck_accs0(liste,spr_intScratch135,311)
-   liste._array[spr_intScratch135]=81;
-          int spr_intScratch137;spr_intScratch137=10;chck_accs0(liste,spr_intScratch137,313)
-   liste._array[spr_intScratch137]=92;
-          int spr_intScratch139;spr_intScratch139=11;chck_accs0(liste,spr_intScratch139,315)
-   liste._array[spr_intScratch139]=47;
+          int spr_intScratch121;spr_intScratch121=0;chck_accs0(liste,spr_intScratch121,291)
+   liste._array[spr_intScratch121]=17;
+          int spr_intScratch123;spr_intScratch123=1;chck_accs0(liste,spr_intScratch123,293)
+   liste._array[spr_intScratch123]=33;
+          int spr_intScratch125;spr_intScratch125=2;chck_accs0(liste,spr_intScratch125,295)
+   liste._array[spr_intScratch125]=5;
+          int spr_intScratch127;spr_intScratch127=3;chck_accs0(liste,spr_intScratch127,297)
+   liste._array[spr_intScratch127]=8;
+          int spr_intScratch129;spr_intScratch129=4;chck_accs0(liste,spr_intScratch129,299)
+   liste._array[spr_intScratch129]=6;
+          int spr_intScratch12b;spr_intScratch12b=5;chck_accs0(liste,spr_intScratch12b,301)
+   liste._array[spr_intScratch12b]=7;
+          int spr_intScratch12d;spr_intScratch12d=6;chck_accs0(liste,spr_intScratch12d,303)
+   liste._array[spr_intScratch12d]=2;
+          int spr_intScratch12f;spr_intScratch12f=7;chck_accs0(liste,spr_intScratch12f,305)
+   liste._array[spr_intScratch12f]=99;
+          int spr_intScratch131;spr_intScratch131=8;chck_accs0(liste,spr_intScratch131,307)
+   liste._array[spr_intScratch131]=3088;
+          int spr_intScratch133;spr_intScratch133=9;chck_accs0(liste,spr_intScratch133,309)
+   liste._array[spr_intScratch133]=81;
+          int spr_intScratch135;spr_intScratch135=10;chck_accs0(liste,spr_intScratch135,311)
+   liste._array[spr_intScratch135]=92;
+          int spr_intScratch137;spr_intScratch137=11;chck_accs0(liste,spr_intScratch137,313)
+   liste._array[spr_intScratch137]=47;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->qsort(stackStartPtr,liste,0,liste._sz-1);
    PrintfClass pfc0;
-   SPRStackArrayConcrete<char,19> spr_StringScratch13b;strcpy(spr_StringScratch13b._array,"testing QUICKSORT");
+   SPRStackArrayConcrete<char,19> spr_StringScratch139;strcpy(spr_StringScratch139._array,"testing QUICKSORT");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc0.fstr(stackStartPtr,spr_StringScratch13b).pr(stackStartPtr);
+   pfc0.fstr(stackStartPtr,spr_StringScratch139).pr(stackStartPtr);
    SPRStackArrayConcrete<SPRSmartPtr<String_16>,26 > wordlist;
    int i;i=0;
    {//begin of SPR for statement
    i=0;
    while(i<wordlist._sz){
-             int spr_intScratch13c;spr_intScratch13c=i;chck_accs0(wordlist,spr_intScratch13c,318)
-      SPRStackArrayConcrete<char,2> spr_StringScratch13e;strcpy(spr_StringScratch13e._array,"");
+             int spr_intScratch13a;spr_intScratch13a=i;chck_accs0(wordlist,spr_intScratch13a,316)
+      SPRStackArrayConcrete<char,2> spr_StringScratch13c;strcpy(spr_StringScratch13c._array,"");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      wordlist._array[spr_intScratch13c]=::new String_16(stackStartPtr,spr_StringScratch13e);
+      wordlist._array[spr_intScratch13a]=::new String_16(stackStartPtr,spr_StringScratch13c);
       i++;
       
    
    }
    }//end of SPR for statement
    i=0;
-          int spr_intScratch13f;spr_intScratch13f=i;chck_accs0(wordlist,spr_intScratch13f,321)
-   SPRStackArrayConcrete<char,6> spr_StringScratch141;strcpy(spr_StringScratch141._array,"esel");
+          int spr_intScratch13d;spr_intScratch13d=i;chck_accs0(wordlist,spr_intScratch13d,319)
+   SPRStackArrayConcrete<char,6> spr_StringScratch13f;strcpy(spr_StringScratch13f._array,"esel");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch13f]._theObject->append(stackStartPtr,spr_StringScratch141);
+   wordlist._array[spr_intScratch13d]._theObject->append(stackStartPtr,spr_StringScratch13f);
    i++;
-          int spr_intScratch142;spr_intScratch142=i;chck_accs0(wordlist,spr_intScratch142,324)
-   SPRStackArrayConcrete<char,14> spr_StringScratch144;strcpy(spr_StringScratch144._array,"eselsbruecke");
+          int spr_intScratch140;spr_intScratch140=i;chck_accs0(wordlist,spr_intScratch140,322)
+   SPRStackArrayConcrete<char,14> spr_StringScratch142;strcpy(spr_StringScratch142._array,"eselsbruecke");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch142]._theObject->append(stackStartPtr,spr_StringScratch144);
+   wordlist._array[spr_intScratch140]._theObject->append(stackStartPtr,spr_StringScratch142);
    i++;
-          int spr_intScratch145;spr_intScratch145=i;chck_accs0(wordlist,spr_intScratch145,327)
-   SPRStackArrayConcrete<char,6> spr_StringScratch147;strcpy(spr_StringScratch147._array,"zahn");
+          int spr_intScratch143;spr_intScratch143=i;chck_accs0(wordlist,spr_intScratch143,325)
+   SPRStackArrayConcrete<char,6> spr_StringScratch145;strcpy(spr_StringScratch145._array,"zahn");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch145]._theObject->append(stackStartPtr,spr_StringScratch147);
+   wordlist._array[spr_intScratch143]._theObject->append(stackStartPtr,spr_StringScratch145);
    i++;
-          int spr_intScratch148;spr_intScratch148=i;chck_accs0(wordlist,spr_intScratch148,330)
-   SPRStackArrayConcrete<char,13> spr_StringScratch14a;strcpy(spr_StringScratch14a._array,"zahnradbahn");
+          int spr_intScratch146;spr_intScratch146=i;chck_accs0(wordlist,spr_intScratch146,328)
+   SPRStackArrayConcrete<char,13> spr_StringScratch148;strcpy(spr_StringScratch148._array,"zahnradbahn");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch148]._theObject->append(stackStartPtr,spr_StringScratch14a);
+   wordlist._array[spr_intScratch146]._theObject->append(stackStartPtr,spr_StringScratch148);
    i++;
-          int spr_intScratch14b;spr_intScratch14b=i;chck_accs0(wordlist,spr_intScratch14b,333)
-   SPRStackArrayConcrete<char,7> spr_StringScratch14d;strcpy(spr_StringScratch14d._array,"apfel");
+          int spr_intScratch149;spr_intScratch149=i;chck_accs0(wordlist,spr_intScratch149,331)
+   SPRStackArrayConcrete<char,7> spr_StringScratch14b;strcpy(spr_StringScratch14b._array,"apfel");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch14b]._theObject->append(stackStartPtr,spr_StringScratch14d);
+   wordlist._array[spr_intScratch149]._theObject->append(stackStartPtr,spr_StringScratch14b);
    i++;
-          int spr_intScratch14e;spr_intScratch14e=i;chck_accs0(wordlist,spr_intScratch14e,336)
-   SPRStackArrayConcrete<char,9> spr_StringScratch150;strcpy(spr_StringScratch150._array,"annanas");
+          int spr_intScratch14c;spr_intScratch14c=i;chck_accs0(wordlist,spr_intScratch14c,334)
+   SPRStackArrayConcrete<char,9> spr_StringScratch14e;strcpy(spr_StringScratch14e._array,"annanas");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch14e]._theObject->append(stackStartPtr,spr_StringScratch150);
+   wordlist._array[spr_intScratch14c]._theObject->append(stackStartPtr,spr_StringScratch14e);
    i++;
-          int spr_intScratch151;spr_intScratch151=i;chck_accs0(wordlist,spr_intScratch151,339)
-   SPRStackArrayConcrete<char,8> spr_StringScratch153;strcpy(spr_StringScratch153._array,"saturn");
+          int spr_intScratch14f;spr_intScratch14f=i;chck_accs0(wordlist,spr_intScratch14f,337)
+   SPRStackArrayConcrete<char,8> spr_StringScratch151;strcpy(spr_StringScratch151._array,"saturn");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch151]._theObject->append(stackStartPtr,spr_StringScratch153);
+   wordlist._array[spr_intScratch14f]._theObject->append(stackStartPtr,spr_StringScratch151);
    i++;
-          int spr_intScratch154;spr_intScratch154=i;chck_accs0(wordlist,spr_intScratch154,342)
-   SPRStackArrayConcrete<char,6> spr_StringScratch156;strcpy(spr_StringScratch156._array,"mars");
+          int spr_intScratch152;spr_intScratch152=i;chck_accs0(wordlist,spr_intScratch152,340)
+   SPRStackArrayConcrete<char,6> spr_StringScratch154;strcpy(spr_StringScratch154._array,"mars");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch154]._theObject->append(stackStartPtr,spr_StringScratch156);
+   wordlist._array[spr_intScratch152]._theObject->append(stackStartPtr,spr_StringScratch154);
    i++;
-          int spr_intScratch157;spr_intScratch157=i;chck_accs0(wordlist,spr_intScratch157,345)
-   SPRStackArrayConcrete<char,7> spr_StringScratch159;strcpy(spr_StringScratch159._array,"pluto");
+          int spr_intScratch155;spr_intScratch155=i;chck_accs0(wordlist,spr_intScratch155,343)
+   SPRStackArrayConcrete<char,7> spr_StringScratch157;strcpy(spr_StringScratch157._array,"pluto");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch157]._theObject->append(stackStartPtr,spr_StringScratch159);
+   wordlist._array[spr_intScratch155]._theObject->append(stackStartPtr,spr_StringScratch157);
    i++;
-          int spr_intScratch15a;spr_intScratch15a=i;chck_accs0(wordlist,spr_intScratch15a,348)
-   SPRStackArrayConcrete<char,7> spr_StringScratch15c;strcpy(spr_StringScratch15c._array,"venus");
+          int spr_intScratch158;spr_intScratch158=i;chck_accs0(wordlist,spr_intScratch158,346)
+   SPRStackArrayConcrete<char,7> spr_StringScratch15a;strcpy(spr_StringScratch15a._array,"venus");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch15a]._theObject->append(stackStartPtr,spr_StringScratch15c);
+   wordlist._array[spr_intScratch158]._theObject->append(stackStartPtr,spr_StringScratch15a);
    i++;
-          int spr_intScratch15d;spr_intScratch15d=i;chck_accs0(wordlist,spr_intScratch15d,351)
-   SPRStackArrayConcrete<char,5> spr_StringScratch15f;strcpy(spr_StringScratch15f._array,"son");
+          int spr_intScratch15b;spr_intScratch15b=i;chck_accs0(wordlist,spr_intScratch15b,349)
+   SPRStackArrayConcrete<char,5> spr_StringScratch15d;strcpy(spr_StringScratch15d._array,"son");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch15d]._theObject->append(stackStartPtr,spr_StringScratch15f);
+   wordlist._array[spr_intScratch15b]._theObject->append(stackStartPtr,spr_StringScratch15d);
    i++;
-          int spr_intScratch160;spr_intScratch160=i;chck_accs0(wordlist,spr_intScratch160,354)
-   SPRStackArrayConcrete<char,8> spr_StringScratch162;strcpy(spr_StringScratch162._array,"father");
+          int spr_intScratch15e;spr_intScratch15e=i;chck_accs0(wordlist,spr_intScratch15e,352)
+   SPRStackArrayConcrete<char,8> spr_StringScratch160;strcpy(spr_StringScratch160._array,"father");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch160]._theObject->append(stackStartPtr,spr_StringScratch162);
+   wordlist._array[spr_intScratch15e]._theObject->append(stackStartPtr,spr_StringScratch160);
    i++;
-          int spr_intScratch163;spr_intScratch163=i;chck_accs0(wordlist,spr_intScratch163,357)
-   SPRStackArrayConcrete<char,8> spr_StringScratch165;strcpy(spr_StringScratch165._array,"mother");
+          int spr_intScratch161;spr_intScratch161=i;chck_accs0(wordlist,spr_intScratch161,355)
+   SPRStackArrayConcrete<char,8> spr_StringScratch163;strcpy(spr_StringScratch163._array,"mother");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch163]._theObject->append(stackStartPtr,spr_StringScratch165);
+   wordlist._array[spr_intScratch161]._theObject->append(stackStartPtr,spr_StringScratch163);
    i++;
-          int spr_intScratch166;spr_intScratch166=i;chck_accs0(wordlist,spr_intScratch166,360)
-   SPRStackArrayConcrete<char,10> spr_StringScratch168;strcpy(spr_StringScratch168._array,"daughter");
+          int spr_intScratch164;spr_intScratch164=i;chck_accs0(wordlist,spr_intScratch164,358)
+   SPRStackArrayConcrete<char,10> spr_StringScratch166;strcpy(spr_StringScratch166._array,"daughter");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch166]._theObject->append(stackStartPtr,spr_StringScratch168);
+   wordlist._array[spr_intScratch164]._theObject->append(stackStartPtr,spr_StringScratch166);
    i++;
-          int spr_intScratch169;spr_intScratch169=i;chck_accs0(wordlist,spr_intScratch169,363)
-   SPRStackArrayConcrete<char,7> spr_StringScratch16b;strcpy(spr_StringScratch16b._array,"neues");
+          int spr_intScratch167;spr_intScratch167=i;chck_accs0(wordlist,spr_intScratch167,361)
+   SPRStackArrayConcrete<char,7> spr_StringScratch169;strcpy(spr_StringScratch169._array,"neues");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch169]._theObject->append(stackStartPtr,spr_StringScratch16b);
+   wordlist._array[spr_intScratch167]._theObject->append(stackStartPtr,spr_StringScratch169);
    i++;
-          int spr_intScratch16c;spr_intScratch16c=i;chck_accs0(wordlist,spr_intScratch16c,366)
-   SPRStackArrayConcrete<char,7> spr_StringScratch16e;strcpy(spr_StringScratch16e._array,"leben");
+          int spr_intScratch16a;spr_intScratch16a=i;chck_accs0(wordlist,spr_intScratch16a,364)
+   SPRStackArrayConcrete<char,7> spr_StringScratch16c;strcpy(spr_StringScratch16c._array,"leben");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch16c]._theObject->append(stackStartPtr,spr_StringScratch16e);
+   wordlist._array[spr_intScratch16a]._theObject->append(stackStartPtr,spr_StringScratch16c);
    i++;
-          int spr_intScratch16f;spr_intScratch16f=i;chck_accs0(wordlist,spr_intScratch16f,369)
-   SPRStackArrayConcrete<char,8> spr_StringScratch171;strcpy(spr_StringScratch171._array,"aussie");
+          int spr_intScratch16d;spr_intScratch16d=i;chck_accs0(wordlist,spr_intScratch16d,367)
+   SPRStackArrayConcrete<char,8> spr_StringScratch16f;strcpy(spr_StringScratch16f._array,"aussie");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch16f]._theObject->append(stackStartPtr,spr_StringScratch171);
+   wordlist._array[spr_intScratch16d]._theObject->append(stackStartPtr,spr_StringScratch16f);
    i++;
-          int spr_intScratch172;spr_intScratch172=i;chck_accs0(wordlist,spr_intScratch172,372)
-   SPRStackArrayConcrete<char,8> spr_StringScratch174;strcpy(spr_StringScratch174._array,"akzent");
+          int spr_intScratch170;spr_intScratch170=i;chck_accs0(wordlist,spr_intScratch170,370)
+   SPRStackArrayConcrete<char,8> spr_StringScratch172;strcpy(spr_StringScratch172._array,"akzent");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch172]._theObject->append(stackStartPtr,spr_StringScratch174);
+   wordlist._array[spr_intScratch170]._theObject->append(stackStartPtr,spr_StringScratch172);
    i++;
-          int spr_intScratch175;spr_intScratch175=i;chck_accs0(wordlist,spr_intScratch175,375)
-   SPRStackArrayConcrete<char,14> spr_StringScratch177;strcpy(spr_StringScratch177._array,"erforderlich");
+          int spr_intScratch173;spr_intScratch173=i;chck_accs0(wordlist,spr_intScratch173,373)
+   SPRStackArrayConcrete<char,14> spr_StringScratch175;strcpy(spr_StringScratch175._array,"erforderlich");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch175]._theObject->append(stackStartPtr,spr_StringScratch177);
+   wordlist._array[spr_intScratch173]._theObject->append(stackStartPtr,spr_StringScratch175);
    i++;
-          int spr_intScratch178;spr_intScratch178=i;chck_accs0(wordlist,spr_intScratch178,378)
-   SPRStackArrayConcrete<char,11> spr_StringScratch17a;strcpy(spr_StringScratch17a._array,"behaupten");
+          int spr_intScratch176;spr_intScratch176=i;chck_accs0(wordlist,spr_intScratch176,376)
+   SPRStackArrayConcrete<char,11> spr_StringScratch178;strcpy(spr_StringScratch178._array,"behaupten");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch178]._theObject->append(stackStartPtr,spr_StringScratch17a);
+   wordlist._array[spr_intScratch176]._theObject->append(stackStartPtr,spr_StringScratch178);
    i++;
-          int spr_intScratch17b;spr_intScratch17b=i;chck_accs0(wordlist,spr_intScratch17b,381)
-   SPRStackArrayConcrete<char,8> spr_StringScratch17d;strcpy(spr_StringScratch17d._array,"trafen");
+          int spr_intScratch179;spr_intScratch179=i;chck_accs0(wordlist,spr_intScratch179,379)
+   SPRStackArrayConcrete<char,8> spr_StringScratch17b;strcpy(spr_StringScratch17b._array,"trafen");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch17b]._theObject->append(stackStartPtr,spr_StringScratch17d);
+   wordlist._array[spr_intScratch179]._theObject->append(stackStartPtr,spr_StringScratch17b);
    i++;
-          int spr_intScratch17e;spr_intScratch17e=i;chck_accs0(wordlist,spr_intScratch17e,384)
-   SPRStackArrayConcrete<char,7> spr_StringScratch180;strcpy(spr_StringScratch180._array,"kyjev");
+          int spr_intScratch17c;spr_intScratch17c=i;chck_accs0(wordlist,spr_intScratch17c,382)
+   SPRStackArrayConcrete<char,7> spr_StringScratch17e;strcpy(spr_StringScratch17e._array,"kyjev");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch17e]._theObject->append(stackStartPtr,spr_StringScratch180);
+   wordlist._array[spr_intScratch17c]._theObject->append(stackStartPtr,spr_StringScratch17e);
    i++;
-          int spr_intScratch181;spr_intScratch181=i;chck_accs0(wordlist,spr_intScratch181,387)
-   SPRStackArrayConcrete<char,8> spr_StringScratch183;strcpy(spr_StringScratch183._array,"london");
+          int spr_intScratch17f;spr_intScratch17f=i;chck_accs0(wordlist,spr_intScratch17f,385)
+   SPRStackArrayConcrete<char,8> spr_StringScratch181;strcpy(spr_StringScratch181._array,"london");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch181]._theObject->append(stackStartPtr,spr_StringScratch183);
+   wordlist._array[spr_intScratch17f]._theObject->append(stackStartPtr,spr_StringScratch181);
    i++;
-          int spr_intScratch184;spr_intScratch184=i;chck_accs0(wordlist,spr_intScratch184,390)
-   SPRStackArrayConcrete<char,8> spr_StringScratch186;strcpy(spr_StringScratch186._array,"berlin");
+          int spr_intScratch182;spr_intScratch182=i;chck_accs0(wordlist,spr_intScratch182,388)
+   SPRStackArrayConcrete<char,8> spr_StringScratch184;strcpy(spr_StringScratch184._array,"berlin");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch184]._theObject->append(stackStartPtr,spr_StringScratch186);
+   wordlist._array[spr_intScratch182]._theObject->append(stackStartPtr,spr_StringScratch184);
    i++;
-          int spr_intScratch187;spr_intScratch187=i;chck_accs0(wordlist,spr_intScratch187,393)
-   SPRStackArrayConcrete<char,8> spr_StringScratch189;strcpy(spr_StringScratch189._array,"moscow");
+          int spr_intScratch185;spr_intScratch185=i;chck_accs0(wordlist,spr_intScratch185,391)
+   SPRStackArrayConcrete<char,8> spr_StringScratch187;strcpy(spr_StringScratch187._array,"moscow");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch187]._theObject->append(stackStartPtr,spr_StringScratch189);
+   wordlist._array[spr_intScratch185]._theObject->append(stackStartPtr,spr_StringScratch187);
    i++;
-          int spr_intScratch18a;spr_intScratch18a=i;chck_accs0(wordlist,spr_intScratch18a,396)
-   SPRStackArrayConcrete<char,10> spr_StringScratch18c;strcpy(spr_StringScratch18c._array,"chandler");
+          int spr_intScratch188;spr_intScratch188=i;chck_accs0(wordlist,spr_intScratch188,394)
+   SPRStackArrayConcrete<char,10> spr_StringScratch18a;strcpy(spr_StringScratch18a._array,"chandler");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   wordlist._array[spr_intScratch18a]._theObject->append(stackStartPtr,spr_StringScratch18c);
+   wordlist._array[spr_intScratch188]._theObject->append(stackStartPtr,spr_StringScratch18a);
    i++;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    this->qsort(stackStartPtr,wordlist,0,25);
@@ -1457,14 +1457,14 @@ void AlphabeticSorter::test(char* stackStartPtr){
    while(i<wordlist._sz){
       PrintfClass pfc;
       String_16 str;
-             int spr_intScratch18d;spr_intScratch18d=i;chck_accs0(wordlist,spr_intScratch18d,399)
+             int spr_intScratch18b;spr_intScratch18b=i;chck_accs0(wordlist,spr_intScratch18b,397)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      str.append(stackStartPtr,wordlist._array[spr_intScratch18d]);
-      SPRStackArrayConcrete<char,5> spr_StringScratch18f;strcpy(spr_StringScratch18f._array,"[$]");
+      str.append(stackStartPtr,wordlist._array[spr_intScratch18b]);
+      SPRStackArrayConcrete<char,5> spr_StringScratch18d;strcpy(spr_StringScratch18d._array,"[$]");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch18f).sa(stackStartPtr,str).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch18d).sa(stackStartPtr,str).pr(stackStartPtr);
       i++;
       
    
@@ -1569,14 +1569,14 @@ void HexPrinter::intToHex(char* stackStartPtr,int x,SPRStackArray<char>& out,int
    while(i<8){
       int nibble;nibble=(x>>(28-(i*4)))&0x0f;
       if(nibble<10){
-                int spr_intScratch190;spr_intScratch190=i+startIndex;chck_accs0(out,spr_intScratch190,402)
-         out._array[spr_intScratch190]=((char)nibble+'0');
+                int spr_intScratch18e;spr_intScratch18e=i+startIndex;chck_accs0(out,spr_intScratch18e,400)
+         out._array[spr_intScratch18e]=((char)nibble+'0');
          
       }
       else
       {
-             int spr_intScratch192;spr_intScratch192=i+startIndex;chck_accs0(out,spr_intScratch192,404)
-         out._array[spr_intScratch192]=((char)nibble+'a'-10);
+             int spr_intScratch190;spr_intScratch190=i+startIndex;chck_accs0(out,spr_intScratch190,402)
+         out._array[spr_intScratch190]=((char)nibble+'a'-10);
          }
       i++;
       
@@ -1717,11 +1717,11 @@ void SystemControl::uSleep(char* stackStartPtr,int microSeconds){
 void SystemControl::exitError(char* stackStartPtr,SPRStackArray<char>& message){
    char SPR_stack_dummy_var;
    PrintfClass pfc;
-   SPRStackArrayConcrete<char,51> spr_StringScratch194;strcpy(spr_StringScratch194._array,"An Error occured because of '$'. Stopping program");
+   SPRStackArrayConcrete<char,51> spr_StringScratch192;strcpy(spr_StringScratch192._array,"An Error occured because of '$'. Stopping program");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch194).sa(stackStartPtr,message).pr(stackStartPtr);
+   pfc.fstr(stackStartPtr,spr_StringScratch192).sa(stackStartPtr,message).pr(stackStartPtr);
    ::exit(-1);
    
    
@@ -2025,10 +2025,10 @@ PrintfClass::PrintfClass(){
    #endif
    char* stackStartPtr=list->_stackStartPtr;
    char SPR_stack_dummy_var;
-   int spr_intScratch195;
-   spr_intScratch195=32;
-   if(spr_intScratch195<0)throw "invalid size requested for heap allocation";
-   bufferDyn=new(spr_intScratch195) SPRArray<char>(spr_intScratch195)
+   int spr_intScratch193;
+   spr_intScratch193=32;
+   if(spr_intScratch193<0)throw "invalid size requested for heap allocation";
+   bufferDyn=new(spr_intScratch193) SPRArray<char>(spr_intScratch193)
    ;
    
    
@@ -2083,38 +2083,38 @@ void Benutzer_Umschalter::UnitTest(char* stackStartPtr){
    char SPR_stack_dummy_var;
    Benutzer_Umschalter bu;
    PrintfClass pfc;
-   SPRStackArrayConcrete<char,37> spr_StringScratch196;strcpy(spr_StringScratch196._array,"bitte als Nutzer root laufen lassen");
+   SPRStackArrayConcrete<char,37> spr_StringScratch194;strcpy(spr_StringScratch194._array,"bitte als Nutzer root laufen lassen");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch196).pr(stackStartPtr);
+   pfc.fstr(stackStartPtr,spr_StringScratch194).pr(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    bu.schalteNach(stackStartPtr,1000,1000);
-   SPRStackArrayConcrete<char,13> spr_StringScratch197;strcpy(spr_StringScratch197._array,"/etc/shadow");
+   SPRStackArrayConcrete<char,13> spr_StringScratch195;strcpy(spr_StringScratch195._array,"/etc/shadow");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   SPRFile sf(stackStartPtr,spr_StringScratch197,1);
+   SPRFile sf(stackStartPtr,spr_StringScratch195,1);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(sf.systemHandle(stackStartPtr)>=0){
-      SPRStackArrayConcrete<char,42> spr_StringScratch198;strcpy(spr_StringScratch198._array,"Benutzer_Umschalter::UnitTest() Fehler 1");
+      SPRStackArrayConcrete<char,42> spr_StringScratch196;strcpy(spr_StringScratch196._array,"Benutzer_Umschalter::UnitTest() Fehler 1");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch198).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch196).pr(stackStartPtr);
       
    }
-   SPRStackArrayConcrete<char,35> spr_StringScratch199;strcpy(spr_StringScratch199._array,"nun sollen Fehlermeldungen kommen");
+   SPRStackArrayConcrete<char,35> spr_StringScratch197;strcpy(spr_StringScratch197._array,"nun sollen Fehlermeldungen kommen");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   pfc.fstr(stackStartPtr,spr_StringScratch199).pr(stackStartPtr);
+   pfc.fstr(stackStartPtr,spr_StringScratch197).pr(stackStartPtr);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    bu.schalteNach(stackStartPtr,0,0);
-   SPRStackArrayConcrete<char,13> spr_StringScratch19a;strcpy(spr_StringScratch19a._array,"/etc/shadow");
+   SPRStackArrayConcrete<char,13> spr_StringScratch198;strcpy(spr_StringScratch198._array,"/etc/shadow");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   SPRFile sf2(stackStartPtr,spr_StringScratch19a,1);
+   SPRFile sf2(stackStartPtr,spr_StringScratch198,1);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(sf2.systemHandle(stackStartPtr)>=0){
-      SPRStackArrayConcrete<char,42> spr_StringScratch19b;strcpy(spr_StringScratch19b._array,"Benutzer_Umschalter::UnitTest() Fehler 2");
+      SPRStackArrayConcrete<char,42> spr_StringScratch199;strcpy(spr_StringScratch199._array,"Benutzer_Umschalter::UnitTest() Fehler 2");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch19b).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch199).pr(stackStartPtr);
       
    }
    

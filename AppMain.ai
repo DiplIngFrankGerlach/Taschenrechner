@@ -26,7 +26,7 @@ void MeinKnopf::callback()
 
    var Math m;
    var MathLimits ml;
-   var int breitePixel = 500;
+   var int breitePixel = 700;
    var *double yWerte[] = new double[breitePixel];
    var double yMin = ml.dblMax();
    var double yMax = ml.dblLowest();
@@ -79,7 +79,7 @@ void MeinKnopf::callback()
    var double xKonstant = varStart;
    for(var int j=0; j < 10; j++)
    {
-      pfc.fstr("xk:$").sa(xKonstant).pr();
+      //pfc.fstr("xk:$").sa(xKonstant).pr();
       var double xPixel = (xKonstant - varStart)/breite * breitePixel;
        
       var int x = cast(int,xPixel);
@@ -123,24 +123,17 @@ int Main::main()
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner  Ausgabe 1.2");
+   var String_16 label("Franks Taschenrechner  Ausgabe 1.4");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;
    sfi.create(10,50,200,30);
 
-   var SFbox* sfb2 = new SFbox;
-   sfb2.create(10,100,100,40);
-   var String_16 l("test 123");
-   sfb2.drawString(50,50,l);
-
    //Ausgabefeld fuer den x-y Graphen
    var SFbox* sfb = new SFbox;
-   sfb.create(10,200,500,400);
-   //sfb.drawString(70,70,l);
+   sfb.create(10,100,700,700);
    var String_16 l2;
    l2.assign("Katze");
-   //sfb.drawString(70,90,l2);
 
    var SFinput* sfiVar = new SFinput;
    sfiVar.create(220,50,50,30);
