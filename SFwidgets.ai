@@ -63,8 +63,17 @@ SFbox::SFbox()
   farbe   = new int[100000];
   punkteGueltig = 0;
 
+  //Labels
   labels = new SFlabel*[100];
   labelsGueltig = 0;
+
+  //linien
+  lineX = new int[1000];
+  lineY = new int[1000];
+  lineXend = new int[1000];
+  lineYend = new int[1000];
+  lineFarbe = new int[1000];
+  linienGueltig = 0;
 }
 
 void SFbox::create(int x,int y,int w,int h)
@@ -85,6 +94,8 @@ void SFbox::draw()
       fl_rectf(mb->x(),mb->y(),mb->w(),mb->h());
       //setze die aktuelle Farbe fuer folgende fl_point() Aufrufe
       fl_color(FL_BLACK);
+
+      fl_begin_line();
    ]]
    for(var int i=0; i < punkteGueltig; i++)
    {
@@ -94,13 +105,35 @@ void SFbox::draw()
          int yfenster = mb->y();
          int xfenster = mb->x();
          fl_color( farbe._theObject->_array[i] );
+         fl_vertex( x + xfenster, y + yfenster );
+         /*
          fl_point(x+xfenster   ,y+yfenster);
          fl_point(x+1+xfenster ,y+yfenster);
          fl_point(x+xfenster   ,y+1+yfenster);
          fl_point(x+1+xfenster ,y+1+yfenster);
+         */
       ]]
    }
+   inline_cpp[[ fl_end_line(); ]]
    punkteGueltig = 0;
+
+   for(var int i=0; i < linienGueltig; i++)
+   {
+      var int x = lineX[i];
+      var int y = lineY[i];
+      var int xEnd = lineXend[i];
+      var int yEnd = lineYend[i];
+      inline_cpp[[ 
+         fl_color( lineFarbe._theObject->_array[i] );
+         fl_begin_line(); 
+         int yfenster = mb->y();
+         int xfenster = mb->x();
+         fl_vertex( x + xfenster, y + yfenster );
+         fl_vertex( xEnd + xfenster, yEnd + yfenster );
+         fl_end_line(); 
+      ]]
+   }
+   linienGueltig = 0;
 
    inline_cpp[[ fl_color(FL_BLACK); ]]
    for(var int i=0; i < labelsGueltig;i++)
@@ -139,6 +172,25 @@ void SFbox::addPoint(int x, int y,int farbei)
    punkteY[punkteGueltig] = y;
    farbe[punkteGueltig]   = farbei;
    punkteGueltig++;
+}
+
+void SFbox::addLine(int x, int y, int xEnd, int yEnd, int farbei)
+{
+   if(linienGueltig < lineX.sz)
+   {
+     lineX[linienGueltig] = x;
+     lineY[linienGueltig] = y;
+     lineXend[linienGueltig] = xEnd;
+     lineYend[linienGueltig] = yEnd;
+     lineFarbe[linienGueltig] = farbei;
+     linienGueltig++;
+   }
+   else
+   { 
+      var PrintfClass pfc;
+      pfc.fstr("zu vielen Linien in der SFbox").pr();
+      return;
+   }
 }
 
 int SFbox::hoehe()

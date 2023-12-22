@@ -57,6 +57,7 @@ void MeinKnopf::callback()
       var int yAusgabe = cast(int,(displayHoehe-yPixel));
       trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_BLUE());   
    }
+
    //x-Achsen ausgeben
    var double yKonstant = yMin;
    var String_16 ll;
@@ -64,10 +65,7 @@ void MeinKnopf::callback()
    {
      var double yPixel = ((yKonstant - yMin)/(yMax-yMin)) * (displayHoehe - 1);
      var int yAusgabe = cast(int,(displayHoehe-yPixel));
-     for(var int i=0; i < breitePixel;i++)
-     {
-        trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_DARK_CYAN());   
-     } 
+     trk.ausgabeBox.addLine(0,yAusgabe,breitePixel,yAusgabe,cc.get_FL_DARK_CYAN());   
      var int jm2 = j % 2; 
      if(jm2 == 1)
      {
@@ -77,13 +75,17 @@ void MeinKnopf::callback()
      }
      yKonstant = yKonstant + (yInterval / 10.0);
    }
+
+   var double yPixel = ((0.0 - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+   var int yAusgabe = cast(int,(displayHoehe-yPixel));
+   trk.ausgabeBox.addLine(0,yAusgabe,breitePixel,yAusgabe,cc.get_FL_RED());   
+
    //y Achsen ausgeben
    var double xKonstant = varStart;
    for(var int j=0; j < 10; j++)
    {
       //pfc.fstr("xk:$").sa(xKonstant).pr();
-      var double xPixel = (xKonstant - varStart)/breite * breitePixel;
-       
+      var double xPixel = (xKonstant - varStart)/breite * breitePixel;//todo: breite != hoehe
       var int x = cast(int,xPixel);
       var int jm2 = j % 2; 
       if(jm2 == 1)
@@ -92,13 +94,12 @@ void MeinKnopf::callback()
         StringUtil::appendDouble(xKonstant,ll,6);
         trk.ausgabeBox.drawString(x+5,15,ll);
       }
-      for(var int y=0; y < displayHoehe; y++)
-      {
-         trk.ausgabeBox.addPoint(x,y,cc.get_FL_BLACK());   
-      }
+      trk.ausgabeBox.addLine(x,0,x,breitePixel,cc.get_FL_DARK_CYAN());   
       xKonstant = xKonstant + ((varEnd - varStart) / 10.0);
    }
-   var String_16 s;
+   var double xPixel = (0.0 - varStart)/breite * breitePixel;//todo: breite != hoehe
+   var int x = cast(int,xPixel);
+   trk.ausgabeBox.addLine(x,0,x,breitePixel,cc.get_FL_RED());   
 
    
    trk.ausgabeBox.redraw();
@@ -125,29 +126,38 @@ int Main::main()
  
    if( cla.numberOfArguments() == 2 )
    {
-       //Kommandozeilen-Modus
        var String_16* ausdruck = new String_16;
        cla.getArgument(1,*ausdruck);
 
        if( ausdruck.equals("-history") == 1 )
        {
-          pfc.fstr("Frank's Calculator Version 1.7");
+          pfc.fstr("Frank's Calculator Version 2.0").pr();
           pfc.fstr("Version 1.5: added Commandline Mode.").pr();
           pfc.fstr("Version 1.6: Negative literals and functions added.").pr();
           pfc.fstr("Version 1.7: Constants Pi and E now usable.").pr();
           pfc.fstr("Version 1.8: Exponents added to number literals.").pr();
+          pfc.fstr("Version 2.0: xy points now connected by lines.").pr();
+          return -1;
        }
-       else
+       if( ausdruck.equals("-help") == 1 )
        {
-          var AusrechnerFK ar(ausdruck);
-          pfc.fstr("$").sa( ar.Addition() ).pr();
+          pfc.fstr("Frank's Calculator Version 2.0").pr();
+          pfc.fstr("GUI Mode: $ taschenrechner").pr();
+          pfc.fstr("Command Line Mode: $ taschenrechner EXPRESSION").pr();
+          pfc.fstr("   e.g.            $ taschenrechner \"sinus(0.7*pi)/(0.7*pi)\"").pr();
+          pfc.fstr("   e.g.            $ taschenrechner \"exp(2,8)\"").pr();
+          return -1;
        }
+
+       //Kommandozeilen-Modus
+       var AusrechnerFK ar(ausdruck);
+       pfc.fstr("$").sa( ar.Addition() ).pr();
        return 1;
    }
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner  Ausgabe 1.8");
+   var String_16 label("Franks Taschenrechner  Ausgabe 2.0");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;

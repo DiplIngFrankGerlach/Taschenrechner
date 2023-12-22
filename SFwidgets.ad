@@ -92,11 +92,20 @@ class SFbox
    *SFlabel* labels[];//Labels, die irgendwoe auf der Flaeche der SFBox 
                      //dargestellt werden
    int labelsGueltig;
+
+   *int lineX[];
+   *int lineY[]; 
+   *int lineXend[];
+   *int lineYend[]; 
+   *int lineFarbe[]; 
+   int linienGueltig;
 methods:
    SFbox();
    void create(int x, int y,int width, int height);
 
    void addPoint(int x,int y,int farbei);//melde einen Punkt zum Zeichnen an
+
+   void addLine(int x, int y, int xEnd, int yEnd, int farbei);//melde eine Linie zum Zeichnen an
 
    int hoehe();
 
