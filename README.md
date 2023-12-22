@@ -15,7 +15,7 @@ sinus(x)
 
 sinus(x)/x
 
-2&ast;sinus(2*3.1415*w)
+2&ast;sinus(2&ast;3.1415&ast;w)
 
 
 
