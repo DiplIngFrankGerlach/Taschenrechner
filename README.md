@@ -17,10 +17,10 @@ sinus(x)/x
 
 2.0&ast;sinus(2.0&ast;3.1415&ast;w)
 
-2.0&ast;sinus(2.0&ast;pi&ast;w)
-
 
 
 # Graphical Calculator
 
 A graphical calculator, which directly processes symbolic infix expressions such as "x&ast;x-3&ast;x".
+
+See "Beispielausdrücke" above for sample expressions
