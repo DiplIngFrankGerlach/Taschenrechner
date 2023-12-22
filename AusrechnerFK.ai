@@ -226,8 +226,8 @@ double AusrechnerFK::Primary()
         }
         //Important Constants
         var Math m;
-        if(tokVal.equals("pi") == 1) { return m.pi(); }
-        if(tokVal.equals("e") == 1)  { return m.e(); }
+        if(tokVal.equals("pi") == 1) { scanner.nextToken(); return m.pi(); }
+        if(tokVal.equals("e") == 1)  { scanner.nextToken(); return m.e(); }
         var double variableValue = -1.0;
         if(variableList.search(*tokVal,variableValue) != 1)
         {

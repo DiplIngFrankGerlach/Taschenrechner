@@ -131,8 +131,10 @@ int Main::main()
 
        if( ausdruck.equals("-history") == 1 )
        {
+          pfc.fstr("Frank's Calculator Version 1.7");
           pfc.fstr("Version 1.5: added Commandline Mode.").pr();
           pfc.fstr("Version 1.6: Negative literals and functions added.").pr();
+          pfc.fstr("Version 1.7: Constants Pi and E now usable.").pr();
        }
        else
        {
@@ -144,7 +146,7 @@ int Main::main()
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner  Ausgabe 1.5");
+   var String_16 label("Franks Taschenrechner  Ausgabe 1.7");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;
