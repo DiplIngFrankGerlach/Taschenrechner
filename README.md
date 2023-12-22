@@ -7,6 +7,8 @@ x
 
 x*x
 
+x*x*x-2*x*x+10*x-10
+
 exp(2,x)
 
 sinus(x)
