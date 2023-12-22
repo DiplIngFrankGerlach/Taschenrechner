@@ -34,6 +34,6 @@ See "Beispielausdrücke" above for sample expressions
 The calculator can also run in command line mode, where it simply computes the given expression. 
 E.g.
 
-$ output/taschenrechner "exp(2,8.5)*1E+44"
+\$ output/taschenrechner "exp(2,8.5)&ast;1E+44"
 3.6203867196751237e+46
 
