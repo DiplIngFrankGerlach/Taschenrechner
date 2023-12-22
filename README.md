@@ -24,6 +24,7 @@ sinus(x)/x
 
 
 # Graphical Calculator
+![sinus bild](spezialfunktion.png "Spezialfunktion")
 
 A graphical calculator, which directly processes symbolic infix expressions such as "x&ast;x-3&ast;x".
 
