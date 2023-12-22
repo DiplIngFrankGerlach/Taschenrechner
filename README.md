@@ -1,4 +1,6 @@
 # Grafischer Taschenrechner
+![sinus bild](sinus_rechner.png "Sinus Rechner")
+
 Ein grafischer Taschenrechner, welcher direkt symbolische Infix-Ausdrücke wie z.b. "x&ast;x-3&ast;x" auswertet.
 
 Beispielausdrücke sind
@@ -17,7 +19,7 @@ sinus(x)/x
 
 2.0&ast;sinus(2.0&ast;3.1415&ast;w)
 
-![sinus bild](sinus_rechner.png "Sinus Rechner")
+
 
 
 
