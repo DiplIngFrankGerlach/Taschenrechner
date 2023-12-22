@@ -28,3 +28,13 @@ sinus(x)/x
 A graphical calculator, which directly processes symbolic infix expressions such as "x&ast;x-3&ast;x".
 
 See "Beispielausdrücke" above for sample expressions
+
+# Command Line Mode
+
+The calculator can also run in command line mode, where it simply computes the given expression. 
+E.g. compute 2 to the power of 8.5, times 10^44
+
+\$ output/taschenrechner "exp(2,8.5)&ast;1E+44"
+
+3.6203867196751237e+46
+
