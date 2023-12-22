@@ -17,6 +17,8 @@ sinus(x)/x
 
 2.0&ast;sinus(2.0&ast;3.1415&ast;w)
 
+2.0&ast;sinus(2.0&ast;pi&ast;w)
+
 
 
 # Graphical Calculator
