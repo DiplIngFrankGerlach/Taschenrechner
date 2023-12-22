@@ -15,6 +15,8 @@ sinus(x)
 
 sinus(x)/x
 
+2&ast;sinus(2*3.1415*w)
+
 
 
 # Graphical Calculator
