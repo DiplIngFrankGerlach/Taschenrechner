@@ -8,6 +8,7 @@ void MeinKnopf::callback()
 {
    var PrintfClass pfc;   
 
+
    var String_16* ausdruck = new String_16;
    trk.ausdruckInput.get(*ausdruck);
    pfc.fstr("Callback Sappeur $").sa(ausdruck).pr();
@@ -33,6 +34,7 @@ void MeinKnopf::callback()
 
    
    
+   pfc.fstr("x;y").pr();
    for(var int i=0; i < breitePixel;i++)
    {
       var double x = ((cast(double,i) / cast(double,breitePixel - 1)) * breite)  + varStart;
@@ -43,9 +45,9 @@ void MeinKnopf::callback()
       yWerte[i] = y;
       if(y > yMax){yMax = y;}
       if(y < yMin){yMin = y;}
-      pfc.fstr("x:$ y:$").sa(x).sa(y).pr();
+      pfc.fstr("$;$").sa(x).sa(y).pr();
    }
-   pfc.fstr("min:$ max:$").sa(yMin).sa(yMax).pr();
+   //pfc.fstr("min:$ max:$").sa(yMin).sa(yMax).pr();
    var double yInterval = yMax - yMin;
    var double displayHoehe = trk.ausgabeBox.hoehe(); //hoehe in Pixel
    var SFcolorCode cc; 
@@ -117,13 +119,31 @@ void LoeschKnopf::callback()
 
 int Main::main()
 { 
+   var PrintfClass pfc;
 
    var CommandlineArgs cla;
-   var PrintfClass pfc;
+ 
+   if( cla.numberOfArguments() == 2 )
+   {
+       //Kommandozeilen-Modus
+       var String_16* ausdruck = new String_16;
+       cla.getArgument(1,*ausdruck);
+
+       if(ausdruck.equals("-history")==1)
+       {
+          pfc.fstr("Version 1.5: added Commandline Mode").pr();
+       }
+       else
+       {
+          var AusrechnerFK ar(ausdruck);
+          pfc.fstr("$").sa( ar.Addition() ).pr();
+       }
+       return 1;
+   }
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner  Ausgabe 1.4");
+   var String_16 label("Franks Taschenrechner  Ausgabe 1.5");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;
