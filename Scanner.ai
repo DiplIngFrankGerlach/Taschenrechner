@@ -285,7 +285,46 @@ Token Scanner::nextToken()
                       }
                    }
                    while(istZahl == 1);
-                   CT =T_ZAHL;
+                   if( (aktuellesZeichen == 'E') || (aktuellesZeichen == 'e') )
+                   { 
+                      tokenWert.append("e"); 
+                      if(this.readChar(aktuellesZeichen) < 1) 
+                      { 
+                         pfc.fstr("exponent erwartet").pr(); 
+                         CT =T_DATEI_ENDE; 
+                         return T_DATEI_ENDE;
+                      }
+                      if( (aktuellesZeichen == '-') ||  (aktuellesZeichen == '+') )
+                      {
+                         tokenWert.append(aktuellesZeichen); 
+                         if(this.readChar(aktuellesZeichen) < 1) 
+                         { 
+                            dateiVollGelesen = 1;
+                            pfc.fstr("exponent erwartet").pr(); 
+                            CT =T_DATEI_ENDE; 
+                            return T_DATEI_ENDE;
+                         }
+                      }  
+                      do
+                      {
+                         if( zkn.istZiffer(aktuellesZeichen) == 1)
+                         {
+                            tokenWert.append(aktuellesZeichen);
+                            istZahl = 1;
+                         }
+                         else{istZahl = 0; }
+
+                         if((istZahl == 1) && (this.readChar(aktuellesZeichen) < 1)) 
+                         { 
+                            dateiVollGelesen = 1;
+                            CT =T_ZAHL;
+                            if(debug){pfc.fstr("T_ZAHL").pr(); }
+                            return T_ZAHL;
+                         }
+                      }
+                      while(istZahl == 1);
+                   }
+                   CT = T_ZAHL;
                    if(debug){pfc.fstr("T_ZAHL").pr(); }
                    return T_ZAHL;
                 };
