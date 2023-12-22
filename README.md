@@ -5,9 +5,9 @@ Beispielausdrücke sind
 
 x
 
-x*x
+x&ast;x
 
-x*x*x-2*x*x+10*x-10
+x&ast;x&ast;x-2&ast;x&ast;x+10&ast;x-10
 
 exp(2,x)
 
