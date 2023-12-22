@@ -88,6 +88,7 @@ double AusrechnerFK::Multiplication()
    return prod;
 }
 
+/*parse einen Literal, eine Konstante oder einen Funktionsaufruf */
 double AusrechnerFK::Primary()
 {  
    var PrintfClass pfc;
@@ -113,6 +114,10 @@ double AusrechnerFK::Primary()
             this.fehler(") erwartet");
          }
          return ret;
+     }; break;
+     case T_MINUS:{
+        scanner.nextToken(); 
+        return this.Primary() * -1.0;
      }; break;
      case T_ZAHL:{ 
         scanner.currentToken(t,tokVal);

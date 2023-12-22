@@ -129,9 +129,10 @@ int Main::main()
        var String_16* ausdruck = new String_16;
        cla.getArgument(1,*ausdruck);
 
-       if(ausdruck.equals("-history")==1)
+       if( ausdruck.equals("-history") == 1 )
        {
-          pfc.fstr("Version 1.5: added Commandline Mode").pr();
+          pfc.fstr("Version 1.5: added Commandline Mode.").pr();
+          pfc.fstr("Version 1.6: Negative literals and functions added.").pr();
        }
        else
        {
