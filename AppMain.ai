@@ -135,6 +135,7 @@ int Main::main()
           pfc.fstr("Version 1.5: added Commandline Mode.").pr();
           pfc.fstr("Version 1.6: Negative literals and functions added.").pr();
           pfc.fstr("Version 1.7: Constants Pi and E now usable.").pr();
+          pfc.fstr("Version 1.8: Exponents added to number literals.").pr();
        }
        else
        {
@@ -146,7 +147,7 @@ int Main::main()
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner  Ausgabe 1.7");
+   var String_16 label("Franks Taschenrechner  Ausgabe 1.8");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;
