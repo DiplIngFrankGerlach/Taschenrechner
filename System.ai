@@ -131,7 +131,7 @@ void ThreadInfo::join()
 {
    var char buf[32];
    inline_cpp[[
-      snprintf(buf._array,32,"%f",num);
+      snprintf(buf._array,32,"%.9g",num);
    ]]
    this.sa(buf);
    return thisref;
@@ -141,7 +141,7 @@ void ThreadInfo::join()
 {
    var char buf[32];
    inline_cpp[[
-      snprintf(buf._array,32,"%.10f",num);
+      snprintf(buf._array,32,"%.17g",num);
    ]]
    this.sa(buf);
    return thisref;
