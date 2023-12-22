@@ -16,6 +16,7 @@
 #define SPR_SIZEOF_StringUnitTest__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_Wandler__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_ZKNuetzlich__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
+#define SPR_SIZEOF_StringUtil__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_ThreadLocalStorageList__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_ThreadLocalStorageEntry__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_ThreadLocalStorage__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<ThreadLocalStorageEntry >))
@@ -33,7 +34,10 @@
 #define SPR_SIZEOF_Benutzer_Umschalter__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_Math__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_MathLimits__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
+#define SPR_SIZEOF_SFcolorCode__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_SFcallbackTarget__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
+#define SPR_SIZEOF_SFlabel__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
+#define SPR_SIZEOF_SFfont__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_Hash_longlong__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_Compare_longlong__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_AAssigner_longlong__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
@@ -50,15 +54,15 @@
 #define SPR_SIZEOF_TRRKontext__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(sizeof(SPRSmartPtr<SFinput >),sizeof(SPRSmartPtr<SFinput >),sizeof(SPRSmartPtr<SFinput >),sizeof(SPRSmartPtr<SFbox >),sizeof(SPRSmartPtr<SFinput >))
 #define SPR_SIZEOF_Main__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_MeinKnopf__constructorABargsRSABffffffffRS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<TRKontext >))
-#define SPR_SIZEOF_MeinKnopf__callbackABargsRS 8+sizeof(PrintfClass)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(MathLimits)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<double> >)+sizeof(double)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(AusrechnerFK)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(int)
-#define SPR_SIZEOF_LoeschKnopf__constructorABargsRSAB3dRS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFbox >))
+#define SPR_SIZEOF_MeinKnopf__callbackABargsRS 8+sizeof(PrintfClass)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(MathLimits)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<double> >)+sizeof(double)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(AusrechnerFK)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(SFcolorCode)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(String_16)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(String_16)
+#define SPR_SIZEOF_LoeschKnopf__constructorABargsRSAB40RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFbox >))
 #define SPR_SIZEOF_LoeschKnopf__callbackABargsRS 8
-#define SPR_SIZEOF_Main__mainABargsRS 8+sizeof(CommandlineArgs)+sizeof(PrintfClass)+sizeof(SprFLTKwindow)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFbox>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<TRKontext>)+sizeof(MeinKnopf)+sizeof(LoeschKnopf)
+#define SPR_SIZEOF_Main__mainABargsRS 8+sizeof(CommandlineArgs)+sizeof(PrintfClass)+sizeof(SprFLTKwindow)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFbox>)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<TRKontext>)+sizeof(MeinKnopf)+sizeof(LoeschKnopf)
 #define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(SPRSmartPtr<SPRFile>)+sizeof(PrintfClass)+sizeof(Token)
 #define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(Token)
 #define SPR_SIZEOF_AAusrechnerFK__AAdditionABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
 #define SPR_SIZEOF_AAusrechnerFK__MultiplicationABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
-#define SPR_SIZEOF_AAusrechnerFK__PrimaryABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl)
+#define SPR_SIZEOF_AAusrechnerFK__PrimaryABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl)
 #define SPR_SIZEOF_AAusrechnerFK__fehlerABargsRSAB3RS2RS0 8+sizeof(PrintfClass)+sizeof(SystemControl)
 #define SPR_SIZEOF_AAusrechnerFK__setVariableValueABargsRSAB9RS0RS0AB6RS0RS0 8
 #define SPR_SIZEOF_Hash_longlong__hashABargsRSAB7RS0RS0 8+sizeof(longlong)
@@ -83,6 +87,7 @@
 #define SPR_SIZEOF_Math__UnitTestABargsRS 8+sizeof(PrintfClass)+sizeof(double)+sizeof(double)+sizeof(double)
 #define SPR_SIZEOF_Math__log2ABargsRSAB1RS0RS0 8+sizeof(int)
 #define SPR_SIZEOF_Math__pruefeZwPABargsRSAB1RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_Math__wurzelABargsRSAB6RS0RS0 8+sizeof(double)
 #define SPR_SIZEOF_Math__fabsABargsRSAB6RS0RS0 8+sizeof(double)
 #define SPR_SIZEOF_MathLimits__dblMaxABargsRS 8+sizeof(double)
 #define SPR_SIZEOF_MathLimits__dblMinABargsRS 8+sizeof(double)
@@ -93,16 +98,52 @@
 #define SPR_SIZEOF_SFinput__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_SFinput__createABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0AB1RS0RS0 8
 #define SPR_SIZEOF_SFinput__getABargsRSAB9RS0RS0 8
-#define SPR_SIZEOF_SFbox__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
+#define SPR_SIZEOF_SFbox__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFlabel >))
 #define SPR_SIZEOF_SFbox__createABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0AB1RS0RS0 8
-#define SPR_SIZEOF_SFbox__drawABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)
+#define SPR_SIZEOF_SFbox__drawABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SFlabel>)+sizeof(int)+sizeof(int)
 #define SPR_SIZEOF_SFbox__loescheABargsRS 8
-#define SPR_SIZEOF_SFbox__addPointABargsRSAB1RS0RS0AB1RS0RS0 8+sizeof(PrintfClass)
+#define SPR_SIZEOF_SFbox__addPointABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0 8+sizeof(PrintfClass)
 #define SPR_SIZEOF_SFbox__hoeheABargsRS 8+sizeof(int)
 #define SPR_SIZEOF_SFbox__redrawABargsRS 8
-#define SPR_SIZEOF_Scanner__constructorABargsRSAB21RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
+#define SPR_SIZEOF_SFbox__drawStringABargsRSAB1RS0RS0AB1RS0RS0AB9RS0RS0 8+sizeof(SPRSmartPtr<SPRArray<char> >)+sizeof(int)+sizeof(PrintfClass)
+#define SPR_SIZEOF_SFcolorCode__get_FL_BLAACKABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_RREDABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_GRREENABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_YELLOWABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_BLUEABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_MAAGENTAAABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_CYAANABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_DAARRK_RREDABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_DAARRK_GRREENABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_DAARRK_YELLOWABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_DAARRK_BLUEABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_DAARRK_MAAGENTAAABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_DAARRK_CYAANABargsRS 8
+#define SPR_SIZEOF_SFcolorCode__get_FL_WHITEABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_HELVETICAA_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_HELVETICAA_BOLD_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_HELVETICAA_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_HELVETICAA_BOLD_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_COURRIERR_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_COURRIERR_BOLD_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_COURRIERR_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_COURRIERR_BOLD_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_TIMES_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_TIMES_BOLD_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_TIMES_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_TIMES_BOLD_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_SYMBOL_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_SCRREEN_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_SCRREEN_BOLD_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_ZAAPF_DINGBAATS_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_FRREE_FONT_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_BOLD_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__getFontID_FL_BOLD_ITAALIC_ABargsRS 8
+#define SPR_SIZEOF_SFfont__setFontABargsRSAB1RS0RS0AB1RS0RS0 8
+#define SPR_SIZEOF_Scanner__constructorABargsRSAB22RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
 #define SPR_SIZEOF_Scanner__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
-#define SPR_SIZEOF_Scanner__currentTokenABargsRSAB51RS0RS0AB9RS1RS0 8
+#define SPR_SIZEOF_Scanner__currentTokenABargsRSAB55RS0RS0AB9RS1RS0 8
 #define SPR_SIZEOF_Scanner__istWortFolgezeichenABargsRSAB3RS0RS0 8
 #define SPR_SIZEOF_Scanner__esseZeichenABargsRS 8
 #define SPR_SIZEOF_Scanner__nextTokenABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)
@@ -147,7 +188,7 @@
 #define SPR_SIZEOF_SPRRFile__constructorABargsRSAB3RS2RS0AB1RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_SPRRFile__constructorABargsRSAB9RS0RS0AB1RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+sizeof(SPRStackArrayConcrete<char,400>)
 #define SPR_SIZEOF_SPRRFile__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
-#define SPR_SIZEOF_SPRRFile__oeffneABargsRSAB9RS0RS0AB20RS0RS0 8+sizeof(SPRStackArrayConcrete<char,400>)
+#define SPR_SIZEOF_SPRRFile__oeffneABargsRSAB9RS0RS0AB21RS0RS0 8+sizeof(SPRStackArrayConcrete<char,400>)
 #define SPR_SIZEOF_SPRRFile__oeffneABargsRSAB3RS2RS0AB1RS0RS0AB1RS0RS0 8
 #define SPR_SIZEOF_SPRRFile__systemHandleABargsRS 8
 #define SPR_SIZEOF_SPRRFile__readABargsRSAB1RS0RS0AB1RS0RS0AB3RS2RS0 8+sizeof(int)
@@ -182,19 +223,19 @@
 #define SPR_SIZEOF_HexPrinter__intToHexABargsRSAB1RS0RS0AB3RS2RS0AB1RS0RS0 8+sizeof(int)+sizeof(int)
 #define SPR_SIZEOF_KeyType4__constructorABargsRSAB9RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(SPR_SIZEOF_String_16__constructorABargsRS)
 #define SPR_SIZEOF_KeyType4__constructorABargsRSAB3RS2RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(SPR_SIZEOF_String_16__constructorABargsRS)
-#define SPR_SIZEOF_KeyType4__compareABargsRSAB2aRS0RS0 8
+#define SPR_SIZEOF_KeyType4__compareABargsRSAB2bRS0RS0 8
 #define SPR_SIZEOF_KeyType4__getHashCodeABargsRS 8+sizeof(int)+sizeof(int)+sizeof(char)
 #define SPR_SIZEOF_Hashable4__constructorABargsRSAB3RS2RS0AB3RS2RS0AB3RS2RS0AB3RS2RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX3(SPR_SIZEOF_String_16__constructorABargsRS,SPR_SIZEOF_String_16__constructorABargsRS,SPR_SIZEOF_String_16__constructorABargsRS,SPR_SIZEOF_String_16__constructorABargsRS)
-#define SPR_SIZEOF_Hashable4__getKeyABargsRSAB2aRS1RS0 8+sizeof(String_16)
+#define SPR_SIZEOF_Hashable4__getKeyABargsRSAB2bRS1RS0 8+sizeof(String_16)
 #define SPR_SIZEOF_MTSuperClass__threadMainABargsRS 8
-#define SPR_SIZEOF_MultiThreadAAdmin__turnOffLockingABargsRSAB2eRS1RS0 8
-#define SPR_SIZEOF_MultiThreadAAdmin__turnOnLockingABargsRSAB2eRS1RS0 8
+#define SPR_SIZEOF_MultiThreadAAdmin__turnOffLockingABargsRSAB2fRS1RS0 8
+#define SPR_SIZEOF_MultiThreadAAdmin__turnOnLockingABargsRSAB2fRS1RS0 8
 #define SPR_SIZEOF_SystemControl__exitABargsRS 8
 #define SPR_SIZEOF_SystemControl__uSleepABargsRSAB1RS0RS0 8
 #define SPR_SIZEOF_SystemControl__exitErrorABargsRSAB3RS2RS0 8+sizeof(PrintfClass)
 #define SPR_SIZEOF_MutexInfo__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_Mutex__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<MutexInfo >))
-#define SPR_SIZEOF_Mutex__constructorABargsRSAB30RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<MutexInfo >))
+#define SPR_SIZEOF_Mutex__constructorABargsRSAB31RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<MutexInfo >))
 #define SPR_SIZEOF_Mutex__getMutexInfoABargsRS 8
 #define SPR_SIZEOF_Mutex__lockABargsRS 8
 #define SPR_SIZEOF_Mutex__unlockABargsRS 8
@@ -203,7 +244,7 @@
 #define SPR_SIZEOF_SemaphoreInfo__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_SemaphoreInfo__threadMainABargsRS 8
 #define SPR_SIZEOF_Semaphore__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SemaphoreInfo >))
-#define SPR_SIZEOF_Semaphore__constructorABargsRSAB32RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SemaphoreInfo >))
+#define SPR_SIZEOF_Semaphore__constructorABargsRSAB33RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SemaphoreInfo >))
 #define SPR_SIZEOF_Semaphore__getSemaphoreInfoABargsRS 8
 #define SPR_SIZEOF_Semaphore__PABargsRS 8
 #define SPR_SIZEOF_Semaphore__VABargsRS 8
@@ -215,6 +256,11 @@
 #define SPR_SIZEOF_AAlphaEntry__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_Benutzer_Umschalter__schalteNachABargsRSAB1RS0RS0AB1RS0RS0 8
 #define SPR_SIZEOF_Benutzer_Umschalter__UnitTestABargsRS 8+sizeof(Benutzer_Umschalter)+sizeof(PrintfClass)+sizeof(SPRFile)+sizeof(SPRFile)
+#define SPR_SIZEOF_StringUtil__trimABargsRSAB9RS0RS0AB9RS0RS0 8+sizeof(ZKNuetzlich)+sizeof(int)+sizeof(int)+sizeof(char)+sizeof(int)
+#define SPR_SIZEOF_StringUtil__grossABargsRSAB3RS0RS0AB3RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_StringUtil__vergleichGKABargsRSAB9RS0RS0AB9RS0RS0AB1RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(char)+sizeof(char)
+#define SPR_SIZEOF_StringUtil__appendDoubleABargsRSAB6RS0RS0AB9RS0RS0AB1RS0RS0 8+sizeof(SPRStackArrayConcrete<char,31>)+sizeof(int)
+#define SPR_SIZEOF_StringUtil__UnitTestABargsRS 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)
 #define SPR_SIZEOF_String_16__constructorABargsRSAB3RS2RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_String_16__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_String_16__capacityABargsRS 8
@@ -444,12 +490,12 @@
 #define SPR_SIZEOF_Compare_String_128__compareABargsRSAB15RS0RS0AB15RS0RS0 8
 #define SPR_SIZEOF_AAssigner_String_128__assignABargsRSAB15RS0RS0AB15RS0RS0 8
 #define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__constructorABargsRSAB1RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<Hashable4 >))
-#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__insertABargsRSAB2bRS1RS0 8+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPRSmartPtr<Hashable4> > >)+sizeof(int)
-#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__insertInternallyABargsRSAB2bRS1RS0 8+sizeof(SPRSmartPtr<KeyType4>)+sizeof(int)
-#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__getABargsRSAB2aRS0RS0AB2bRS1RS0 8+sizeof(int)+sizeof(int)
+#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__insertABargsRSAB2cRS1RS0 8+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPRSmartPtr<Hashable4> > >)+sizeof(int)
+#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__insertInternallyABargsRSAB2cRS1RS0 8+sizeof(SPRSmartPtr<KeyType4>)+sizeof(int)
+#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__getABargsRSAB2bRS0RS0AB2cRS1RS0 8+sizeof(int)+sizeof(int)
 #define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__numElementsABargsRS 8
-#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__getFirstABargsRSAB2bRS1RS0 8
-#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__getNextABargsRSAB2bRS1RS0 8+sizeof(int)
+#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__getFirstABargsRSAB2cRS1RS0 8
+#define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__getNextABargsRSAB2cRS1RS0 8+sizeof(int)
 #define SPR_SIZEOF_Hashtable4_Hashable4_KeyType4__clearABargsRS 8+sizeof(int)
 #define SPR_SIZEOF_SPHT_Entry_String_16_String_16__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX2(SPR_SIZEOF_String_16__constructorABargsRS,sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16 >),SPR_SIZEOF_String_16__constructorABargsRS)
 #define SPR_SIZEOF_SPHT_String_16_String_16__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16 >),sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16 >))
@@ -457,7 +503,7 @@
 #define SPR_SIZEOF_SPHT_String_16_String_16__clearABargsRS 8
 #define SPR_SIZEOF_SPHT_String_16_String_16__nextElemABargsRSAB9RS0RS0AB9RS0RS0 8+sizeof(Assigner_String_16)+sizeof(Assigner_String_16)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_String_16__sizeABargsRS 8
-#define SPR_SIZEOF_SPHT_String_16_String_16__insertInternallyABargsRSAB46RS2RS1AB9RS0RS0AB9RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16>)+sizeof(int)
+#define SPR_SIZEOF_SPHT_String_16_String_16__insertInternallyABargsRSAB4aRS2RS1AB9RS0RS0AB9RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16>)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_String_16__searchABargsRSAB9RS0RS0AB9RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16>)
 #define SPR_SIZEOF_SPHT_String_16_String_16__insertABargsRSAB9RS0RS0AB9RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPHT_Entry_String_16_String_16> >)+sizeof(String_16)+sizeof(String_16)
 #define SPR_SIZEOF_SPHT_String_16_String_16__delABargsRSAB9RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16>)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16>)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_String_16>)
@@ -467,7 +513,7 @@
 #define SPR_SIZEOF_SPHT_int_int__clearABargsRS 8
 #define SPR_SIZEOF_SPHT_int_int__nextElemABargsRSAB1RS0RS0AB1RS0RS0 8+sizeof(Assigner_int)+sizeof(Assigner_int)+sizeof(int)
 #define SPR_SIZEOF_SPHT_int_int__sizeABargsRS 8
-#define SPR_SIZEOF_SPHT_int_int__insertInternallyABargsRSAB48RS2RS1AB1RS0RS0AB1RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_int>)+sizeof(int)
+#define SPR_SIZEOF_SPHT_int_int__insertInternallyABargsRSAB4cRS2RS1AB1RS0RS0AB1RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_int>)+sizeof(int)
 #define SPR_SIZEOF_SPHT_int_int__searchABargsRSAB1RS0RS0AB1RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_int>)
 #define SPR_SIZEOF_SPHT_int_int__insertABargsRSAB1RS0RS0AB1RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPHT_Entry_int_int> >)+sizeof(int)+sizeof(int)
 #define SPR_SIZEOF_SPHT_int_int__delABargsRSAB1RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_int>)+sizeof(SPRSmartPtr<SPHT_Entry_int_int>)+sizeof(SPRSmartPtr<SPHT_Entry_int_int>)
@@ -477,7 +523,7 @@
 #define SPR_SIZEOF_SPHT_String_16_int__clearABargsRS 8
 #define SPR_SIZEOF_SPHT_String_16_int__nextElemABargsRSAB9RS0RS0AB1RS0RS0 8+sizeof(Assigner_String_16)+sizeof(Assigner_int)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_int__sizeABargsRS 8
-#define SPR_SIZEOF_SPHT_String_16_int__insertInternallyABargsRSAB4aRS2RS1AB9RS0RS0AB1RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_int>)+sizeof(int)
+#define SPR_SIZEOF_SPHT_String_16_int__insertInternallyABargsRSAB4eRS2RS1AB9RS0RS0AB1RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_int>)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_int__searchABargsRSAB9RS0RS0AB1RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_int>)
 #define SPR_SIZEOF_SPHT_String_16_int__insertABargsRSAB9RS0RS0AB1RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPHT_Entry_String_16_int> >)+sizeof(String_16)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_int__delABargsRSAB9RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_int>)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_int>)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_int>)
@@ -487,7 +533,7 @@
 #define SPR_SIZEOF_SPHT_int_String_16__clearABargsRS 8
 #define SPR_SIZEOF_SPHT_int_String_16__nextElemABargsRSAB1RS0RS0AB9RS0RS0 8+sizeof(Assigner_int)+sizeof(Assigner_String_16)+sizeof(int)
 #define SPR_SIZEOF_SPHT_int_String_16__sizeABargsRS 8
-#define SPR_SIZEOF_SPHT_int_String_16__insertInternallyABargsRSAB4cRS2RS1AB1RS0RS0AB9RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>)+sizeof(int)
+#define SPR_SIZEOF_SPHT_int_String_16__insertInternallyABargsRSAB50RS2RS1AB1RS0RS0AB9RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>)+sizeof(int)
 #define SPR_SIZEOF_SPHT_int_String_16__searchABargsRSAB1RS0RS0AB9RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>)
 #define SPR_SIZEOF_SPHT_int_String_16__insertABargsRSAB1RS0RS0AB9RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPHT_Entry_int_String_16> >)+sizeof(int)+sizeof(String_16)
 #define SPR_SIZEOF_SPHT_int_String_16__delABargsRSAB1RS0RS0 8+sizeof(Hash_int)+sizeof(Compare_int)+sizeof(Assigner_int)+sizeof(Assigner_String_16)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>)+sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>)+sizeof(SPRSmartPtr<SPHT_Entry_int_String_16>)
@@ -497,7 +543,7 @@
 #define SPR_SIZEOF_SPHT_String_16_double__clearABargsRS 8
 #define SPR_SIZEOF_SPHT_String_16_double__nextElemABargsRSAB9RS0RS0AB6RS0RS0 8+sizeof(Assigner_String_16)+sizeof(Assigner_double)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_double__sizeABargsRS 8
-#define SPR_SIZEOF_SPHT_String_16_double__insertInternallyABargsRSAB4eRS2RS1AB9RS0RS0AB6RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_double>)+sizeof(int)
+#define SPR_SIZEOF_SPHT_String_16_double__insertInternallyABargsRSAB52RS2RS1AB9RS0RS0AB6RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_double>)+sizeof(int)
 #define SPR_SIZEOF_SPHT_String_16_double__searchABargsRSAB9RS0RS0AB6RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_double>)
 #define SPR_SIZEOF_SPHT_String_16_double__insertABargsRSAB9RS0RS0AB6RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<SPHT_Entry_String_16_double> >)+sizeof(String_16)+sizeof(double)
 #define SPR_SIZEOF_SPHT_String_16_double__delABargsRSAB9RS0RS0 8+sizeof(Hash_String_16)+sizeof(Compare_String_16)+sizeof(Assigner_String_16)+sizeof(Assigner_double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_double>)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_double>)+sizeof(SPRSmartPtr<SPHT_Entry_String_16_double>)

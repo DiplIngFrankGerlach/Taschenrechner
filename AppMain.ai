@@ -26,10 +26,12 @@ void MeinKnopf::callback()
 
    var Math m;
    var MathLimits ml;
-   var int breitePixel = 500;
+   var int breitePixel = 700;
    var *double yWerte[] = new double[breitePixel];
    var double yMin = ml.dblMax();
    var double yMax = ml.dblLowest();
+
+   
    
    for(var int i=0; i < breitePixel;i++)
    {
@@ -44,14 +46,59 @@ void MeinKnopf::callback()
       pfc.fstr("x:$ y:$").sa(x).sa(y).pr();
    }
    pfc.fstr("min:$ max:$").sa(yMin).sa(yMax).pr();
-   var double yInternval = yMax - yMin;
+   var double yInterval = yMax - yMin;
    var double displayHoehe = trk.ausgabeBox.hoehe(); //hoehe in Pixel
+   var SFcolorCode cc; 
    for(var int i=0; i < breitePixel;i++)
    {
-      var double yPixel = ((yWerte[i] - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+      var double yPixel = ((yWerte[i] - yMin)/yInterval) * (displayHoehe - 1);
       var int yAusgabe = cast(int,(displayHoehe-yPixel));
-      trk.ausgabeBox.addPoint(i,yAusgabe);   
+      trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_BLUE());   
    }
+   //x-Achsen ausgeben
+   var double yKonstant = yMin;
+   var String_16 ll;
+   for(var int j=0; j < 10; j++)
+   {
+     var double yPixel = ((yKonstant - yMin)/(yMax-yMin)) * (displayHoehe - 1);
+     var int yAusgabe = cast(int,(displayHoehe-yPixel));
+     for(var int i=0; i < breitePixel;i++)
+     {
+        trk.ausgabeBox.addPoint(i,yAusgabe,cc.get_FL_DARK_CYAN());   
+     } 
+     var int jm2 = j % 2; 
+     if(jm2 == 1)
+     {
+        ll.clear();
+        StringUtil::appendDouble(yKonstant,ll,6);
+        trk.ausgabeBox.drawString(5,yAusgabe + 15,ll);
+     }
+     yKonstant = yKonstant + (yInterval / 10.0);
+   }
+   //y Achsen ausgeben
+   var double xKonstant = varStart;
+   for(var int j=0; j < 10; j++)
+   {
+      //pfc.fstr("xk:$").sa(xKonstant).pr();
+      var double xPixel = (xKonstant - varStart)/breite * breitePixel;
+       
+      var int x = cast(int,xPixel);
+      var int jm2 = j % 2; 
+      if(jm2 == 1)
+      {
+        ll.clear();
+        StringUtil::appendDouble(xKonstant,ll,6);
+        trk.ausgabeBox.drawString(x+5,15,ll);
+      }
+      for(var int y=0; y < displayHoehe; y++)
+      {
+         trk.ausgabeBox.addPoint(x,y,cc.get_FL_BLACK());   
+      }
+      xKonstant = xKonstant + ((varEnd - varStart) / 10.0);
+   }
+   var String_16 s;
+
+   
    trk.ausgabeBox.redraw();
 }
 
@@ -76,14 +123,17 @@ int Main::main()
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner");
+   var String_16 label("Franks Taschenrechner  Ausgabe 1.4");
    swin.SetLabel(label);
 
    var SFinput* sfi = new SFinput;
    sfi.create(10,50,200,30);
 
+   //Ausgabefeld fuer den x-y Graphen
    var SFbox* sfb = new SFbox;
-   sfb.create(10,100,500,400);
+   sfb.create(10,100,700,700);
+   var String_16 l2;
+   l2.assign("Katze");
 
    var SFinput* sfiVar = new SFinput;
    sfiVar.create(220,50,50,30);

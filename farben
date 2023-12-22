@@ -1,0 +1,14 @@
+/usr/include/FL/Enumerations.h:const Fl_Color FL_BLACK   = 56;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_RED     = 88;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_GREEN   = 63;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_YELLOW  = 95;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_BLUE    = 216;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_MAGENTA = 248;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_CYAN    = 223;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_DARK_RED = 72;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_DARK_GREEN    = 60;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_DARK_YELLOW   = 76;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_DARK_BLUE     = 136;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_DARK_MAGENTA  = 152;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_DARK_CYAN     = 140;
+/usr/include/FL/Enumerations.h:const Fl_Color FL_WHITE         = 255;
