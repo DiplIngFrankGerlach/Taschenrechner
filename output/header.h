@@ -2,7 +2,7 @@
 #define SPR_GENERATED_HEADER 1
 class ThreadLocalStorageEntry;
 class TRKontext;
-#include "/home/fgerlach/eigene/Sappeur30/haupt//cppMapping/mapping.h"
+#include "/home/frank.gerlach/Sappeur30/haupt//cppMapping/mapping.h"
 class SAPPEUR_DLL_EXPORT_A String_16: public SPRObject {
 public:
 void addRef(){SPRObject::addRef();}

@@ -21,17 +21,17 @@ void SFbutton::create(char* stackStartPtr,int x,int y,int width,int height,SPRSt
    char SPR_stack_dummy_var;
    int i;i=0;
    char c0;c0=((char)0);
-          int spr_intScratch38;spr_intScratch38=i;chck_accs0(labeli,spr_intScratch38,58)
-   while(labeli._array[spr_intScratch38]!=c0){
-             int spr_intScratch3a;spr_intScratch3a=i;chck_accs0(label,spr_intScratch3a,60)
-             int spr_intScratch3c;spr_intScratch3c=i;chck_accs0(labeli,spr_intScratch3c,62)
-      label._array[spr_intScratch3a]=labeli._array[spr_intScratch3c];
+          int spr_intScratch57;spr_intScratch57=i;chck_accs0(labeli,spr_intScratch57,89)
+   while(labeli._array[spr_intScratch57]!=c0){
+             int spr_intScratch59;spr_intScratch59=i;chck_accs0(label,spr_intScratch59,91)
+             int spr_intScratch5b;spr_intScratch5b=i;chck_accs0(labeli,spr_intScratch5b,93)
+      label._array[spr_intScratch59]=labeli._array[spr_intScratch5b];
       i++;
-      spr_intScratch38=i;chck_accs0(labeli,spr_intScratch38,58)
+      spr_intScratch57=i;chck_accs0(labeli,spr_intScratch57,89)
       
    };
-          int spr_intScratch3e;spr_intScratch3e=i;chck_accs0(label,spr_intScratch3e,64)
-   label._array[spr_intScratch3e]=c0;
+          int spr_intScratch5d;spr_intScratch5d=i;chck_accs0(label,spr_intScratch5d,95)
+   label._array[spr_intScratch5d]=c0;
    
           fb = new Fl_Button(x,y,width,height,label._array);
           fb->callback(buttonCallback,this);
@@ -97,26 +97,26 @@ SFbox::SFbox(){
    
         mb = NULL;
      
-   int spr_intScratch40;
-   spr_intScratch40=100000;
-   if(spr_intScratch40<0)throw "invalid size requested for heap allocation";
-   punkteX=new(spr_intScratch40) SPRArray<int>(spr_intScratch40)
+   int spr_intScratch5f;
+   spr_intScratch5f=100000;
+   if(spr_intScratch5f<0)throw "invalid size requested for heap allocation";
+   punkteX=new(spr_intScratch5f) SPRArray<int>(spr_intScratch5f)
    ;
-   int spr_intScratch41;
-   spr_intScratch41=100000;
-   if(spr_intScratch41<0)throw "invalid size requested for heap allocation";
-   punkteY=new(spr_intScratch41) SPRArray<int>(spr_intScratch41)
+   int spr_intScratch60;
+   spr_intScratch60=100000;
+   if(spr_intScratch60<0)throw "invalid size requested for heap allocation";
+   punkteY=new(spr_intScratch60) SPRArray<int>(spr_intScratch60)
    ;
-   int spr_intScratch42;
-   spr_intScratch42=100000;
-   if(spr_intScratch42<0)throw "invalid size requested for heap allocation";
-   farbe=new(spr_intScratch42) SPRArray<int>(spr_intScratch42)
+   int spr_intScratch61;
+   spr_intScratch61=100000;
+   if(spr_intScratch61<0)throw "invalid size requested for heap allocation";
+   farbe=new(spr_intScratch61) SPRArray<int>(spr_intScratch61)
    ;
    punkteGueltig=0;
-   int spr_intScratch43;
-   spr_intScratch43=100;
-   if(spr_intScratch43<0)throw "invalid size requested for heap allocation";
-   labels=new(spr_intScratch43) SPRArray<SPRSmartPtr<SFlabel> >(spr_intScratch43)
+   int spr_intScratch62;
+   spr_intScratch62=100;
+   if(spr_intScratch62<0)throw "invalid size requested for heap allocation";
+   labels=new(spr_intScratch62) SPRArray<SPRSmartPtr<SFlabel> >(spr_intScratch62)
    ;
    labelsGueltig=0;
    
@@ -145,10 +145,10 @@ void SFbox::draw(char* stackStartPtr){
    {//begin of SPR for statement
    int i;i=0;
    while(i<punkteGueltig){
-             int spr_intScratch44;spr_intScratch44=i;chck_accs_p0(punkteX,spr_intScratch44,70)
-      int x;x=punkteX._theObject->_array[spr_intScratch44];
-             int spr_intScratch46;spr_intScratch46=i;chck_accs_p0(punkteY,spr_intScratch46,72)
-      int y;y=punkteY._theObject->_array[spr_intScratch46];
+             int spr_intScratch63;spr_intScratch63=i;chck_accs_p0(punkteX,spr_intScratch63,101)
+      int x;x=punkteX._theObject->_array[spr_intScratch63];
+             int spr_intScratch65;spr_intScratch65=i;chck_accs_p0(punkteY,spr_intScratch65,103)
+      int y;y=punkteY._theObject->_array[spr_intScratch65];
       
                int yfenster = mb->y();
                int xfenster = mb->x();
@@ -168,8 +168,8 @@ void SFbox::draw(char* stackStartPtr){
    {//begin of SPR for statement
    int i;i=0;
    while(i<labelsGueltig){
-             int spr_intScratch48;spr_intScratch48=i;chck_accs_p0(labels,spr_intScratch48,74)
-      SPRSmartPtr<SFlabel> l;l=labels._theObject->_array[spr_intScratch48];
+             int spr_intScratch67;spr_intScratch67=i;chck_accs_p0(labels,spr_intScratch67,105)
+      SPRSmartPtr<SFlabel> l;l=labels._theObject->_array[spr_intScratch67];
       int x;x=l._theObject->x;
       int y;y=l._theObject->y;
       
@@ -197,19 +197,19 @@ void SFbox::addPoint(char* stackStartPtr,int x,int y,int farbei){
    char SPR_stack_dummy_var;
    if(punkteGueltig==punkteX._theObject->_sz){
       PrintfClass pfc;
-      SPRStackArrayConcrete<char,31> spr_StringScratch4a;strcpy(spr_StringScratch4a._array,"zu vielen Punkte in der SFbox");
+      SPRStackArrayConcrete<char,31> spr_StringScratch69;strcpy(spr_StringScratch69._array,"zu vielen Punkte in der SFbox");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch4a).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch69).pr(stackStartPtr);
       return ;
       
    }
-          int spr_intScratch4b;spr_intScratch4b=punkteGueltig;chck_accs_p0(punkteX,spr_intScratch4b,77)
-   punkteX._theObject->_array[spr_intScratch4b]=x;
-          int spr_intScratch4d;spr_intScratch4d=punkteGueltig;chck_accs_p0(punkteY,spr_intScratch4d,79)
-   punkteY._theObject->_array[spr_intScratch4d]=y;
-          int spr_intScratch4f;spr_intScratch4f=punkteGueltig;chck_accs_p0(farbe,spr_intScratch4f,81)
-   farbe._theObject->_array[spr_intScratch4f]=farbei;
+          int spr_intScratch6a;spr_intScratch6a=punkteGueltig;chck_accs_p0(punkteX,spr_intScratch6a,108)
+   punkteX._theObject->_array[spr_intScratch6a]=x;
+          int spr_intScratch6c;spr_intScratch6c=punkteGueltig;chck_accs_p0(punkteY,spr_intScratch6c,110)
+   punkteY._theObject->_array[spr_intScratch6c]=y;
+          int spr_intScratch6e;spr_intScratch6e=punkteGueltig;chck_accs_p0(farbe,spr_intScratch6e,112)
+   farbe._theObject->_array[spr_intScratch6e]=farbei;
    punkteGueltig++;
    
    
@@ -237,18 +237,18 @@ void SFbox::drawString(char* stackStartPtr,int x,int y,String_16& str){
    char SPR_stack_dummy_var;
    if(labels._theObject->_sz>labelsGueltig){
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      int spr_intScratch51;
-      spr_intScratch51=str.length(stackStartPtr)+1;
-      if(spr_intScratch51<0)throw "invalid size requested for heap allocation";
-      SPRSmartPtr<SPRArray<char> > nl;nl=new(spr_intScratch51) SPRArray<char>(spr_intScratch51)
+      int spr_intScratch70;
+      spr_intScratch70=str.length(stackStartPtr)+1;
+      if(spr_intScratch70<0)throw "invalid size requested for heap allocation";
+      SPRSmartPtr<SPRArray<char> > nl;nl=new(spr_intScratch70) SPRArray<char>(spr_intScratch70)
       ;
       {//begin of SPR for statement
       int i;i=0;
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       while(i<str.length(stackStartPtr)){
-                int spr_intScratch52;spr_intScratch52=i;chck_accs_p0(nl,spr_intScratch52,84)
+                int spr_intScratch71;spr_intScratch71=i;chck_accs_p0(nl,spr_intScratch71,115)
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         nl._theObject->_array[spr_intScratch52]=str.getAt(stackStartPtr,i);
+         nl._theObject->_array[spr_intScratch71]=str.getAt(stackStartPtr,i);
          i++;
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          
@@ -256,27 +256,27 @@ void SFbox::drawString(char* stackStartPtr,int x,int y,String_16& str){
       }
       }//end of SPR for statement
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-             int spr_intScratch54;spr_intScratch54=str.length(stackStartPtr);chck_accs_p0(nl,spr_intScratch54,86)
-      nl._theObject->_array[spr_intScratch54]='\0';
-             int spr_intScratch56;spr_intScratch56=labelsGueltig;chck_accs_p0(labels,spr_intScratch56,88)
+             int spr_intScratch73;spr_intScratch73=str.length(stackStartPtr);chck_accs_p0(nl,spr_intScratch73,117)
+      nl._theObject->_array[spr_intScratch73]='\0';
+             int spr_intScratch75;spr_intScratch75=labelsGueltig;chck_accs_p0(labels,spr_intScratch75,119)
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      labels._theObject->_array[spr_intScratch56]=::new SFlabel;
-             int spr_intScratch58;spr_intScratch58=labelsGueltig;chck_accs_p0(labels,spr_intScratch58,90)
-      labels._theObject->_array[spr_intScratch58]._theObject->x=x;
-             int spr_intScratch5a;spr_intScratch5a=labelsGueltig;chck_accs_p0(labels,spr_intScratch5a,92)
-      labels._theObject->_array[spr_intScratch5a]._theObject->y=y;
-             int spr_intScratch5c;spr_intScratch5c=labelsGueltig;chck_accs_p0(labels,spr_intScratch5c,94)
-      labels._theObject->_array[spr_intScratch5c]._theObject->strBuf=nl;
+      labels._theObject->_array[spr_intScratch75]=::new SFlabel;
+             int spr_intScratch77;spr_intScratch77=labelsGueltig;chck_accs_p0(labels,spr_intScratch77,121)
+      labels._theObject->_array[spr_intScratch77]._theObject->x=x;
+             int spr_intScratch79;spr_intScratch79=labelsGueltig;chck_accs_p0(labels,spr_intScratch79,123)
+      labels._theObject->_array[spr_intScratch79]._theObject->y=y;
+             int spr_intScratch7b;spr_intScratch7b=labelsGueltig;chck_accs_p0(labels,spr_intScratch7b,125)
+      labels._theObject->_array[spr_intScratch7b]._theObject->strBuf=nl;
       labelsGueltig++;
       
    }
    else
    {
    PrintfClass pfc;
-      SPRStackArrayConcrete<char,38> spr_StringScratch5e;strcpy(spr_StringScratch5e._array,"too many Strings to display in SFbox");
+      SPRStackArrayConcrete<char,38> spr_StringScratch7d;strcpy(spr_StringScratch7d._array,"too many Strings to display in SFbox");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch5e).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch7d).pr(stackStartPtr);
       }
    
    

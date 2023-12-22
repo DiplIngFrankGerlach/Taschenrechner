@@ -1050,7 +1050,13 @@ void SystemControl::exit()
 
 void SystemControl::uSleep(int microSeconds)
 {
-   inline_cpp[[::usleep(microSeconds);]]
+   inline_cpp[[
+      #ifndef __CYGWIN__
+         ::usleep(microSeconds);
+      #else
+         cout << "SystemControl::uSleep() not implemented on cygwin" << endl;
+      #endif
+   ]]
 }
 
 void SystemControl::exitError(&char message[])
