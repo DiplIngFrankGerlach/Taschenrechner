@@ -53,18 +53,6 @@
 #define SPR_SIZEOF_LoeschKnopf__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFbox >))
 #define SPR_SIZEOF_TRRKontext__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(sizeof(SPRSmartPtr<SFinput >),sizeof(SPRSmartPtr<SFinput >),sizeof(SPRSmartPtr<SFinput >),sizeof(SPRSmartPtr<SFbox >),sizeof(SPRSmartPtr<SFinput >))
 #define SPR_SIZEOF_Main__constructorABargsRS SPR_MIN_STACK_MEMORY_CONSUMPTION
-#define SPR_SIZEOF_MeinKnopf__constructorABargsRSABffffffffRS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<TRKontext >))
-#define SPR_SIZEOF_MeinKnopf__callbackABargsRS 8+sizeof(PrintfClass)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(MathLimits)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<double> >)+sizeof(double)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(AusrechnerFK)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(SFcolorCode)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(String_16)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(String_16)
-#define SPR_SIZEOF_LoeschKnopf__constructorABargsRSAB40RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFbox >))
-#define SPR_SIZEOF_LoeschKnopf__callbackABargsRS 8
-#define SPR_SIZEOF_Main__mainABargsRS 8+sizeof(CommandlineArgs)+sizeof(PrintfClass)+sizeof(SprFLTKwindow)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFbox>)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<TRKontext>)+sizeof(MeinKnopf)+sizeof(LoeschKnopf)
-#define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(SPRSmartPtr<SPRFile>)+sizeof(PrintfClass)+sizeof(Token)
-#define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(Token)
-#define SPR_SIZEOF_AAusrechnerFK__AAdditionABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
-#define SPR_SIZEOF_AAusrechnerFK__MultiplicationABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
-#define SPR_SIZEOF_AAusrechnerFK__PrimaryABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl)
-#define SPR_SIZEOF_AAusrechnerFK__fehlerABargsRSAB3RS2RS0 8+sizeof(PrintfClass)+sizeof(SystemControl)
-#define SPR_SIZEOF_AAusrechnerFK__setVariableValueABargsRSAB9RS0RS0AB6RS0RS0 8
 #define SPR_SIZEOF_Hash_longlong__hashABargsRSAB7RS0RS0 8+sizeof(longlong)
 #define SPR_SIZEOF_Compare_longlong__compareABargsRSAB7RS0RS0AB7RS0RS0 8
 #define SPR_SIZEOF_AAssigner_longlong__assignABargsRSAB7RS0RS0AB7RS0RS0 8
@@ -72,34 +60,23 @@
 #define SPR_SIZEOF_Compare_int__compareABargsRSAB1RS0RS0AB1RS0RS0 8
 #define SPR_SIZEOF_AAssigner_int__assignABargsRSAB1RS0RS0AB1RS0RS0 8
 #define SPR_SIZEOF_AAssigner_double__assignABargsRSAB6RS0RS0AB6RS0RS0 8
-#define SPR_SIZEOF_Math__shlCABargsRSAB1RS0RS0 8+sizeof(int)
-#define SPR_SIZEOF_Math__shlCABargsRSAB1RS0RS0AB1RS0RS0 8+sizeof(int)
-#define SPR_SIZEOF_Math__sinusABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__asinusABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__cosinusABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__acosinusABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__tangensABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__atangensABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__aHochBABargsRSAB6RS0RS0AB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__eulerABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__piABargsRS 8
-#define SPR_SIZEOF_Math__eABargsRS 8
-#define SPR_SIZEOF_Math__UnitTestABargsRS 8+sizeof(PrintfClass)+sizeof(double)+sizeof(double)+sizeof(double)
-#define SPR_SIZEOF_Math__log2ABargsRSAB1RS0RS0 8+sizeof(int)
-#define SPR_SIZEOF_Math__pruefeZwPABargsRSAB1RS0RS0 8+sizeof(int)
-#define SPR_SIZEOF_Math__wurzelABargsRSAB6RS0RS0 8+sizeof(double)
-#define SPR_SIZEOF_Math__fabsABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_ZKNuetzlich__istLeerzeichenABargsRSAB3RS0RS0 8
+#define SPR_SIZEOF_ZKNuetzlich__istZifferABargsRSAB3RS0RS0 8
+#define SPR_SIZEOF_ZKNuetzlich__wandleABargsRSAB7RS0RS0AB1RS0RS0AB9RS0RS0 8+sizeof(longlong)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRStackArrayConcrete<char,66>)+sizeof(int)+sizeof(int)+sizeof(int)
+#define SPR_SIZEOF_ZKNuetzlich__appendInAAnfzABargsRSAB9RS0RS0AB1RS0RS0 8
+#define SPR_SIZEOF_ZKNuetzlich__UnitTestABargsRSAB1RS0RS0 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(longlong)+sizeof(longlong)
+#define SPR_SIZEOF_ZKNuetzlich__strNachLonglongABargsRSAB9RS0RS0AB7RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(char)
+#define SPR_SIZEOF_StringUnitTest__runABargsRS 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)
+#define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS0RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(SPRSmartPtr<SPRFile>)+sizeof(PrintfClass)+sizeof(Token)
+#define SPR_SIZEOF_AAusrechnerFK__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX1(sizeof(SPRSmartPtr<Scanner >),SPR_SIZEOF_SPHT_String_16_double__constructorABargsRS)+sizeof(Token)
+#define SPR_SIZEOF_AAusrechnerFK__AAdditionABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
+#define SPR_SIZEOF_AAusrechnerFK__MultiplicationABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(Token)+sizeof(double)
+#define SPR_SIZEOF_AAusrechnerFK__PrimaryABargsRS 8+sizeof(PrintfClass)+sizeof(Token)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(Math)+sizeof(double)+sizeof(String_16)+sizeof(SystemControl)
+#define SPR_SIZEOF_AAusrechnerFK__fehlerABargsRSAB3RS2RS0 8+sizeof(PrintfClass)+sizeof(SystemControl)
+#define SPR_SIZEOF_AAusrechnerFK__setVariableValueABargsRSAB9RS0RS0AB6RS0RS0 8
 #define SPR_SIZEOF_MathLimits__dblMaxABargsRS 8+sizeof(double)
 #define SPR_SIZEOF_MathLimits__dblMinABargsRS 8+sizeof(double)
 #define SPR_SIZEOF_MathLimits__dblLowestABargsRS 8+sizeof(double)
-#define SPR_SIZEOF_Scanner__constructorABargsRSAB22RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
-#define SPR_SIZEOF_Scanner__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
-#define SPR_SIZEOF_Scanner__currentTokenABargsRSAB55RS0RS0AB9RS1RS0 8
-#define SPR_SIZEOF_Scanner__istWortFolgezeichenABargsRSAB3RS0RS0 8
-#define SPR_SIZEOF_Scanner__esseZeichenABargsRS 8
-#define SPR_SIZEOF_Scanner__nextTokenABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)
-#define SPR_SIZEOF_Scanner__istLeerzeichenABargsRSAB3RS0RS0 8
-#define SPR_SIZEOF_Scanner__readCharABargsRSAB3RS0RS0 8
 #define SPR_SIZEOF_SFbutton__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_SFbutton__createABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0AB1RS0RS0AB3RS2RS0 8+sizeof(int)+sizeof(char)
 #define SPR_SIZEOF_SFbutton__callbackABargsRS 8
@@ -108,9 +85,10 @@
 #define SPR_SIZEOF_SFinput__getABargsRSAB9RS0RS0 8
 #define SPR_SIZEOF_SFbox__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFlabel >))
 #define SPR_SIZEOF_SFbox__createABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0AB1RS0RS0 8
-#define SPR_SIZEOF_SFbox__drawABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SFlabel>)+sizeof(int)+sizeof(int)
+#define SPR_SIZEOF_SFbox__drawABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRSmartPtr<SFlabel>)+sizeof(int)+sizeof(int)
 #define SPR_SIZEOF_SFbox__loescheABargsRS 8
 #define SPR_SIZEOF_SFbox__addPointABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0 8+sizeof(PrintfClass)
+#define SPR_SIZEOF_SFbox__addLineABargsRSAB1RS0RS0AB1RS0RS0AB1RS0RS0AB1RS0RS0AB1RS0RS0 8+sizeof(PrintfClass)
 #define SPR_SIZEOF_SFbox__hoeheABargsRS 8+sizeof(int)
 #define SPR_SIZEOF_SFbox__redrawABargsRS 8
 #define SPR_SIZEOF_SFbox__drawStringABargsRSAB1RS0RS0AB1RS0RS0AB9RS0RS0 8+sizeof(SPRSmartPtr<SPRArray<char> >)+sizeof(int)+sizeof(PrintfClass)
@@ -149,6 +127,41 @@
 #define SPR_SIZEOF_SFfont__getFontID_FL_ITAALIC_ABargsRS 8
 #define SPR_SIZEOF_SFfont__getFontID_FL_BOLD_ITAALIC_ABargsRS 8
 #define SPR_SIZEOF_SFfont__setFontABargsRSAB1RS0RS0AB1RS0RS0 8
+#define SPR_SIZEOF_Math__shlCABargsRSAB1RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_Math__shlCABargsRSAB1RS0RS0AB1RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_Math__sinusABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__asinusABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__cosinusABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__acosinusABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__tangensABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__atangensABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__aHochBABargsRSAB6RS0RS0AB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__eulerABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__piABargsRS 8
+#define SPR_SIZEOF_Math__eABargsRS 8
+#define SPR_SIZEOF_Math__UnitTestABargsRS 8+sizeof(PrintfClass)+sizeof(double)+sizeof(double)+sizeof(double)
+#define SPR_SIZEOF_Math__log2ABargsRSAB1RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_Math__pruefeZwPABargsRSAB1RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_Math__wurzelABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_Math__fabsABargsRSAB6RS0RS0 8+sizeof(double)
+#define SPR_SIZEOF_MeinKnopf__constructorABargsRSABffffffffRS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<TRKontext >))
+#define SPR_SIZEOF_MeinKnopf__callbackABargsRS 8+sizeof(PrintfClass)+sizeof(SPRSmartPtr<String_16>)+sizeof(double)+sizeof(double)+sizeof(String_16)+sizeof(String_16)+sizeof(double)+sizeof(Math)+sizeof(MathLimits)+sizeof(int)+sizeof(SPRSmartPtr<SPRArray<double> >)+sizeof(double)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(AusrechnerFK)+sizeof(double)+sizeof(double)+sizeof(double)+sizeof(SFcolorCode)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(String_16)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(double)+sizeof(int)+sizeof(int)+sizeof(double)+sizeof(int)
+#define SPR_SIZEOF_LoeschKnopf__constructorABargsRSAB40RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX0(sizeof(SPRSmartPtr<SFbox >))
+#define SPR_SIZEOF_LoeschKnopf__callbackABargsRS 8
+#define SPR_SIZEOF_Main__mainABargsRS 8+sizeof(PrintfClass)+sizeof(CommandlineArgs)+sizeof(SPRSmartPtr<String_16>)+sizeof(AusrechnerFK)+sizeof(SprFLTKwindow)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFbox>)+sizeof(String_16)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<SFinput>)+sizeof(SPRSmartPtr<TRKontext>)+sizeof(MeinKnopf)+sizeof(LoeschKnopf)
+#define SPR_SIZEOF_StringUtil__trimABargsRSAB9RS0RS0AB9RS0RS0 8+sizeof(ZKNuetzlich)+sizeof(int)+sizeof(int)+sizeof(char)+sizeof(int)
+#define SPR_SIZEOF_StringUtil__grossABargsRSAB3RS0RS0AB3RS0RS0 8+sizeof(int)
+#define SPR_SIZEOF_StringUtil__vergleichGKABargsRSAB9RS0RS0AB9RS0RS0AB1RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(char)+sizeof(char)
+#define SPR_SIZEOF_StringUtil__appendDoubleABargsRSAB6RS0RS0AB9RS0RS0AB1RS0RS0 8+sizeof(SPRStackArrayConcrete<char,31>)+sizeof(int)
+#define SPR_SIZEOF_StringUtil__UnitTestABargsRS 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)
+#define SPR_SIZEOF_Scanner__constructorABargsRSAB22RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
+#define SPR_SIZEOF_Scanner__constructorABargsRSAB9RS1RS0 8+SPR_MIN_STACK_MEMORY_CONSUMPTION+SPR_MAX4(SPR_SIZEOF_ZKNuetzlich__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),SPR_SIZEOF_PrintfClass__constructorABargsRS,sizeof(SPRSmartPtr<String_16 >),sizeof(SPRSmartPtr<SPRFile >))
+#define SPR_SIZEOF_Scanner__currentTokenABargsRSAB55RS0RS0AB9RS1RS0 8
+#define SPR_SIZEOF_Scanner__istWortFolgezeichenABargsRSAB3RS0RS0 8
+#define SPR_SIZEOF_Scanner__esseZeichenABargsRS 8
+#define SPR_SIZEOF_Scanner__nextTokenABargsRS 8+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(int)
+#define SPR_SIZEOF_Scanner__istLeerzeichenABargsRSAB3RS0RS0 8
+#define SPR_SIZEOF_Scanner__readCharABargsRSAB3RS0RS0 8
 #define SPR_SIZEOF_SprFLTKwindow__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_SprFLTKwindow__drawABargsRS 8
 #define SPR_SIZEOF_SprFLTKwindow__SetLabelABargsRSAB9RS0RS0 8+sizeof(int)
@@ -157,18 +170,6 @@
 #define SPR_SIZEOF_SprFLTKwindow__runABargsRS 8
 #define SPR_SIZEOF_SprFLTKwindow__endABargsRS 8
 #define SPR_SIZEOF_SprFLTKwindow__beginABargsRS 8
-#define SPR_SIZEOF_ZKNuetzlich__istLeerzeichenABargsRSAB3RS0RS0 8
-#define SPR_SIZEOF_ZKNuetzlich__istZifferABargsRSAB3RS0RS0 8
-#define SPR_SIZEOF_ZKNuetzlich__wandleABargsRSAB7RS0RS0AB1RS0RS0AB9RS0RS0 8+sizeof(longlong)+sizeof(int)+sizeof(int)+sizeof(int)+sizeof(SPRStackArrayConcrete<char,66>)+sizeof(int)+sizeof(int)+sizeof(int)
-#define SPR_SIZEOF_ZKNuetzlich__appendInAAnfzABargsRSAB9RS0RS0AB1RS0RS0 8
-#define SPR_SIZEOF_ZKNuetzlich__UnitTestABargsRSAB1RS0RS0 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(longlong)+sizeof(longlong)
-#define SPR_SIZEOF_ZKNuetzlich__strNachLonglongABargsRSAB9RS0RS0AB7RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(char)
-#define SPR_SIZEOF_StringUnitTest__runABargsRS 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)+sizeof(String_16)+sizeof(String_16)+sizeof(int)
-#define SPR_SIZEOF_StringUtil__trimABargsRSAB9RS0RS0AB9RS0RS0 8+sizeof(ZKNuetzlich)+sizeof(int)+sizeof(int)+sizeof(char)+sizeof(int)
-#define SPR_SIZEOF_StringUtil__grossABargsRSAB3RS0RS0AB3RS0RS0 8+sizeof(int)
-#define SPR_SIZEOF_StringUtil__vergleichGKABargsRSAB9RS0RS0AB9RS0RS0AB1RS0RS0 8+sizeof(int)+sizeof(int)+sizeof(char)+sizeof(char)
-#define SPR_SIZEOF_StringUtil__appendDoubleABargsRSAB6RS0RS0AB9RS0RS0AB1RS0RS0 8+sizeof(SPRStackArrayConcrete<char,31>)+sizeof(int)
-#define SPR_SIZEOF_StringUtil__UnitTestABargsRS 8+sizeof(PrintfClass)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(String_16)+sizeof(int)
 #define SPR_SIZEOF_ThreadInfo__constructorABargsRS 8+SPR_MIN_STACK_MEMORY_CONSUMPTION
 #define SPR_SIZEOF_ThreadInfo__getThreadIDABargsRS 8
 #define SPR_SIZEOF_ThreadInfo__threadMainABargsRS 8

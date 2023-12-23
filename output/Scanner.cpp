@@ -4,9 +4,9 @@ Scanner::Scanner(char* stackStartPtr,SPRSmartPtr<SPRFile> eingabeDatei_i){
    char SPR_stack_dummy_var;
    eingabeDatei=eingabeDatei_i;
    dateiVollGelesen=0;
-   SPRStackArrayConcrete<char,2> spr_StringScratch38;strcpy(spr_StringScratch38._array,"");
+   SPRStackArrayConcrete<char,2> spr_StringScratchf4;strcpy(spr_StringScratchf4._array,"");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   tokenWert=::new String_16(stackStartPtr,spr_StringScratch38);
+   tokenWert=::new String_16(stackStartPtr,spr_StringScratchf4);
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
    if(this->readChar(stackStartPtr,aktuellesZeichen)<1){
       dateiVollGelesen=1;
@@ -22,9 +22,9 @@ Scanner::Scanner(char* stackStartPtr,SPRSmartPtr<String_16> quellei){
    char SPR_stack_dummy_var;
    quelle=quellei;
    dateiVollGelesen=0;
-   SPRStackArrayConcrete<char,2> spr_StringScratch39;strcpy(spr_StringScratch39._array,"");
+   SPRStackArrayConcrete<char,2> spr_StringScratchf5;strcpy(spr_StringScratchf5._array,"");
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-   tokenWert=::new String_16(stackStartPtr,spr_StringScratch39);
+   tokenWert=::new String_16(stackStartPtr,spr_StringScratchf5);
    leseZeiger=0;
    CT=T_UNGUELTIG;
    if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
@@ -80,10 +80,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
    if(dateiVollGelesen==1){
       CT=T_DATEI_ENDE;
       if(debug){
-         SPRStackArrayConcrete<char,14> spr_StringScratch3a;strcpy(spr_StringScratch3a._array,"T_DATEI_ENDE");
+         SPRStackArrayConcrete<char,14> spr_StringScratchf6;strcpy(spr_StringScratchf6._array,"T_DATEI_ENDE");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         pfc.fstr(stackStartPtr,spr_StringScratch3a).pr(stackStartPtr);
+         pfc.fstr(stackStartPtr,spr_StringScratchf6).pr(stackStartPtr);
          
       }
       return T_DATEI_ENDE;
@@ -100,8 +100,8 @@ enum Token Scanner::nextToken(char* stackStartPtr){
             dateiVollGelesen=1;
             CT=T_DATEI_ENDE;
             if(debug){
-               SPRStackArrayConcrete<char,14> spr_StringScratch3b;strcpy(spr_StringScratch3b._array,"T_DATEI_ENDE");
-               pfc.fstr(stackStartPtr,spr_StringScratch3b).pr(stackStartPtr);
+               SPRStackArrayConcrete<char,14> spr_StringScratchf7;strcpy(spr_StringScratchf7._array,"T_DATEI_ENDE");
+               pfc.fstr(stackStartPtr,spr_StringScratchf7).pr(stackStartPtr);
                
             }
             return T_DATEI_ENDE;
@@ -124,10 +124,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          dateiVollGelesen=1;
          CT=T_DATEI_ENDE;
          if(debug){
-            SPRStackArrayConcrete<char,14> spr_StringScratch3c;strcpy(spr_StringScratch3c._array,"T_DATEI_ENDE");
+            SPRStackArrayConcrete<char,14> spr_StringScratchf8;strcpy(spr_StringScratchf8._array,"T_DATEI_ENDE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch3c).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratchf8).pr(stackStartPtr);
             
          }
          return T_DATEI_ENDE;
@@ -141,10 +141,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          }
          CT=T_NEUE_ZEILE;
          if(debug){
-            SPRStackArrayConcrete<char,14> spr_StringScratch3d;strcpy(spr_StringScratch3d._array,"T_NEUE_ZEILE");
+            SPRStackArrayConcrete<char,14> spr_StringScratchf9;strcpy(spr_StringScratchf9._array,"T_NEUE_ZEILE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch3d).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratchf9).pr(stackStartPtr);
             
          }
          return T_NEUE_ZEILE;
@@ -152,16 +152,16 @@ enum Token Scanner::nextToken(char* stackStartPtr){
       }
       else
       {
-      SPRStackArrayConcrete<char,40> spr_StringScratch3e;strcpy(spr_StringScratch3e._array,"einzelnes \\r gefunden. Beende Scanner");
+      SPRStackArrayConcrete<char,40> spr_StringScratchfa;strcpy(spr_StringScratchfa._array,"einzelnes \\r gefunden. Beende Scanner");
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
          if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-         pfc.fstr(stackStartPtr,spr_StringScratch3e).pr(stackStartPtr);
+         pfc.fstr(stackStartPtr,spr_StringScratchfa).pr(stackStartPtr);
          CT=T_DATEI_ENDE;
          if(debug){
-            SPRStackArrayConcrete<char,14> spr_StringScratch3f;strcpy(spr_StringScratch3f._array,"T_DATEI_ENDE");
+            SPRStackArrayConcrete<char,14> spr_StringScratchfb;strcpy(spr_StringScratchfb._array,"T_DATEI_ENDE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch3f).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratchfb).pr(stackStartPtr);
             
          }
          return T_DATEI_ENDE;
@@ -183,8 +183,8 @@ enum Token Scanner::nextToken(char* stackStartPtr){
                dateiVollGelesen=1;
                CT=T_WORT;
                if(debug){
-                  SPRStackArrayConcrete<char,8> spr_StringScratch40;strcpy(spr_StringScratch40._array,"T_WORT");
-                  pfc.fstr(stackStartPtr,spr_StringScratch40).pr(stackStartPtr);
+                  SPRStackArrayConcrete<char,8> spr_StringScratchfc;strcpy(spr_StringScratchfc._array,"T_WORT");
+                  pfc.fstr(stackStartPtr,spr_StringScratchfc).pr(stackStartPtr);
                   
                }
                return T_WORT;
@@ -203,10 +203,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          while(istWZ==1);
          CT=T_WORT;
          if(debug){
-            SPRStackArrayConcrete<char,8> spr_StringScratch41;strcpy(spr_StringScratch41._array,"T_WORT");
+            SPRStackArrayConcrete<char,8> spr_StringScratchfd;strcpy(spr_StringScratchfd._array,"T_WORT");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch41).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratchfd).pr(stackStartPtr);
             
          }
          return T_WORT;
@@ -220,10 +220,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_KLAMMER_AUF;
          if(debug){
-            SPRStackArrayConcrete<char,15> spr_StringScratch42;strcpy(spr_StringScratch42._array,"T_KLAMMER_AUF");
+            SPRStackArrayConcrete<char,15> spr_StringScratchfe;strcpy(spr_StringScratchfe._array,"T_KLAMMER_AUF");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch42).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratchfe).pr(stackStartPtr);
             
          }
          return T_KLAMMER_AUF;
@@ -237,10 +237,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_KLAMMER_ZU;
          if(debug){
-            SPRStackArrayConcrete<char,14> spr_StringScratch43;strcpy(spr_StringScratch43._array,"T_KLAMMER_ZU");
+            SPRStackArrayConcrete<char,14> spr_StringScratchff;strcpy(spr_StringScratchff._array,"T_KLAMMER_ZU");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch43).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratchff).pr(stackStartPtr);
             
          }
          return T_KLAMMER_ZU;
@@ -254,10 +254,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_ECK_KLAMMER_AUF;
          if(debug){
-            SPRStackArrayConcrete<char,19> spr_StringScratch44;strcpy(spr_StringScratch44._array,"T_ECK_KLAMMER_AUF");
+            SPRStackArrayConcrete<char,19> spr_StringScratch100;strcpy(spr_StringScratch100._array,"T_ECK_KLAMMER_AUF");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch44).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch100).pr(stackStartPtr);
             
          }
          return T_ECK_KLAMMER_AUF;
@@ -271,10 +271,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_ECK_KLAMMER_ZU;
          if(debug){
-            SPRStackArrayConcrete<char,19> spr_StringScratch45;strcpy(spr_StringScratch45._array,"T_ECK_KLAMMER_AUF");
+            SPRStackArrayConcrete<char,19> spr_StringScratch101;strcpy(spr_StringScratch101._array,"T_ECK_KLAMMER_AUF");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch45).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch101).pr(stackStartPtr);
             
          }
          return T_ECK_KLAMMER_ZU;
@@ -288,10 +288,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_KOMMA;
          if(debug){
-            SPRStackArrayConcrete<char,9> spr_StringScratch46;strcpy(spr_StringScratch46._array,"T_KOMMA");
+            SPRStackArrayConcrete<char,9> spr_StringScratch102;strcpy(spr_StringScratch102._array,"T_KOMMA");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch46).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch102).pr(stackStartPtr);
             
          }
          return T_KOMMA;
@@ -305,10 +305,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_DOPPEL_PUNKT;
          if(debug){
-            SPRStackArrayConcrete<char,16> spr_StringScratch47;strcpy(spr_StringScratch47._array,"T_DOPPEL_PUNKT");
+            SPRStackArrayConcrete<char,16> spr_StringScratch103;strcpy(spr_StringScratch103._array,"T_DOPPEL_PUNKT");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch47).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch103).pr(stackStartPtr);
             
          }
          return T_DOPPEL_PUNKT;
@@ -322,10 +322,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_PIPE;
          if(debug){
-            SPRStackArrayConcrete<char,8> spr_StringScratch48;strcpy(spr_StringScratch48._array,"T_PIPE");
+            SPRStackArrayConcrete<char,8> spr_StringScratch104;strcpy(spr_StringScratch104._array,"T_PIPE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch48).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch104).pr(stackStartPtr);
             
          }
          return T_PIPE;
@@ -339,10 +339,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_PLUS;
          if(debug){
-            SPRStackArrayConcrete<char,8> spr_StringScratch49;strcpy(spr_StringScratch49._array,"T_PLUS");
+            SPRStackArrayConcrete<char,8> spr_StringScratch105;strcpy(spr_StringScratch105._array,"T_PLUS");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch49).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch105).pr(stackStartPtr);
             
          }
          return T_PLUS;
@@ -356,10 +356,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_AT;
          if(debug){
-            SPRStackArrayConcrete<char,6> spr_StringScratch4a;strcpy(spr_StringScratch4a._array,"T_AT");
+            SPRStackArrayConcrete<char,6> spr_StringScratch106;strcpy(spr_StringScratch106._array,"T_AT");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch4a).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch106).pr(stackStartPtr);
             
          }
          return T_AT;
@@ -373,10 +373,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_PUNKT;
          if(debug){
-            SPRStackArrayConcrete<char,9> spr_StringScratch4b;strcpy(spr_StringScratch4b._array,"T_PUNKT");
+            SPRStackArrayConcrete<char,9> spr_StringScratch107;strcpy(spr_StringScratch107._array,"T_PUNKT");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch4b).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch107).pr(stackStartPtr);
             
          }
          return T_PUNKT;
@@ -390,10 +390,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_MINUS;
          if(debug){
-            SPRStackArrayConcrete<char,9> spr_StringScratch4c;strcpy(spr_StringScratch4c._array,"T_MINUS");
+            SPRStackArrayConcrete<char,9> spr_StringScratch108;strcpy(spr_StringScratch108._array,"T_MINUS");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch4c).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch108).pr(stackStartPtr);
             
          }
          return T_MINUS;
@@ -407,10 +407,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_SEMI;
          if(debug){
-            SPRStackArrayConcrete<char,8> spr_StringScratch4d;strcpy(spr_StringScratch4d._array,"T_SEMI");
+            SPRStackArrayConcrete<char,8> spr_StringScratch109;strcpy(spr_StringScratch109._array,"T_SEMI");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch4d).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch109).pr(stackStartPtr);
             
          }
          return T_SEMI;
@@ -424,10 +424,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_MAL;
          if(debug){
-            SPRStackArrayConcrete<char,7> spr_StringScratch4e;strcpy(spr_StringScratch4e._array,"T_MAL");
+            SPRStackArrayConcrete<char,7> spr_StringScratch10a;strcpy(spr_StringScratch10a._array,"T_MAL");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch4e).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch10a).pr(stackStartPtr);
             
          }
          return T_MAL;
@@ -441,10 +441,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
          this->esseZeichen(stackStartPtr);
          CT=T_DURCH;
          if(debug){
-            SPRStackArrayConcrete<char,9> spr_StringScratch4f;strcpy(spr_StringScratch4f._array,"T_DURCH");
+            SPRStackArrayConcrete<char,9> spr_StringScratch10b;strcpy(spr_StringScratch10b._array,"T_DURCH");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch4f).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch10b).pr(stackStartPtr);
             
          }
          return T_DURCH;
@@ -458,10 +458,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
             
          }
          if(debug){
-            SPRStackArrayConcrete<char,14> spr_StringScratch50;strcpy(spr_StringScratch50._array,"T_NEUE_ZEILE");
+            SPRStackArrayConcrete<char,14> spr_StringScratch10c;strcpy(spr_StringScratch10c._array,"T_NEUE_ZEILE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch50).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch10c).pr(stackStartPtr);
             
          }
          CT=T_NEUE_ZEILE;
@@ -480,8 +480,8 @@ enum Token Scanner::nextToken(char* stackStartPtr){
                dateiVollGelesen=1;
                CT=T_DATEI_ENDE;
                if(debug){
-                  SPRStackArrayConcrete<char,14> spr_StringScratch51;strcpy(spr_StringScratch51._array,"T_DATEI_ENDE");
-                  pfc.fstr(stackStartPtr,spr_StringScratch51).pr(stackStartPtr);
+                  SPRStackArrayConcrete<char,14> spr_StringScratch10d;strcpy(spr_StringScratch10d._array,"T_DATEI_ENDE");
+                  pfc.fstr(stackStartPtr,spr_StringScratch10d).pr(stackStartPtr);
                   
                }
                return T_DATEI_ENDE;
@@ -504,10 +504,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
             
          }
          if(debug){
-            SPRStackArrayConcrete<char,16> spr_StringScratch52;strcpy(spr_StringScratch52._array,"T_ZEICHENKETTE");
+            SPRStackArrayConcrete<char,16> spr_StringScratch10e;strcpy(spr_StringScratch10e._array,"T_ZEICHENKETTE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch52).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch10e).pr(stackStartPtr);
             
          }
          CT=T_ZEICHENKETTE;
@@ -530,8 +530,8 @@ enum Token Scanner::nextToken(char* stackStartPtr){
                dateiVollGelesen=1;
                CT=T_ZAHL;
                if(debug){
-                  SPRStackArrayConcrete<char,8> spr_StringScratch53;strcpy(spr_StringScratch53._array,"T_ZAHL");
-                  pfc.fstr(stackStartPtr,spr_StringScratch53).pr(stackStartPtr);
+                  SPRStackArrayConcrete<char,8> spr_StringScratch10f;strcpy(spr_StringScratch10f._array,"T_ZAHL");
+                  pfc.fstr(stackStartPtr,spr_StringScratch10f).pr(stackStartPtr);
                   
                }
                return T_ZAHL;
@@ -555,12 +555,73 @@ enum Token Scanner::nextToken(char* stackStartPtr){
             
          }
          while(istZahl==1);
+         if((aktuellesZeichen=='E')||(aktuellesZeichen=='e')){
+            SPRStackArrayConcrete<char,3> spr_StringScratch110;strcpy(spr_StringScratch110._array,"e");
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            tokenWert._theObject->append(stackStartPtr,spr_StringScratch110);
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            if(this->readChar(stackStartPtr,aktuellesZeichen)<1){
+               SPRStackArrayConcrete<char,19> spr_StringScratch111;strcpy(spr_StringScratch111._array,"exponent erwartet");
+               if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+               if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+               pfc.fstr(stackStartPtr,spr_StringScratch111).pr(stackStartPtr);
+               CT=T_DATEI_ENDE;
+               return T_DATEI_ENDE;
+               
+            }
+            if((aktuellesZeichen=='-')||(aktuellesZeichen=='+')){
+               if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+               tokenWert._theObject->append(stackStartPtr,aktuellesZeichen);
+               if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+               if(this->readChar(stackStartPtr,aktuellesZeichen)<1){
+                  dateiVollGelesen=1;
+                  SPRStackArrayConcrete<char,19> spr_StringScratch112;strcpy(spr_StringScratch112._array,"exponent erwartet");
+                  if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+                  if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+                  pfc.fstr(stackStartPtr,spr_StringScratch112).pr(stackStartPtr);
+                  CT=T_DATEI_ENDE;
+                  return T_DATEI_ENDE;
+                  
+               }
+               
+            }
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
+            do{
+               if(zkn.istZiffer(stackStartPtr,aktuellesZeichen)==1){
+                  tokenWert._theObject->append(stackStartPtr,aktuellesZeichen);
+                  istZahl=1;
+                  
+               }
+               else
+               {
+               istZahl=0;
+                  }
+               if((istZahl==1)&&(this->readChar(stackStartPtr,aktuellesZeichen)<1)){
+                  dateiVollGelesen=1;
+                  CT=T_ZAHL;
+                  if(debug){
+                     SPRStackArrayConcrete<char,8> spr_StringScratch113;strcpy(spr_StringScratch113._array,"T_ZAHL");
+                     pfc.fstr(stackStartPtr,spr_StringScratch113).pr(stackStartPtr);
+                     
+                  }
+                  return T_ZAHL;
+                  
+               }
+               
+            }
+            while(istZahl==1);
+            
+         }
          CT=T_ZAHL;
          if(debug){
-            SPRStackArrayConcrete<char,8> spr_StringScratch54;strcpy(spr_StringScratch54._array,"T_ZAHL");
+            SPRStackArrayConcrete<char,8> spr_StringScratch114;strcpy(spr_StringScratch114._array,"T_ZAHL");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch54).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch114).pr(stackStartPtr);
             
          }
          return T_ZAHL;
@@ -570,10 +631,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
       default:{
          CT=T_DATEI_ENDE;
          if(debug){
-            SPRStackArrayConcrete<char,14> spr_StringScratch55;strcpy(spr_StringScratch55._array,"T_DATEI_ENDE");
+            SPRStackArrayConcrete<char,14> spr_StringScratch115;strcpy(spr_StringScratch115._array,"T_DATEI_ENDE");
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
             if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-            pfc.fstr(stackStartPtr,spr_StringScratch55).pr(stackStartPtr);
+            pfc.fstr(stackStartPtr,spr_StringScratch115).pr(stackStartPtr);
             
          }
          return T_DATEI_ENDE;
@@ -583,10 +644,10 @@ enum Token Scanner::nextToken(char* stackStartPtr){
    }
    CT=T_DATEI_ENDE;
    if(debug){
-      SPRStackArrayConcrete<char,14> spr_StringScratch56;strcpy(spr_StringScratch56._array,"T_DATEI_ENDE");
+      SPRStackArrayConcrete<char,14> spr_StringScratch116;strcpy(spr_StringScratch116._array,"T_DATEI_ENDE");
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
       if( MAX_STACK_SZ - (stackStartPtr-&SPR_stack_dummy_var) < __systemRuntime->_maxStackBytesNeededPerCall) overflowHandler();
-      pfc.fstr(stackStartPtr,spr_StringScratch56).pr(stackStartPtr);
+      pfc.fstr(stackStartPtr,spr_StringScratch116).pr(stackStartPtr);
       
    }
    return T_DATEI_ENDE;

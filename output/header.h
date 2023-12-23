@@ -2,7 +2,7 @@
 #define SPR_GENERATED_HEADER 1
 class ThreadLocalStorageEntry;
 class TRKontext;
-#include "/home/frank.gerlach/Sappeur30/haupt//cppMapping/mapping.h"
+#include "/home/frank/Sappeur30/haupt//cppMapping/mapping.h"
 class SAPPEUR_DLL_EXPORT_A String_16: public SPRObject {
 public:
 void addRef(){SPRObject::addRef();}
@@ -1038,9 +1038,16 @@ int punkteGueltig;
 SPRSmartPtr<SPRArray<char> > label;
 SPRSmartPtr<SPRArray<SPRSmartPtr<SFlabel> > > labels;
 int labelsGueltig;
+SPRSmartPtr<SPRArray<int> > lineX;
+SPRSmartPtr<SPRArray<int> > lineY;
+SPRSmartPtr<SPRArray<int> > lineXend;
+SPRSmartPtr<SPRArray<int> > lineYend;
+SPRSmartPtr<SPRArray<int> > lineFarbe;
+int linienGueltig;
 SFbox();
 void create(char* stackStartPtr,int x,int y,int width,int height);
 void addPoint(char* stackStartPtr,int x,int y,int farbei);
+void addLine(char* stackStartPtr,int x,int y,int xEnd,int yEnd,int farbei);
 int hoehe(char* stackStartPtr);
 void loesche(char* stackStartPtr);
 virtual void draw(char* stackStartPtr);
