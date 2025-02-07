@@ -12,4 +12,6 @@ methods:
     static void gross(char c,&char cAusgabe);
 
     static void appendDouble(double x,&String_16 ausgabe,int anzStellen);
+
+    static void copyCharArray2CharArray(&char source[],&char target[]);
 };

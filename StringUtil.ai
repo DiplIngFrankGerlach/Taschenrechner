@@ -142,5 +142,54 @@ void StringUtil::UnitTest()
     StringUtil::vergleichGK(sk,sg,ergebnis); 
     if(ergebnis != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 12").pr(); return; }
 
+    var longlong ll = 1234;
+    var String_16 lls;
+    lls.append(ll);
+    if(lls.equals("1234") != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 13").pr(); return; }
+
+    lls.clear();
+    lls.append(123456789);
+    if(lls.equals("123456789") != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 14").pr(); return; }
+
+    lls.clear();
+    lls.append(cast(longlong,123456789111));
+    pfc.fstr("$").sa(lls).pr();
+    if(lls.equals("123456789111") != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 15").pr(); return; }
+
+    lls.clear();
+    ll = cast(longlong,-123456789111);
+    lls.append(ll);
+    if(lls.equals("-123456789111") != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 16").pr(); return; }
+
+    lls.clear();
+    ll = cast(longlong,0x1234567812345678);
+    lls.append(ll,16);
+    if(lls.equals("1234567812345678") != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 17").pr(); return; }
+
+    lls.clear();
+    ll = cast(longlong,-1234567812345678);
+    lls.append(ll,10);
+    if(lls.equals("-1234567812345678") != 1) { pfc.fstr("StringUtil::UnitTest() Fehler 18").pr(); return; }
+
     pfc.fstr("StringUtil::UnitTest() Erfolgreich !").pr(); 
+}
+
+void StringUtil::copyCharArray2CharArray(&char source[],&char target[])
+{
+    var int i=0;
+    var int ende = 0;
+    while( (i < source.sz) && ( i < target.sz) && (ende != 1))
+    {
+       if(source[i] != '\0')
+       {
+          target[i] = source[i];
+          i++;
+       }
+       else { ende = 1; }
+    }
+    if(i < target.sz)
+    { target[i] = '\0'; }
+
+    target[target.sz - 1] = '\0';//make sure the string is zero terminated, for all kinds of C style consumers of this string
+
 }

@@ -1,4 +1,44 @@
 
+SFAbstractWidget::SFAbstractWidget()
+{
+   widgetID = -1;
+   label[0] = '\0';
+}
+ 
+int SFAbstractWidget::getWidgetID()
+{
+   return widgetID;
+}
+
+
+void SFAbstractWidget::getController(&SFController* controller_o)
+{
+    controller_o = controller;
+}
+
+void SFAbstractWidget::setWidgetID(int id)
+{
+   widgetID = id;
+}
+
+SFAbstractWidget::~SFAbstractWidget()
+{
+  controller = NULL;
+  label[0] = '\0';
+  widgetID = -1;
+}
+
+void SFController::buttonPressed(SFbutton* button){}
+   
+void SFController::choiceSelected(SFChoice* choice){}
+   
+void SFController::checkButtonStateChange(SFCheckButton* checkButton){}
+   
+void SFController::InputFieldEnterPressed(SFinput* input){}
+
+void SFController::scrollbarValueChanged(SFScrollbar* ssb) {}
+
+
 
 SFbutton::SFbutton()
 {
@@ -9,14 +49,7 @@ SFbutton::SFbutton()
 
 void SFbutton::create(int x, int y,int width, int height,&char labeli[])
 {
-   var int i=0;
-   var char c0 = cast(char,0);
-   while(labeli[i] != c0)
-   {
-      label[i] = labeli[i];
-      i++;
-   }
-   label[i] = c0;
+   StringUtil::copyCharArray2CharArray(labeli,label);
    inline_cpp[[
        fb = new Fl_Button(x,y,width,height,label._array);
        fb->callback(buttonCallback,this);
@@ -25,17 +58,63 @@ void SFbutton::create(int x, int y,int width, int height,&char labeli[])
 
 
 void SFbutton::callback()
-{}
+{
+    if(controller != NULL)
+    {
+       var SFbutton* button;
+       inline_cpp[[
+          if(this->_rc == 0)//das trifft zum wenn das Objekt auf dem Stack allokiert wurde
+          {
+             this->_rc = 1;
+          }
+          button = this;
+       ]]
+       controller.buttonPressed(button);
+    }
+}
+
+void SFbutton::setLabel(&char str[])
+{
+   StringUtil::copyCharArray2CharArray(str,label);
+   
+   inline_cpp[[ fb->label(label._array); ]]
+}
+
+void SFbutton::setRed()
+{
+   inline_cpp[[ 
+        fb->color(FL_RED);
+        fb->redraw();
+   ]]
+}
+
+void SFbutton::setGreen()
+{
+   inline_cpp[[ 
+        fb->color(FL_GREEN);
+        fb->redraw();
+   ]]
+}
+
+SFbutton::~SFbutton()
+{
+   inline_cpp[[ 
+     delete fb;
+     fb = NULL;
+   ]]
+}
 
 
-SFinput::SFinput(){
+SFinput::SFinput(SFController* controller_i)
+{
+  controller = controller_i;
   inline_cpp[[  fi=NULL;   ]]
 }
 
 void SFinput::create(int x, int y,int width, int height)
 {
     inline_cpp[[
-         fi = new Fl_Input(x,y,width,height);
+         fi = new MyInput(this,x,y,width,height,label._array);
     ]]
 }
 
@@ -50,6 +129,17 @@ void SFinput::get(&String_16 value)
       for(int i=0; i < vals.length();i++) value.append(&sp,vals.at(i));
     ]]
 }
+
+SFinput::~SFinput()
+{
+  inline_cpp[[ 
+    delete fi;
+    fi = NULL;
+  ]]
+}
+
+
+
 
 SFbox::SFbox()
 {
@@ -238,6 +328,14 @@ void SFbox::drawString(int x, int y,&String_16 str)
    }
 }
 
+SFbox::~SFbox()
+{
+   inline_cpp[[
+      delete mb;
+      mb = NULL;
+   ]]
+}
+
 
 int SFcolorCode::get_FL_BLACK  () { return  56;}
 int SFcolorCode::get_FL_RED    () { return  88;}
@@ -281,5 +379,353 @@ void SFfont::setFont(int font_id, int sizei)
 {
    inline_cpp[[
       fl_font(font_id,sizei);
+   ]]
+}
+
+
+///////////////////////////////////////////////////////////////////////
+//Checkbutton
+
+SFCheckButton::SFCheckButton(int x,int y, int width, int height,&char labeli[])
+{
+   StringUtil::copyCharArray2CharArray(labeli,label);
+   
+   inline_cpp[[
+      check_button = new Fl_Check_Button(x,y,width,height, label._array); 
+      check_button->callback(checkbox_callback,this);
+   ]]
+}
+
+SFCheckButton::SFCheckButton(int x,int y, int width, int height,&char labeli[],SFController* controller_i)
+{
+   StringUtil::copyCharArray2CharArray(labeli,label);
+   controller = controller_i;
+   
+   inline_cpp[[
+      check_button = new Fl_Check_Button(x,y,width,height, label._array); 
+      check_button->callback(checkbox_callback,this);
+   ]]
+}
+   
+void SFCheckButton::callback()
+{
+   var int checked;
+    
+   if(controller != NULL)
+   {
+      var SFCheckButton* CB;
+      inline_cpp[[
+          if(this->_rc == 0)//das trifft zum wenn das Objekt auf dem Stack allokiert wurde
+          {
+             this->_rc = 1;
+          }
+          CB = this;
+      ]]
+      controller.checkButtonStateChange(CB);
+   }
+}
+
+int SFCheckButton::getState()
+{
+   var int ret;
+   inline_cpp[[
+      ret = check_button->value();
+   ]]
+   return ret;
+}
+
+SFCheckButton::~SFCheckButton()
+{
+   inline_cpp[[
+      delete check_button;
+      check_button = NULL;
+   ]]
+}
+
+///////////////////////////////////////////////////////////////////////
+//Choice, Pulldown Menue
+SFChoice::SFChoice(int x,int y,int width, int height,SFController* controller_i)
+{
+   controller = controller_i;
+   
+   inline_cpp[[ 
+     choice = new Fl_Choice(x, y, width, height);
+     choice->callback(choice_callback,this); 
+   ]]
+}
+
+void SFChoice::add(&char choiceLabel[])
+{
+     inline_cpp[[ 
+        char* cp = new char[strlen(choiceLabel._array) + 1];
+        strcpy(cp,choiceLabel._array);
+        choiceStrings.push_back(cp);
+        choice->add(cp); 
+     ]]   
+}
+
+void SFChoice::callback(int choiceNr)
+{
+    //var PrintfClass pfc;
+    //pfc.fstr("SFChoice::callback() choice: $").sa(choiceNr).pr();
+    if(controller != NULL)
+    {
+       var SFChoice* auswahl;
+       inline_cpp[[
+          if(this->_rc == 0)//das trifft zum wenn das Objekt auf dem Stack allokiert wurde
+          {
+             this->_rc = 1;
+          }
+          auswahl = this;          
+       ]]
+       controller.choiceSelected(auswahl);
+    }
+
+}
+
+int SFChoice::getSelected()
+{
+   var int ret;
+   inline_cpp[[ ret = choice->value(); ]]
+   return ret;
+}
+   
+void SFChoice::getSelected(&String_16 selected)
+{
+    inline_cpp[[
+        const char* selectedCP = choice->text();
+        if( selectedCP != NULL)
+        {
+           int i=0;
+           while( selectedCP[i] != '\\0')
+           {
+               char sp='X';
+               selected.append(&sp,selectedCP[i]);
+               i++;
+           }
+        }
+    ]]
+}
+
+SFChoice::~SFChoice()
+{
+   inline_cpp[[
+      delete choice;
+      choice = NULL;
+      //std::cout << "SFChoice::~SFChoice()" << std::endl;
+      
+      for (auto& str : choiceStrings) 
+      {
+        delete[] str;  
+      }
+      choiceStrings.clear();
+   ]]
+}
+
+
+SFTextDisplay::SFTextDisplay(&char titlei[],int x, int y,int width, int height)
+{
+   StringUtil::copyCharArray2CharArray(titlei,label);
+   inline_cpp[[  
+      fl_display = new Fl_Text_Display(x,y,width,height,label._array); 
+      
+      fl_buffer = new Fl_Text_Buffer();
+      
+      //cout << "SFTextDisplay::SFTextDisplay() this=" << this <<  " fl_buffer 0: " << fl_buffer << endl;
+      
+      fl_display->buffer(fl_buffer);
+   ]]
+}
+   
+void SFTextDisplay::append(&String_16 zk)
+{
+inline_cpp[[
+         //cout << "SFTextDisplay::append() this=" << this << " fl_buffer 1: " << fl_buffer << endl;
+]]
+   buffer = new char[zk.length()+1];
+   var int stelle = 0;
+   
+   var int zkl = zk.length();
+   var int bsm1 = buffer.sz - 1;
+   while( stelle < zkl ) 
+   {
+      var int i=0;      
+      while( (i < bsm1) && (stelle < zkl) )
+      {
+         buffer[i] = zk.getAt(stelle);
+         i++;
+         stelle++;
+      }      
+      buffer[i] = '\0';
+      inline_cpp[[
+         //cout << "fl_buffer 1: " << fl_buffer << endl;
+         fl_buffer->insert(0,buffer._theObject->_array);
+         fl_display->redraw();
+      ]]      
+   }
+}
+
+void SFTextDisplay::setText(&String_16 str)
+{
+   buffer = new char[str.length()+1];
+   for(var int i=0; i < str.length(); i++)
+   {
+       buffer[i] = str.getAt(i);
+   }
+   buffer[str.length()] = '\0';
+   inline_cpp[[
+      fl_buffer->text(buffer._theObject->_array); 
+   ]]
+}
+
+
+void SFTextDisplay::remove(int start, int end)
+{
+   inline_cpp[[
+       //cout << "SFTextDisplay::remove() fl_buffer: " << fl_buffer << endl;
+       fl_buffer->remove(start,end);
+   ]]
+}
+
+int SFTextDisplay::length()
+{
+   var int ret;
+   inline_cpp[[ 
+      //cout << "SFTextDisplay::length() fl_buffer: " << fl_buffer << endl;
+      
+   ret = fl_buffer->length(); ]]
+   
+   return ret;
+}
+
+SFTextDisplay::~SFTextDisplay()
+{
+   inline_cpp[[
+      delete fl_display;
+      fl_display = NULL;
+      
+      delete fl_buffer;
+      fl_buffer = NULL;
+   ]]
+}
+
+SFSimpleText::SFSimpleText(SFController* controlleri,int x, int y, int width, int height,&char labeli[])
+{
+    controller = controlleri;
+    StringUtil::copyCharArray2CharArray(labeli,label);
+    inline_cpp[[        
+        fl_box = new Fl_Box(x,y,width,height,""); //label._array);
+        fl_box->label(label._array);
+        fl_box->align(FL_ALIGN_LEFT | FL_ALIGN_INSIDE);
+    ]]
+}
+
+
+void SFSimpleText::setText(&char str[])
+{
+   StringUtil::copyCharArray2CharArray(str,label);
+   inline_cpp[[        
+        fl_box->label(label._array);
+        fl_box->redraw();
+    ]]
+}
+
+void SFSimpleText::setText(&String_16 str)
+{
+   buffer = new char[str.length()+1];
+   for(var int i=0; i < str.length(); i++) { buffer[i] = str.getAt(i);}
+   buffer[str.length()] = '\0';
+   inline_cpp[[        
+        fl_box->label(buffer._theObject->_array);
+        fl_box->redraw();
+    ]]
+}
+
+
+void SFSimpleText::printGeo()
+{
+   inline_cpp[[ cout << "SFSimpleText x=" << fl_box->x() << " y=" << fl_box->y() << " w=" << fl_box->w() << " h="<< fl_box->h() << endl; ]]
+}
+
+SFSimpleText::~SFSimpleText()
+{
+   inline_cpp[[
+       delete fl_box;
+       fl_box = NULL;       
+   ]]
+}
+
+
+void SFUtil::Alert(&char message[])
+{
+   inline_cpp[[ fl_alert(message._array);  ]]
+}  
+
+
+SFTable::SFTable(int x,int y, int width, int height,&char label[])
+{
+   inline_cpp[[
+      fltkTable = new MyTable(x,y,width,height,label._array);
+   ]]
+} 
+
+SFTable::~SFTable()
+{
+   inline_cpp[[
+      delete fltkTable;
+      fltkTable = NULL;
+   ]]
+}
+   
+///////////////////////////////////////////////////////////////
+// Scrollbar
+ 
+SFScrollbar::SFScrollbar(SFController* controlleri,int x,int y,int width, int height, int vertical)
+{
+    controller = controlleri;
+    inline_cpp[[
+        scrollbar = new Fl_Scrollbar(x,y, width,height);
+        if( vertical == 1)
+        { scrollbar->type(FL_VERTICAL); }
+        else
+        { scrollbar->type(FL_HORIZONTAL); };
+        scrollbar->bounds(0, 20); // Adjust according to content length
+        scrollbar->value(0);
+        scrollbar->step(1);
+        scrollbar->callback(scrollbar_callback,this);
+    ]]
+       
+}
+
+void SFScrollbar::callback(int wert)
+{
+    if(controller != NULL)
+    {
+       var SFScrollbar* ssb;
+       inline_cpp[[
+          if(this->_rc == 0)//das trifft zum wenn das Objekt auf dem Stack allokiert wurde
+          {
+             this->_rc = 1;
+          }
+          ssb = this;          
+       ]]
+       controller.scrollbarValueChanged(ssb);
+    }
+}
+
+int SFScrollbar::value()
+{
+    var int v;
+    inline_cpp[[
+      v = scrollbar->value();
+    ]]
+    return v;
+}
+
+SFScrollbar::~SFScrollbar()
+{
+   inline_cpp[[
+      delete scrollbar;
+      scrollbar = NULL;
    ]]
 }

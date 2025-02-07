@@ -25,28 +25,138 @@ methods:
 };
 
 
-class SFbutton
+/*the controller superclass of a future MVC pattern */
+class SFController
 {
-  inline_cpp[[
-     Fl_Button* fb;
-  ]]
-  char label[200];
 methods:
+   virtual void buttonPressed(SFbutton* button);
+   
+   virtual void choiceSelected(SFChoice* choice);
+   
+   virtual void checkButtonStateChange(SFCheckButton* checkButton); 
+   
+   virtual void InputFieldEnterPressed(SFinput* input);
+
+   virtual void scrollbarValueChanged(SFScrollbar* ssb);
+};
+
+
+class SFAbstractWidget
+{
+   char label[200];
+   SFController* controller;
+   int widgetID;//the widget ID used to identify a widget in the controller and the like
+methods:
+   SFAbstractWidget();
+   
+   void setWidgetID(int id);
+   
+   int getWidgetID();
+   
+   void getController(&SFController* controller_o);
+
+   virtual ~SFAbstractWidget();
+
+};
+
+
+class SFbutton extends SFAbstractWidget
+{
+   inline_cpp[[
+     Fl_Button* fb;
+   ]]
+   
+methods:
+   SFbutton(SFController* controller_i);
    SFbutton();
    void create(int x, int y,int width, int height, &char labeli[]);
 
    virtual void callback();
+   
+   
+   
+   void setLabel(&char str[]);
+
+   void setRed();
+
+   void setGreen();
+   
+   virtual ~SFbutton();
 };
 
 
 
-class SFinput
+class SFinput extends SFAbstractWidget
 {
-   inline_cpp[[ Fl_Input* fi; ]]
+  
+  
+inline_cpp[[ 
+   
+   class MyInput : public Fl_Input 
+   {
+     public:
+     SFinput* sappeurObjekt;
+     
+     MyInput(SFinput* sappeurObjekt_i,int X, int Y, int W, int H, const char* L = 0) : Fl_Input(X, Y, W, H, L),sappeurObjekt(sappeurObjekt_i) 
+     {}
+
+       // Override the handle() method to capture events
+       int handle(int event) override 
+       {
+           switch (event) {
+               case FL_KEYDOWN: 
+               {
+                   int key = Fl::event_key();
+                  
+                   if (key == FL_Enter) 
+                   {
+                      //std::cout << "Enter key was pressed!" << std::endl;
+                       
+                      if(sappeurObjekt->controller._theObject != NULL)
+                      {
+                          char sp;
+                          SPRSmartPtr<SFinput> sprObjekt;
+                          sprObjekt = sappeurObjekt;
+                          sappeurObjekt->controller._theObject->InputFieldEnterPressed(&sp,sprObjekt);
+                      }
+                      return 1; // Indicate that the event was handled
+                   }
+                   return Fl_Input::handle(event);
+               }
+               case FL_FOCUS: 
+               {
+                   //std::cout << "Input field focused" << std::endl;
+                   //return 1;
+                   return Fl_Input::handle(event);
+               }
+               case FL_UNFOCUS: 
+               {
+                   //std::cout << "Input field unfocused" << std::endl;
+                   //return 1;
+                   return Fl_Input::handle(event);
+               }
+               case FL_PUSH: 
+               {
+                   //std::cout << "Mouse button clicked" << std::endl;
+                   //return 1;
+                   return Fl_Input::handle(event);
+               }
+               default:
+                   return Fl_Input::handle(event); // Default handling for other events
+           }
+       }
+   };
+  
+   MyInput* fi;
+]]
+   
 methods:
-   SFinput();
+   SFinput(SFController* controller_i);
+   
    void create(int x, int y,int width, int height);
    void get(&String_16 value);
+   
+   virtual ~SFinput();
 };
 
 /*a text label to be displayed at position x,y */
@@ -60,7 +170,7 @@ methods:
 
 
 /* eine Fl_Box, in der man zeichnen kann */
-class SFbox
+class SFbox  extends SFAbstractWidget
 {
    inline_cpp[[ 
      class MyBox: public Fl_Box
@@ -87,7 +197,7 @@ class SFbox
    *int punkteY[];
    *int farbe[];
    int punkteGueltig;
-   *char label[];   
+       
 
    *SFlabel* labels[];//Labels, die irgendwoe auf der Flaeche der SFBox 
                      //dargestellt werden
@@ -99,8 +209,12 @@ class SFbox
    *int lineYend[]; 
    *int lineFarbe[]; 
    int linienGueltig;
+    
 methods:
    SFbox();
+   
+   SFbox(SFController* controlleri);
+   
    void create(int x, int y,int width, int height);
 
    void addPoint(int x,int y,int farbei);//melde einen Punkt zum Zeichnen an
@@ -117,6 +231,8 @@ methods:
 
    void redraw(); //wird von der Applikation gerufen, um Box neu zu zeichnen
    
+   virtual ~SFbox();
+   
 };
 
 
@@ -124,31 +240,185 @@ class SFfont
 {
 methods:
 
-int getFontID_FL_HELVETICA_();
-int getFontID_FL_HELVETICA_BOLD_();
-int getFontID_FL_HELVETICA_ITALIC_();
-int getFontID_FL_HELVETICA_BOLD_ITALIC_();
-int getFontID_FL_COURIER_();
-int getFontID_FL_COURIER_BOLD_();
-int getFontID_FL_COURIER_ITALIC_();
-int getFontID_FL_COURIER_BOLD_ITALIC_();
-int getFontID_FL_TIMES_();
-int getFontID_FL_TIMES_BOLD_();
-int getFontID_FL_TIMES_ITALIC_();
-int getFontID_FL_TIMES_BOLD_ITALIC_();
-int getFontID_FL_SYMBOL_();
-int getFontID_FL_SCREEN_();
-int getFontID_FL_SCREEN_BOLD_();
-int getFontID_FL_ZAPF_DINGBATS_();
+   int getFontID_FL_HELVETICA_();
+   int getFontID_FL_HELVETICA_BOLD_();
+   int getFontID_FL_HELVETICA_ITALIC_();
+   int getFontID_FL_HELVETICA_BOLD_ITALIC_();
+   int getFontID_FL_COURIER_();
+   int getFontID_FL_COURIER_BOLD_();
+   int getFontID_FL_COURIER_ITALIC_();
+   int getFontID_FL_COURIER_BOLD_ITALIC_();
+   int getFontID_FL_TIMES_();
+   int getFontID_FL_TIMES_BOLD_();
+   int getFontID_FL_TIMES_ITALIC_();
+   int getFontID_FL_TIMES_BOLD_ITALIC_();
+   int getFontID_FL_SYMBOL_();
+   int getFontID_FL_SCREEN_();
+   int getFontID_FL_SCREEN_BOLD_();
+   int getFontID_FL_ZAPF_DINGBATS_();
 
-int getFontID_FL_FREE_FONT_();
-int getFontID_FL_BOLD_();
-int getFontID_FL_ITALIC_();
-int getFontID_FL_BOLD_ITALIC_();
+   int getFontID_FL_FREE_FONT_();
+   int getFontID_FL_BOLD_();
+   int getFontID_FL_ITALIC_();
+   int getFontID_FL_BOLD_ITALIC_();
 
-  void setFont(int font_id, int sizei);
+   void setFont(int font_id, int sizei);
 
 };
+
+class SFCheckButton  extends SFAbstractWidget
+{
+    
+   inline_cpp[[
+      Fl_Check_Button* check_button;
+   ]]
+    
+methods:
+   SFCheckButton(int x,int y, int width, int height,&char labeli[]);
+   
+   SFCheckButton(int x,int y, int width, int height,&char labeli[],SFController* controlleri);
+   
+   int getState();
+   
+   virtual void callback();   
+   
+   virtual ~SFCheckButton();
+};
+
+
+class SFChoice  extends SFAbstractWidget //Dropdown, Pulldown Menue 
+{
+   inline_cpp[[
+      Fl_Choice* choice;
+      
+      std::list<char*> choiceStrings;
+   ]]
+    
+methods:
+   SFChoice(int x,int y,int width, int height,SFController* controlleri);
+   
+   void add(&char choiceLabel[]);
+   
+   virtual void callback(int choiceNr);
+   
+   int getSelected();
+   
+   void getSelected(&String_16 selected);
+   
+   virtual ~SFChoice();
+};
+
+class SFTextDisplay  extends SFAbstractWidget
+{
+   *char buffer[];
+   inline_cpp[[ 
+     Fl_Text_Display* fl_display; 
+     Fl_Text_Buffer*  fl_buffer;
+   ]]
+   
+methods:
+   SFTextDisplay(&char titlei[],int x, int y,int width, int height );
+   
+   void append(&String_16 zk);
+
+   void setText(&String_16 zk);
+
+   
+   void remove(int start, int end);
+   
+   int length();
+   
+   virtual ~SFTextDisplay();
+};
+
+class SFSimpleText extends SFAbstractWidget
+{
+   *char buffer[];
+   inline_cpp[[ Fl_Box* fl_box; ]]
+methods:
+   SFSimpleText(SFController* controlleri,int x, int y, int width, int height,&char labeli[]);
+   
+   void setText(&char str[]);
+   void setText(&String_16 str);
+
+   void printGeo();
+   
+   virtual ~SFSimpleText();
+};
+   
+class SFUtil
+{
+methods:
+   static void Alert(&char message[]);
+};
+
+/* a fltk table widget inside a Sappeur class */
+class SFTable
+{ 
+
+   inline_cpp[[
+      class MyTable : public Fl_Table_Row {
+      public:
+          MyTable(int X, int Y, int W, int H, const char *L = 0)
+              : Fl_Table_Row(X, Y, W, H, L) 
+          {
+              // Configure table properties
+              rows(10);         // 10 rows
+              cols(3);          // 3 columns
+              col_width_all(100); // Set all columns to 100 pixels width
+              row_height_all(30); // Set all rows to 30 pixels height
+              end();            // End the widget creation
+          }
+
+      protected:
+          // Draws the table's cell content
+          void draw_cell(TableContext context, int R, int C, int X, int Y, int W, int H) override {
+              switch (context) {
+              case CONTEXT_CELL: {  // Draw the cell
+                  fl_push_clip(X, Y, W, H); // Clip cell area
+                  fl_color(FL_WHITE);       // Set background color
+                  fl_rectf(X, Y, W, H);     // Draw filled rectangle
+                  fl_color(FL_BLACK);       // Set text color
+                  fl_draw(("Cell " + std::to_string(R) + "," + std::to_string(C)).c_str(), X + 2, Y + H / 2);
+                  fl_color(FL_GRAY);        // Set color for the cell borders
+                  fl_rect(X, Y, W, H);      // Draw cell border
+                  fl_pop_clip();            // Unclip the cell area
+                  break;
+              }
+              default:
+                  break;
+              }
+          }
+      };
+
+      MyTable* fltkTable;
+   ]]
+
+methods:
+   SFTable(int x,int y, int width, int height,&char label[]);
+
+   ~SFTable();
+};
+
+ 
+
+//Eine Schieberegler-Klasse
+class SFScrollbar extends SFAbstractWidget
+{
+    inline_cpp[[
+       Fl_Scrollbar *scrollbar;
+    ]]
+     
+methods:
+    SFScrollbar(SFController* controlleri, int x,int y,int width, int height, int vertical);
+
+    void callback(int wert);
+
+    int value();
+
+    virtual ~SFScrollbar();
+};
+
 
 
 

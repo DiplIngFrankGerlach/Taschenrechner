@@ -120,6 +120,9 @@ void LoeschKnopf::callback()
 
 int Main::main()
 { 
+   var SFcolorCode sfcc;
+   var int cc = sfcc.get_FL_BLACK();
+   
    var PrintfClass pfc;
 
    var CommandlineArgs cla;
@@ -160,7 +163,9 @@ int Main::main()
    var String_16 label("Franks Taschenrechner  Ausgabe 2.0");
    swin.SetLabel(label);
 
-   var SFinput* sfi = new SFinput;
+   var SFController* sfc = new SFController;
+
+   var SFinput* sfi = new SFinput(sfc);
    sfi.create(10,50,200,30);
 
    //Ausgabefeld fuer den x-y Graphen
@@ -169,13 +174,13 @@ int Main::main()
    var String_16 l2;
    l2.assign("Katze");
 
-   var SFinput* sfiVar = new SFinput;
+   var SFinput* sfiVar = new SFinput(sfc);
    sfiVar.create(220,50,50,30);
 
-   var SFinput* sfiVarValStart = new SFinput;
+   var SFinput* sfiVarValStart = new SFinput(sfc);
    sfiVarValStart.create(280,50,50,30);
 
-   var SFinput* sfiVarValEnd = new SFinput;
+   var SFinput* sfiVarValEnd = new SFinput(sfc);
    sfiVarValEnd.create(340,50,50,30);
 
    var TRKontext* trk = new TRKontext;
