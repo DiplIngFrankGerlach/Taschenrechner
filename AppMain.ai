@@ -121,6 +121,7 @@ void LoeschKnopf::callback()
 int Main::main()
 { 
    var SFcolorCode sfcc;
+   var String_16 version("2.1");
    var int cc = sfcc.get_FL_BLACK();
    
    var PrintfClass pfc;
@@ -134,17 +135,18 @@ int Main::main()
 
        if( ausdruck.equals("-history") == 1 )
        {
-          pfc.fstr("Frank's Calculator Version 2.0").pr();
+          pfc.fstr("Frank's Calculator Version $").sa(version).pr();
           pfc.fstr("Version 1.5: added Commandline Mode.").pr();
           pfc.fstr("Version 1.6: Negative literals and functions added.").pr();
           pfc.fstr("Version 1.7: Constants Pi and E now usable.").pr();
           pfc.fstr("Version 1.8: Exponents added to number literals.").pr();
           pfc.fstr("Version 2.0: xy points now connected by lines.").pr();
+          pfc.fstr("Version 2.1: modernized the SFwidget library").pr();
           return -1;
        }
        if( ausdruck.equals("-help") == 1 )
        {
-          pfc.fstr("Frank's Calculator Version 2.0").pr();
+          pfc.fstr("Frank's Calculator Version $").sa(version).pr();
           pfc.fstr("GUI Mode: $ taschenrechner").pr();
           pfc.fstr("Command Line Mode: $ taschenrechner EXPRESSION").pr();
           pfc.fstr("   e.g.            $ taschenrechner \"sinus(0.7*pi)/(0.7*pi)\"").pr();
@@ -160,7 +162,8 @@ int Main::main()
 
    var SprFLTKwindow swin;
    swin.begin(); 
-   var String_16 label("Franks Taschenrechner  Ausgabe 2.0");
+   var String_16 label("Franks Taschenrechner  Ausgabe ");
+   label.append(version);
    swin.SetLabel(label);
 
    var SFController* sfc = new SFController;
