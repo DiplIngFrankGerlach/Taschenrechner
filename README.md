@@ -35,6 +35,12 @@ See "Beispielausdrücke" above for sample expressions
 The calculator can also run in command line mode, where it simply computes the given expression. 
 E.g. compute 2 to the power of 8.5, times 10^44
 
+#Programming Language and System
+
+This program was implemented in the memory safe and efficient language Sappeur (https://sappeur.di-fg.de)
+and the fltk GUI library.
+
+
 \$ output/taschenrechner "exp(2,8.5)&ast;1E+44"
 
 3.6203867196751237e+46
