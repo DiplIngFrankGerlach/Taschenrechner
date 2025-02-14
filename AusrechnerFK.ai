@@ -26,7 +26,7 @@ AusrechnerFK::AusrechnerFK(String_16*  ausdruck)
 
 
 //Diese Methode muss zur Ausrechnung des Ausdrucks gerufen werden
-double AusrechnerFK::Addition()
+int AusrechnerFK::Addition(&double ergebnis)
 {
    var PrintfClass pfc;
    //pfc.fstr("Addition").pr();
@@ -34,7 +34,8 @@ double AusrechnerFK::Addition()
    var Token t;
    var String_16* tokVal;
    scanner.currentToken(t,tokVal);
-   var double links = this.Multiplication(); 
+   var double links; 
+   if( this.Multiplication(links) != 1) { return -1; }
    scanner.currentToken(t,tokVal);
    var double summe = links;
    //pfc.fstr("summe=$").sa(summe).pr();
@@ -42,7 +43,10 @@ double AusrechnerFK::Addition()
    {
       var Token tAlt = t;
       scanner.nextToken();
-      var double rechts = this.Multiplication();
+      var double rechts; 
+
+      if( this.Multiplication(rechts) != 1) { return -1; }
+
       scanner.currentToken(t,tokVal);
       if( tAlt == T_PLUS )
       {
@@ -54,25 +58,28 @@ double AusrechnerFK::Addition()
         summe = summe - rechts; 
       }
    }
-   return summe;
+   ergebnis = summe;
+   return 1;
 }
 
 
-double AusrechnerFK::Multiplication()
+int AusrechnerFK::Multiplication(&double ergebnis)
 {
    var PrintfClass pfc;
    //pfc.fstr("Multiplication/Division").pr();
 
    var Token t;
    var String_16* tokVal;
-   var double links = this.Primary();
+   var double links;
+   if(this.Primary(links) != 1) { return -1; }
    scanner.currentToken(t,tokVal);
    var double prod = links;
    while((t == T_MAL) || (t == T_DURCH) )
    {
       var Token tAlt = t;
       scanner.nextToken();
-      var double rechts = this.Primary();
+      var double rechts;
+      if(this.Primary(rechts) != 1) { return -1; }
       scanner.currentToken(t,tokVal);
       if(tAlt == T_MAL)
       { 
@@ -85,11 +92,12 @@ double AusrechnerFK::Multiplication()
       }
  
    } 
-   return prod;
+   ergebnis = prod;
+   return 1;
 }
 
 /*parse einen Literal, eine Konstante oder einen Funktionsaufruf */
-double AusrechnerFK::Primary()
+int AusrechnerFK::Primary(&double ergebnis)
 {  
    var PrintfClass pfc;
    //pfc.fstr("Primary").pr();
@@ -102,7 +110,8 @@ double AusrechnerFK::Primary()
      case T_KLAMMER_AUF:{ 
          //pfc.fstr(">(").pr();
          scanner.nextToken();
-         var double ret = this.Addition(); 
+         var double ret;
+	 if(this.Addition(ret) != 1) { return -1;}  
          scanner.currentToken(t,tokVal);
          //pfc.fstr("t:$").sa(t).pr(); 
          if(t == T_KLAMMER_ZU)
@@ -113,17 +122,20 @@ double AusrechnerFK::Primary()
          {
             this.fehler(") erwartet");
          }
-         return ret;
+	 ergebnis = ret;
+         return 1;
      }; break;
      case T_MINUS:{
         scanner.nextToken(); 
-        return this.Primary() * -1.0;
+	if(this.Primary(ergebnis) != 1){ return -1;} 
+	ergebnis = ergebnis * -1.0;
+	return 1;
      }; break;
      case T_ZAHL:{ 
         scanner.currentToken(t,tokVal);
-        var double ret = tokVal.asDouble();
+        ergebnis = tokVal.asDouble();
         scanner.nextToken(); 
-        return ret; 
+        return 1;
      }; break;
      case T_WORT:{
         scanner.currentToken(t,tokVal);
@@ -136,34 +148,40 @@ double AusrechnerFK::Primary()
            if( t == T_KLAMMER_AUF )
            {
               scanner.nextToken(); 
-              var double arg1 = this.Addition();
+              var double arg1;
+	      if(this.Addition(arg1) != 1) { return -1;}
               scanner.currentToken(t,tokVal);
               if( t == T_KOMMA )
               {
                  scanner.nextToken(); 
                  scanner.currentToken(t,tokVal);
-                 var double arg2 = this.Addition();
+                 var double arg2;
+		 if(this.Addition(arg2) != 1) { return -1; }
                  scanner.currentToken(t,tokVal);
                  if( t == T_KLAMMER_ZU )
                  {
                     scanner.nextToken(); 
                     scanner.currentToken(t,tokVal);
                     var Math m;
-                    if(funktionsTyp.equals("exp")==1){ return m.aHochB(arg1, arg2); }
+                    if(funktionsTyp.equals("exp")==1)
+		    { 
+		       ergebnis =  m.aHochB(arg1, arg2); 
+		       return 1;
+	            }
                     if(funktionsTyp.equals("log")==1)
                     { 
                        var double ret;
                        inline_cpp[[
-                         ret = ::log(arg2)/::log(arg1);
+                         ergebnis = ::log(arg2)/::log(arg1);
                        ]]
-                       return ret; 
+                       return 1; 
                     }
                  }
-                 else { pfc.fstr("')' erwartet").pr(); return -1.0; }
+                 else { pfc.fstr("')' erwartet").pr(); return -1; }
               }
-              else { pfc.fstr("',' erwartet").pr(); return -1.0; }
+              else { pfc.fstr("',' erwartet").pr(); return -1; }
            }
-           else { pfc.fstr("'(' erwartet").pr(); return -1.0; }
+           else { pfc.fstr("'(' erwartet").pr(); return -1; }
         }
         if((tokVal.equals("sinus") == 1)    || 
            (tokVal.equals("asinus") == 1)   || 
@@ -174,6 +192,8 @@ double AusrechnerFK::Primary()
            (tokVal.equals("sqrt") == 1)     ||
            (tokVal.equals("abs") == 1)      ||
            (tokVal.equals("fakultaet") == 1)||
+           (tokVal.equals("pi") == 1)       ||
+           (tokVal.equals("e") == 1)        ||
            (tokVal.equals("ln") == 1)           )
         {
            var String_16 funktionsTyp; funktionsTyp.assign(*tokVal);
@@ -182,7 +202,8 @@ double AusrechnerFK::Primary()
            if( t == T_KLAMMER_AUF )
            {
               scanner.nextToken(); 
-              var double winkel = this.Addition();
+              var double winkel;
+	      if( this.Addition(winkel) != 1) { return -1; }
               scanner.currentToken(t,tokVal);
               if( t == T_KLAMMER_ZU )
               {
@@ -190,52 +211,61 @@ double AusrechnerFK::Primary()
                  scanner.currentToken(t,tokVal);
                  var Math m;
                  var double ret;
-                 if(funktionsTyp.equals("sinus")    == 1) { return m.sinus(winkel); }
-                 if(funktionsTyp.equals("asinus")   == 1) { return m.asinus(winkel); }
-                 if(funktionsTyp.equals("cosinus")  == 1) { return m.cosinus(winkel); }
-                 if(funktionsTyp.equals("acosinus") == 1) { return m.acosinus(winkel); }
-                 if(funktionsTyp.equals("tan")      == 1) { return m.tangens(winkel); }
-                 if(funktionsTyp.equals("acosinus") == 1) { return m.atangens(winkel); }
-                 if(funktionsTyp.equals("sqrt")     == 1) { return m.wurzel(winkel); }
+                 if(funktionsTyp.equals("sinus")    == 1) { ergebnis = m.sinus(winkel); return 1;}
+                 if(funktionsTyp.equals("asinus")   == 1) { ergebnis = m.asinus(winkel); return 1;}
+                 if(funktionsTyp.equals("cosinus")  == 1) { ergebnis = m.cosinus(winkel); return 1;}
+                 if(funktionsTyp.equals("acosinus") == 1) { ergebnis = m.acosinus(winkel); return 1;}
+                 if(funktionsTyp.equals("tan")      == 1) { ergebnis = m.tangens(winkel); }return 1;
+                 if(funktionsTyp.equals("acosinus") == 1) { ergebnis = m.atangens(winkel); return 1;}
+                 if(funktionsTyp.equals("sqrt")     == 1) { ergebnis = m.wurzel(winkel); return 1;}
                  if(funktionsTyp.equals("ln")       == 1) 
                  { 
                     inline_cpp[[
-                      ret = ::log(winkel);//ja, "winkel" hier unpassend
+                      ergebnis = ::log(winkel);//ja, "winkel" hier unpassend
                     ]]
-                    return ret;
+                    return 1;
                  }
                  if(funktionsTyp.equals("abs") == 1) 
                  { 
                     inline_cpp[[
-                      ret = ::std::abs(winkel);//ja, "winkel" hier unpassend
+                      ergebnis = ::std::abs(winkel);//ja, "winkel" hier unpassend
                     ]]
-                    return ret;
+                    return 1;
                  }
                  if(funktionsTyp.equals("fakultaet") == 1) 
                  { 
                     var int xi = cast(int,winkel);
-                    ret = 1.0;
+                    ergebnis = 1.0;
                     for(var int i=2; i <= xi;i++)
-                    { ret = ret * cast(double,i); }
-                    return ret;
+                    { ergebnis = ergebnis * cast(double,i); }
+                    return 1;
                  }
+                 if(tokVal.equals("pi") == 1) { scanner.nextToken(); ergebnis = m.pi(); return 1; }
+                 if(tokVal.equals("e") == 1)  { scanner.nextToken(); ergebnis = m.e(); return 1; }
               }
-              else { pfc.fstr("')' erwartet").pr(); return -1.0; }
+              else { pfc.fstr("')' erwartet").pr(); return -1; }
            }
-           else { pfc.fstr("'(' erwartet").pr(); return -1.0; }
+           else { pfc.fstr("'(' erwartet").pr(); return -1; }
         }
         //Important Constants
         var Math m;
-        if(tokVal.equals("pi") == 1) { scanner.nextToken(); return m.pi(); }
-        if(tokVal.equals("e") == 1)  { scanner.nextToken(); return m.e(); }
         var double variableValue = -1.0;
         if(variableList.search(*tokVal,variableValue) != 1)
         {
-           pfc.fstr("variable $ not found").sa(tokVal).pr();
-           return -1.0;        
+           //pfc.fstr("variable $ not found").sa(tokVal).pr();
+           var String_16 meldung;
+	   meldung.append("Funktion oder VAriable ");
+	   meldung.append(tokVal);
+	   meldung.append(" unbekannt");
+	   var char meldungCA[256];
+	   meldung.toCharArray(meldungCA);
+           SFUtil::Alert(meldungCA);
+           scanner.nextToken();
+	   return -1;
         }
         scanner.nextToken(); 
-        return variableValue; 
+        ergebnis = variableValue; 
+	return 1;
      };break;
   
      default: { 
@@ -248,7 +278,7 @@ double AusrechnerFK::Primary()
        sc.exit();  
      }; 
    }
-   return -11111.0;
+   return -1;
 }
 
 void AusrechnerFK::fehler(char meldung[])

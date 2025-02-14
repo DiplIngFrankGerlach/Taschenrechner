@@ -2,32 +2,30 @@
 
 class SprFLTKwindow
 {
-inline_cpp[[
+   inline_cpp[[
 
-class FLTKwindow : public Fl_Window
-{
-    SprFLTKwindow* swp;
-public:
-    FLTKwindow(SprFLTKwindow* swpi,int width, int height, const char* title) : 
-       Fl_Window(width, height, title) 
-    {
-      swp = swpi;
-    }
+      class FLTKwindow : public Fl_Window
+      {
+          SprFLTKwindow* swp;
+      public:
+          FLTKwindow(SprFLTKwindow* swpi,int width, int height, const char* title) : 
+             Fl_Window(width, height, title) 
+          {
+            swp = swpi;
+          }
 
-    /* darf nicht auf dieser Ebene gemacht werden ! 
-     * sonst werden die untergeordneten Bedienelemente(Widgets) nicht gezeichnet 
-    void draw() override {
-        char stackPtr;
-        swp->draw(&stackPtr);
-    }
-    */
-
-    
-};
+          /* darf nicht auf dieser Ebene gemacht werden ! 
+           * sonst werden die untergeordneten Bedienelemente(Widgets) nicht gezeichnet 
+          void draw() override {
+              char stackPtr;
+              swp->draw(&stackPtr);
+          }
+          */          
+      };
 
 
-   FLTKwindow* fw; 
-]]
+      FLTKwindow* fw; 
+   ]]
     *char labelBuffer[];
 methods:
     SprFLTKwindow();

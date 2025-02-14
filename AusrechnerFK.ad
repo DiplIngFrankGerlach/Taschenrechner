@@ -13,13 +13,13 @@ methods:
 
 
    //diese Methode muss nach dem Konstruktor gerufen werden
-   double Addition();
+   int Addition(&double ergebnis);
 
    void setVariableValue(&String_16 varName,double value);
 
 //private Methods:
-   double Multiplication();
-   double Primary();
+   int Multiplication(&double ergebnis);
+   int Primary(&double ergebnis);
 
 
    void fehler(char meldung[]);

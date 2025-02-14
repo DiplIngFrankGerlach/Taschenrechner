@@ -35,18 +35,25 @@ void MeinKnopf::callback()
    
    
    pfc.fstr("x;y").pr();
-   for(var int i=0; i < breitePixel;i++)
+   var int ergebnis = 1;
+   for(var int i=0; (i < breitePixel) && (ergebnis == 1);i++)
    {
       var double x = ((cast(double,i) / cast(double,breitePixel - 1)) * breite)  + varStart;
       var AusrechnerFK ar(ausdruck); 
       ar.setVariableValue(varName,x);
       
-      var double y = ar.Addition();
-      yWerte[i] = y;
-      if(y > yMax){yMax = y;}
-      if(y < yMin){yMin = y;}
-      pfc.fstr("$;$").sa(x).sa(y).pr();
+      var double y;
+      ergebnis = ar.Addition(y);
+      if(ergebnis == 1)
+      {
+          yWerte[i] = y;
+          if(y > yMax){yMax = y;}
+          if(y < yMin){yMin = y;}
+          pfc.fstr("$;$").sa(x).sa(y).pr();
+      }
    }
+   if(ergebnis != 1) { return; }
+
    //pfc.fstr("min:$ max:$").sa(yMin).sa(yMax).pr();
    var double yInterval = yMax - yMin;
    var double displayHoehe = trk.ausgabeBox.hoehe(); //hoehe in Pixel
@@ -121,7 +128,7 @@ void LoeschKnopf::callback()
 int Main::main()
 { 
    var SFcolorCode sfcc;
-   var String_16 version("2.1");
+   var String_16 version("2.2");
    var int cc = sfcc.get_FL_BLACK();
    
    var PrintfClass pfc;
@@ -156,7 +163,12 @@ int Main::main()
 
        //Kommandozeilen-Modus
        var AusrechnerFK ar(ausdruck);
-       pfc.fstr("$").sa( ar.Addition() ).pr();
+       var double wert;
+       var int ergebnis = ar.Addition(wert);
+       if(ergebnis == 1)
+       { pfc.fstr("$").sa( wert ).pr(); }
+       else
+       { pfc.fstr("Fehler in Formel").pr(); }
        return 1;
    }
 
