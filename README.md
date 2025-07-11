@@ -1,4 +1,4 @@
-# Grafischer Taschenrechner
+# Grafischer Taschenrechner, mit Sappeur realisiert
 ![sinus bild](sinus_rechner.png "Sinus Rechner")
 
 Ein grafischer Taschenrechner, welcher direkt symbolische Infix-Ausdrücke wie z.b. "x&ast;x-3&ast;x" auswertet.
@@ -23,7 +23,7 @@ sinus(x)/x
 
 
 
-# Graphical Calculator
+# Graphical Calculator, Implemented in Sappeur
 ![sinus bild](spezialfunktion.png "Spezialfunktion")
 
 A graphical calculator, which directly processes symbolic infix expressions such as "x&ast;x-3&ast;x".
