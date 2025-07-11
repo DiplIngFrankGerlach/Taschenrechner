@@ -40,13 +40,12 @@ E.g. compute 2 to the power of 8.5, times 10^44
 This program was implemented in the memory safe and efficient language Sappeur (https://sappeur.di-fg.de)
 and the fltk GUI library.
 
-The official Sappeur Home Page: https://sappeur.di-fg.de/
-
-Author: Frank Gerlach
-
-
-
 \$ output/taschenrechner "exp(2,8.5)&ast;1E+44"
 
 3.6203867196751237e+46
+
+
+The official Sappeur Home Page: https://sappeur.di-fg.de/
+
+Author: Frank Gerlach
 
