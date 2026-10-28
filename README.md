@@ -44,6 +44,12 @@ and the fltk GUI library.
 
 3.6203867196751237e+46
 
+#Executables for Ubuntu 24 and Windows
+
+Both can be found along the source code in the "output" directory. Note that the Linux executables 
+might not work on all Linux distributions, as the fltk library versions might not match. Then 
+a recompilation is needed.
+
 
 The official Sappeur Home Page: https://sappeur.di-fg.de/
 
