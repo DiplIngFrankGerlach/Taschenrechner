@@ -35,7 +35,7 @@ See "Beispielausdrücke" above for sample expressions
 The calculator can also run in command line mode, where it simply computes the given expression. 
 E.g. compute 2 to the power of 8.5, times 10^44
 
-#Programming Language and System
+# Programming Language and System
 
 This program was implemented in the memory safe and efficient language Sappeur (https://sappeur.di-fg.de)
 and the fltk GUI library.
@@ -44,6 +44,13 @@ and the fltk GUI library.
 
 3.6203867196751237e+46
 
+# Executables for Ubuntu 24 and Windows
+
+Both can be found along the source code in the "output" directory. Note that the Linux executables 
+might not work on all Linux distributions, as the fltk library versions might not match. Then 
+a recompilation is needed.
+
+# The Sappeur Home Page
 
 The official Sappeur Home Page: https://sappeur.di-fg.de/
 
