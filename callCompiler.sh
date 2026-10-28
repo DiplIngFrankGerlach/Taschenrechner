@@ -1,3 +1,3 @@
-SPRDIR=/home/bjafrge/Sappeur30/haupt/
+SPRDIR=~/Sappeur_3.10
 
-$SPRDIR/compiler/SPRcomp ./  -outputPath ./output -operatingSystem linux -sappeurDirectory $SPRDIR
+$SPRDIR/compiler/SPRComp ./  -outputPath ./output -operatingSystem linux -sappeurDirectory $SPRDIR

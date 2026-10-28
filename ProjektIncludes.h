@@ -8,9 +8,12 @@
     #include <stdio.h>
     #include <limits>
     #include <list>
+    #include <iostream>
+
+using namespace std;
 
     //FLTK
-#define WIN32 1 //gebraucht fuer fltk
+//#define WIN32 1 //gebraucht fuer fltk
 
     #include <FL/Fl.H>
     #include <FL/Fl_Window.H>

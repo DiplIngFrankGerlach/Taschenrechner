@@ -17,9 +17,9 @@ System.o:System.cpp
 $(OBJECTS):header.h
 header.h:mapping.h
 CC = g++
-VPATH=/home/frank/Sappeur30/haupt//cppMapping
+VPATH=/home/frank/Sappeur_3.10/cppMapping
 
-INCLUDE=-I/usr/include/unicode -I/home/frank/Sappeur30/haupt//cppMapping -I. -I.. 
+INCLUDE=-I/usr/include/unicode -I/home/frank/Sappeur_3.10/haupt/cppMapping -I. -I.. 
 
 LDLIBS=-lstdc++ -lm -lfltk
 .SUFFIXES: .o .cpp
